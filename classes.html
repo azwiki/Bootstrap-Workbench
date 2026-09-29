@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5.3.8 class audit</title>
+  <link rel="icon" href="assets/img/favicon/favicon.png">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!--
+  Everything inside <main id="bs-demo"> is a self-contained fragment:
+  copy it into the <body> of any Bootstrap 5.3 site to audit that site's theme.
+-->
+<main id="bs-demo" data-bs-spy="scroll" data-bs-target="#bsd-nav" data-bs-smooth-scroll="true">
+
+  <!-- Demo toolbar (tooling only, stock Bootstrap classes) -->
+  <div class="position-fixed top-0 end-0 z-3 m-2 p-2 bg-body border rounded-3 shadow-sm d-flex flex-wrap align-items-center gap-2" role="toolbar" aria-label="Demo tools">
+    <button type="button" class="btn btn-sm btn-outline-secondary d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#bsd-sidebar" aria-controls="bsd-sidebar">Sections</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" id="bsd-theme-toggle" aria-pressed="false">Theme: light</button>
+    <div class="form-check form-switch mb-0">
+      <input class="form-check-input" type="checkbox" role="switch" id="bsd-css-toggle" checked>
+      <label class="form-check-label small" for="bsd-css-toggle">Custom CSS <span class="badge text-bg-secondary" id="bsd-css-count">0</span></label>
+    </div>
+    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="offcanvas" data-bs-target="#bsd-tokens" aria-controls="bsd-tokens">Tokens</button>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar: static on lg+, offcanvas below lg -->
+      <div class="col-lg-3 col-xl-2 position-sticky top-0 align-self-start overflow-y-auto border-end" style="max-height: 100vh;">
+        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="bsd-sidebar" aria-labelledby="bsd-sidebar-label">
+          <div class="offcanvas-header border-bottom">
+            <h2 class="offcanvas-title h5" id="bsd-sidebar-label">Sections</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-sidebar" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav id="bsd-nav" class="nav nav-pills flex-column flex-nowrap w-100 py-3 small" aria-label="Demo sections">
+              <a class="nav-link py-1" href="#bsd-colors">Colors</a>
+              <a class="nav-link py-1" href="#bsd-text-bg">Text + background</a>
+              <a class="nav-link py-1" href="#bsd-text-colors">Text colors</a>
+              <a class="nav-link py-1" href="#bsd-borders">Borders &amp; rounded</a>
+              <a class="nav-link py-1" href="#bsd-links">Links</a>
+              <a class="nav-link py-1" href="#bsd-buttons">Buttons</a>
+              <a class="nav-link py-1" href="#bsd-typography">Typography</a>
+              <a class="nav-link py-1" href="#bsd-alerts">Alerts</a>
+              <a class="nav-link py-1" href="#bsd-badges">Badges</a>
+              <a class="nav-link py-1" href="#bsd-list-group">List group</a>
+              <a class="nav-link py-1" href="#bsd-tables">Tables</a>
+              <a class="nav-link py-1" href="#bsd-cards">Cards</a>
+              <a class="nav-link py-1" href="#bsd-progress">Progress</a>
+              <a class="nav-link py-1" href="#bsd-spinners">Spinners</a>
+              <a class="nav-link py-1" href="#bsd-forms">Forms</a>
+              <a class="nav-link py-1" href="#bsd-navs">Navs &amp; tabs</a>
+              <a class="nav-link py-1" href="#bsd-navbar">Navbar</a>
+              <a class="nav-link py-1" href="#bsd-breadcrumb-pagination">Breadcrumb &amp; pagination</a>
+              <a class="nav-link py-1" href="#bsd-dropdowns">Dropdowns</a>
+              <a class="nav-link py-1" href="#bsd-accordion-collapse">Accordion &amp; collapse</a>
+              <a class="nav-link py-1" href="#bsd-carousel">Carousel</a>
+              <a class="nav-link py-1" href="#bsd-modal">Modal</a>
+              <a class="nav-link py-1" href="#bsd-offcanvas">Offcanvas</a>
+              <a class="nav-link py-1" href="#bsd-toasts">Toasts</a>
+              <a class="nav-link py-1" href="#bsd-tooltips-popovers">Tooltips &amp; popovers</a>
+              <a class="nav-link py-1" href="#bsd-placeholders">Placeholders</a>
+              <a class="nav-link py-1" href="#bsd-close-button">Close button</a>
+              <a class="nav-link py-1" href="#bsd-shadows">Shadows</a>
+              <a class="nav-link py-1" href="#bsd-focus-ring">Focus ring</a>
+              <a class="nav-link py-1" href="#bsd-ratio">Ratio</a>
+              <a class="nav-link py-1" href="#bsd-images">Images</a>
+              <a class="nav-link py-1" href="#bsd-helpers">Helpers</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo content -->
+      <div class="col-lg-9 col-xl-10 px-lg-4 pt-5 pb-5">
+
+        <header class="pt-4 pb-3 border-bottom">
+          <h1 class="display-6">Bootstrap 5.3.8 class audit</h1>
+          <p class="lead mb-0">Every color-dependent utility and component variant, rendered with the current theme. Each example is followed by its generated markup.</p>
+        </header>
+
+        <!-- ============================================================ -->
+        <!-- Colors                                                       -->
+        <!-- ============================================================ -->
+        <section id="bsd-colors" class="py-5 border-bottom">
+          <h2 class="mb-4">Colors</h2>
+
+          <h3 class="h5 mt-4">bg-*</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-4 g-2">
+              <div class="col"><div class="p-3 bg-primary text-white">.bg-primary</div></div>
+              <div class="col"><div class="p-3 bg-secondary text-white">.bg-secondary</div></div>
+              <div class="col"><div class="p-3 bg-success text-white">.bg-success</div></div>
+              <div class="col"><div class="p-3 bg-danger text-white">.bg-danger</div></div>
+              <div class="col"><div class="p-3 bg-warning text-dark">.bg-warning</div></div>
+              <div class="col"><div class="p-3 bg-info text-dark">.bg-info</div></div>
+              <div class="col"><div class="p-3 bg-light text-dark">.bg-light</div></div>
+              <div class="col"><div class="p-3 bg-dark text-white">.bg-dark</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">bg-*-subtle</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-4 g-2">
+              <div class="col"><div class="p-3 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div></div>
+              <div class="col"><div class="p-3 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div></div>
+              <div class="col"><div class="p-3 bg-success-subtle text-success-emphasis">.bg-success-subtle</div></div>
+              <div class="col"><div class="p-3 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div></div>
+              <div class="col"><div class="p-3 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div></div>
+              <div class="col"><div class="p-3 bg-info-subtle text-info-emphasis">.bg-info-subtle</div></div>
+              <div class="col"><div class="p-3 bg-light-subtle text-light-emphasis">.bg-light-subtle</div></div>
+              <div class="col"><div class="p-3 bg-dark-subtle text-dark-emphasis">.bg-dark-subtle</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Body, black, white, transparent</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-3 g-2">
+              <div class="col"><div class="p-3 border bg-body text-body">.bg-body</div></div>
+              <div class="col"><div class="p-3 border bg-body-secondary">.bg-body-secondary</div></div>
+              <div class="col"><div class="p-3 border bg-body-tertiary">.bg-body-tertiary</div></div>
+              <div class="col"><div class="p-3 bg-black text-white">.bg-black</div></div>
+              <div class="col"><div class="p-3 border bg-white text-dark">.bg-white</div></div>
+              <div class="col"><div class="p-3 border bg-transparent text-body">.bg-transparent</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">bg-gradient</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-4 g-2">
+              <div class="col"><div class="p-3 bg-primary bg-gradient text-white">.bg-primary.bg-gradient</div></div>
+              <div class="col"><div class="p-3 bg-secondary bg-gradient text-white">.bg-secondary.bg-gradient</div></div>
+              <div class="col"><div class="p-3 bg-success bg-gradient text-white">.bg-success.bg-gradient</div></div>
+              <div class="col"><div class="p-3 bg-danger bg-gradient text-white">.bg-danger.bg-gradient</div></div>
+              <div class="col"><div class="p-3 bg-warning bg-gradient text-dark">.bg-warning.bg-gradient</div></div>
+              <div class="col"><div class="p-3 bg-info bg-gradient text-dark">.bg-info.bg-gradient</div></div>
+              <div class="col"><div class="p-3 bg-light bg-gradient text-dark">.bg-light.bg-gradient</div></div>
+              <div class="col"><div class="p-3 bg-dark bg-gradient text-white">.bg-dark.bg-gradient</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">bg-opacity-*</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-5 g-2">
+              <div class="col"><div class="p-3 bg-primary text-white">.bg-opacity-100</div></div>
+              <div class="col"><div class="p-3 bg-primary bg-opacity-75 text-white">.bg-opacity-75</div></div>
+              <div class="col"><div class="p-3 bg-primary bg-opacity-50">.bg-opacity-50</div></div>
+              <div class="col"><div class="p-3 bg-primary bg-opacity-25">.bg-opacity-25</div></div>
+              <div class="col"><div class="p-3 bg-primary bg-opacity-10">.bg-opacity-10</div></div>
+              <div class="col"><div class="p-3 bg-success text-white">.bg-opacity-100</div></div>
+              <div class="col"><div class="p-3 bg-success bg-opacity-75 text-white">.bg-opacity-75</div></div>
+              <div class="col"><div class="p-3 bg-success bg-opacity-50">.bg-opacity-50</div></div>
+              <div class="col"><div class="p-3 bg-success bg-opacity-25">.bg-opacity-25</div></div>
+              <div class="col"><div class="p-3 bg-success bg-opacity-10">.bg-opacity-10</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Text + background                                            -->
+        <!-- ============================================================ -->
+        <section id="bsd-text-bg" class="py-5 border-bottom">
+          <h2 class="mb-4">Text + background (text-bg-*)</h2>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-4 g-2">
+              <div class="col"><div class="p-3 text-bg-primary">.text-bg-primary</div></div>
+              <div class="col"><div class="p-3 text-bg-secondary">.text-bg-secondary</div></div>
+              <div class="col"><div class="p-3 text-bg-success">.text-bg-success</div></div>
+              <div class="col"><div class="p-3 text-bg-danger">.text-bg-danger</div></div>
+              <div class="col"><div class="p-3 text-bg-warning">.text-bg-warning</div></div>
+              <div class="col"><div class="p-3 text-bg-info">.text-bg-info</div></div>
+              <div class="col"><div class="p-3 text-bg-light">.text-bg-light</div></div>
+              <div class="col"><div class="p-3 text-bg-dark">.text-bg-dark</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Subtle callouts (bg-*-subtle + text-*-emphasis + border-*-subtle)</h3>
+          <div data-demo>
+            <div class="row row-cols-1 row-cols-md-2 g-2">
+              <div class="col"><div class="p-3 bg-primary-subtle text-primary-emphasis border border-primary-subtle rounded-3">Primary callout</div></div>
+              <div class="col"><div class="p-3 bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle rounded-3">Secondary callout</div></div>
+              <div class="col"><div class="p-3 bg-success-subtle text-success-emphasis border border-success-subtle rounded-3">Success callout</div></div>
+              <div class="col"><div class="p-3 bg-danger-subtle text-danger-emphasis border border-danger-subtle rounded-3">Danger callout</div></div>
+              <div class="col"><div class="p-3 bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-3">Warning callout</div></div>
+              <div class="col"><div class="p-3 bg-info-subtle text-info-emphasis border border-info-subtle rounded-3">Info callout</div></div>
+              <div class="col"><div class="p-3 bg-light-subtle text-light-emphasis border border-light-subtle rounded-3">Light callout</div></div>
+              <div class="col"><div class="p-3 bg-dark-subtle text-dark-emphasis border border-dark-subtle rounded-3">Dark callout</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Text colors                                                  -->
+        <!-- ============================================================ -->
+        <section id="bsd-text-colors" class="py-5 border-bottom">
+          <h2 class="mb-4">Text colors</h2>
+
+          <h3 class="h5 mt-4">text-*</h3>
+          <div data-demo>
+            <p class="text-primary">.text-primary</p>
+            <p class="text-secondary">.text-secondary</p>
+            <p class="text-success">.text-success</p>
+            <p class="text-danger">.text-danger</p>
+            <p class="text-warning bg-dark">.text-warning</p>
+            <p class="text-info bg-dark">.text-info</p>
+            <p class="text-light bg-dark">.text-light</p>
+            <p class="text-dark bg-white">.text-dark</p>
+            <p class="text-body">.text-body</p>
+            <p class="text-black bg-white">.text-black</p>
+            <p class="text-white bg-dark">.text-white</p>
+          </div>
+
+          <h3 class="h5 mt-4">text-*-emphasis</h3>
+          <div data-demo>
+            <p class="text-primary-emphasis">.text-primary-emphasis</p>
+            <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
+            <p class="text-success-emphasis">.text-success-emphasis</p>
+            <p class="text-danger-emphasis">.text-danger-emphasis</p>
+            <p class="text-warning-emphasis">.text-warning-emphasis</p>
+            <p class="text-info-emphasis">.text-info-emphasis</p>
+            <p class="text-light-emphasis bg-dark">.text-light-emphasis</p>
+            <p class="text-dark-emphasis">.text-dark-emphasis</p>
+            <p class="text-body-emphasis">.text-body-emphasis</p>
+          </div>
+
+          <h3 class="h5 mt-4">Body secondary / tertiary</h3>
+          <div data-demo>
+            <p class="text-body">.text-body</p>
+            <p class="text-body-secondary">.text-body-secondary</p>
+            <p class="text-body-tertiary">.text-body-tertiary</p>
+          </div>
+
+          <h3 class="h5 mt-4">text-opacity-*</h3>
+          <div data-demo>
+            <p class="text-primary">.text-primary (.text-opacity-100)</p>
+            <p class="text-primary text-opacity-75">.text-opacity-75</p>
+            <p class="text-primary text-opacity-50">.text-opacity-50</p>
+            <p class="text-primary text-opacity-25">.text-opacity-25</p>
+          </div>
+
+          <h3 class="h5 mt-4">Legacy (deprecated in 5.3, still shipped)</h3>
+          <div data-demo>
+            <p class="text-muted">.text-muted</p>
+            <p class="text-black-50 bg-white">.text-black-50</p>
+            <p class="text-white-50 bg-dark">.text-white-50</p>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Borders & rounded                                            -->
+        <!-- ============================================================ -->
+        <section id="bsd-borders" class="py-5 border-bottom">
+          <h2 class="mb-4">Borders &amp; rounded</h2>
+
+          <h3 class="h5 mt-4">border-*</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-4 g-2">
+              <div class="col"><div class="p-3 border border-primary">.border-primary</div></div>
+              <div class="col"><div class="p-3 border border-secondary">.border-secondary</div></div>
+              <div class="col"><div class="p-3 border border-success">.border-success</div></div>
+              <div class="col"><div class="p-3 border border-danger">.border-danger</div></div>
+              <div class="col"><div class="p-3 border border-warning">.border-warning</div></div>
+              <div class="col"><div class="p-3 border border-info">.border-info</div></div>
+              <div class="col"><div class="p-3 border border-light">.border-light</div></div>
+              <div class="col"><div class="p-3 border border-dark">.border-dark</div></div>
+              <div class="col"><div class="p-3 border">.border (default)</div></div>
+              <div class="col"><div class="p-3 border border-black">.border-black</div></div>
+              <div class="col"><div class="p-3 border border-white bg-dark text-white">.border-white</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">border-*-subtle</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-4 g-2">
+              <div class="col"><div class="p-3 border border-primary-subtle">.border-primary-subtle</div></div>
+              <div class="col"><div class="p-3 border border-secondary-subtle">.border-secondary-subtle</div></div>
+              <div class="col"><div class="p-3 border border-success-subtle">.border-success-subtle</div></div>
+              <div class="col"><div class="p-3 border border-danger-subtle">.border-danger-subtle</div></div>
+              <div class="col"><div class="p-3 border border-warning-subtle">.border-warning-subtle</div></div>
+              <div class="col"><div class="p-3 border border-info-subtle">.border-info-subtle</div></div>
+              <div class="col"><div class="p-3 border border-light-subtle">.border-light-subtle</div></div>
+              <div class="col"><div class="p-3 border border-dark-subtle">.border-dark-subtle</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Border opacity</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-5 g-2">
+              <div class="col"><div class="p-3 border border-2 border-success">.border-opacity-100</div></div>
+              <div class="col"><div class="p-3 border border-2 border-success border-opacity-75">.border-opacity-75</div></div>
+              <div class="col"><div class="p-3 border border-2 border-success border-opacity-50">.border-opacity-50</div></div>
+              <div class="col"><div class="p-3 border border-2 border-success border-opacity-25">.border-opacity-25</div></div>
+              <div class="col"><div class="p-3 border border-2 border-success border-opacity-10">.border-opacity-10</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Border widths and sides</h3>
+          <div data-demo>
+            <div class="row row-cols-2 row-cols-md-5 g-2">
+              <div class="col"><div class="p-3 border border-1">.border-1</div></div>
+              <div class="col"><div class="p-3 border border-2">.border-2</div></div>
+              <div class="col"><div class="p-3 border border-3">.border-3</div></div>
+              <div class="col"><div class="p-3 border border-4">.border-4</div></div>
+              <div class="col"><div class="p-3 border border-5">.border-5</div></div>
+              <div class="col"><div class="p-3 border-top">.border-top</div></div>
+              <div class="col"><div class="p-3 border-end">.border-end</div></div>
+              <div class="col"><div class="p-3 border-bottom">.border-bottom</div></div>
+              <div class="col"><div class="p-3 border-start">.border-start</div></div>
+              <div class="col"><div class="p-3 border border-top-0">.border-top-0</div></div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">rounded-*</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-3">
+              <div class="p-3 bg-body-tertiary border rounded">.rounded</div>
+              <div class="p-3 bg-body-tertiary border rounded-top">.rounded-top</div>
+              <div class="p-3 bg-body-tertiary border rounded-end">.rounded-end</div>
+              <div class="p-3 bg-body-tertiary border rounded-bottom">.rounded-bottom</div>
+              <div class="p-3 bg-body-tertiary border rounded-start">.rounded-start</div>
+              <div class="p-3 bg-body-tertiary border rounded-pill">.rounded-pill</div>
+              <div class="d-flex align-items-center justify-content-center bg-body-tertiary border rounded-circle small" style="width: 6rem; height: 6rem;">.rounded-circle</div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Rounded sizes</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-3">
+              <div class="p-3 bg-primary-subtle border border-primary-subtle rounded-0">.rounded-0</div>
+              <div class="p-3 bg-primary-subtle border border-primary-subtle rounded-1">.rounded-1</div>
+              <div class="p-3 bg-primary-subtle border border-primary-subtle rounded-2">.rounded-2</div>
+              <div class="p-3 bg-primary-subtle border border-primary-subtle rounded-3">.rounded-3</div>
+              <div class="p-3 bg-primary-subtle border border-primary-subtle rounded-4">.rounded-4</div>
+              <div class="p-3 bg-primary-subtle border border-primary-subtle rounded-5">.rounded-5</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Links                                                        -->
+        <!-- ============================================================ -->
+        <section id="bsd-links" class="py-5 border-bottom">
+          <h2 class="mb-4">Links</h2>
+
+          <h3 class="h5 mt-4">Default and link-*</h3>
+          <div data-demo>
+            <p><a href="#">Default link</a></p>
+            <p><a href="#" class="link-primary">Primary link</a></p>
+            <p><a href="#" class="link-secondary">Secondary link</a></p>
+            <p><a href="#" class="link-success">Success link</a></p>
+            <p><a href="#" class="link-danger">Danger link</a></p>
+            <p><a href="#" class="link-warning">Warning link</a></p>
+            <p><a href="#" class="link-info">Info link</a></p>
+            <p><a href="#" class="link-light">Light link</a></p>
+            <p><a href="#" class="link-dark">Dark link</a></p>
+            <p><a href="#" class="link-body-emphasis">Emphasis link</a></p>
+          </div>
+
+          <h3 class="h5 mt-4">link-underline-*</h3>
+          <div data-demo>
+            <p><a href="#" class="link-underline-primary">Primary underline</a></p>
+            <p><a href="#" class="link-underline-secondary">Secondary underline</a></p>
+            <p><a href="#" class="link-underline-success">Success underline</a></p>
+            <p><a href="#" class="link-underline-danger">Danger underline</a></p>
+            <p><a href="#" class="link-underline-warning">Warning underline</a></p>
+            <p><a href="#" class="link-underline-info">Info underline</a></p>
+            <p><a href="#" class="link-underline-light">Light underline</a></p>
+            <p><a href="#" class="link-underline-dark">Dark underline</a></p>
+          </div>
+
+          <h3 class="h5 mt-4">link-underline-opacity-*</h3>
+          <div data-demo>
+            <p><a href="#" class="link-offset-2 link-underline link-underline-opacity-0">Underline opacity 0</a></p>
+            <p><a href="#" class="link-offset-2 link-underline link-underline-opacity-10">Underline opacity 10</a></p>
+            <p><a href="#" class="link-offset-2 link-underline link-underline-opacity-25">Underline opacity 25</a></p>
+            <p><a href="#" class="link-offset-2 link-underline link-underline-opacity-50">Underline opacity 50</a></p>
+            <p><a href="#" class="link-offset-2 link-underline link-underline-opacity-75">Underline opacity 75</a></p>
+            <p><a href="#" class="link-offset-2 link-underline link-underline-opacity-100">Underline opacity 100</a></p>
+          </div>
+
+          <h3 class="h5 mt-4">link-offset-*</h3>
+          <div data-demo>
+            <p><a href="#">Default offset</a></p>
+            <p><a href="#" class="link-offset-1">Offset 1</a></p>
+            <p><a href="#" class="link-offset-2">Offset 2</a></p>
+            <p><a href="#" class="link-offset-3">Offset 3</a></p>
+          </div>
+
+          <h3 class="h5 mt-4">link-opacity-*</h3>
+          <div data-demo>
+            <p><a href="#" class="link-opacity-10">Link opacity 10</a></p>
+            <p><a href="#" class="link-opacity-25">Link opacity 25</a></p>
+            <p><a href="#" class="link-opacity-50">Link opacity 50</a></p>
+            <p><a href="#" class="link-opacity-75">Link opacity 75</a></p>
+            <p><a href="#" class="link-opacity-100">Link opacity 100</a></p>
+          </div>
+
+          <h3 class="h5 mt-4">Hover variants</h3>
+          <div data-demo>
+            <p><a href="#" class="link-opacity-50 link-opacity-100-hover">Opacity 50, 100 on hover</a></p>
+            <p><a href="#" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Underline appears on hover</a></p>
+            <p><a href="#" class="link-success link-offset-2 link-underline-success link-underline-opacity-25 link-underline-opacity-100-hover">Success, underline strengthens on hover</a></p>
+          </div>
+
+          <h3 class="h5 mt-4">icon-link</h3>
+          <div data-demo>
+            <p>
+              <a class="icon-link" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+                Icon link
+              </a>
+            </p>
+            <p>
+              <a class="icon-link icon-link-hover" href="#">
+                Icon link with hover
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+              </a>
+            </p>
+            <p>
+              <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href="#">
+                Colored icon link
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Buttons                                                      -->
+        <!-- ============================================================ -->
+        <section id="bsd-buttons" class="py-5 border-bottom">
+          <h2 class="mb-4">Buttons</h2>
+
+          <h3 class="h5 mt-4">Solid</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-primary">Primary</button>
+              <button type="button" class="btn btn-secondary">Secondary</button>
+              <button type="button" class="btn btn-success">Success</button>
+              <button type="button" class="btn btn-danger">Danger</button>
+              <button type="button" class="btn btn-warning">Warning</button>
+              <button type="button" class="btn btn-info">Info</button>
+              <button type="button" class="btn btn-light">Light</button>
+              <button type="button" class="btn btn-dark">Dark</button>
+              <button type="button" class="btn btn-link">Link</button>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Outline</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-outline-primary">Primary</button>
+              <button type="button" class="btn btn-outline-secondary">Secondary</button>
+              <button type="button" class="btn btn-outline-success">Success</button>
+              <button type="button" class="btn btn-outline-danger">Danger</button>
+              <button type="button" class="btn btn-outline-warning">Warning</button>
+              <button type="button" class="btn btn-outline-info">Info</button>
+              <button type="button" class="btn btn-outline-light">Light</button>
+              <button type="button" class="btn btn-outline-dark">Dark</button>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Sizes</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <button type="button" class="btn btn-primary btn-lg">Large</button>
+              <button type="button" class="btn btn-primary">Default</button>
+              <button type="button" class="btn btn-primary btn-sm">Small</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg">Large</button>
+              <button type="button" class="btn btn-outline-secondary">Default</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm">Small</button>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Active state</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <button type="button" class="btn btn-primary active" aria-pressed="true">Primary</button>
+              <button type="button" class="btn btn-secondary active" aria-pressed="true">Secondary</button>
+              <button type="button" class="btn btn-success active" aria-pressed="true">Success</button>
+              <button type="button" class="btn btn-danger active" aria-pressed="true">Danger</button>
+              <button type="button" class="btn btn-warning active" aria-pressed="true">Warning</button>
+              <button type="button" class="btn btn-info active" aria-pressed="true">Info</button>
+              <button type="button" class="btn btn-light active" aria-pressed="true">Light</button>
+              <button type="button" class="btn btn-dark active" aria-pressed="true">Dark</button>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-outline-primary active" aria-pressed="true">Primary</button>
+              <button type="button" class="btn btn-outline-secondary active" aria-pressed="true">Secondary</button>
+              <button type="button" class="btn btn-outline-success active" aria-pressed="true">Success</button>
+              <button type="button" class="btn btn-outline-danger active" aria-pressed="true">Danger</button>
+              <button type="button" class="btn btn-outline-warning active" aria-pressed="true">Warning</button>
+              <button type="button" class="btn btn-outline-info active" aria-pressed="true">Info</button>
+              <button type="button" class="btn btn-outline-light active" aria-pressed="true">Light</button>
+              <button type="button" class="btn btn-outline-dark active" aria-pressed="true">Dark</button>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Disabled state</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <button type="button" class="btn btn-primary" disabled>Primary</button>
+              <button type="button" class="btn btn-secondary" disabled>Secondary</button>
+              <button type="button" class="btn btn-success" disabled>Success</button>
+              <button type="button" class="btn btn-danger" disabled>Danger</button>
+              <button type="button" class="btn btn-warning" disabled>Warning</button>
+              <button type="button" class="btn btn-info" disabled>Info</button>
+              <button type="button" class="btn btn-light" disabled>Light</button>
+              <button type="button" class="btn btn-dark" disabled>Dark</button>
+              <button type="button" class="btn btn-link" disabled>Link</button>
+            </div>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <button type="button" class="btn btn-outline-primary" disabled>Primary</button>
+              <button type="button" class="btn btn-outline-secondary" disabled>Secondary</button>
+              <button type="button" class="btn btn-outline-success" disabled>Success</button>
+              <button type="button" class="btn btn-outline-danger" disabled>Danger</button>
+              <button type="button" class="btn btn-outline-warning" disabled>Warning</button>
+              <button type="button" class="btn btn-outline-info" disabled>Info</button>
+              <button type="button" class="btn btn-outline-light" disabled>Light</button>
+              <button type="button" class="btn btn-outline-dark" disabled>Dark</button>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-primary disabled" role="button" aria-disabled="true">Disabled link button</a>
+              <a class="btn btn-outline-primary disabled" role="button" aria-disabled="true">Disabled outline link</a>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Button tags and toggle</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-primary" href="#" role="button">Link</a>
+              <button class="btn btn-primary" type="submit">Button</button>
+              <input class="btn btn-primary" type="button" value="Input">
+              <input class="btn btn-primary" type="submit" value="Submit">
+              <input class="btn btn-primary" type="reset" value="Reset">
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="button">Toggle button</button>
+              <button type="button" class="btn btn-outline-primary active" data-bs-toggle="button" aria-pressed="true">Active toggle</button>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Button group (horizontal)</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-3">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
+              <div class="btn-group" role="group" aria-label="Outline example">
+                <button type="button" class="btn btn-outline-primary">Left</button>
+                <button type="button" class="btn btn-outline-primary active" aria-current="page">Middle</button>
+                <button type="button" class="btn btn-outline-primary">Right</button>
+              </div>
+              <div class="btn-group" role="group" aria-label="Mixed example">
+                <button type="button" class="btn btn-danger">Left</button>
+                <button type="button" class="btn btn-warning">Middle</button>
+                <button type="button" class="btn btn-success">Right</button>
+              </div>
+              <div class="btn-group btn-group-sm" role="group" aria-label="Small group">
+                <button type="button" class="btn btn-outline-secondary">Small</button>
+                <button type="button" class="btn btn-outline-secondary">Group</button>
+              </div>
+              <div class="btn-group btn-group-lg" role="group" aria-label="Large group">
+                <button type="button" class="btn btn-outline-secondary">Large</button>
+                <button type="button" class="btn btn-outline-secondary">Group</button>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Button group (vertical)</h3>
+          <div data-demo>
+            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+              <button type="button" class="btn btn-dark">Top</button>
+              <button type="button" class="btn btn-dark">Middle</button>
+              <button type="button" class="btn btn-dark">Bottom</button>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Button toolbar</h3>
+          <div data-demo>
+            <div class="btn-toolbar gap-2" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group" role="group" aria-label="First group">
+                <button type="button" class="btn btn-outline-secondary">1</button>
+                <button type="button" class="btn btn-outline-secondary">2</button>
+                <button type="button" class="btn btn-outline-secondary">3</button>
+                <button type="button" class="btn btn-outline-secondary">4</button>
+              </div>
+              <div class="btn-group" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-secondary">5</button>
+                <button type="button" class="btn btn-secondary">6</button>
+              </div>
+              <div class="input-group">
+                <div class="input-group-text" id="bsd-btn-toolbar-addon">@</div>
+                <input type="text" class="form-control" placeholder="Input group" aria-label="Input group example" aria-describedby="bsd-btn-toolbar-addon">
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Checkbox toggle buttons (btn-check)</h3>
+          <div data-demo>
+            <div class="d-flex flex-wrap gap-2">
+              <input type="checkbox" class="btn-check" id="bsd-check-1" autocomplete="off">
+              <label class="btn btn-primary" for="bsd-check-1">Single toggle</label>
+              <input type="checkbox" class="btn-check" id="bsd-check-2" checked autocomplete="off">
+              <label class="btn btn-primary" for="bsd-check-2">Checked</label>
+              <input type="checkbox" class="btn-check" id="bsd-check-3" autocomplete="off" disabled>
+              <label class="btn btn-primary" for="bsd-check-3">Disabled</label>
+              <input type="checkbox" class="btn-check" id="bsd-check-4" autocomplete="off">
+              <label class="btn btn-outline-primary" for="bsd-check-4">Outline toggle</label>
+              <input type="checkbox" class="btn-check" id="bsd-check-5" checked autocomplete="off">
+              <label class="btn btn-outline-success" for="bsd-check-5">Outline checked</label>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Radio toggle buttons (btn-check)</h3>
+          <div data-demo>
+            <div class="btn-group" role="group" aria-label="Radio toggle button group">
+              <input type="radio" class="btn-check" name="bsd-radio" id="bsd-radio-1" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="bsd-radio-1">Radio 1</label>
+              <input type="radio" class="btn-check" name="bsd-radio" id="bsd-radio-2" autocomplete="off">
+              <label class="btn btn-outline-primary" for="bsd-radio-2">Radio 2</label>
+              <input type="radio" class="btn-check" name="bsd-radio" id="bsd-radio-3" autocomplete="off">
+              <label class="btn btn-outline-primary" for="bsd-radio-3">Radio 3</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Typography                                                   -->
+        <!-- ============================================================ -->
+        <section id="bsd-typography" class="py-5 border-bottom">
+          <h2 class="mb-4">Typography</h2>
+
+          <h3 class="h5 mt-4">Headings h1–h6</h3>
+          <div data-demo>
+            <h1>h1. Heading <small class="text-body-secondary">with secondary text</small></h1>
+            <h2>h2. Heading</h2>
+            <h3>h3. Heading</h3>
+            <h4>h4. Heading</h4>
+            <h5>h5. Heading</h5>
+            <h6>h6. Heading</h6>
+          </div>
+
+          <h3 class="h5 mt-4">Heading classes .h1–.h6</h3>
+          <div data-demo>
+            <p class="h1">.h1 heading class</p>
+            <p class="h2">.h2 heading class</p>
+            <p class="h3">.h3 heading class</p>
+            <p class="h4">.h4 heading class</p>
+            <p class="h5">.h5 heading class</p>
+            <p class="h6">.h6 heading class</p>
+          </div>
+
+          <h3 class="h5 mt-4">Display headings</h3>
+          <div data-demo>
+            <p class="display-1">Display 1</p>
+            <p class="display-2">Display 2</p>
+            <p class="display-3">Display 3</p>
+            <p class="display-4">Display 4</p>
+            <p class="display-5">Display 5</p>
+            <p class="display-6">Display 6</p>
+          </div>
+
+          <h3 class="h5 mt-4">Lead and body text</h3>
+          <div data-demo>
+            <p class="lead">This is a lead paragraph. It stands out from regular paragraphs.</p>
+            <p>This is a regular paragraph with a <a href="#">default link</a> inside it, to check link color against body text.</p>
+            <p class="small">.small paragraph for fine print.</p>
+          </div>
+
+          <h3 class="h5 mt-4">Inline text elements</h3>
+          <div data-demo>
+            <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+            <p><del>This line of text is meant to be treated as deleted text.</del></p>
+            <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+            <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+            <p><u>This line of text will render as underlined.</u></p>
+            <p><small>This line of text is meant to be treated as fine print.</small></p>
+            <p><strong>This line rendered as bold text.</strong></p>
+            <p><em>This line rendered as italicized text.</em></p>
+            <p class="mark">.mark class on a paragraph</p>
+          </div>
+
+          <h3 class="h5 mt-4">Abbreviations</h3>
+          <div data-demo>
+            <p><abbr title="attribute">attr</abbr></p>
+            <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>
+          </div>
+
+          <h3 class="h5 mt-4">Text alignment</h3>
+          <div data-demo>
+            <p class="text-start">Start aligned text.</p>
+            <p class="text-center">Center aligned text.</p>
+            <p class="text-end">End aligned text.</p>
+            <p class="text-md-center">Center aligned text on md and wider.</p>
+          </div>
+
+          <h3 class="h5 mt-4">Font weight and style</h3>
+          <div data-demo>
+            <p class="fw-bold">Bold text.</p>
+            <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
+            <p class="fw-semibold">Semibold weight text.</p>
+            <p class="fw-medium">Medium weight text.</p>
+            <p class="fw-normal">Normal weight text.</p>
+            <p class="fw-light">Light weight text.</p>
+            <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
+            <p class="fst-italic">Italic text.</p>
+            <p class="fst-normal">Text with normal font style.</p>
+            <p class="font-monospace">This is in monospace.</p>
+          </div>
+
+          <h3 class="h5 mt-4">Text transform and decoration</h3>
+          <div data-demo>
+            <p class="text-lowercase">Lowercased TEXT.</p>
+            <p class="text-uppercase">Uppercased text.</p>
+            <p class="text-capitalize">capiTaliZed text.</p>
+            <p class="text-decoration-underline">This text has a line underneath it.</p>
+            <p class="text-decoration-line-through">This text has a line going through it.</p>
+            <p><a href="#" class="text-decoration-none">This link has its text decoration removed.</a></p>
+          </div>
+
+          <h3 class="h5 mt-4">Font sizes and line height</h3>
+          <div data-demo>
+            <p class="fs-1">.fs-1 text</p>
+            <p class="fs-2">.fs-2 text</p>
+            <p class="fs-3">.fs-3 text</p>
+            <p class="fs-4">.fs-4 text</p>
+            <p class="fs-5">.fs-5 text</p>
+            <p class="fs-6">.fs-6 text</p>
+            <p class="lh-1">.lh-1 — Line height one. This paragraph is long enough to wrap onto multiple lines so the difference in line height is visible.</p>
+            <p class="lh-lg">.lh-lg — Large line height. This paragraph is long enough to wrap onto multiple lines so the difference in line height is visible.</p>
+          </div>
+
+          <h3 class="h5 mt-4">Lists</h3>
+          <div data-demo>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <ul>
+                  <li>Default unordered list</li>
+                  <li>Second item
+                    <ul>
+                      <li>Nested item</li>
+                    </ul>
+                  </li>
+                </ul>
+                <ol>
+                  <li>Ordered list</li>
+                  <li>Second item</li>
+                </ol>
+              </div>
+              <div class="col-md-4">
+                <ul class="list-unstyled">
+                  <li>.list-unstyled item</li>
+                  <li>Another item
+                    <ul>
+                      <li>Nested lists keep their style</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="list-inline">
+                  <li class="list-inline-item">.list-inline</li>
+                  <li class="list-inline-item">item two</li>
+                  <li class="list-inline-item">item three</li>
+                </ul>
+                <dl class="row">
+                  <dt class="col-sm-4">Term</dt>
+                  <dd class="col-sm-8">Description list definition.</dd>
+                  <dt class="col-sm-4 text-truncate">Truncated term is long</dt>
+                  <dd class="col-sm-8">Another definition.</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-4">Blockquote with figure</h3>
+          <div data-demo>
+            <figure>
+              <blockquote class="blockquote">
+                <p>A well-known quote, contained in a blockquote element.</p>
+              </blockquote>
+              <figcaption class="blockquote-footer">
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </figcaption>
+            </figure>
+            <figure class="text-end">
+              <blockquote class="blockquote">
+                <p>An end-aligned quote.</p>
+              </blockquote>
+              <figcaption class="blockquote-footer">
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </figcaption>
+            </figure>
+          </div>
+
+          <h3 class="h5 mt-4">Code, kbd, pre, var, samp</h3>
+          <div data-demo>
+            <p>Inline code: <code>&lt;section&gt;</code> should be wrapped as inline.</p>
+            <p>To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>To edit settings, press <kbd><kbd>Ctrl</kbd> + <kbd>,</kbd></kbd></p>
+            <pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;p&gt;And another line of sample text here...&lt;/p&gt;</code></pre>
+            <p><var>y</var> = <var>m</var><var>x</var> + <var>b</var></p>
+            <p><samp>This text is meant to be treated as sample output from a computer program.</samp></p>
+          </div>
+        </section>
+
+        <!-- bsd:continue -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Tokens panel (tooling): filled by the demo script from computed --bs-* variables -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="bsd-tokens" aria-labelledby="bsd-tokens-label" style="--bs-offcanvas-width: 36rem;">
+    <div class="offcanvas-header border-bottom">
+      <h2 class="offcanvas-title h5" id="bsd-tokens-label">Theme tokens</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-tokens" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="small text-body-secondary">Computed values on <code>&lt;html&gt;</code> for the active theme: <span class="fw-semibold" id="bsd-tokens-theme">light</span>.</p>
+      <table class="table table-sm align-middle small" id="bsd-tokens-table">
+        <thead>
+          <tr>
+            <th scope="col">Variable</th>
+            <th scope="col">Value</th>
+            <th scope="col">Swatch</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <!-- Screen reader announcements for the demo tooling -->
+  <div class="visually-hidden" aria-live="polite" id="bsd-live"></div>
+
+  <!-- Demo tooling script. Inlined so the #bs-demo fragment is self-contained. -->
+  <script>
+  (function () {
+    'use strict';
+
+    var root = document.getElementById('bs-demo');
+    if (!root) return;
+
+    // ------------------------------------------------------------------
+    // Snippet generator
+    // Runs synchronously while the page is parsed, before Bootstrap JS
+    // touches the DOM, so snippets reflect the markup exactly as authored.
+    // ------------------------------------------------------------------
+
+    var VOID_TAGS = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'];
+    var INLINE_TAGS = ['a', 'abbr', 'b', 'bdi', 'bdo', 'br', 'button', 'cite', 'code', 'data', 'del', 'dfn', 'em', 'i',
+      'img', 'input', 'ins', 'kbd', 'label', 'mark', 'q', 's', 'samp', 'small', 'span', 'strong', 'sub', 'sup',
+      'time', 'u', 'var', 'wbr', 'svg', 'path', 'circle', 'rect', 'use', 'g'];
+    var RAW_TAGS = ['pre', 'textarea', 'script', 'style'];
+    var BOOLEAN_ATTRS = ['disabled', 'checked', 'selected', 'readonly', 'required', 'multiple', 'hidden',
+      'autofocus', 'open', 'novalidate', 'autoplay', 'controls', 'loop', 'muted'];
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var INDENT = '  ';
+
+    function escapeText(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/ /g, '&nbsp;');
+    }
+
+    function escapeAttr(str) {
+      return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/ /g, '&nbsp;');
+    }
+
+    function tagName(el) {
+      // localName keeps SVG camelCase names intact
+      return el.localName;
+    }
+
+    function openTag(el) {
+      var out = '<' + tagName(el);
+      for (var i = 0; i < el.attributes.length; i++) {
+        var attr = el.attributes[i];
+        if (attr.value === '' && BOOLEAN_ATTRS.indexOf(attr.name) !== -1) {
+          out += ' ' + attr.name;
+        } else {
+          out += ' ' + attr.name + '="' + escapeAttr(attr.value) + '"';
+        }
+      }
+      if (el.namespaceURI === SVG_NS && !el.childNodes.length) return out + '/>';
+      return out + '>';
+    }
+
+    function closeTag(el) {
+      var name = tagName(el);
+      if (VOID_TAGS.indexOf(name) !== -1) return '';
+      if (el.namespaceURI === SVG_NS && !el.childNodes.length) return '';
+      return '</' + name + '>';
+    }
+
+    // Serialize a subtree verbatim (used for <pre> and friends where whitespace matters)
+    function serializeRaw(node) {
+      if (node.nodeType === Node.TEXT_NODE) return escapeText(node.data);
+      if (node.nodeType !== Node.ELEMENT_NODE) return '';
+      var out = openTag(node);
+      for (var i = 0; i < node.childNodes.length; i++) out += serializeRaw(node.childNodes[i]);
+      return out + closeTag(node);
+    }
+
+    // True if the node can be printed on a single line together with its siblings
+    function isInline(node) {
+      if (node.nodeType === Node.TEXT_NODE || node.nodeType === Node.COMMENT_NODE) return true;
+      if (node.nodeType !== Node.ELEMENT_NODE) return true;
+      if (INLINE_TAGS.indexOf(tagName(node)) === -1) return false;
+      for (var i = 0; i < node.childNodes.length; i++) {
+        if (!isInline(node.childNodes[i])) return false;
+      }
+      return true;
+    }
+
+    // Serialize inline content on one line, collapsing whitespace like the browser would
+    function serializeInline(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        var data = node.data;
+        // Leading/trailing whitespace containing a newline is source indentation, not content
+        if (!node.previousSibling) data = data.replace(/^\s*\n\s*/, '');
+        if (!node.nextSibling) data = data.replace(/\s*\n\s*$/, '');
+        return escapeText(data.replace(/\s+/g, ' '));
+      }
+      if (node.nodeType !== Node.ELEMENT_NODE) return '';
+      var out = openTag(node);
+      for (var i = 0; i < node.childNodes.length; i++) out += serializeInline(node.childNodes[i]);
+      return out + closeTag(node);
+    }
+
+    // True if the element's content should stay on one line. Block containers
+    // holding only a list of elements (e.g. a btn-group) are broken into lines
+    // even when those elements are inline, for readability.
+    function childrenAreInline(el) {
+      var elementCount = 0;
+      var hasText = false;
+      for (var i = 0; i < el.childNodes.length; i++) {
+        var child = el.childNodes[i];
+        if (!isInline(child)) return false;
+        if (child.nodeType === Node.ELEMENT_NODE) elementCount++;
+        if (child.nodeType === Node.TEXT_NODE && child.data.trim()) hasText = true;
+      }
+      if (INLINE_TAGS.indexOf(tagName(el)) === -1 && elementCount > 1 && !hasText) return false;
+      return true;
+    }
+
+    function formatNode(node, depth, lines) {
+      var pad = INDENT.repeat(depth);
+
+      if (node.nodeType === Node.TEXT_NODE) {
+        var text = node.data.replace(/\s+/g, ' ').trim();
+        if (text) lines.push(pad + escapeText(text));
+        return;
+      }
+      if (node.nodeType !== Node.ELEMENT_NODE) return;
+
+      var name = tagName(node);
+
+      if (RAW_TAGS.indexOf(name) !== -1) {
+        lines.push(pad + serializeRaw(node));
+        return;
+      }
+
+      if (VOID_TAGS.indexOf(name) !== -1) {
+        lines.push(pad + openTag(node));
+        return;
+      }
+
+      if (childrenAreInline(node)) {
+        var inner = '';
+        for (var i = 0; i < node.childNodes.length; i++) inner += serializeInline(node.childNodes[i]);
+        lines.push(pad + openTag(node) + inner.trim() + closeTag(node));
+        return;
+      }
+
+      lines.push(pad + openTag(node));
+      for (var j = 0; j < node.childNodes.length; j++) formatNode(node.childNodes[j], depth + 1, lines);
+      lines.push(pad + closeTag(node));
+    }
+
+    // Remove demo-only attributes and elements from a cloned subtree
+    function cleanClone(fragment) {
+      var skipped = fragment.querySelectorAll('[data-demo-skip]');
+      for (var i = 0; i < skipped.length; i++) skipped[i].remove();
+
+      var all = fragment.querySelectorAll('*');
+      for (var j = 0; j < all.length; j++) {
+        var attrs = Array.prototype.slice.call(all[j].attributes);
+        for (var k = 0; k < attrs.length; k++) {
+          if (attrs[k].name.indexOf('data-demo') === 0) all[j].removeAttribute(attrs[k].name);
+        }
+      }
+    }
+
+    function buildSnippet(demo) {
+      var fragment = document.createDocumentFragment();
+      for (var i = 0; i < demo.childNodes.length; i++) fragment.appendChild(demo.childNodes[i].cloneNode(true));
+      cleanClone(fragment);
+
+      var lines = [];
+      for (var j = 0; j < fragment.childNodes.length; j++) formatNode(fragment.childNodes[j], 0, lines);
+      return lines.join('\n');
+    }
+
+    function renderSnippet(demo) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'position-relative mt-3 mb-4';
+
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-2';
+      button.textContent = 'Copy';
+      button.setAttribute('data-bsd-copy', '');
+
+      var pre = document.createElement('pre');
+      pre.className = 'bg-body-tertiary border rounded-3 p-3 pe-5 small mb-0';
+      pre.style.maxHeight = '24rem';
+
+      var code = document.createElement('code');
+      // textContent escapes the markup exactly once for display
+      code.textContent = buildSnippet(demo);
+
+      pre.appendChild(code);
+      wrapper.appendChild(button);
+      wrapper.appendChild(pre);
+      demo.insertAdjacentElement('afterend', wrapper);
+    }
+
+    var demos = root.querySelectorAll('[data-demo]');
+    for (var d = 0; d < demos.length; d++) renderSnippet(demos[d]);
+
+    // ------------------------------------------------------------------
+    // Copy buttons
+    // ------------------------------------------------------------------
+
+    var live = document.getElementById('bsd-live');
+
+    function announce(message) {
+      if (!live) return;
+      live.textContent = '';
+      setTimeout(function () { live.textContent = message; }, 50);
+    }
+
+    function copyFallback(text) {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.className = 'position-fixed top-0 start-0 opacity-0';
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      area.remove();
+      return ok;
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return copyFallback(text); });
+      }
+      return Promise.resolve(copyFallback(text));
+    }
+
+    root.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-bsd-copy]');
+      if (!button) return;
+      var code = button.parentElement.querySelector('code');
+      copyText(code.textContent).then(function (ok) {
+        button.textContent = ok ? 'Copied' : 'Failed';
+        announce(ok ? 'Snippet copied to clipboard' : 'Copy failed');
+        setTimeout(function () { button.textContent = 'Copy'; }, 1500);
+      });
+    });
+
+    // ------------------------------------------------------------------
+    // Storage helpers (storage can be unavailable, e.g. private mode)
+    // ------------------------------------------------------------------
+
+    function storageGet(key) {
+      try { return window.localStorage.getItem(key); } catch (e) { return null; }
+    }
+
+    function storageSet(key, value) {
+      try { window.localStorage.setItem(key, value); } catch (e) { /* ignore */ }
+    }
+
+    // ------------------------------------------------------------------
+    // Theme toggle: data-bs-theme on <html>
+    // ------------------------------------------------------------------
+
+    var html = document.documentElement;
+    var themeButton = document.getElementById('bsd-theme-toggle');
+
+    function currentTheme() {
+      return html.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      html.setAttribute('data-bs-theme', theme);
+      if (themeButton) {
+        themeButton.textContent = 'Theme: ' + theme;
+        themeButton.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+      }
+      renderTokens();
+    }
+
+    if (themeButton) {
+      themeButton.addEventListener('click', function () {
+        var next = currentTheme() === 'dark' ? 'light' : 'dark';
+        storageSet('bsd-theme', next);
+        applyTheme(next);
+      });
+    }
+
+    // ------------------------------------------------------------------
+    // Custom CSS switch: toggles every stylesheet whose href lacks "bootstrap"
+    // ------------------------------------------------------------------
+
+    var cssToggle = document.getElementById('bsd-css-toggle');
+    var cssCount = document.getElementById('bsd-css-count');
+
+    function customStylesheets() {
+      var links = document.querySelectorAll('link[rel~="stylesheet"][href]');
+      return Array.prototype.filter.call(links, function (link) {
+        // Match on the file name only: folder or domain names may contain "bootstrap" too
+        var file = link.href.split(/[?#]/)[0].split('/').pop().toLowerCase();
+        return file.indexOf('bootstrap') === -1;
+      });
+    }
+
+    function updateCssCount() {
+      if (!cssCount) return;
+      var sheets = customStylesheets();
+      cssCount.textContent = String(sheets.length);
+      cssCount.title = sheets.map(function (link) { return link.getAttribute('href'); }).join('\n');
+    }
+
+    if (cssToggle) {
+      cssToggle.addEventListener('change', function () {
+        var enabled = cssToggle.checked;
+        customStylesheets().forEach(function (link) { link.disabled = !enabled; });
+        announce(enabled ? 'Custom CSS enabled' : 'Custom CSS disabled');
+        // Computed tokens change when theme overrides are removed
+        requestAnimationFrame(renderTokens);
+      });
+    }
+    updateCssCount();
+
+    // ------------------------------------------------------------------
+    // Tokens panel: computed --bs-* variables with swatches
+    // ------------------------------------------------------------------
+
+    var THEME_COLORS = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+    var TOKEN_GROUPS = THEME_COLORS.map(function (color) {
+      return {
+        title: color.charAt(0).toUpperCase() + color.slice(1),
+        vars: ['--bs-' + color, '--bs-' + color + '-rgb', '--bs-' + color + '-bg-subtle',
+          '--bs-' + color + '-border-subtle', '--bs-' + color + '-text-emphasis']
+      };
+    }).concat([
+      { title: 'Body', vars: ['--bs-body-color', '--bs-body-color-rgb', '--bs-body-bg', '--bs-body-bg-rgb',
+        '--bs-emphasis-color', '--bs-secondary-color', '--bs-secondary-bg', '--bs-tertiary-color',
+        '--bs-tertiary-bg', '--bs-heading-color', '--bs-code-color', '--bs-highlight-color', '--bs-highlight-bg',
+        '--bs-body-font-family', '--bs-body-font-size', '--bs-body-line-height'] },
+      { title: 'Link', vars: ['--bs-link-color', '--bs-link-color-rgb', '--bs-link-hover-color',
+        '--bs-link-hover-color-rgb', '--bs-link-decoration'] },
+      { title: 'Border', vars: ['--bs-border-color', '--bs-border-color-translucent', '--bs-border-width',
+        '--bs-border-style', '--bs-border-radius', '--bs-border-radius-sm', '--bs-border-radius-lg',
+        '--bs-border-radius-xl', '--bs-border-radius-xxl', '--bs-border-radius-pill'] },
+      { title: 'Focus ring', vars: ['--bs-focus-ring-width', '--bs-focus-ring-opacity', '--bs-focus-ring-color'] },
+      { title: 'Form validation', vars: ['--bs-form-valid-color', '--bs-form-valid-border-color',
+        '--bs-form-invalid-color', '--bs-form-invalid-border-color'] }
+    ]);
+
+    var tokensPanel = document.getElementById('bsd-tokens');
+    var tokensTable = document.getElementById('bsd-tokens-table');
+    var tokensTheme = document.getElementById('bsd-tokens-theme');
+
+    // Returns a CSS color for the swatch, or null for non-color values
+    function swatchColor(name, value) {
+      if (!value) return null;
+      if (/-rgb$/.test(name)) return 'rgb(' + value + ')';
+      if (window.CSS && CSS.supports && CSS.supports('color', value)) return value;
+      return null;
+    }
+
+    function renderTokens() {
+      if (!tokensTable) return;
+      // Skip work while the panel is closed; it re-renders on open
+      if (tokensPanel && !tokensPanel.classList.contains('show') && !tokensPanel.classList.contains('showing')) return;
+
+      var styles = getComputedStyle(html);
+      if (tokensTheme) tokensTheme.textContent = currentTheme();
+
+      var old = tokensTable.querySelectorAll('tbody');
+      for (var i = 0; i < old.length; i++) old[i].remove();
+
+      TOKEN_GROUPS.forEach(function (group) {
+        var tbody = document.createElement('tbody');
+        tbody.className = 'table-group-divider';
+
+        var headRow = document.createElement('tr');
+        var headCell = document.createElement('th');
+        headCell.scope = 'rowgroup';
+        headCell.colSpan = 3;
+        headCell.className = 'bg-body-tertiary';
+        headCell.textContent = group.title;
+        headRow.appendChild(headCell);
+        tbody.appendChild(headRow);
+
+        group.vars.forEach(function (name) {
+          var value = styles.getPropertyValue(name).trim();
+          var row = document.createElement('tr');
+
+          var nameCell = document.createElement('td');
+          var nameCode = document.createElement('code');
+          nameCode.textContent = name;
+          nameCell.appendChild(nameCode);
+
+          var valueCell = document.createElement('td');
+          valueCell.className = 'font-monospace text-break';
+          valueCell.textContent = value || '(not set)';
+
+          var swatchCell = document.createElement('td');
+          var color = swatchColor(name, value);
+          if (color) {
+            var swatch = document.createElement('span');
+            swatch.className = 'd-inline-block border rounded';
+            swatch.style.width = '1.5rem';
+            swatch.style.height = '1.5rem';
+            swatch.style.background = color;
+            swatch.title = color;
+            swatchCell.appendChild(swatch);
+          }
+
+          row.appendChild(nameCell);
+          row.appendChild(valueCell);
+          row.appendChild(swatchCell);
+          tbody.appendChild(row);
+        });
+
+        tokensTable.appendChild(tbody);
+      });
+    }
+
+    if (tokensPanel) {
+      tokensPanel.addEventListener('show.bs.offcanvas', function () {
+        // "showing" is set right after this event, so render on the next frame
+        requestAnimationFrame(renderTokens);
+      });
+    }
+
+    // Restore the saved theme (after renderTokens is defined)
+    var savedTheme = storageGet('bsd-theme');
+    applyTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : currentTheme());
+
+    // ------------------------------------------------------------------
+    // Bootstrap JS hooks (bundle loads after this fragment)
+    // ------------------------------------------------------------------
+
+    function initBootstrap() {
+      if (!window.bootstrap) return;
+
+      root.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (el) {
+        bootstrap.Tooltip.getOrCreateInstance(el);
+      });
+      root.querySelectorAll('[data-bs-toggle="popover"]').forEach(function (el) {
+        bootstrap.Popover.getOrCreateInstance(el);
+      });
+
+      // Close the mobile sidebar after picking a section
+      var sidebar = document.getElementById('bsd-sidebar');
+      var nav = document.getElementById('bsd-nav');
+      if (sidebar && nav) {
+        nav.addEventListener('click', function (event) {
+          if (!event.target.closest('a[href^="#"]')) return;
+          if (!sidebar.classList.contains('show')) return;
+          bootstrap.Offcanvas.getOrCreateInstance(sidebar).hide();
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBootstrap);
+    } else {
+      initBootstrap();
+    }
+  })();
+  </script>
+
+</main>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
