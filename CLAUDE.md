@@ -25,6 +25,8 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
 - Use neutral demo content of your own (e.g. a fictional company "Northwind Studio",
   invented product names, short original sentences).
 - Write one section per edit. Keep each edit small.
+- - Every <img> has width, height, alt; loading="lazy" decoding="async" below the first screen.
+  Picsum IDs must be verified against https://picsum.photos/v2/list before use.
 
 ## Demo content structure
 - All demo content lives inside a single <main id="bs-demo"> block so it can be copied
