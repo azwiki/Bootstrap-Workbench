@@ -49,6 +49,7 @@
               <a class="nav-link py-1" href="#bsd-borders">Borders &amp; rounded</a>
               <a class="nav-link py-1" href="#bsd-links">Links</a>
               <a class="nav-link py-1" href="#bsd-buttons">Buttons</a>
+              <a class="nav-link py-1" href="#bsd-close-button">Close button</a>
               <a class="nav-link py-1" href="#bsd-typography">Typography</a>
               <a class="nav-link py-1" href="#bsd-images">Images</a>
               <a class="nav-link py-1" href="#bsd-alerts">Alerts</a>
@@ -621,6 +622,44 @@
                 <label class="btn btn-outline-primary" for="bsd-radio-2">Express</label>
                 <input type="radio" class="btn-check" name="bsd-radio" id="bsd-radio-3" autocomplete="off">
                 <label class="btn btn-outline-primary" for="bsd-radio-3">Overnight</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Close button                                                 -->
+        <!-- ============================================================ -->
+        <section id="bsd-close-button" class="py-4 border-bottom">
+          <h2 class="h4 mb-3">Close button</h2>
+
+          <h3 class="h6 mt-3 mb-2">btn-close</h3>
+          <div data-demo>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">btn-close disabled</h3>
+          <div data-demo>
+            <button type="button" class="btn-close" disabled aria-label="Close"></button>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">On a dark surface: data-bs-theme="dark" and btn-close-white</h3>
+          <p class="small text-body-secondary">btn-close-white is deprecated in 5.3. Use data-bs-theme="dark" on the button or a parent instead.</p>
+          <div class="row row-cols-1 row-cols-sm-2 g-3">
+            <div class="col">
+              <h4 class="small mb-1">data-bs-theme="dark"</h4>
+              <div data-demo class="bg-dark p-3 rounded">
+                <div data-bs-theme="dark">
+                  <button type="button" class="btn-close" aria-label="Close"></button>
+                  <button type="button" class="btn-close" disabled aria-label="Close"></button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">btn-close-white (deprecated in 5.3)</h4>
+              <div data-demo class="bg-dark p-3 rounded">
+                <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" disabled aria-label="Close"></button>
               </div>
             </div>
           </div>

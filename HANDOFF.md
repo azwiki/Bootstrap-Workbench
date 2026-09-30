@@ -3,7 +3,7 @@
 ## Current state
 
 Sections in `classes.html`, in page order (all listed in the sidebar):
-Colors, Color modes, Text colors, Borders & rounded, Links, Buttons, Typography, Images,
+Colors, Color modes, Text colors, Borders & rounded, Links, Buttons, Close button, Typography, Images,
 Alerts, Badges, List group, Tables, Cards, Progress, Spinners, Navbar, Navs & tabs,
 Pagination, Breadcrumb, Accordion, Shadows, Focus ring, Form controls.
 
@@ -49,8 +49,8 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 
 ## Status
 
-- Last commit: "classes: Color modes section" (this HANDOFF.md is part of it).
-- Waiting for: user browser review of Color modes.
+- Last commit: "classes: Close button section" (this HANDOFF.md is part of it).
+- Waiting for: user browser review of Close button.
 - Start of next session: run `git log -1 --oneline` and `git status --short`.
   If the working tree is not clean, report the changes before doing anything else.
 
@@ -64,6 +64,14 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 
 - Browser review in Safari: use a Private Window or Develop → Disable Caches (with Web Inspector
   open). Safari caches the local site aggressively and can show stale HTML/CSS.
+
+### Close button: done (checked in Playwright Chromium + WebKit, awaiting browser review)
+- Section `#bsd-close-button`, currently after Buttons (Button group will go between them).
+- Examples: btn-close; btn-close disabled; dark surface side by side:
+  `<div data-bs-theme="dark">` with default + disabled, and btn-close-white default + disabled
+  labeled "deprecated in 5.3". The `bg-dark p-3 rounded` backdrop is on the data-demo element,
+  so snippets show only the buttons (and the data-bs-theme wrapper). No data-bs-dismiss.
+- In a dark page theme the bg-dark backdrop matches the page background (low contrast box).
 
 ### Audit backlog (approved, fix in a separate pass; do NOT retrofit yet)
 - 78 of 100 snippets contain demo layout wrappers or demo-only classes. Clean: rounded-circle,
@@ -189,7 +197,7 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 Each step = one section per edit, then stop for review.
 1. Browser review of Color modes (and the pending review of Images, Cards, Borders & rounded,
    Progress, Shadows, List group, Navbar: light/dark, mobile width).
-2. Close button.
+2. Close button: done, awaiting review.
 3. Button group (moves the btn-group/toolbar example out of Buttons).
 4. Placeholders.
 5. Additions to existing sections: Cards, Navs, List group, Navbar, Typography, Tables
