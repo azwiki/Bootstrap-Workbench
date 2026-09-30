@@ -1,5 +1,26 @@
 # Handoff: classes.html
 
+## Start here (cold start)
+
+- Last feature commit: `584cd6e` classes: Cards additions. After it: `7317419` (.gitignore for
+  .DS_Store) and the wrap-up commit that added this block (`git log -1`).
+- First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
+- Awaiting user browser review: Cards additions (`584cd6e`).
+  Open point for that review: the old mixed-ratio card grid ("Grid row-cols-1 row-cols-md-3
+  with h-100 and mixed image aspect ratios") and the new 4:3 grid ("... all images in
+  ratio-4x3") both exist. User decides: keep both, or remove the old one.
+- Next steps, in order (one section per edit, stop for review after each):
+  1. Cards review (and the decision above).
+  2. Utility scales.
+  3. forms.html: tooling-sharing plan first (toolbar/theme toggle, sidebar/scrollspy, snippet
+     generator, main.css link, no duplicated code), then the sections.
+  4. blocks.html.
+  The audit backlog pass stays separate: only when the user says so.
+- Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
+  Web Inspector open). Safari caches the local site aggressively and can show stale HTML/CSS.
+- Note: `assets/.DS_Store` and `assets/img/.DS_Store` are still tracked (committed before
+  .gitignore existed). Untracking them (`git rm --cached`) is waiting for the user's OK.
+
 ## Current state
 
 Sections in `classes.html`, in page order (all listed in the sidebar):
@@ -49,8 +70,7 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 
 ## Status
 
-- Last commit: "classes: Cards additions" (this HANDOFF.md is part of it).
-- Waiting for: user browser review of the Cards additions.
+- See "Start here" at the top for the last commit and what is awaiting review.
 - Start of next session: run `git log -1 --oneline` and `git status --short`.
   If the working tree is not clean, report the changes before doing anything else.
 
