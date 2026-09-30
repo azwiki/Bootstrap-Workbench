@@ -44,6 +44,7 @@
           <div class="offcanvas-body">
             <nav id="bsd-nav" class="nav nav-pills flex-column flex-nowrap w-100 py-3 small" aria-label="Demo sections">
               <a class="nav-link py-1" href="#bsd-colors">Colors</a>
+              <a class="nav-link py-1" href="#bsd-color-modes">Color modes</a>
               <a class="nav-link py-1" href="#bsd-text-colors">Text colors</a>
               <a class="nav-link py-1" href="#bsd-borders">Borders &amp; rounded</a>
               <a class="nav-link py-1" href="#bsd-links">Links</a>
@@ -173,6 +174,57 @@
               <div class="col-6 col-md-4 col-xl"><div class="p-2 bg-primary bg-opacity-50">50</div></div>
               <div class="col-6 col-md-4 col-xl"><div class="p-2 bg-primary bg-opacity-25">25</div></div>
               <div class="col-6 col-md-4 col-xl"><div class="p-2 bg-primary bg-opacity-10">10</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Color modes                                                  -->
+        <!-- ============================================================ -->
+        <section id="bsd-color-modes" class="py-4 border-bottom">
+          <h2 class="h4 mb-3">Color modes</h2>
+          <p class="small text-body-secondary">Each block sets its own data-bs-theme, so both schemes stay visible whatever the toolbar theme is.</p>
+
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <h3 class="h6 mt-3 mb-2">data-bs-theme="dark" island</h3>
+              <div data-demo>
+                <div data-bs-theme="dark" class="bg-body text-body border rounded p-3">
+                  <div class="alert alert-info" role="alert">Orders placed after 6 pm ship the next morning.</div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title h6">Night workshop <span class="badge text-bg-primary">New</span></h4>
+                      <p class="card-text">The lathe room stays open until ten on Thursdays. <a href="#">See the schedule</a></p>
+                      <label for="bsd-cm-dark-email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="bsd-cm-dark-email" placeholder="you@example.com">
+                      <div class="d-flex flex-wrap gap-2 mt-3">
+                        <button type="button" class="btn btn-primary">Book a seat</button>
+                        <button type="button" class="btn btn-outline-secondary">Maybe later</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <h3 class="h6 mt-3 mb-2">data-bs-theme="light" island</h3>
+              <div data-demo>
+                <div data-bs-theme="light" class="bg-body text-body border rounded p-3">
+                  <div class="alert alert-info" role="alert">The showroom opens an hour later on public holidays.</div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title h6">Open studio day <span class="badge text-bg-primary">New</span></h4>
+                      <p class="card-text">Walk through the paint shop and try the new oak finish. <a href="#">Read the program</a></p>
+                      <label for="bsd-cm-light-email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="bsd-cm-light-email" placeholder="you@example.com">
+                      <div class="d-flex flex-wrap gap-2 mt-3">
+                        <button type="button" class="btn btn-primary">Save my spot</button>
+                        <button type="button" class="btn btn-outline-secondary">Not now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

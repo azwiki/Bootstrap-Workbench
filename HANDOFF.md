@@ -3,11 +3,21 @@
 ## Current state
 
 Sections in `classes.html`, in page order (all listed in the sidebar):
-Colors, Text colors, Borders & rounded, Links, Buttons, Typography, Images,
+Colors, Color modes, Text colors, Borders & rounded, Links, Buttons, Typography, Images,
 Alerts, Badges, List group, Tables, Cards, Progress, Spinners, Navbar, Navs & tabs,
 Pagination, Breadcrumb, Accordion, Shadows, Focus ring, Form controls.
 
-`<!-- bsd:continue -->` marks where new sections go (after Form controls).
+New sections go at the position given in "Section plan" below, not always at the end.
+`<!-- bsd:continue -->` marks the end of the content (after Form controls).
+Every new section also needs its link in the sidebar nav (`#bsd-nav`, scrollspy).
+
+### Color modes: done (checked headless only, awaiting browser review)
+- Section `#bsd-color-modes`, right after Colors. Two local islands, side by side on lg:
+  `data-bs-theme="dark"` and `data-bs-theme="light"`, each `bg-body text-body border rounded p-3`
+  with an alert-info, and a card holding a badge, a link, a form control and two buttons.
+- Both islands keep their scheme under either toolbar theme (checked at 1400px, light and dark
+  page theme). No horizontal overflow at 500–600px (headless minimum is 500px).
+- Snippet = the whole island, including the data-bs-theme wrapper (the point of the example).
 
 ### Images task: done (checked headless only, not yet reviewed in a real browser)
 - "Images" section: img-fluid, img-thumbnail, rounded-*, avatars (32/48/64/96, border-*),
@@ -30,13 +40,14 @@ Pagination, Breadcrumb, Accordion, Shadows, Focus ring, Form controls.
 
 Checked by script: every img has width/height matching the URL, alt text and decoding="async".
 The only exception is anti-pattern (b), which has no dimensions on purpose. Tags are balanced.
-Snippets checked in a headless DOM dump: no row/col grid wrappers and no .ratio wrapper
-around anti-pattern (a) in the copied code.
+Snippets of the examples added in the Images task (object-fit, portrait comparison, ratio-*,
+Cards comparison, anti-pattern (a)) were checked in a headless DOM dump: no row/col wrappers,
+no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below.
 
 ## Status
 
-- Last commit: `06983dd` (object-fit/object-position, ratio examples, anti-pattern (a) wrapper).
-- Uncommitted: navbar logo alt=""/no lazy, anti-patterns alert rewording, this HANDOFF.md.
+- Last commit: "classes: Color modes section" (this HANDOFF.md is part of it).
+- Waiting for: user browser review of Color modes.
 - Start of next session: run `git log -1 --oneline` and `git status --short`.
   If the working tree is not clean, report the changes before doing anything else.
 
@@ -47,6 +58,22 @@ around anti-pattern (a) in the copied code.
   data-demo per column, so an opened snippet renders inside its narrow column. Accepted for now.
 - Portrait ID 1027 is a tight head shot: in ratio-4x3 the object-position: top crop keeps the
   top of the head but cuts the mouth and chin. Accepted (ID 1027 is final).
+
+### Audit backlog (approved, fix in a separate pass; do NOT retrofit yet)
+- 78 of 100 snippets contain demo layout wrappers or demo-only classes. Clean: rounded-circle,
+  lead/inline text, img-fluid, img-thumbnail, all object-fit/portrait/ratio examples,
+  the 3 Cards object-position cards, card-group, row-cols card grid.
+- Typical problems: outer `row g-* small` + `col-*` grids (Colors, Borders, Cards, Alerts,
+  Tables, Progress, Navs, Breadcrumb, Accordion, Shadows, Forms), outer `d-flex flex-wrap gap-*`
+  rows (Text colors, Links, Buttons, Badges, Spinners, Pagination, Focus ring, Images),
+  demo-only `p-2`/`p-3` on swatches, `mb-0`/`mb-2`/`mb-3`/`mt-2` between variants, `h-100` on
+  cards, `small` on grids, `d-grid gap-2` around the navbars.
+- Canonical (keep): navbar container-fluid/me-auto, horizontal card inner row g-0/col-md-*,
+  list-group d-flex justify-content-between/me-auto, media object d-flex/flex-shrink-0,
+  positioned badges, float/mx-auto alignment, focus-ring link classes, breadcrumb bg/p-2 example.
+- Needs a decision: anti-pattern (b) side-by-side col-6 comparison.
+- Colors contains only color utilities (verified); swatch helpers (p-2, border, rounded) are
+  the only non-color classes.
 
 ## Decisions so far
 
@@ -69,6 +96,52 @@ around anti-pattern (a) in the copied code.
   label (which receives the `</>` toggle) and its own data-demo, so snippets show only the
   component markup. Do not put col-* on data-demo elements inside a .row: the generated bar
   and snippet would become full-width row items.
+
+- Flex rows of same-kind variants (new sections): one data-demo whose OWN classes carry the
+  row layout, e.g. `<div data-demo class="d-flex flex-wrap gap-2">`. The snippet then lists
+  only the variants. Works for flex rows only; col-* grids use the per-column pattern above.
+- Demo-only JS (e.g. setting `.indeterminate` on a checkbox) goes in the existing inline
+  tooling script and selects the element by id. No inline on* handlers.
+
+### Section plan (decided 2026-09-30)
+- Background and Link utilities: already fully covered by Colors and Links. No new sections.
+  (`bg-body-emphasis` does not exist in 5.3.8.)
+- Close button `#bsd-close-button`, after Button group: btn-close, disabled, dark via
+  `<div data-bs-theme="dark">` (backdrop classes on the data-demo element), and btn-close-white
+  labeled "deprecated in 5.3" right next to the data-bs-theme version. No data-bs-dismiss.
+- Button group `#bsd-button-group`, after Buttons: btn-group solid/outline (8 colors), active item,
+  mixed styles, -lg/-sm, vertical, btn-toolbar (+ input-group), checkbox/radio groups.
+  Move the existing btn-group/toolbar example out of Buttons. btn-check toggle buttons STAY
+  in Buttons.
+- Placeholders `#bsd-placeholders`, after Spinners: placeholder, col-*/w-* widths,
+  placeholder-xs/sm/lg, bg-* (8 colors), placeholder-glow, placeholder-wave, disabled button
+  placeholder, loading card (aria-hidden="true"). col-* on placeholders is canonical.
+- Additions to existing sections (one section per edit): Cards (card-subtitle, card-link,
+  card-header-tabs/pills, list group in card), Navs (nav-justified, disabled), List group
+  (list-group-horizontal-md, checkbox/radio items), Navbar (navbar-expand-lg with toggler,
+  collapsed static state; form in navbar), Typography (hr, dl, address, sub/sup, var/samp,
+  blockquote in figure), Tables (align-top/middle, table-responsive-md).
+- Helpers `#bsd-helpers`: hstack/vstack, vr, stretched-link, text-truncate,
+  visually-hidden-focusable, text-wrap/nowrap/break, text-start/center/end.
+- Utility scales (compact, last): CSS-variable-driven scales (shadow-*, rounded-*, fs-*,
+  opacity-*); first check what Borders/Shadows/Typography already cover, add only what is
+  missing. Spacing (p-*, gap-*) as one compact reference row.
+- Deprecated classes: include, labeled "deprecated in 5.3", right next to the modern
+  equivalent. dropdown-menu-dark goes to blocks.html with dropdowns.
+- Interactive components (dropdowns, collapse, modal, offcanvas, carousel, toast, tooltip,
+  popover, scrollspy) belong to blocks.html.
+- Skip: fixed-top/sticky-* (would break the page), custom spinner/progress heights (inline style).
+
+### forms.html (after all remaining classes.html sections)
+- ALL forms content moves to a new page forms.html, docs-style sections: Form controls, Select,
+  Checks & radios, Range, Input group, Floating labels, Form layout, Validation.
+- classes.html keeps no forms section, only a link to forms.html.
+- Before creating forms.html: plan how it shares the tooling (toolbar/theme toggle,
+  sidebar/scrollspy, snippet generator, main.css link) without duplicating code.
+- Indeterminate checkbox: minimal demo-only JS sets `.indeterminate` (see Snippet generator).
+- Floating textarea at default height; no new inline-style exception.
+- Form layout snippets keep row/col on purpose (they are the pattern); say so in demo text.
+- was-validated works via :invalid/:valid on required fields, no JS.
 
 ### Toolbar (fixed, top-right)
 - "Sections" button, shown below lg only: opens the sidebar offcanvas.
@@ -107,10 +180,19 @@ around anti-pattern (a) in the copied code.
 - Navbar logo: alt="" (brand name is visible next to it), no loading="lazy" (above the fold).
 
 ## Next steps
-1. Review Images, Cards, Borders & rounded, Progress, Shadows, List group, Navbar in a browser
-   (light/dark, mobile width).
-2. Commit.
-3. Continue adding sections at `<!-- bsd:continue -->`.
+Each step = one section per edit, then stop for review.
+1. Browser review of Color modes (and the pending review of Images, Cards, Borders & rounded,
+   Progress, Shadows, List group, Navbar: light/dark, mobile width).
+2. Close button.
+3. Button group (moves the btn-group/toolbar example out of Buttons).
+4. Placeholders.
+5. Additions to existing sections: Cards, Navs, List group, Navbar, Typography, Tables
+   (one per edit).
+6. Helpers.
+7. Utility scales.
+8. forms.html: tooling-sharing plan first, then sections, then remove Form controls from
+   classes.html and add the link.
+9. Audit backlog pass (separate, when the user says so).
 
 ## User findings
 1. use webp for images instead of jpeg — done.
