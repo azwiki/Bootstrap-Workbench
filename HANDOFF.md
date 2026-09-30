@@ -81,8 +81,13 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   (solid + outline); btn-toolbar with groups; btn-toolbar with an input-group; checkbox and
   radio groups (btn-check inside btn-group, ids bsd-bg-*).
 - Multi-group rows use the data-demo own-classes convention (d-flex flex-wrap gap-2).
-- The old combined btn-group/toolbar example was removed from Buttons. btn-check toggles
-  (incl. the "Shipping speed" radio group) stay in Buttons.
+- The old combined btn-group/toolbar example was removed from Buttons. Buttons keeps only
+  standalone btn-check toggles: "btn-check checkbox toggles" (unchecked, checked, disabled,
+  outline, outline checked) and "btn-check radio toggles" (solid checked/unchecked/disabled,
+  outline pair), each one data-demo with d-flex flex-wrap gap-2. The grouped "Shipping speed"
+  radio example was removed (Button group covers btn-check inside btn-group).
+- btn-outline-light on a light page stays nearly invisible on purpose (standard behavior,
+  useful audit signal). No backdrop.
 
 ### Audit backlog (approved, fix in a separate pass; do NOT retrofit yet)
 - 78 of 100 snippets contain demo layout wrappers or demo-only classes. Clean: rounded-circle,
