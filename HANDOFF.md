@@ -38,7 +38,7 @@ Every new section also needs its link in the sidebar nav (`#bsd-nav`, scrollspy)
 - Borders & rounded: rounded-circle shown as `ratio ratio-1x1 rounded-circle bg-primary`,
   sized by col-* on its data-demo element.
 - Progress: note that `style="width: N%"` is an inline style, not a Bootstrap class.
-- Totals: 125 `<img>` tags, 52 picsum IDs, 69 unique URLs, all `.webp`,
+- Totals: 131 `<img>` tags, 58 picsum IDs, 75 unique URLs, all `.webp`,
   all verified with curl -sIL (Content-Type: image/webp).
 
 Checked by script: every img has width/height matching the URL, alt text and decoding="async".
@@ -49,8 +49,8 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 
 ## Status
 
-- Last commit: "classes: Placeholders section" (this HANDOFF.md is part of it).
-- Waiting for: user browser review of Buttons toggles and Placeholders.
+- Last commit: "classes: Cards additions" (this HANDOFF.md is part of it).
+- Waiting for: user browser review of the Cards additions.
 - Start of next session: run `git log -1 --oneline` and `git status --short`.
   If the working tree is not clean, report the changes before doing anything else.
 
@@ -98,6 +98,27 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   classes `d-flex flex-column gap-2`. No image in the card pair (no gray image placeholders).
 - bg-light placeholder is nearly invisible on a light page (same audit signal as
   btn-outline-light).
+
+### Cards additions: done (checked in Playwright Chromium + WebKit, awaiting browser review)
+- Already covered before (not duplicated): default + text-bg-*, border-*, card-img-top on
+  text-bg-*, card-img-bottom (3), object-position comparison, card-img-overlay, horizontal,
+  card-group with images (mixed ratios), row-cols grid with mixed ratios + footer, shadows,
+  avatars.
+- Added: card-title/card-subtitle/card-text/card-link; card-header-tabs and
+  card-header-pills (static nav, aria-current="true", disabled item); image + body +
+  list-group-flush + card-link in one card; image between card-header and card-body (plain img
+  in .ratio, no card-img-top, so radius 0, verified); grid row-cols-1 row-cols-md-3 g-3 with
+  h-100, card-footer, uneven text and all images in ratio-4x3 (the fix for the mixed-ratio
+  grid; the row is kept in the snippet because the grid IS the example); clickable card with
+  stretched-link (click on the image hits the link, verified).
+- Single cards are sized by `col-sm-8 col-md-6 col-lg-4` on the data-demo element.
+- New image IDs: 403, 885, 244 (640x360, ratio-16x9); 553, 1, 366 (600x450, ratio-4x3).
+  All in v2/list, checked visually at the planned size, curl -sIL image/webp.
+
+### Skipped (scope change, 2026-09-30)
+- Additions to Navs, List group, Navbar, Typography and Tables: skipped. Navbar/navs will
+  appear in blocks.html.
+- Helpers section: skipped. stretched-link moved into Cards.
 
 ### Audit backlog (approved, fix in a separate pass; do NOT retrofit yet)
 - 78 of 100 snippets contain demo layout wrappers or demo-only classes. Clean: rounded-circle,
@@ -156,13 +177,9 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 - Placeholders `#bsd-placeholders`, after Spinners: placeholder, col-*/w-* widths,
   placeholder-xs/sm/lg, bg-* (8 colors), placeholder-glow, placeholder-wave, disabled button
   placeholder, loading card (aria-hidden="true"). col-* on placeholders is canonical.
-- Additions to existing sections (one section per edit): Cards (card-subtitle, card-link,
-  card-header-tabs/pills, list group in card), Navs (nav-justified, disabled), List group
-  (list-group-horizontal-md, checkbox/radio items), Navbar (navbar-expand-lg with toggler,
-  collapsed static state; form in navbar), Typography (hr, dl, address, sub/sup, var/samp,
-  blockquote in figure), Tables (align-top/middle, table-responsive-md).
-- Helpers `#bsd-helpers`: hstack/vstack, vr, stretched-link, text-truncate,
-  visually-hidden-focusable, text-wrap/nowrap/break, text-start/center/end.
+- Additions to existing sections: only Cards was done (see "Cards additions"). Navs, List group,
+  Navbar, Typography and Tables additions were SKIPPED (see "Skipped").
+- Helpers `#bsd-helpers`: SKIPPED; stretched-link moved into Cards.
 - Utility scales (compact, last): CSS-variable-driven scales (shadow-*, rounded-*, fs-*,
   opacity-*); first check what Borders/Shadows/Typography already cover, add only what is
   missing. Spacing (p-*, gap-*) as one compact reference row.
@@ -226,12 +243,13 @@ Each step = one section per edit, then stop for review.
 2. Close button: done, awaiting review.
 3. Button group: done, awaiting review.
 4. Placeholders: done, awaiting review.
-5. Additions to existing sections: Cards, Navs, List group, Navbar, Typography, Tables
-   (one per edit).
-6. Helpers.
-7. Utility scales.
-8. forms.html: tooling-sharing plan first, then sections, then remove Form controls from
+5. Cards additions: done, awaiting review. (Navs, List group, Navbar, Typography, Tables
+   additions and the Helpers section are skipped, see "Skipped".)
+6. Utility scales.
+7. forms.html: tooling-sharing plan first, then sections, then remove Form controls from
    classes.html and add the link.
+8. blocks.html (interactive components: dropdowns incl. dropdown-menu-dark, collapse, modal,
+   offcanvas, carousel, toast, tooltip, popover, scrollspy; navbar/navs).
 9. Audit backlog pass (separate, when the user says so).
 
 ## User findings

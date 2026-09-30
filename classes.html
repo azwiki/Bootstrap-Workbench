@@ -1702,6 +1702,61 @@
             </div>
           </div>
 
+          <h3 class="h6 mt-3 mb-2">card-title, card-subtitle, card-text, card-link</h3>
+          <div data-demo class="col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title h6">Linden chair</h4>
+                <h5 class="card-subtitle h6 mb-2 text-body-secondary">Solid ash, oiled by hand</h5>
+                <p class="card-text">A low dining chair with a woven seat, made to order in six weeks.</p>
+                <a href="#" class="card-link">Care guide</a>
+                <a href="#" class="card-link">Order wood samples</a>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">card-header-tabs and card-header-pills (static nav)</h3>
+          <div class="row row-cols-1 row-cols-md-2 g-3">
+            <div class="col">
+              <h4 class="small mb-1">nav-tabs card-header-tabs</h4>
+              <div data-demo>
+                <div class="card">
+                  <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                      <li class="nav-item"><a class="nav-link active" aria-current="true" href="#">Details</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">Materials</a></li>
+                      <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Reviews</a></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title h6">Harbor lamp</h5>
+                    <p class="card-text">A brass shade on a turned oak stem, wired for warm bulbs.</p>
+                    <a href="#" class="btn btn-primary">See the lamp</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">nav-pills card-header-pills</h4>
+              <div data-demo>
+                <div class="card">
+                  <div class="card-header">
+                    <ul class="nav nav-pills card-header-pills">
+                      <li class="nav-item"><a class="nav-link active" aria-current="true" href="#">Details</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">Materials</a></li>
+                      <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Reviews</a></li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title h6">Harbor lamp</h5>
+                    <p class="card-text">A brass shade on a turned oak stem, wired for warm bulbs.</p>
+                    <a href="#" class="btn btn-primary">See the lamp</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <h3 class="h6 mt-3 mb-2">card-img-top on card text-bg-*</h3>
           <div data-demo>
             <div class="row g-2 small">
@@ -1776,6 +1831,41 @@
                   <div class="card-body text-success"><h4 class="card-title h6">Canal office</h4><p class="card-text">Our second studio sits right on the water.</p></div>
                   <img src="https://picsum.photos/id/164/400/267.webp" class="card-img-bottom img-fluid" width="400" height="267" alt="Pastel townhouses and small boats along a narrow canal" loading="lazy" decoding="async">
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">Image, body, list-group-flush and card-link in one card</h3>
+          <div data-demo class="col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+              <div class="ratio ratio-16x9">
+                <img src="https://picsum.photos/id/403/640/360.webp" class="card-img-top object-fit-cover" width="640" height="360" alt="Round keys of an old black typewriter" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h4 class="card-title h6">Studio journal</h4>
+                <p class="card-text">Notes from the workshop, written up every Friday.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">New finishes for autumn</li>
+                <li class="list-group-item">A visit to the ash mill</li>
+                <li class="list-group-item">Repairing a 1960s desk</li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="card-link">Read the journal</a>
+                <a href="#" class="card-link">Subscribe</a>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">Image between card-header and card-body (no card-img-top, so no rounded corners)</h3>
+          <div data-demo class="col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-header">Studio desk</div>
+              <div class="ratio ratio-16x9">
+                <img src="https://picsum.photos/id/885/640/360.webp" class="object-fit-cover" width="640" height="360" alt="Wooden desk with a typewriter, notebooks, glasses and a pine cone, seen from above" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Every catalog page starts on this desk as a pencil sketch.</p>
               </div>
             </div>
           </div>
@@ -1930,6 +2020,62 @@
                   <div class="card-body"><h4 class="card-title h6">Coast bench</h4><p class="card-text">Wide photo. The footer still sticks to the bottom thanks to h-100.</p></div>
                   <div class="card-footer"><small class="text-body-secondary">Wide 12:5</small></div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">Grid row-cols-1 row-cols-md-3 with h-100, card-footer and all images in ratio-4x3</h3>
+          <div data-demo>
+            <div class="row row-cols-1 row-cols-md-3 g-3">
+              <div class="col">
+                <div class="card h-100">
+                  <div class="ratio ratio-4x3">
+                    <img src="https://picsum.photos/id/553/600/450.webp" class="card-img-top object-fit-cover" width="600" height="450" alt="Two park benches on a path covered in orange autumn leaves" loading="lazy" decoding="async">
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title h6">Park bench</h4>
+                    <p class="card-text">Slatted oak on cast legs.</p>
+                  </div>
+                  <div class="card-footer"><small class="text-body-secondary">Updated 2 days ago</small></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <div class="ratio ratio-4x3">
+                    <img src="https://picsum.photos/id/1/600/450.webp" class="card-img-top object-fit-cover" width="600" height="450" alt="Person typing on a laptop at a wooden table" loading="lazy" decoding="async">
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title h6">Work table</h4>
+                    <p class="card-text">A long table for two people, four laptops and far too many cables. The top is solid walnut, the frame powder-coated steel, and the legs adjust for uneven floors.</p>
+                  </div>
+                  <div class="card-footer"><small class="text-body-secondary">Updated last week</small></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <div class="ratio ratio-4x3">
+                    <img src="https://picsum.photos/id/366/600/450.webp" class="card-img-top object-fit-cover" width="600" height="450" alt="Black and white desk with a keyboard, a mug and a hand on a mouse" loading="lazy" decoding="async">
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title h6">Compact desk</h4>
+                    <p class="card-text">Fits a corner, holds a monitor and a coffee.</p>
+                  </div>
+                  <div class="card-footer"><small class="text-body-secondary">Updated 3 weeks ago</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">Clickable card: stretched-link (the whole card is the link)</h3>
+          <div data-demo class="col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+              <div class="ratio ratio-16x9">
+                <img src="https://picsum.photos/id/244/640/360.webp" class="card-img-top object-fit-cover" width="640" height="360" alt="Pelican perched on a post at the end of a wooden pier" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h4 class="card-title h6">Cove bench</h4>
+                <p class="card-text">Built for the pier outside our summer studio.</p>
+                <a href="#" class="btn btn-primary stretched-link">View the bench</a>
               </div>
             </div>
           </div>
