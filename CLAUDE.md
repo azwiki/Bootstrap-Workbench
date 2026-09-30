@@ -12,21 +12,37 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
 - No external CSS/JS libraries, no CDNs, no build step. Plain HTML + vanilla JS. Must work via file://.
 
 ## Rules
-- Use ONLY standard Bootstrap classes in demo content. No custom classes in demo markup.
-- Minimal inline styles; allowed only for demo layout helpers (e.g. swatch size), never to fake component looks.
+- Use ONLY standard Bootstrap 5.3.8 classes in demo content. No custom classes in demo markup.
+- Never invent classes (e.g. object-fit-top, h-400). If Bootstrap has no utility, say so.
+- No inline styles in demo content. Sizing via Bootstrap only (.ratio, w-*, h-*, etc.).
+  Documented exceptions (demo text must say "inline style, not a Bootstrap class"):
+  a) style="object-position: top;" in the object-position comparisons (Images, Cards).
+  b) style="width: N%" on .progress-bar and on .progress inside .progress-stacked
+     (Bootstrap's canonical markup; the value is data).
+- Demo tooling (toolbar, snippet generator, token panel, their JS) is exempt from the
+  inline-styles rule, but must still not restyle Bootstrap components.
 - Do NOT use LiveCanvas wrappers (lc-block, editable="rich").
 - All code comments in English.
-- demo-old.html is a READ-ONLY reference. Never edit it. Reuse only its image URLs.
-- Images: external URLs only. First reuse URLs from demo-old.html, then picsum.photos with fixed IDs
-  (https://picsum.photos/id/{id}/{w}/{h}). No gray placeholders, no random (non-ID) URLs.
+- demo-old.html is a READ-ONLY reference. Never edit it. Do not reuse its image URLs (Unsplash).
+- Images: picsum.photos only, fixed IDs, WebP format:
+  https://picsum.photos/id/{id}/{w}/{h}.webp
+  No .jpg URLs, no gray placeholders, no random (non-ID) URLs.
+  IDs must be verified against https://picsum.photos/v2/list before use.
+  Every URL must be verified with curl -sIL: Content-Type must be image/webp.
+- Every <img> has width and height equal to the URL size, and alt.
+  decoding="async" on all images; loading="lazy" only below the first screen
+  (above-the-fold images such as the navbar logo get no loading="lazy").
 - Semantic, accessible markup: alt text, aria attributes as in Bootstrap docs.
+  Decorative images next to visible text (e.g. navbar logo) use alt="".
 - Never copy example sentences or sample text from Bootstrap documentation.
   Markup patterns are fine; all visible text must be original wording.
-- Use neutral demo content of your own (e.g. a fictional company "Northwind Studio",
+- Use neutral demo content of your own (fictional company "Northwind Studio",
   invented product names, short original sentences).
+- Snippets show only canonical copy-ready markup: no demo layout wrappers,
+  no demo-only spacing classes.
+- Each component lives in its own section; Colors contains only color utilities.
 - Write one section per edit. Keep each edit small.
-- - Every <img> has width, height, alt; loading="lazy" decoding="async" below the first screen.
-  Picsum IDs must be verified against https://picsum.photos/v2/list before use.
+
 
 ## Demo content structure
 - All demo content lives inside a single <main id="bs-demo"> block so it can be copied
