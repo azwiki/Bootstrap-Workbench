@@ -1,1 +1,3 @@
-a{color:#0d6efd}.card-img-top{height:auto}.row .col-lg-3>.lc-block:first-child{min-height:3rem}
+/* main.css
+   Independent from Bootstrap's SCSS (Bootstrap ships as precompiled bootstrap.min.css).
+   Use this file for custom styles. */
