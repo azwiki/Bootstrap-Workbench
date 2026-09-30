@@ -18,6 +18,9 @@ Every new section also needs its link in the sidebar nav (`#bsd-nav`, scrollspy)
 - Both islands keep their scheme under either toolbar theme (checked at 1400px, light and dark
   page theme). No horizontal overflow at 500–600px (headless minimum is 500px).
 - Snippet = the whole island, including the data-bs-theme wrapper (the point of the example).
+- `border rounded p-3` sit on the data-demo element (kept out of the snippet); the island
+  itself is `data-bs-theme="…" class="bg-body text-body"`. Side effect: the p-3 ring shows the
+  page background, not the island scheme (pending user decision).
 
 ### Images task: done (checked headless only, not yet reviewed in a real browser)
 - "Images" section: img-fluid, img-thumbnail, rounded-*, avatars (32/48/64/96, border-*),
@@ -58,6 +61,13 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   data-demo per column, so an opened snippet renders inside its narrow column. Accepted for now.
 - Portrait ID 1027 is a tight head shot: in ratio-4x3 the object-position: top crop keeps the
   top of the head but cuts the mouth and chin. Accepted (ID 1027 is final).
+
+- OPEN: user saw the Cards object-position comparison (and possibly Images) render at the
+  portrait's natural 2:3, overflowing the .ratio box, in Safari on two Macs. Not reproducible
+  from the repo files: DOM has img as a direct child of .ratio with no overriding class, and
+  Playwright Chromium and WebKit render all boxes 4:3 with position:absolute at 1400px and 600px,
+  at 06983dd, 012b3c4 and HEAD. Waiting for Safari version, how the page was opened, and the
+  img's computed position/height plus the winning rule from Web Inspector. No fix applied.
 
 ### Audit backlog (approved, fix in a separate pass; do NOT retrofit yet)
 - 78 of 100 snippets contain demo layout wrappers or demo-only classes. Clean: rounded-circle,
