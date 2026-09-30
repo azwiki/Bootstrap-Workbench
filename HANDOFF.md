@@ -3,7 +3,7 @@
 ## Current state
 
 Sections in `classes.html`, in page order (all listed in the sidebar):
-Colors, Color modes, Text colors, Borders & rounded, Links, Buttons, Close button, Typography, Images,
+Colors, Color modes, Text colors, Borders & rounded, Links, Buttons, Button group, Close button, Typography, Images,
 Alerts, Badges, List group, Tables, Cards, Progress, Spinners, Navbar, Navs & tabs,
 Pagination, Breadcrumb, Accordion, Shadows, Focus ring, Form controls.
 
@@ -49,8 +49,8 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 
 ## Status
 
-- Last commit: "classes: Close button section" (this HANDOFF.md is part of it).
-- Waiting for: user browser review of Close button.
+- Last commit: "classes: Button group section" (this HANDOFF.md is part of it).
+- Waiting for: user browser review of Close button (border added) and Button group.
 - Start of next session: run `git log -1 --oneline` and `git status --short`.
   If the working tree is not clean, report the changes before doing anything else.
 
@@ -72,6 +72,17 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   labeled "deprecated in 5.3". The `bg-dark p-3 rounded` backdrop is on the data-demo element,
   so snippets show only the buttons (and the data-bs-theme wrapper). No data-bs-dismiss.
 - In a dark page theme the bg-dark backdrop matches the page background (low contrast box).
+
+### Button group: done (checked in Playwright Chromium + WebKit, awaiting browser review)
+- Section `#bsd-button-group`, after Buttons, before Close button.
+- Examples: btn-group; links with active item (`a.btn.active[aria-current=page]`, the canonical
+  pattern; the old example had aria-current on a button); btn-* groups (8 colors);
+  btn-outline-* groups (8 colors); mixed styles; btn-group-lg/default/-sm; btn-group-vertical
+  (solid + outline); btn-toolbar with groups; btn-toolbar with an input-group; checkbox and
+  radio groups (btn-check inside btn-group, ids bsd-bg-*).
+- Multi-group rows use the data-demo own-classes convention (d-flex flex-wrap gap-2).
+- The old combined btn-group/toolbar example was removed from Buttons. btn-check toggles
+  (incl. the "Shipping speed" radio group) stay in Buttons.
 
 ### Audit backlog (approved, fix in a separate pass; do NOT retrofit yet)
 - 78 of 100 snippets contain demo layout wrappers or demo-only classes. Clean: rounded-circle,
@@ -198,7 +209,7 @@ Each step = one section per edit, then stop for review.
 1. Browser review of Color modes (and the pending review of Images, Cards, Borders & rounded,
    Progress, Shadows, List group, Navbar: light/dark, mobile width).
 2. Close button: done, awaiting review.
-3. Button group (moves the btn-group/toolbar example out of Buttons).
+3. Button group: done, awaiting review.
 4. Placeholders.
 5. Additions to existing sections: Cards, Navs, List group, Navbar, Typography, Tables
    (one per edit).
