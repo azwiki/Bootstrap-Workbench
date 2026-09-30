@@ -60,6 +60,7 @@
               <a class="nav-link py-1" href="#bsd-cards">Cards</a>
               <a class="nav-link py-1" href="#bsd-progress">Progress</a>
               <a class="nav-link py-1" href="#bsd-spinners">Spinners</a>
+              <a class="nav-link py-1" href="#bsd-placeholders">Placeholders</a>
               <a class="nav-link py-1" href="#bsd-navbar">Navbar</a>
               <a class="nav-link py-1" href="#bsd-navs">Navs &amp; tabs</a>
               <a class="nav-link py-1" href="#bsd-pagination">Pagination</a>
@@ -2088,6 +2089,109 @@
                 <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
                 <span role="status">Syncing</span>
               </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Placeholders                                                 -->
+        <!-- ============================================================ -->
+        <section id="bsd-placeholders" class="py-4 border-bottom">
+          <h2 class="h4 mb-3">Placeholders</h2>
+
+          <h3 class="h6 mt-3 mb-2">placeholder with col-* widths</h3>
+          <div data-demo>
+            <p aria-hidden="true">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">placeholder with w-25, w-50, w-75, w-100</h3>
+          <div data-demo class="d-flex flex-column gap-2">
+            <span class="placeholder w-25" aria-hidden="true"></span>
+            <span class="placeholder w-50" aria-hidden="true"></span>
+            <span class="placeholder w-75" aria-hidden="true"></span>
+            <span class="placeholder w-100" aria-hidden="true"></span>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">placeholder-lg, default, placeholder-sm, placeholder-xs</h3>
+          <div data-demo class="d-flex flex-column gap-2">
+            <span class="placeholder col-12 placeholder-lg" aria-hidden="true"></span>
+            <span class="placeholder col-12" aria-hidden="true"></span>
+            <span class="placeholder col-12 placeholder-sm" aria-hidden="true"></span>
+            <span class="placeholder col-12 placeholder-xs" aria-hidden="true"></span>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">placeholder (currentColor) and bg-*</h3>
+          <div data-demo class="d-flex flex-column gap-2">
+            <span class="placeholder col-12" aria-hidden="true"></span>
+            <span class="placeholder col-12 bg-primary" aria-hidden="true"></span>
+            <span class="placeholder col-12 bg-secondary" aria-hidden="true"></span>
+            <span class="placeholder col-12 bg-success" aria-hidden="true"></span>
+            <span class="placeholder col-12 bg-danger" aria-hidden="true"></span>
+            <span class="placeholder col-12 bg-warning" aria-hidden="true"></span>
+            <span class="placeholder col-12 bg-info" aria-hidden="true"></span>
+            <span class="placeholder col-12 bg-light" aria-hidden="true"></span>
+            <span class="placeholder col-12 bg-dark" aria-hidden="true"></span>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">placeholder-glow</h3>
+          <div data-demo>
+            <p class="placeholder-glow" aria-hidden="true">
+              <span class="placeholder col-12"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">placeholder-wave</h3>
+          <div data-demo>
+            <p class="placeholder-wave" aria-hidden="true">
+              <span class="placeholder col-12"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">Button placeholders: btn disabled placeholder</h3>
+          <div data-demo class="d-flex gap-2">
+            <a class="btn btn-primary disabled placeholder col-4" aria-disabled="true"></a>
+            <a class="btn btn-secondary disabled placeholder col-3" aria-disabled="true"></a>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">Loaded card and its loading state (placeholder-glow, aria-hidden="true")</h3>
+          <div class="row row-cols-1 row-cols-sm-2 g-3">
+            <div class="col">
+              <h4 class="small mb-1">Loaded</h4>
+              <div data-demo>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title h6">Linden chair</h5>
+                    <p class="card-text">Solid ash, oiled by hand and shipped flat in a single box.</p>
+                    <a href="#" class="btn btn-primary">View chair</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">Loading</h4>
+              <div data-demo>
+                <div class="card" aria-hidden="true">
+                  <div class="card-body">
+                    <h5 class="card-title h6 placeholder-glow">
+                      <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                      <span class="placeholder col-7"></span>
+                      <span class="placeholder col-4"></span>
+                      <span class="placeholder col-6"></span>
+                    </p>
+                    <a class="btn btn-primary disabled placeholder col-5" aria-disabled="true"></a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

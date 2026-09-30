@@ -4,7 +4,7 @@
 
 Sections in `classes.html`, in page order (all listed in the sidebar):
 Colors, Color modes, Text colors, Borders & rounded, Links, Buttons, Button group, Close button, Typography, Images,
-Alerts, Badges, List group, Tables, Cards, Progress, Spinners, Navbar, Navs & tabs,
+Alerts, Badges, List group, Tables, Cards, Progress, Spinners, Placeholders, Navbar, Navs & tabs,
 Pagination, Breadcrumb, Accordion, Shadows, Focus ring, Form controls.
 
 New sections go at the position given in "Section plan" below, not always at the end.
@@ -49,8 +49,8 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 
 ## Status
 
-- Last commit: "classes: Button group section" (this HANDOFF.md is part of it).
-- Waiting for: user browser review of Close button (border added) and Button group.
+- Last commit: "classes: Placeholders section" (this HANDOFF.md is part of it).
+- Waiting for: user browser review of Buttons toggles and Placeholders.
 - Start of next session: run `git log -1 --oneline` and `git status --short`.
   If the working tree is not clean, report the changes before doing anything else.
 
@@ -88,6 +88,16 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   radio example was removed (Button group covers btn-check inside btn-group).
 - btn-outline-light on a light page stays nearly invisible on purpose (standard behavior,
   useful audit signal). No backdrop.
+
+### Placeholders: done (checked in Playwright Chromium + WebKit, awaiting browser review)
+- Section `#bsd-placeholders`, after Spinners, before Navbar.
+- Examples: col-* widths in a `p[aria-hidden]` text block; w-25/50/75/100; placeholder-lg,
+  default, -sm, -xs; currentColor + bg-* (8 colors); placeholder-glow; placeholder-wave;
+  button placeholders (`a.btn.disabled.placeholder.col-*[aria-disabled]`); loaded card next to
+  its loading state (card[aria-hidden], placeholder-glow). Stacked rows use data-demo own
+  classes `d-flex flex-column gap-2`. No image in the card pair (no gray image placeholders).
+- bg-light placeholder is nearly invisible on a light page (same audit signal as
+  btn-outline-light).
 
 ### Audit backlog (approved, fix in a separate pass; do NOT retrofit yet)
 - 78 of 100 snippets contain demo layout wrappers or demo-only classes. Clean: rounded-circle,
@@ -215,7 +225,7 @@ Each step = one section per edit, then stop for review.
    Progress, Shadows, List group, Navbar: light/dark, mobile width).
 2. Close button: done, awaiting review.
 3. Button group: done, awaiting review.
-4. Placeholders.
+4. Placeholders: done, awaiting review.
 5. Additions to existing sections: Cards, Navs, List group, Navbar, Typography, Tables
    (one per edit).
 6. Helpers.
