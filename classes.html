@@ -819,68 +819,118 @@
             </div>
           </div>
 
-          <h3 class="h6 mt-3 mb-2">object-fit-cover, -contain, -fill, -scale, -none in fixed-size boxes</h3>
-          <div data-demo>
-            <div class="d-flex flex-wrap gap-3 small">
-              <div>
-                <div class="border bg-body-tertiary" style="width: 200px; height: 120px;">
-                  <img src="https://picsum.photos/id/175/300/300.webp" class="w-100 h-100 object-fit-cover" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
+          <h3 class="h6 mt-3 mb-2">object-fit-cover, -contain, -fill, -scale, -none in ratio-4x3 boxes</h3>
+          <div class="row row-cols-2 row-cols-md-5 g-3">
+            <div class="col">
+              <h4 class="small mb-1">object-fit-cover</h4>
+              <div data-demo>
+                <div class="ratio ratio-4x3 border bg-body-tertiary">
+                  <img src="https://picsum.photos/id/175/300/300.webp" class="object-fit-cover" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">cover</p>
               </div>
-              <div>
-                <div class="border bg-body-tertiary" style="width: 200px; height: 120px;">
-                  <img src="https://picsum.photos/id/175/300/300.webp" class="w-100 h-100 object-fit-contain" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">object-fit-contain</h4>
+              <div data-demo>
+                <div class="ratio ratio-4x3 border bg-body-tertiary">
+                  <img src="https://picsum.photos/id/175/300/300.webp" class="object-fit-contain" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">contain</p>
               </div>
-              <div>
-                <div class="border bg-body-tertiary" style="width: 200px; height: 120px;">
-                  <img src="https://picsum.photos/id/175/300/300.webp" class="w-100 h-100 object-fit-fill" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">object-fit-fill</h4>
+              <div data-demo>
+                <div class="ratio ratio-4x3 border bg-body-tertiary">
+                  <img src="https://picsum.photos/id/175/300/300.webp" class="object-fit-fill" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">fill</p>
               </div>
-              <div>
-                <div class="border bg-body-tertiary" style="width: 200px; height: 120px;">
-                  <img src="https://picsum.photos/id/175/300/300.webp" class="w-100 h-100 object-fit-scale" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">object-fit-scale</h4>
+              <div data-demo>
+                <div class="ratio ratio-4x3 border bg-body-tertiary">
+                  <img src="https://picsum.photos/id/175/300/300.webp" class="object-fit-scale" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">scale</p>
               </div>
-              <div>
-                <div class="border bg-body-tertiary" style="width: 200px; height: 120px;">
-                  <img src="https://picsum.photos/id/175/300/300.webp" class="w-100 h-100 object-fit-none" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">object-fit-none</h4>
+              <div data-demo>
+                <div class="ratio ratio-4x3 border bg-body-tertiary">
+                  <img src="https://picsum.photos/id/175/300/300.webp" class="object-fit-none" width="300" height="300" alt="Close-up of a black and white wall clock" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">none</p>
               </div>
             </div>
           </div>
 
+          <h3 class="h6 mt-3 mb-2">Portrait photo in landscape ratio-4x3 boxes: object-fit-cover, object-position: top, object-fit-fill</h3>
+          <p class="small text-body-secondary">Bootstrap has no object-position utility. <code>style="object-position: top;"</code> is an inline style, not a Bootstrap class.</p>
+          <div class="row row-cols-1 row-cols-sm-3 g-3">
+            <div class="col">
+              <h4 class="small mb-1">object-fit-cover (head cut)</h4>
+              <div data-demo>
+                <div class="ratio ratio-4x3">
+                  <img src="https://picsum.photos/id/1027/600/900.webp" class="object-fit-cover rounded" width="600" height="900" alt="Portrait of a woman with curly hair and red lipstick" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">cover + object-position: top</h4>
+              <div data-demo>
+                <div class="ratio ratio-4x3">
+                  <img src="https://picsum.photos/id/1027/600/900.webp" class="object-fit-cover rounded" style="object-position: top;" width="600" height="900" alt="Portrait of a woman with curly hair and red lipstick" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">object-fit-fill (distorted)</h4>
+              <div data-demo>
+                <div class="ratio ratio-4x3">
+                  <img src="https://picsum.photos/id/1027/600/900.webp" class="object-fit-fill rounded" width="600" height="900" alt="Portrait of a woman with curly hair and red lipstick" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">Responsive: object-fit-contain object-fit-md-cover</h3>
+          <div data-demo class="col-6 col-md-3">
+            <div class="ratio ratio-4x3 border bg-body-tertiary">
+              <img src="https://picsum.photos/id/1027/600/900.webp" class="object-fit-contain object-fit-md-cover" width="600" height="900" alt="Portrait of a woman with curly hair and red lipstick" loading="lazy" decoding="async">
+            </div>
+          </div>
+
           <h3 class="h6 mt-3 mb-2">ratio-1x1, ratio-4x3, ratio-16x9, ratio-21x9 with object-fit-cover</h3>
-          <div data-demo>
-            <div class="row g-3 small">
-              <div class="col-6 col-md-3">
+          <div class="row row-cols-2 row-cols-md-4 g-3">
+            <div class="col">
+              <h4 class="small mb-1">ratio-1x1</h4>
+              <div data-demo>
                 <div class="ratio ratio-1x1">
                   <img src="https://picsum.photos/id/29/600/400.webp" class="object-fit-cover rounded" width="600" height="400" alt="Snow-dusted mountain ridges under a hazy sky" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">1x1</p>
               </div>
-              <div class="col-6 col-md-3">
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">ratio-4x3</h4>
+              <div data-demo>
                 <div class="ratio ratio-4x3">
                   <img src="https://picsum.photos/id/29/600/400.webp" class="object-fit-cover rounded" width="600" height="400" alt="Snow-dusted mountain ridges under a hazy sky" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">4x3</p>
               </div>
-              <div class="col-6 col-md-3">
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">ratio-16x9</h4>
+              <div data-demo>
                 <div class="ratio ratio-16x9">
                   <img src="https://picsum.photos/id/29/600/400.webp" class="object-fit-cover rounded" width="600" height="400" alt="Snow-dusted mountain ridges under a hazy sky" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">16x9</p>
               </div>
-              <div class="col-6 col-md-3">
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">ratio-21x9</h4>
+              <div data-demo>
                 <div class="ratio ratio-21x9">
                   <img src="https://picsum.photos/id/29/600/400.webp" class="object-fit-cover rounded" width="600" height="400" alt="Snow-dusted mountain ridges under a hazy sky" loading="lazy" decoding="async">
                 </div>
-                <p class="mb-0 mt-1">21x9</p>
               </div>
             </div>
           </div>
@@ -936,13 +986,15 @@
           </div>
 
           <h3 class="h6 mt-3 mb-2">Broken: 1200px image in a narrow column without img-fluid</h3>
-          <div data-demo class="border border-danger rounded overflow-hidden p-3">
-            <div class="row g-3">
-              <div class="col-4">
-                <img src="https://picsum.photos/id/60/1200/800.webp" width="1200" height="800" alt="Desk with a keyboard, tablet, notebooks and a mouse seen from above" loading="lazy" decoding="async">
-              </div>
-              <div class="col-8">
-                <p class="mb-0">The photo in the left column is 1200px wide and has no img-fluid, so it spills out of its column and covers this text.</p>
+          <div class="ratio ratio-21x9">
+            <div data-demo class="border border-danger rounded overflow-auto p-3">
+              <div class="row g-3">
+                <div class="col-4">
+                  <img src="https://picsum.photos/id/60/1200/800.webp" width="1200" height="800" alt="Desk with a keyboard, tablet, notebooks and a mouse seen from above" loading="lazy" decoding="async">
+                </div>
+                <div class="col-8">
+                  <p class="mb-0">The photo in the left column is 1200px wide and has no img-fluid, so it spills out of its column and covers this text.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -1467,6 +1519,44 @@
                 <div class="card border-success h-100">
                   <div class="card-body text-success"><h4 class="card-title h6">Canal office</h4><p class="card-text">Our second studio sits right on the water.</p></div>
                   <img src="https://picsum.photos/id/164/400/267.webp" class="card-img-bottom img-fluid" width="400" height="267" alt="Pastel townhouses and small boats along a narrow canal" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">card-img-top in ratio-4x3: object-fit-cover, object-position: top, object-fit-fill</h3>
+          <p class="small text-body-secondary">Bootstrap has no object-position utility. <code>style="object-position: top;"</code> is an inline style, not a Bootstrap class.</p>
+          <div class="row row-cols-1 row-cols-sm-3 g-3">
+            <div class="col">
+              <h4 class="small mb-1">object-fit-cover (head cut)</h4>
+              <div data-demo>
+                <div class="card">
+                  <div class="ratio ratio-4x3">
+                    <img src="https://picsum.photos/id/1027/600/900.webp" class="card-img-top object-fit-cover" width="600" height="900" alt="Portrait of a woman with curly hair and red lipstick" loading="lazy" decoding="async">
+                  </div>
+                  <div class="card-body"><h5 class="card-title h6">Mara Quist</h5><p class="card-text">Lead illustrator at Northwind Studio.</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">cover + object-position: top</h4>
+              <div data-demo>
+                <div class="card">
+                  <div class="ratio ratio-4x3">
+                    <img src="https://picsum.photos/id/1027/600/900.webp" class="card-img-top object-fit-cover" style="object-position: top;" width="600" height="900" alt="Portrait of a woman with curly hair and red lipstick" loading="lazy" decoding="async">
+                  </div>
+                  <div class="card-body"><h5 class="card-title h6">Mara Quist</h5><p class="card-text">Lead illustrator at Northwind Studio.</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h4 class="small mb-1">object-fit-fill (distorted)</h4>
+              <div data-demo>
+                <div class="card">
+                  <div class="ratio ratio-4x3">
+                    <img src="https://picsum.photos/id/1027/600/900.webp" class="card-img-top object-fit-fill" width="600" height="900" alt="Portrait of a woman with curly hair and red lipstick" loading="lazy" decoding="async">
+                  </div>
+                  <div class="card-body"><h5 class="card-title h6">Mara Quist</h5><p class="card-text">Lead illustrator at Northwind Studio.</p></div>
                 </div>
               </div>
             </div>
@@ -2442,8 +2532,8 @@
     var snippetCount = 0;
 
     // Per-example "</>" toggle. Placed in the heading right before the example
-    // when there is one, otherwise in a small bar above the example.
-    function renderToggle(demo, wrapper) {
+    // (or its .ratio wrapper) when there is one, otherwise in a small bar above it.
+    function renderToggle(anchor, wrapper) {
       var toggle = document.createElement('button');
       toggle.type = 'button';
       toggle.className = 'btn btn-sm btn-outline-secondary py-0 px-2 font-monospace';
@@ -2452,7 +2542,7 @@
       toggle.setAttribute('aria-controls', wrapper.id);
       toggle.setAttribute('aria-expanded', 'false');
 
-      var heading = demo.previousElementSibling;
+      var heading = anchor.previousElementSibling;
       if (heading && /^H[3-6]$/.test(heading.tagName)) {
         toggle.setAttribute('aria-label', 'Show code: ' + heading.textContent.trim());
         heading.classList.add('d-flex', 'align-items-center', 'gap-2');
@@ -2462,7 +2552,7 @@
         var bar = document.createElement('div');
         bar.className = 'd-flex justify-content-end mb-1';
         bar.appendChild(toggle);
-        demo.insertAdjacentElement('beforebegin', bar);
+        anchor.insertAdjacentElement('beforebegin', bar);
       }
     }
 
@@ -2490,8 +2580,12 @@
       pre.appendChild(code);
       wrapper.appendChild(button);
       wrapper.appendChild(pre);
-      demo.insertAdjacentElement('afterend', wrapper);
-      renderToggle(demo, wrapper);
+      // Inside .ratio every child becomes absolute 100% x 100% and would cover
+      // the example, so the snippet and the toggle bar go around the wrapper.
+      var parent = demo.parentElement;
+      var anchor = parent && parent.classList.contains('ratio') ? parent : demo;
+      anchor.insertAdjacentElement('afterend', wrapper);
+      renderToggle(anchor, wrapper);
     }
 
     var demos = root.querySelectorAll('[data-demo]');
