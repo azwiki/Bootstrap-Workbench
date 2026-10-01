@@ -269,6 +269,7 @@ screenshot at 1400px light is byte-identical before/after unless noted.
 - Navs & tabs: 2 grids unwrapped; flex-column on the vertical pills stays (pattern). Screenshot identical.
 - Breadcrumb: 1 grid unwrapped; bg/p-2 example stays (canonical keep list). Screenshot identical.
 - Accordion: 1 grid unwrapped. Screenshot identical.
+- Shadows: 2 grids unwrapped (incl. h-100 dropped on the image cards); p-3 on the sample boxes stays (helper, like swatches). Screenshot identical.
 ### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
 - In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
   and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
