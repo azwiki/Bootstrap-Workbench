@@ -741,7 +741,7 @@
         <!-- ============================================================ -->
         <!-- ScrollSpy                                                    -->
         <!-- ============================================================ -->
-        <section id="bsd-scrollspy" class="py-4">
+        <section id="bsd-scrollspy" class="py-4 border-bottom">
           <h2 class="h4 mb-3">ScrollSpy</h2>
           <p class="small text-body-secondary">Bootstrap ScrollSpy in its own scroll box (the page sidebar uses a separate scrollspy from the demo tooling). The box gets its height from .ratio, because Bootstrap has no fixed-height utility; row/col and .ratio stay in the snippet on purpose. tabindex="0" lets keyboard users scroll the box.</p>
 
@@ -804,6 +804,112 @@
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Navbar                                                       -->
+        <!-- ============================================================ -->
+        <section id="bsd-navbar" class="py-4">
+          <h2 class="h4 mb-3">Navbar</h2>
+          <p class="small text-body-secondary">Static navbars (no fixed-top or sticky-top on this page). Links jump to sections of this page; below lg the toggler opens the collapse. The dropdown and search button are type="button".</p>
+
+          <h3 class="h6 mt-3 mb-2">navbar-expand-lg bg-body-tertiary: brand with logo, links, dropdown, search, collapse</h3>
+          <div data-demo>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#bsd-hero"><img src="https://picsum.photos/id/63/24/24.webp" class="d-inline-block align-text-top rounded me-2" width="24" height="24" alt="" loading="lazy" decoding="async">Northwind Studio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bsd-b-navbar-light" aria-controls="bsd-b-navbar-light" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="bsd-b-navbar-light">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#bsd-hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bsd-pricing">Pricing</a></li>
+                    <li class="nav-item dropdown">
+                      <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Rooms</button>
+                      <ul class="dropdown-menu">
+                        <li><button class="dropdown-item" type="button">Kitchen</button></li>
+                        <li><button class="dropdown-item" type="button">Studio</button></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><button class="dropdown-item" type="button">All rooms</button></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Gift cards</a></li>
+                  </ul>
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search the collection" id="bsd-b-navbar-light-search">
+                    <button class="btn btn-outline-success" type="button">Search</button>
+                  </form>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Dark: bg-dark with data-bs-theme="dark"</h3>
+          <div data-demo>
+            <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#bsd-hero"><img src="https://picsum.photos/id/63/24/24.webp" class="d-inline-block align-text-top rounded me-2" width="24" height="24" alt="" loading="lazy" decoding="async">Northwind Studio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bsd-b-navbar-dark" aria-controls="bsd-b-navbar-dark" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="bsd-b-navbar-dark">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#bsd-hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bsd-pricing">Pricing</a></li>
+                    <li class="nav-item dropdown">
+                      <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Rooms</button>
+                      <ul class="dropdown-menu">
+                        <li><button class="dropdown-item" type="button">Kitchen</button></li>
+                        <li><button class="dropdown-item" type="button">Studio</button></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><button class="dropdown-item" type="button">All rooms</button></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Gift cards</a></li>
+                  </ul>
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search the collection" id="bsd-b-navbar-dark-search">
+                    <button class="btn btn-outline-success" type="button">Search</button>
+                  </form>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Offcanvas navbar: navbar-toggler opens an offcanvas-end at every width</h3>
+          <div data-demo>
+            <nav class="navbar bg-body-tertiary">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#bsd-hero"><img src="https://picsum.photos/id/63/24/24.webp" class="d-inline-block align-text-top rounded me-2" width="24" height="24" alt="" loading="lazy" decoding="async">Northwind Studio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#bsd-b-navbar-oc" aria-controls="bsd-b-navbar-oc" aria-label="Open the menu">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="bsd-b-navbar-oc" aria-labelledby="bsd-b-navbar-oc-label">
+                  <div class="offcanvas-header">
+                    <h2 class="offcanvas-title h5" id="bsd-b-navbar-oc-label">Menu</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#bsd-hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bsd-pricing">Pricing</a></li>
+                    <li class="nav-item dropdown">
+                      <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Rooms</button>
+                      <ul class="dropdown-menu">
+                        <li><button class="dropdown-item" type="button">Kitchen</button></li>
+                        <li><button class="dropdown-item" type="button">Studio</button></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><button class="dropdown-item" type="button">All rooms</button></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Gift cards</a></li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            </nav>
           </div>
         </section>
 

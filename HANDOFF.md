@@ -10,10 +10,10 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 10: Navbar (see "blocks.html plan"); then 11 Navs & tabs, then the
-     page blocks 12–18 (Hero, Features, Pricing, Testimonials, CTA, Contact, Footer).
+  1. blocks.html section 11: Navs & tabs (see "blocks.html plan"); then the page blocks 12–18
+     (Hero, Features, Pricing, Testimonials, CTA, Contact, Footer).
      forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas,
-     Carousel, Toasts, Tooltips, Popovers, ScrollSpy.
+     Carousel, Toasts, Tooltips, Popovers, ScrollSpy, Navbar.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -684,6 +684,18 @@ blocks.html 9 (ScrollSpy): DONE (autonomous run).
 - Checks: check.js + static OK; spybox.js: every nav click highlights its link (no hash
   change), Home/End in the focused box highlight first/last, both engines at 1400/576;
   spytest blocks 12/12.
+
+blocks.html 10 (Navbar): DONE (autonomous run).
+- Section `#bsd-navbar`: navbar-expand-lg bg-body-tertiary and bg-dark + data-bs-theme="dark"
+  (brand with picsum 63 24x24 logo, alt="", loading="lazy" because it is far below the first
+  screen; links to sections of this page instead of "#"; active link with aria-current; nav
+  dropdown as button.nav-link; disabled link; search form with type="button"); offcanvas
+  navbar (navbar-toggler → offcanvas-end at every width). No fixed/sticky.
+- Checks: check.js + static OK (3 images); interact.js (hidden triggers skipped per width):
+  collapse togglers at 576, dropdowns at 1400, offcanvas toggler at both — all OK; navdd.js:
+  dropdown inside the opened collapse at 576 opens and closes on Esc with focus back; dropdown
+  inside the offcanvas menu opens, the first Esc closes only the dropdown. spytest blocks
+  12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
