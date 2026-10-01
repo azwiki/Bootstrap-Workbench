@@ -455,7 +455,7 @@
         <!-- ============================================================ -->
         <!-- Carousel                                                     -->
         <!-- ============================================================ -->
-        <section id="bsd-carousel" class="py-4">
+        <section id="bsd-carousel" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Carousel</h2>
           <p class="small text-body-secondary">No autoplay here (no data-bs-ride="carousel"): slides change only with the controls, the indicators or the arrow keys.</p>
 
@@ -612,6 +612,71 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Toasts                                                       -->
+        <!-- ============================================================ -->
+        <section id="bsd-toasts" class="py-4">
+          <h2 class="h4 mb-3">Toasts</h2>
+          <p class="small text-body-secondary">Toasts do not take focus and do not react to Esc; they close with their button or hide after 5 seconds (live toast). The static ones below use the show class, so a dismissed one stays hidden until the page reloads.</p>
+
+          <h3 class="h6 mt-3 mb-2">Static toast: toast-header, toast-body (toast show)</h3>
+          <div data-demo>
+            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">Northwind Studio</strong>
+                <small>2 min ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">Your oak sample has shipped.</div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Live toast: shown from a button (toast-container position-fixed bottom-0 end-0 p-3)</h3>
+          <div data-demo>
+            <button type="button" class="btn btn-primary" id="bsd-toast-live-btn">Add to basket</button>
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+              <div id="bsd-toast-live" class="toast" role="status" aria-live="polite" aria-atomic="true">
+                <div class="toast-header">
+                  <strong class="me-auto">Basket</strong>
+                  <small>just now</small>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">Walnut desk added. Free delivery within 80 km.</div>
+              </div>
+            </div>
+          </div>
+          <p class="small text-body-secondary mt-2">The button is wired in bsd-demo.js: <code>bootstrap.Toast.getOrCreateInstance(toast).show()</code>.</p>
+
+          <h3 class="h6 mt-4 mb-2">Color schemes: text-bg-* with data-bs-theme="dark" for the white close button (btn-close-white is deprecated in 5.3)</h3>
+          <div data-demo class="d-grid gap-2">
+            <div class="toast align-items-center text-bg-primary border-0 show" data-bs-theme="dark" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="d-flex">
+                <div class="toast-body">Your quote is ready to download.</div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="toast align-items-center text-bg-danger border-0 show" data-bs-theme="dark" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="d-flex">
+                <div class="toast-body">Payment failed. Check the card details.</div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Custom content: actions in the toast-body</h3>
+          <div data-demo>
+            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-body">
+                Keep the walnut finish for your next order?
+                <div class="mt-2 pt-2 border-top">
+                  <button type="button" class="btn btn-primary btn-sm">Keep it</button>
+                  <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Not now</button>
+                </div>
               </div>
             </div>
           </div>

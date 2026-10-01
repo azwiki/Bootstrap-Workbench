@@ -10,10 +10,10 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 6: Toasts (see "blocks.html plan"); then 7 Tooltips, 8 Popovers, …
+  1. blocks.html section 7: Tooltips (see "blocks.html plan"); then 8 Popovers, 9 ScrollSpy, …
      forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas,
-     Carousel. After the last blocks section: scrollspy fix for unreachable sections (see
-     Offcanvas note), then rerun spytest on all pages.
+     Carousel, Toasts. After the last blocks section: scrollspy fix for unreachable sections
+     (see Offcanvas note), then rerun spytest on all pages.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -624,6 +624,17 @@ blocks.html 5 (Carousel): DONE (autonomous run).
 - Checks: check.js + static OK; carousel.js (next/prev click, next by Enter, ArrowRight,
   indicator click + aria-current) OK in both engines at 1400/576; images load when scrolled
   into view; spytest blocks 12/12 (the page is now long enough).
+
+blocks.html 6 (Toasts): DONE (autonomous run).
+- Section `#bsd-toasts`: static toast (toast show, header + body); live toast from
+  #bsd-toast-live-btn (bsd-demo.js) in `toast-container position-fixed bottom-0 end-0 p-3`
+  (only visible while shown; role="status" aria-live="polite"); text-bg-primary / -danger
+  toasts with data-bs-theme="dark" on the toast for the white close button (btn-close-white
+  is deprecated in 5.3); custom content with action buttons.
+- Toasts have no Esc and do not move focus (Bootstrap design, said in the section intro).
+- Checks: check.js + static OK; toast.js: live toast shows by click and Enter, hides by click
+  and Enter on its close button and by itself after 5 s, no overflow while shown; all 4
+  static toasts dismiss. spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
