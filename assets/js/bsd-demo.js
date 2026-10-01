@@ -30,7 +30,8 @@
   // into another site) no switch is rendered.
   var PAGES = [
     { id: 'classes', href: 'classes.html', label: 'Classes' },
-    { id: 'forms', href: 'forms.html', label: 'Forms' }
+    { id: 'forms', href: 'forms.html', label: 'Forms' },
+    { id: 'blocks', href: 'blocks.html', label: 'Blocks' }
   ];
 
   function buildPageSwitch() {
@@ -725,6 +726,21 @@
         if (!event.target.closest('a[href^="#"]')) return;
         if (!sidebar.classList.contains('show')) return;
         bootstrap.Offcanvas.getOrCreateInstance(sidebar).hide();
+      });
+    }
+
+    // Tooltips and popovers are opt-in in Bootstrap: initialize the demo ones
+    var tips = root.querySelectorAll('[data-bs-toggle="tooltip"]');
+    for (var t = 0; t < tips.length; t++) bootstrap.Tooltip.getOrCreateInstance(tips[t]);
+    var pops = root.querySelectorAll('[data-bs-toggle="popover"]');
+    for (var p = 0; p < pops.length; p++) bootstrap.Popover.getOrCreateInstance(pops[p]);
+
+    // Live toast demo: the button shows its toast (keyed by id)
+    var toastButton = document.getElementById('bsd-toast-live-btn');
+    var toastLive = document.getElementById('bsd-toast-live');
+    if (toastButton && toastLive) {
+      toastButton.addEventListener('click', function () {
+        bootstrap.Toast.getOrCreateInstance(toastLive).show();
       });
     }
   }

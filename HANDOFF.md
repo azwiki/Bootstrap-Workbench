@@ -10,9 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html (part B of the autonomous run): plan is written in HANDOFF first ("blocks.html
-     plan"), then the page switch entry, then one section per commit.
-     forms.html phase 4 is complete (steps 3–9 done in the autonomous run).
+  1. blocks.html section 1: Dropdowns (see "blocks.html plan").
+     forms.html complete; blocks.html skeleton + page switch done in the autonomous run.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -50,6 +49,8 @@ Colors, Color modes, Text colors, Borders & rounded, Links, Buttons, Button grou
 Alerts, Badges, List group, Tables, Cards, Progress, Spinners, Placeholders, Navbar, Navs & tabs,
 Pagination, Breadcrumb, Accordion, Shadows, Focus ring, Utility scales, Forms (only a link to
 forms.html).
+
+Sections in `blocks.html`: About this page (#bsd-blocks-intro); more per "blocks.html plan".
 
 Sections in `forms.html`: About this page (#bsd-forms-intro), Form controls, Select, Checks &
 radios, Range, Input group, Floating labels, Form layout, Validation.
@@ -550,6 +551,16 @@ child needs a fixed width = inline style).
 Checks per section: same as forms steps (check.js, static, spytest on blocks) plus an
 interaction script: every component opens and closes by mouse and keyboard, Esc where
 Bootstrap supports it, focus returns to the trigger, no console errors.
+
+blocks.html B2/B3: DONE (autonomous run).
+- blocks.html skeleton: same head/layout/tooling as forms.html, `data-bsd-page="blocks"`,
+  intro section `#bsd-blocks-intro`. PAGES in bsd-demo.js has a third entry "Blocks".
+- bsd-demo.js initBootstrap(): initializes every [data-bs-toggle="tooltip"] and
+  [data-bs-toggle="popover"] inside #bs-demo, and wires #bsd-toast-live-btn to show
+  #bsd-toast-live (keyed by id). Runs after the bundle in any load order (DOMContentLoaded).
+- Checks: blocks intro check.js + static OK, spytest blocks 12/12; the switch navigates
+  classes → blocks → forms → blocks → classes in both engines; classes.html and forms.html
+  captures differ only by the new "Blocks" link in the toolbar DOM (new baselines).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
