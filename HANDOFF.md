@@ -10,8 +10,7 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 16: Call to action (see "blocks.html plan"); then 17 Contact,
-     18 Footer.
+  1. blocks.html section 17: Contact form (see "blocks.html plan"); then 18 Footer.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -737,6 +736,12 @@ blocks.html 15 (Testimonials): DONE (autonomous run).
   figure > blockquote.blockquote.fs-6 + figcaption.blockquote-footer with cite; one large
   centered quote (figure.text-center, blockquote fs-4). No photos (see plan).
 - Checks: check.js (layout check off) + static OK; spytest blocks 12/12.
+
+blocks.html 16 (Call to action): DONE (autonomous run).
+- Section `#bsd-cta`: banner (text-bg-primary rounded-3 p-4 p-md-5, display-6, lead,
+  btn-light btn-lg link to #bsd-contact); inline bar (d-flex flex-column flex-md-row
+  align-items-md-center justify-content-between gap-3 p-4 border rounded-3 bg-body-tertiary).
+- Checks: check.js + static OK; spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
