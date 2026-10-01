@@ -10,8 +10,9 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. Final blocks.html check (all interaction scripts, check.js per section, spytest on all
-     pages), then part C: audit backlog pass on classes.html (one commit per section).
+  1. Part C: audit backlog pass on classes.html (approved): snippet generator gets
+     data-demo-unwrap / data-demo-drop first, then one commit per section; screenshots
+     before/after at 1400px light must be identical. Then part D (final cleanup).
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -757,6 +758,13 @@ blocks.html 18 (Footer): DONE (autonomous run).
   flex-wrap justify-content-between align-items-center, nav). Static, not fixed.
 - Checks: check.js (layout check off) + static OK; spytest blocks 12/12 (the short last
   section is handled by the activation-point spread).
+
+blocks.html final check (end of part B): DONE (autonomous run).
+- static + check.js on all 19 sections OK; interact.js for dropdowns, collapse, modal,
+  offcanvas, tooltips, popovers and the navbar (collapse, dropdown, offcanvas) OK; carousel,
+  toasts, ScrollSpy box, tabs and navbar dropdowns in collapse/offcanvas OK; hash load and
+  hashchange 24/24 (classes, forms, blocks); classes.html and forms.html captures identical
+  to their baselines; spytest classes + forms + blocks at 700/900/1200: 36/36.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
