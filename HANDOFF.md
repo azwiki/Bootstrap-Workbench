@@ -60,6 +60,11 @@ tools/spytest.js is in the repo.
   Alternative: rebuild the grids with per-column labels (visible change). Commit: "Snippet
   generator: data-demo-unwrap and data-demo-drop".
 
+- Anti-pattern (b) (image without width/height next to the correct one): the snippet now
+  shows only the two img tags (row/col unwrapped, the two caption paragraphs data-demo-skip).
+  Anti-pattern (a) keeps row/col-4/col-8: the narrow column is what breaks. Alternative:
+  keep the side-by-side grid in the snippet. Commit: "classes audit: Images snippets …".
+
 ### Blocked (autonomous run)
 - (none yet)
 
@@ -251,6 +256,7 @@ screenshot at 1400px light is byte-identical before/after unless noted.
 - Buttons: 7 d-flex rows unwrapped. btn-check examples were already clean (layout on the data-demo element). Screenshot identical.
 - Button group, Close button: already clean: btn-toolbar gap-2 is the canonical spacing between groups; no change.
 - Typography: 4 d-flex rows + 2 grids unwrapped; col-md-4 on the lh-* paragraphs and mb-0 on lists/figure/figcaption/pre dropped from snippets. dl.row with col-5/col-7 stays (canonical description list). Screenshot identical.
+- Images: d-flex rows / grids unwrapped in rounded, avatars, shadows, borders, figure, opacity, srcset; media object keeps its d-flex (canonical), only mb-4 between the two dropped; float alignment keeps its spacing (canonical keep list); anti-pattern (a) unchanged (the narrow column is the point); anti-pattern (b): row/col unwrapped and the Correct/Broken captions marked data-demo-skip, so the snippet is the two img tags. Screenshot identical.
 ### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
 - In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
   and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
