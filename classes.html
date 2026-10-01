@@ -1997,8 +1997,11 @@
             </div>
           </div>
 
-          <h3 class="h6 mt-3 mb-2">Grid row-cols-1 row-cols-md-3 with h-100 and mixed image aspect ratios (3:2, 1:1, 12:5)</h3>
-          <div data-demo>
+          <div class="alert alert-danger small py-2 mt-3">
+            The next example is wrong on purpose. Each photo keeps its own aspect ratio, so the images end at different heights and the card bodies start at different points. h-100 makes the cards equally tall, not the images.
+          </div>
+          <h3 class="h6 mt-3 mb-2">Broken: grid row-cols-1 row-cols-md-3 with h-100 and mixed image aspect ratios (3:2, 1:1, 12:5)</h3>
+          <div data-demo class="border border-danger rounded p-3">
             <div class="row row-cols-1 row-cols-md-3 g-3">
               <div class="col">
                 <div class="card h-100">
@@ -2025,6 +2028,7 @@
           </div>
 
           <h3 class="h6 mt-3 mb-2">Grid row-cols-1 row-cols-md-3 with h-100, card-footer and all images in ratio-4x3</h3>
+          <p class="small text-body-secondary">The fix for the broken grid above: every image sits in .ratio ratio-4x3, so all images get the same height whatever the size of the source file.</p>
           <div data-demo>
             <div class="row row-cols-1 row-cols-md-3 g-3">
               <div class="col">

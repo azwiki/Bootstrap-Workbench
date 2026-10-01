@@ -2,19 +2,16 @@
 
 ## Start here (cold start)
 
-- Last feature commit: `584cd6e` classes: Cards additions. After it: `7317419` (.gitignore for
-  .DS_Store) and the wrap-up commit that added this block (`git log -1`).
+- Last commit: "classes: Cards mixed-ratio grid becomes an anti-pattern before the 4:3 fix"
+  (`git log -1`). Before it: `90c389c` Untrack .DS_Store files.
 - First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
-- Awaiting user browser review: Cards additions (`584cd6e`).
-  Open point for that review: the old mixed-ratio card grid ("Grid row-cols-1 row-cols-md-3
-  with h-100 and mixed image aspect ratios") and the new 4:3 grid ("... all images in
-  ratio-4x3") both exist. User decides: keep both, or remove the old one.
+- Cards review done (user, 2026-09-30). Decision: both card grids stay as a problem → fix pair.
+  The old mixed-ratio grid is now a "Broken:" anti-pattern placed right before the 4:3 grid.
 - Next steps, in order (one section per edit, stop for review after each):
-  1. Cards review (and the decision above).
-  2. Utility scales.
-  3. forms.html: tooling-sharing plan first (toolbar/theme toggle, sidebar/scrollspy, snippet
+  1. Utility scales (plan proposed, awaiting approval before any code).
+  2. forms.html: tooling-sharing plan first (toolbar/theme toggle, sidebar/scrollspy, snippet
      generator, main.css link, no duplicated code), then the sections.
-  4. blocks.html.
+  3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
 - Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
   Web Inspector open). Safari caches the local site aggressively and can show stale HTML/CSS.
@@ -117,7 +114,7 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 - bg-light placeholder is nearly invisible on a light page (same audit signal as
   btn-outline-light).
 
-### Cards additions: done (checked in Playwright Chromium + WebKit, awaiting browser review)
+### Cards additions: done, reviewed by the user (2026-09-30)
 - Already covered before (not duplicated): default + text-bg-*, border-*, card-img-top on
   text-bg-*, card-img-bottom (3), object-position comparison, card-img-overlay, horizontal,
   card-group with images (mixed ratios), row-cols grid with mixed ratios + footer, shadows,
@@ -129,6 +126,16 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   h-100, card-footer, uneven text and all images in ratio-4x3 (the fix for the mixed-ratio
   grid; the row is kept in the snippet because the grid IS the example); clickable card with
   stretched-link (click on the image hits the link, verified).
+- After review: the old mixed-ratio row-cols grid became anti-pattern "Broken: grid ... mixed
+  image aspect ratios", directly before the 4:3 grid (the fix). Same labeling as the Images
+  anti-patterns: alert-danger above the heading, "Broken:" heading, `border border-danger
+  rounded p-3` on the data-demo element (not in the snippet). The 4:3 grid got one sentence
+  saying it is the fix; its "</>" therefore sits in a bar above the example, not in the
+  heading. Grid markup, image URLs and the snippet generator unchanged. Checked in Playwright
+  Chromium + WebKit, 1400/576px, light/dark: broken grid images 233/349/145px, fix 270px each,
+  no horizontal overflow, both snippets toggle and start with the row.
+- Not changed, reported: the card-group with mixed ratios (3:2, 3:4, 2:1) shows the same
+  uneven-image problem (248/495/186px at 1400px). It is not labeled as an anti-pattern.
 - Single cards are sized by `col-sm-8 col-md-6 col-lg-4` on the data-demo element.
 - New image IDs: 403, 885, 244 (640x360, ratio-16x9); 553, 1, 366 (600x450, ratio-4x3).
   All in v2/list, checked visually at the planned size, curl -sIL image/webp.
@@ -261,8 +268,9 @@ Each step = one section per edit, then stop for review.
 2. Close button: done, awaiting review.
 3. Button group: done, awaiting review.
 4. Placeholders: done, awaiting review.
-5. Cards additions: done, awaiting review. (Navs, List group, Navbar, Typography, Tables
-   additions and the Helpers section are skipped, see "Skipped".)
+5. Cards additions: done, reviewed (2026-09-30); mixed-ratio grid kept as anti-pattern before
+   the 4:3 fix. (Navs, List group, Navbar, Typography, Tables additions and the Helpers section
+   are skipped, see "Skipped".)
 6. Utility scales.
 7. forms.html: tooling-sharing plan first, then sections, then remove Form controls from
    classes.html and add the link.
