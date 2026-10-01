@@ -10,9 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. Part C: audit backlog pass on classes.html (approved): snippet generator gets
-     data-demo-unwrap / data-demo-drop first, then one commit per section; screenshots
-     before/after at 1400px light must be identical. Then part D (final cleanup).
+  1. Part C (audit pass on classes.html) in progress, one commit per section in page order;
+     see "Audit pass log" for the sections done. Then part D (final cleanup).
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -240,6 +239,11 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 - Colors contains only color utilities (verified); swatch helpers (p-2, border, rounded) are
   the only non-color classes.
 
+### Audit pass log (part C, autonomous run)
+Method: data-demo-unwrap / data-demo-drop (see "Snippet generator"); every section's
+screenshot at 1400px light is byte-identical before/after unless noted.
+
+- Colors: 7 grids unwrapped (row g-2 small + col-*). Swatch helper p-2 stays (documented exception, like Utility scales). Screenshot identical.
 ### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
 - In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
   and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
