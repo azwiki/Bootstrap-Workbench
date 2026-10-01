@@ -374,7 +374,7 @@
         <!-- ============================================================ -->
         <!-- Range                                                        -->
         <!-- ============================================================ -->
-        <section id="bsd-range" class="py-4">
+        <section id="bsd-range" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Range</h2>
 
           <h3 class="h6 mt-3 mb-2">form-range with form-label</h3>
@@ -399,6 +399,124 @@
           <div data-demo class="col-md-8 col-lg-6">
             <label for="bsd-f-range-depth" class="form-label">Desk depth in steps of 5 cm (50 to 90)</label>
             <input type="range" class="form-range" min="50" max="90" step="5" value="70" id="bsd-f-range-depth">
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Input group                                                  -->
+        <!-- ============================================================ -->
+        <section id="bsd-input-group" class="py-4">
+          <h2 class="h4 mb-3">Input group</h2>
+
+          <h3 class="h6 mt-3 mb-2">input-group-text on the left, on the right, on both sides, with a textarea</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="bsd-f-ig-at">@</span>
+              <input type="text" class="form-control" placeholder="studio handle" aria-label="Studio handle" aria-describedby="bsd-f-ig-at">
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Workshop email name" aria-label="Workshop email name" aria-describedby="bsd-f-ig-domain">
+              <span class="input-group-text" id="bsd-f-ig-domain">@northwind.test</span>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">€</span>
+              <input type="text" class="form-control" aria-label="Amount" value="240">
+              <span class="input-group-text">.00</span>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">Notes</span>
+              <textarea class="form-control" aria-label="Notes for the workshop"></textarea>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Two input-group-text addons</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group">
+              <span class="input-group-text">€</span>
+              <span class="input-group-text">per month</span>
+              <input type="text" class="form-control" aria-label="Monthly rent for the studio">
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Button addons: left, right, two buttons</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary" type="button">Paste</button>
+              <input type="text" class="form-control" placeholder="Order reference" aria-label="Order reference">
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Promo code" aria-label="Promo code">
+              <button class="btn btn-outline-secondary" type="button">Apply</button>
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Postcode" aria-label="Postcode">
+              <button class="btn btn-outline-secondary" type="button">Check</button>
+              <button class="btn btn-outline-secondary" type="button">Clear</button>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">input-group-sm, default, input-group-lg</h3>
+          <div data-demo class="d-grid gap-2 col-md-8 col-lg-6">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text">Small</span>
+              <input type="text" class="form-control" aria-label="Small input group">
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">Default</span>
+              <input type="text" class="form-control" aria-label="Default input group">
+            </div>
+            <div class="input-group input-group-lg">
+              <span class="input-group-text">Large</span>
+              <input type="text" class="form-control" aria-label="Large input group">
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Checkbox and radio addons (form-check-input mt-0)</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group mb-3">
+              <div class="input-group-text">
+                <input class="form-check-input mt-0" type="checkbox" aria-label="Add engraving">
+              </div>
+              <input type="text" class="form-control" aria-label="Engraving text" placeholder="Engraving text">
+            </div>
+            <div class="input-group">
+              <div class="input-group-text">
+                <input class="form-check-input mt-0" type="radio" name="bsd-f-ig-radio" aria-label="Use this address">
+              </div>
+              <input type="text" class="form-control" aria-label="Delivery address" placeholder="Delivery address">
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Two inputs in one group</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group">
+              <span class="input-group-text">Width and depth (cm)</span>
+              <input type="number" class="form-control" aria-label="Width in centimetres" value="140">
+              <input type="number" class="form-control" aria-label="Depth in centimetres" value="70">
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">form-select and a file input in a group</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="bsd-f-ig-select">Finish</label>
+              <select class="form-select" id="bsd-f-ig-select">
+                <option selected>Natural ash</option>
+                <option>Smoked oak</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <input type="file" class="form-control" id="bsd-f-ig-file">
+              <label class="input-group-text" for="bsd-f-ig-file">Floor plan</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">flex-nowrap (addons never wrap)</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="bsd-f-ig-nowrap">Room</span>
+              <input type="text" class="form-control" placeholder="Room name" aria-label="Room name" aria-describedby="bsd-f-ig-nowrap">
+            </div>
           </div>
         </section>
 

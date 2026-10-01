@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html phase 4, step 5: Input group (see "forms.html phase 4 plan", approved).
-     Steps 1–2 reviewed; steps 3–4 done in the autonomous run.
+  1. forms.html phase 4, step 6: Floating labels (see "forms.html phase 4 plan", approved).
+     Steps 1–2 reviewed; steps 3–5 done in the autonomous run.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -450,6 +450,15 @@ Step 3 (Checks & radios): DONE (autonomous run).
 Step 4 (Range): DONE (autonomous run).
 - Section `#bsd-range` after Checks & radios. 4 headings, 4 data-demos (col-md-8 col-lg-6 on
   data-demo): form-range + form-label (moved id bsd-f-range), disabled, min/max, step.
+- Checks: all pass (check.js, static, spytest forms 12/12, classes.html capture identical).
+
+Step 5 (Input group): DONE (autonomous run).
+- Section `#bsd-input-group` after Range. 8 headings, 8 data-demos (col-md-8 col-lg-6 on
+  data-demo; stacked groups use mb-3 as in Bootstrap's own pattern): text addons left/right/
+  both + textarea (moved € / .00 group); two addons; button addons left/right/two buttons
+  (moved promo code group), all type="button"; input-group-sm/default/-lg (d-grid gap-2 on
+  data-demo); checkbox/radio addons (form-check-input mt-0); two inputs; form-select and file
+  input with label.input-group-text; flex-nowrap. Dropdown/segmented buttons: blocks.html.
 - Checks: all pass (check.js, static, spytest forms 12/12, classes.html capture identical).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
