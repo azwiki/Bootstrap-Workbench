@@ -261,6 +261,7 @@ screenshot at 1400px light is byte-identical before/after unless noted.
 - Badges: 4 d-flex rows unwrapped; p-2 on the positioned dot badge stays (canonical). Screenshot identical.
 - Spinners: 3 d-flex rows unwrapped. Screenshot identical.
 - Pagination: 1 d-flex row unwrapped, mb-0 on the three ul.pagination dropped from snippets. Screenshot identical.
+- Focus ring: 1 d-flex row unwrapped; py-1 px-2 on the links stays (docs pattern). Screenshot identical.
 ### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
 - In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
   and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
