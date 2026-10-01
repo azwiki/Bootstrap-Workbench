@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 13: Features (see "blocks.html plan"); then 14 Pricing,
-     15 Testimonials, 16 CTA, 17 Contact, 18 Footer.
+  1. blocks.html section 14: Pricing (see "blocks.html plan"); then 15 Testimonials, 16 CTA,
+     17 Contact, 18 Footer.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -717,6 +717,12 @@ blocks.html 12 (Hero): DONE (autonomous run).
   inside the demo column, so g-4.
 - Picsum 48 (planned) was replaced by 201: 48 shows a brand logo on the laptop lid.
 - Checks: check.js (layout check off) + static OK (1 image, curl webp); spytest blocks 12/12.
+
+blocks.html 13 (Features): DONE (autonomous run).
+- Section `#bsd-features`: 3 columns (row row-cols-1 row-cols-md-3 g-4) with numbered tiles
+  (bg-primary-subtle text-primary-emphasis rounded-3), h4.fs-5, icon-link links to sections;
+  2 columns with the tile beside the text (d-flex align-items-start, text-bg-secondary tile).
+- Checks: check.js (layout check off) + static OK; spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
