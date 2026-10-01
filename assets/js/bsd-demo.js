@@ -612,6 +612,15 @@
     });
   }
 
+  // ------------------------------------------------------------------
+  // Demo forms never submit: Enter in a field or a submit button would
+  // otherwise reload the page. Demo-only, not part of any snippet.
+  // ------------------------------------------------------------------
+
+  root.addEventListener('submit', function (event) {
+    event.preventDefault();
+  });
+
   // Restore the saved theme (after renderTokens is defined)
   var savedTheme = storageGet('bsd-theme');
   applyTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : currentTheme());

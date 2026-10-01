@@ -2,16 +2,16 @@
 
 ## Start here (cold start)
 
-- Last commit: "forms.html skeleton and page switch" (`git log -1`). Before it: `45c4d71`
-  bsd-demo.js builds toolbar, sidebar and tokens panel.
+- Last commit: "forms: Form controls section" (`git log -1`). Before it: `0346e6d` HANDOFF:
+  Safari localStorage check and forms plan.
 - First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
 - Cards review done (user, 2026-09-30). Decision: both card grids stay as a problem → fix pair.
   The old mixed-ratio grid is now a "Broken:" anti-pattern placed right before the 4:3 grid.
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html plan, phase 4: move the forms sections one at a time, Form controls first
-     (see "forms.html phase 4 plan", approved). Phases 1–3 reviewed.
+  1. forms.html phase 4, step 2: Select (see "forms.html phase 4 plan", approved).
+     Step 1 (Form controls) done, awaiting review.
   2. After Form controls leaves classes.html: re-check the Shadows/Focus ring scrollspy quirk.
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -218,8 +218,9 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 - Flex rows of same-kind variants (new sections): one data-demo whose OWN classes carry the
   row layout, e.g. `<div data-demo class="d-flex flex-wrap gap-2">`. The snippet then lists
   only the variants. Works for flex rows only; col-* grids use the per-column pattern above.
-- Demo-only JS (e.g. setting `.indeterminate` on a checkbox) goes in the existing inline
-  tooling script and selects the element by id. No inline on* handlers.
+- Demo-only JS (e.g. setting `.indeterminate` on a checkbox) lives in assets/js/bsd-demo.js,
+  keyed by id. No inline on* handlers. bsd-demo.js also cancels `submit` for every form inside
+  #bs-demo (safety net, never in snippets).
 
 ### Section plan (decided 2026-09-30)
 - Background and Link utilities: already fully covered by Colors and Links. No new sections.
@@ -378,6 +379,30 @@ Order (one section per edit, stop for review after each):
 7. Form layout  8. Validation  9. Remove #bsd-forms from classes.html, link to forms.html in its
 place, update #bsd-forms-intro, re-check the Shadows/Focus ring scrollspy quirk.
 Old E1–E3 stay on classes.html until step 9.
+
+Step 1 (Form controls): DONE, awaiting review.
+- Section `#bsd-form-controls` on forms.html after `#bsd-forms-intro` (section ids follow
+  `bsd-<section name>`; `bsd-f-*` is reserved for control ids, so the two never collide).
+  The intro section got `border-bottom` (it is no longer the last section).
+- 9 headings, 14 data-demos, 20 controls: form-label/form-control/form-text; input types
+  (email, password + help, number, date) as a 4-column grid; -sm/default/-lg; states grid
+  (disabled, readonly, form-control-plaintext, fieldset disabled + legend + type="button"
+  button); file input (default, multiple, disabled, -sm, -lg); form-control-color; datalist;
+  textarea. Single examples are sized by `col-md-8 col-lg-6` on the data-demo element.
+- Moved ids keep their names: bsd-f-name(-help), bsd-f-disabled, bsd-f-readonly, bsd-f-color,
+  bsd-f-note. No `<form>` in this section.
+- Checked in Playwright Chromium + WebKit, 1400/576px, light/dark, via file:// and
+  http://mini.local/projects/Bootstrap-demo/ (serves the working tree): no JS errors, no
+  overflow, sidebar has the link, all 14 toggles in headings, snippets without data-demo and
+  without row/col/g-*/d-grid/gap-*, every control has an accessible name, fieldset has a
+  legend, Enter in all 10 editable fields does not navigate. Safety net verified with a
+  temporary form inside #bs-demo (Enter + submit click: 0 navigations); control test: a form
+  outside #bs-demo does navigate. All classes grep-verified.
+- Scrollspy at 1400px: clicking "Form controls" leaves NO link active (576px works). Cause:
+  on load both sections are visible, Bootstrap activates the first and stops; the tall
+  section never crosses a threshold (0.1/0.5/1) during the 285px scroll. Same mechanism as
+  the Shadows/Focus ring quirk. Not changed; possible fix to discuss: `data-bs-threshold`
+  with more steps on #bs-demo (ScrollSpy parses a comma list).
 
 ### Toolbar (fixed, top-right)
 - "Sections" button, shown below lg only: opens the sidebar offcanvas.

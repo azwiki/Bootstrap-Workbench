@@ -31,9 +31,150 @@
         <!-- ============================================================ -->
         <!-- Intro                                                        -->
         <!-- ============================================================ -->
-        <section id="bsd-forms-intro" class="py-4">
+        <section id="bsd-forms-intro" class="py-4 border-bottom">
           <h2 class="h4 mb-3">About this page</h2>
           <p>This page will collect every form example: controls, selects, checks and radios, ranges, input groups, floating labels, layout and validation. The sections move over from the Classes page one at a time.</p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Form controls                                                -->
+        <!-- ============================================================ -->
+        <section id="bsd-form-controls" class="py-4">
+          <h2 class="h4 mb-3">Form controls</h2>
+
+          <h3 class="h6 mt-3 mb-2">form-label, form-control, form-text (linked with aria-describedby)</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <label for="bsd-f-name" class="form-label">Full name</label>
+            <input type="text" class="form-control" id="bsd-f-name" placeholder="Mara Quell" aria-describedby="bsd-f-name-help">
+            <div id="bsd-f-name-help" class="form-text">As printed on the invoice.</div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Input types: email, password, number, date</h3>
+          <div class="row g-3">
+            <div class="col-md-6 col-xl-3">
+              <h4 class="small mb-1">type="email"</h4>
+              <div data-demo>
+                <label for="bsd-f-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="bsd-f-email" placeholder="studio@northwind.test">
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <h4 class="small mb-1">type="password"</h4>
+              <div data-demo>
+                <label for="bsd-f-password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="bsd-f-password" aria-describedby="bsd-f-password-help">
+                <div id="bsd-f-password-help" class="form-text">Twelve characters or more.</div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <h4 class="small mb-1">type="number"</h4>
+              <div data-demo>
+                <label for="bsd-f-quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="bsd-f-quantity" value="2" min="1" max="12">
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <h4 class="small mb-1">type="date"</h4>
+              <div data-demo>
+                <label for="bsd-f-date" class="form-label">Delivery date</label>
+                <input type="date" class="form-control" id="bsd-f-date">
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">form-control-sm, default, form-control-lg</h3>
+          <div data-demo class="d-grid gap-2 col-md-8 col-lg-6">
+            <input type="text" class="form-control form-control-sm" placeholder="Small: form-control-sm" aria-label="Small input">
+            <input type="text" class="form-control" placeholder="Default size" aria-label="Default input">
+            <input type="text" class="form-control form-control-lg" placeholder="Large: form-control-lg" aria-label="Large input">
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">States: disabled, readonly, form-control-plaintext, fieldset disabled</h3>
+          <div class="row g-3">
+            <div class="col-md-6 col-xl-3">
+              <h4 class="small mb-1">disabled</h4>
+              <div data-demo>
+                <label for="bsd-f-disabled" class="form-label">Disabled</label>
+                <input type="text" class="form-control" id="bsd-f-disabled" value="Locked field" disabled>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <h4 class="small mb-1">readonly</h4>
+              <div data-demo>
+                <label for="bsd-f-readonly" class="form-label">Readonly</label>
+                <input type="text" class="form-control" id="bsd-f-readonly" value="NW-2041" readonly>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <h4 class="small mb-1">form-control-plaintext</h4>
+              <div data-demo>
+                <label for="bsd-f-plaintext" class="form-label">Order number</label>
+                <input type="text" class="form-control-plaintext" id="bsd-f-plaintext" value="NW-2041-B" readonly>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <h4 class="small mb-1">fieldset disabled</h4>
+              <div data-demo>
+                <fieldset disabled>
+                  <legend class="h6">Studio account</legend>
+                  <div class="mb-3">
+                    <label for="bsd-f-fs-name" class="form-label">Studio name</label>
+                    <input type="text" class="form-control" id="bsd-f-fs-name" value="Northwind Studio">
+                  </div>
+                  <button type="button" class="btn btn-primary">Save</button>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">File input: default, multiple, disabled, form-control-sm, form-control-lg</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="mb-3">
+              <label for="bsd-f-file" class="form-label">Floor plan</label>
+              <input class="form-control" type="file" id="bsd-f-file">
+            </div>
+            <div class="mb-3">
+              <label for="bsd-f-file-multiple" class="form-label">Room photos</label>
+              <input class="form-control" type="file" id="bsd-f-file-multiple" multiple>
+            </div>
+            <div class="mb-3">
+              <label for="bsd-f-file-disabled" class="form-label">Signed contract</label>
+              <input class="form-control" type="file" id="bsd-f-file-disabled" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="bsd-f-file-sm" class="form-label">Small file input</label>
+              <input class="form-control form-control-sm" type="file" id="bsd-f-file-sm">
+            </div>
+            <div>
+              <label for="bsd-f-file-lg" class="form-label">Large file input</label>
+              <input class="form-control form-control-lg" type="file" id="bsd-f-file-lg">
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">form-control-color</h3>
+          <div data-demo>
+            <label for="bsd-f-color" class="form-label">Accent color</label>
+            <input type="color" class="form-control form-control-color" id="bsd-f-color" value="#2f6f5e">
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">datalist (form-control with a list attribute)</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <label for="bsd-f-wood" class="form-label">Wood</label>
+            <input class="form-control" list="bsd-f-wood-options" id="bsd-f-wood" placeholder="Start typing a wood">
+            <datalist id="bsd-f-wood-options">
+              <option value="Ash">
+              <option value="Birch">
+              <option value="Maple">
+              <option value="Oak">
+              <option value="Walnut">
+            </datalist>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">textarea.form-control</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <label for="bsd-f-note" class="form-label">Delivery note</label>
+            <textarea class="form-control" id="bsd-f-note" rows="3"></textarea>
+          </div>
         </section>
 
         <!-- bsd:continue -->
