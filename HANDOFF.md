@@ -265,6 +265,7 @@ screenshot at 1400px light is byte-identical before/after unless noted.
 - List group: 2 grids unwrapped; d-flex/justify-content-between/me-* inside items stay (canonical keep list). Screenshot identical.
 - Tables: 1 grid unwrapped; mb-0 on the table inside table-responsive dropped. Screenshot identical.
 - Progress: 2 grids unwrapped. Screenshot identical.
+- Navbar: d-grid gap-2 wrapper around the navbars unwrapped; me-2 between logo and brand text stays (content spacing). Screenshot identical.
 ### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
 - In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
   and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
