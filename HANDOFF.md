@@ -10,10 +10,10 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 5: Carousel (see "blocks.html plan"); then 6 Toasts, 7 Tooltips, …
-     forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas.
-     After the last blocks section: fix the sidebar scrollspy for sections the page cannot
-     scroll up to the line (see Offcanvas note), then rerun spytest on all pages.
+  1. blocks.html section 6: Toasts (see "blocks.html plan"); then 7 Tooltips, 8 Popovers, …
+     forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas,
+     Carousel. After the last blocks section: scrollspy fix for unreachable sections (see
+     Offcanvas note), then rerun spytest on all pages.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -40,6 +40,10 @@ tools/spytest.js is in the repo.
   from the forms Input group plan to blocks.html Dropdowns; collapse-horizontal left out
   (needs an inline width); testimonials without photos. Alternatives: an inline-style
   exception for collapse-horizontal; landscape crops as avatars. Commit: the plan commit.
+
+- Carousel `slide` class: not in bootstrap.min.css, but a JS hook in the local 5.3.8 bundle
+  (`_isAnimated(){return classList.contains("slide")}`), canonical carousel markup. Kept.
+  Alternative: drop it (no slide animation). Commit: "blocks: Carousel section".
 
 ### Blocked (autonomous run)
 - (none yet)
@@ -607,6 +611,19 @@ blocks.html 4 (Offcanvas): DONE (autonomous run).
   the second-to-last section can never reach the 120px line (the page cannot scroll that
   far), and at the bottom the last section wins. Plan: give unreachable sections evenly
   spaced activation points inside the remaining scroll range (record as a decision).
+
+blocks.html 5 (Carousel): DONE (autonomous run).
+- Section `#bsd-carousel`: 4 carousels, no autoplay (no data-bs-ride): controls + indicators
+  (aria-current, aria-label) + captions (h4.h5, d-none d-md-block); carousel-fade; dark:
+  data-bs-theme="dark" next to carousel-dark "(deprecated in 5.3)". Images 800x400 webp:
+  picsum 10, 28, 235 (default + fade); 215, 201, 131 (light images for the dark variants,
+  so the dark captions stay readable). All in v2/list, checked visually, curl image/webp.
+- `slide` is not in bootstrap.min.css: it is a JS hook (the bundle animates only when the
+  carousel has it). Kept; static.sh accepts classes the local bundle tests with
+  classList.contains("…"). See "Decisions for review".
+- Checks: check.js + static OK; carousel.js (next/prev click, next by Enter, ArrowRight,
+  indicator click + aria-current) OK in both engines at 1400/576; images load when scrolled
+  into view; spytest blocks 12/12 (the page is now long enough).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
