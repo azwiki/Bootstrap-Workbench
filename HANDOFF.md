@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. Part C (audit pass on classes.html) in progress, one commit per section in page order;
-     see "Audit pass log" for the sections done. Then part D (final cleanup).
+  1. Part D: consolidate HANDOFF.md and CLAUDE.md (final cleanup), then the autonomous run
+     summary at the top of HANDOFF. Parts A, B, C are done.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -228,21 +228,14 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   appear in blocks.html.
 - Helpers section: skipped. stretched-link moved into Cards.
 
-### Audit backlog (approved, fix in a separate pass; do NOT retrofit yet)
-- 78 of 100 snippets contain demo layout wrappers or demo-only classes. Clean: rounded-circle,
-  lead/inline text, img-fluid, img-thumbnail, all object-fit/portrait/ratio examples,
-  the 3 Cards object-position cards, card-group, row-cols card grid.
-- Typical problems: outer `row g-* small` + `col-*` grids (Colors, Borders, Cards, Alerts,
-  Tables, Progress, Navs, Breadcrumb, Accordion, Shadows, Forms), outer `d-flex flex-wrap gap-*`
-  rows (Text colors, Links, Buttons, Badges, Spinners, Pagination, Focus ring, Images),
-  demo-only `p-2`/`p-3` on swatches, `mb-0`/`mb-2`/`mb-3`/`mt-2` between variants, `h-100` on
-  cards, `small` on grids, `d-grid gap-2` around the navbars.
-- Canonical (keep): navbar container-fluid/me-auto, horizontal card inner row g-0/col-md-*,
-  list-group d-flex justify-content-between/me-auto, media object d-flex/flex-shrink-0,
-  positioned badges, float/mx-auto alignment, focus-ring link classes, breadcrumb bg/p-2 example.
-- Needs a decision: anti-pattern (b) side-by-side col-6 comparison.
-- Colors contains only color utilities (verified); swatch helpers (p-2, border, rounded) are
-  the only non-color classes.
+### Audit backlog: RESOLVED in the autonomous run (part C, see "Audit pass log")
+- Result: no demo layout wrapper left in any classes.html snippet except where the layout is
+  the example (anti-pattern (a), the mixed-ratio card grid and its 4:3 fix, Utility scales).
+  53 of 136 snippets still contain flagged-looking classes; all are deliberate:
+  sample/swatch helpers (Colors, Borders, Shadows, Text colors px-1), canonical patterns
+  (list group d-flex, media object, horizontal card row g-0, card-subtitle mb-2, positioned
+  badge p-2, focus-ring link py-1 px-2, breadcrumb bg/p-2, btn-toolbar gap-2, dl.row,
+  placeholder col-*), documented exceptions (Utility scales, Color modes islands).
 
 ### Audit pass log (part C, autonomous run)
 Method: data-demo-unwrap / data-demo-drop (see "Snippet generator"); every section's
@@ -808,6 +801,10 @@ blocks.html final check (end of part B): DONE (autonomous run).
   toasts, ScrollSpy box, tabs and navbar dropdowns in collapse/offcanvas OK; hash load and
   hashchange 24/24 (classes, forms, blocks); classes.html and forms.html captures identical
   to their baselines; spytest classes + forms + blocks at 700/900/1200: 36/36.
+
+Part C (audit pass) complete: all 25 classes.html sections processed (see "Audit pass log"),
+every section screenshot at 1400px light byte-identical before/after; spytest classes 12/12
+after the pass.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
