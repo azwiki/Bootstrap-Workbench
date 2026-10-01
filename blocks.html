@@ -39,7 +39,7 @@
         <!-- ============================================================ -->
         <!-- Dropdowns                                                    -->
         <!-- ============================================================ -->
-        <section id="bsd-dropdowns" class="py-4">
+        <section id="bsd-dropdowns" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Dropdowns</h2>
           <p class="small text-body-secondary">Menu items are buttons here, so picking one never changes the URL. Links (a.dropdown-item) work the same way.</p>
 
@@ -171,6 +171,45 @@
                 <li><button class="dropdown-item" type="button">Save as copy</button></li>
                 <li><button class="dropdown-item" type="button">Save and email</button></li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Collapse                                                     -->
+        <!-- ============================================================ -->
+        <section id="bsd-collapse" class="py-4">
+          <h2 class="h4 mb-3">Collapse</h2>
+
+          <h3 class="h6 mt-3 mb-2">Link and button toggles</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <p class="d-inline-flex gap-1">
+              <a class="btn btn-primary" data-bs-toggle="collapse" href="#bsd-b-care" role="button" aria-expanded="false" aria-controls="bsd-b-care">Care guide (link)</a>
+              <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bsd-b-care" aria-expanded="false" aria-controls="bsd-b-care">Care guide (button)</button>
+            </p>
+            <div class="collapse" id="bsd-b-care">
+              <div class="card card-body">Wipe oiled wood with a dry cloth and re-oil it twice a year. Keep it out of direct sun for the first month.</div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">One button for several targets (data-bs-target with two ids)</h3>
+          <div data-demo>
+            <p class="d-inline-flex flex-wrap gap-1">
+              <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bsd-b-dims" aria-expanded="false" aria-controls="bsd-b-dims">Dimensions</button>
+              <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bsd-b-materials" aria-expanded="false" aria-controls="bsd-b-materials">Materials</button>
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#bsd-b-dims,#bsd-b-materials" aria-expanded="false" aria-controls="bsd-b-dims bsd-b-materials">Both</button>
+            </p>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="collapse" id="bsd-b-dims">
+                  <div class="card card-body">Width 140 cm, depth 70 cm, height 74 cm.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="collapse" id="bsd-b-materials">
+                  <div class="card card-body">Solid walnut top, powder-coated steel frame.</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

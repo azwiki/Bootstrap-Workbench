@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 2: Collapse (see "blocks.html plan"); then 3 Modal, 4 Offcanvas, …
-     forms.html complete; blocks.html sections done so far: Dropdowns.
+  1. blocks.html section 3: Modal (see "blocks.html plan"); then 4 Offcanvas, 5 Carousel, …
+     forms.html complete; blocks.html sections done so far: Dropdowns, Collapse.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -575,6 +575,14 @@ blocks.html 1 (Dropdowns): DONE (autonomous run).
   576x1200: the intro cannot be scrolled to the top, the click lands at the bottom where the
   last section wins). Accepted while blocks.html is being built; spytest must pass on
   blocks.html once all sections are in (rechecked at the end of part B).
+
+blocks.html 2 (Collapse): DONE (autonomous run).
+- Section `#bsd-collapse`: link (href="#id", role="button") + button toggles for one target;
+  one button for two targets via `data-bs-target="#bsd-b-dims,#bsd-b-materials"` (no custom
+  multi-collapse class). That snippet keeps row g-3 + col-md-6 as in Bootstrap's own pattern.
+- Checks: check.js (layout check off for the row above) + static OK; interact.js OK for all 5
+  toggles (click and Enter open/close, focus stays on the toggle). spytest blocks: only the
+  short-page failure at 1400x1200 remains (see Dropdowns note).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
