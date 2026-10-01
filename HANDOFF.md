@@ -18,8 +18,6 @@
   The audit backlog pass stays separate: only when the user says so.
 - Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
   Web Inspector open). Safari caches the local site aggressively and can show stale HTML/CSS.
-- Note: `assets/.DS_Store` and `assets/img/.DS_Store` are still tracked (committed before
-  .gitignore existed). Untracking them (`git rm --cached`) is waiting for the user's OK.
 
 ## Current state
 
