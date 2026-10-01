@@ -10,10 +10,10 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 7: Tooltips (see "blocks.html plan"); then 8 Popovers, 9 ScrollSpy, …
+  1. blocks.html section 8: Popovers (see "blocks.html plan"); then 9 ScrollSpy, 10 Navbar, …
      forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas,
-     Carousel, Toasts. After the last blocks section: scrollspy fix for unreachable sections
-     (see Offcanvas note), then rerun spytest on all pages.
+     Carousel, Toasts, Tooltips. After the last blocks section: scrollspy fix for
+     unreachable sections (see Offcanvas note), then rerun spytest on all pages.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -635,6 +635,16 @@ blocks.html 6 (Toasts): DONE (autonomous run).
 - Checks: check.js + static OK; toast.js: live toast shows by click and Enter, hides by click
   and Enter on its close button and by itself after 5 s, no overflow while shown; all 4
   static toasts dismiss. spytest blocks 12/12.
+
+blocks.html 7 (Tooltips): DONE (autonomous run).
+- Section `#bsd-tooltips`: placements top/right/bottom/left (data-bs-title; labels "End" and
+  "Start" for right/left), disabled button inside a focusable `span.d-inline-block`
+  (tabindex="0"), tooltip on an inline link (href="forms.html", no "#" link). Inits in
+  bsd-demo.js (section intro says so).
+- Bootstrap 5.3.8 tooltips have no Esc handling (only dropdown, modal and offcanvas do;
+  verified in the bundle). interact.js: hover opens, mouse-out closes, focus opens, blur
+  closes; OK for all 6 triggers in both engines at 1400/576. check.js + static OK; spytest
+  blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

@@ -620,7 +620,7 @@
         <!-- ============================================================ -->
         <!-- Toasts                                                       -->
         <!-- ============================================================ -->
-        <section id="bsd-toasts" class="py-4">
+        <section id="bsd-toasts" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Toasts</h2>
           <p class="small text-body-secondary">Toasts do not take focus and do not react to Esc; they close with their button or hide after 5 seconds (live toast). The static ones below use the show class, so a dismissed one stays hidden until the page reloads.</p>
 
@@ -679,6 +679,34 @@
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Tooltips                                                     -->
+        <!-- ============================================================ -->
+        <section id="bsd-tooltips" class="py-4">
+          <h2 class="h4 mb-3">Tooltips</h2>
+          <p class="small text-body-secondary">Tooltips are opt-in: bsd-demo.js initializes every <code>[data-bs-toggle="tooltip"]</code> on this page with <code>bootstrap.Tooltip.getOrCreateInstance()</code>. They open on hover and on keyboard focus.</p>
+
+          <h3 class="h6 mt-3 mb-2">data-bs-placement: top, end, bottom, start</h3>
+          <div data-demo class="d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ships in 3 days">Top</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Made to order">End</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Solid walnut">Bottom</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Free delivery nearby">Start</button>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">On a disabled button: focusable wrapper span (tabindex="0")</h3>
+          <div data-demo>
+            <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-title="Pick a finish first">
+              <button class="btn btn-primary" type="button" disabled>Order now</button>
+            </span>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">On a link in running text</h3>
+          <div data-demo>
+            <p class="mb-0">Questions about sizes? The <a href="forms.html" data-bs-toggle="tooltip" data-bs-title="Opens the Forms page">contact form</a> reaches the workshop directly.</p>
           </div>
         </section>
 
