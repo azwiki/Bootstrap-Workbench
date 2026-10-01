@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html phase 4, step 6: Floating labels (see "forms.html phase 4 plan", approved).
-     Steps 1–2 reviewed; steps 3–5 done in the autonomous run.
+  1. forms.html phase 4, step 7: Form layout (see "forms.html phase 4 plan", approved).
+     Steps 1–2 reviewed; steps 3–6 done in the autonomous run.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -460,6 +460,16 @@ Step 5 (Input group): DONE (autonomous run).
   data-demo); checkbox/radio addons (form-check-input mt-0); two inputs; form-select and file
   input with label.input-group-text; flex-nowrap. Dropdown/segmented buttons: blocks.html.
 - Checks: all pass (check.js, static, spytest forms 12/12, classes.html capture identical).
+
+Step 6 (Floating labels): DONE (autonomous run).
+- Section `#bsd-floating-labels` after Input group. 6 headings, 8 data-demos: email +
+  password (moved id bsd-f-float); textarea at default height; form-select; states grid
+  (disabled, readonly with value, form-control-plaintext); inside an input group; grid row g-2
+  + col-md (snippet keeps row/col on purpose, note above the heading says so). Intro line:
+  placeholder required, label after the control.
+- Checks: all pass (check.js with the layout check off for this section; only the grid
+  example has row inside its data-demo, verified by grep), static, spytest forms 12/12,
+  classes.html capture identical.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

@@ -405,7 +405,7 @@
         <!-- ============================================================ -->
         <!-- Input group                                                  -->
         <!-- ============================================================ -->
-        <section id="bsd-input-group" class="py-4">
+        <section id="bsd-input-group" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Input group</h2>
 
           <h3 class="h6 mt-3 mb-2">input-group-text on the left, on the right, on both sides, with a textarea</h3>
@@ -516,6 +516,110 @@
             <div class="input-group flex-nowrap">
               <span class="input-group-text" id="bsd-f-ig-nowrap">Room</span>
               <input type="text" class="form-control" placeholder="Room name" aria-label="Room name" aria-describedby="bsd-f-ig-nowrap">
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Floating labels                                              -->
+        <!-- ============================================================ -->
+        <section id="bsd-floating-labels" class="py-4">
+          <h2 class="h4 mb-3">Floating labels</h2>
+          <p class="small text-body-secondary">form-floating needs a placeholder on the control (it can repeat the label) and the label after the control.</p>
+
+          <h3 class="h6 mt-3 mb-2">form-floating: email and password</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="bsd-f-float" placeholder="studio@northwind.test">
+              <label for="bsd-f-float">Email</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="bsd-f-float-password" placeholder="Password">
+              <label for="bsd-f-float-password">Password</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">textarea (default height, no inline style)</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Leave a note for the workshop" id="bsd-f-float-note"></textarea>
+              <label for="bsd-f-float-note">Note for the workshop</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">form-select</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="form-floating">
+              <select class="form-select" id="bsd-f-float-select">
+                <option selected>Natural ash</option>
+                <option>Smoked oak</option>
+                <option>Black stain</option>
+              </select>
+              <label for="bsd-f-float-select">Finish</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">States: disabled, readonly with a value, form-control-plaintext</h3>
+          <div class="row g-3">
+            <div class="col-md-6 col-xl-4">
+              <h4 class="small mb-1">disabled</h4>
+              <div data-demo>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="bsd-f-float-disabled" placeholder="Studio code" disabled>
+                  <label for="bsd-f-float-disabled">Studio code</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <h4 class="small mb-1">readonly</h4>
+              <div data-demo>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="bsd-f-float-readonly" placeholder="Order number" value="NW-2041" readonly>
+                  <label for="bsd-f-float-readonly">Order number</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <h4 class="small mb-1">form-control-plaintext</h4>
+              <div data-demo>
+                <div class="form-floating">
+                  <input type="email" class="form-control-plaintext" id="bsd-f-float-plaintext" placeholder="Account email" value="studio@northwind.test" readonly>
+                  <label for="bsd-f-float-plaintext">Account email</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Inside an input group</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group">
+              <span class="input-group-text">@</span>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="bsd-f-float-handle" placeholder="Studio handle">
+                <label for="bsd-f-float-handle">Studio handle</label>
+              </div>
+            </div>
+          </div>
+
+          <p class="small text-body-secondary mt-4 mb-0">This snippet keeps row and col-md on purpose: the grid is the pattern.</p>
+          <h3 class="h6 mt-3 mb-2">In a grid: row g-2 with col-md</h3>
+          <div data-demo>
+            <div class="row g-2">
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="bsd-f-float-city" placeholder="City" value="Lisbon">
+                  <label for="bsd-f-float-city">City</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <select class="form-select" id="bsd-f-float-country">
+                    <option selected>Portugal</option>
+                    <option>Spain</option>
+                  </select>
+                  <label for="bsd-f-float-country">Country</label>
+                </div>
+              </div>
             </div>
           </div>
         </section>
