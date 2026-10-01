@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 3: Modal (see "blocks.html plan"); then 4 Offcanvas, 5 Carousel, …
-     forms.html complete; blocks.html sections done so far: Dropdowns, Collapse.
+  1. blocks.html section 4: Offcanvas (see "blocks.html plan"); then 5 Carousel, 6 Toasts, …
+     forms.html complete; blocks.html sections done so far: Dropdowns, Collapse, Modal.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -583,6 +583,16 @@ blocks.html 2 (Collapse): DONE (autonomous run).
 - Checks: check.js (layout check off for the row above) + static OK; interact.js OK for all 5
   toggles (click and Enter open/close, focus stays on the toggle). spytest blocks: only the
   short-page failure at 1400x1200 remains (see Dropdowns note).
+
+blocks.html 3 (Modal): DONE (autonomous run).
+- Section `#bsd-modal`: 5 headings, 5 data-demos, 8 modals (trigger + modal in each snippet,
+  modal-title as h1.fs-5, btn-close with aria-label, aria-labelledby): default; static
+  backdrop (data-bs-backdrop="static" data-bs-keyboard="false"); scrollable + centered (long
+  original text); modal-sm/-lg/-xl; modal-fullscreen and modal-fullscreen-md-down.
+- Checks: check.js + static OK; interact.js OK for all 8 triggers (click/Enter open, Esc
+  close, static modal ignores Esc and closes via its button by mouse and keyboard, focus back
+  on the trigger). spytest blocks: short-page failures only at window height 1200 (Collapse
+  is second-to-last and cannot reach the top); recheck at the end of part B.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

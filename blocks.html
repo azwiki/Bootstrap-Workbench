@@ -178,7 +178,7 @@
         <!-- ============================================================ -->
         <!-- Collapse                                                     -->
         <!-- ============================================================ -->
-        <section id="bsd-collapse" class="py-4">
+        <section id="bsd-collapse" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Collapse</h2>
 
           <h3 class="h6 mt-3 mb-2">Link and button toggles</h3>
@@ -208,6 +208,165 @@
               <div class="col-md-6">
                 <div class="collapse" id="bsd-b-materials">
                   <div class="card card-body">Solid walnut top, powder-coated steel frame.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Modal                                                        -->
+        <!-- ============================================================ -->
+        <section id="bsd-modal" class="py-4">
+          <h2 class="h4 mb-3">Modal</h2>
+          <p class="small text-body-secondary">Each snippet holds the trigger button and its modal. Esc closes a modal, except the static one below (data-bs-keyboard="false").</p>
+
+          <h3 class="h6 mt-3 mb-2">Default: modal-header, modal-body, modal-footer</h3>
+          <div data-demo>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bsd-b-modal-default">Reserve this desk</button>
+            <div class="modal fade" id="bsd-b-modal-default" tabindex="-1" aria-labelledby="bsd-b-modal-default-label" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bsd-b-modal-default-label">Desk reserved</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mb-0">Your walnut desk is reserved for 48 hours. We hold the price until then.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Static backdrop: data-bs-backdrop="static", data-bs-keyboard="false"</h3>
+          <div data-demo>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bsd-b-modal-static">Confirm the order</button>
+            <div class="modal fade" id="bsd-b-modal-static" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="bsd-b-modal-static-label" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bsd-b-modal-static-label">Confirm the order</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mb-0">A click outside or Esc does not close this dialog. Use a button.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">modal-dialog-scrollable, modal-dialog-centered</h3>
+          <div data-demo>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bsd-b-modal-scroll">How we build a piece</button>
+            <div class="modal fade" id="bsd-b-modal-scroll" tabindex="-1" aria-labelledby="bsd-b-modal-scroll-label" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bsd-b-modal-scroll-label">How we build a piece</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Every Northwind piece starts as rough boards that rest in the workshop for two weeks, so the wood settles to the room before we cut it.</p>
+                    <p>Joints are cut by hand and glued with a water-based adhesive. We do not use metal fasteners where wood can hold the load.</p>
+                    <p>Surfaces get three coats of hard wax oil. Each coat cures overnight and is buffed by hand the next morning.</p>
+                    <p>Before a piece leaves, two people check it: one for the finish, one for stability on an uneven floor.</p>
+                    <p>Delivery is by our own van within 80 km of the studio. Further away, a partner courier carries the piece in a padded crate.</p>
+                    <p>If something arrives damaged, send a photo within seven days and we repair or replace it at no cost.</p>
+                    <p>Spare felt pads, a tin of wax and a care card come with every order.</p>
+                    <p>We keep the offcuts from your piece. Ask for them and we turn them into a matching set of coasters.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Sizes: modal-sm, modal-lg, modal-xl</h3>
+          <div data-demo class="d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#bsd-b-modal-sm">Small modal</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#bsd-b-modal-lg">Large modal</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#bsd-b-modal-xl">Extra large modal</button>
+            <div class="modal fade" id="bsd-b-modal-sm" tabindex="-1" aria-labelledby="bsd-b-modal-sm-label" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bsd-b-modal-sm-label">modal-sm</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mb-0">Room for a short confirmation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="bsd-b-modal-lg" tabindex="-1" aria-labelledby="bsd-b-modal-lg-label" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bsd-b-modal-lg-label">modal-lg</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mb-0">Room for a form or a table of options.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="bsd-b-modal-xl" tabindex="-1" aria-labelledby="bsd-b-modal-xl-label" aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bsd-b-modal-xl-label">modal-xl</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mb-0">Room for a gallery or a side-by-side comparison.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Fullscreen: modal-fullscreen, modal-fullscreen-md-down</h3>
+          <div data-demo class="d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#bsd-b-modal-full">Always fullscreen</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#bsd-b-modal-full-md">Fullscreen below md</button>
+            <div class="modal fade" id="bsd-b-modal-full" tabindex="-1" aria-labelledby="bsd-b-modal-full-label" aria-hidden="true">
+              <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bsd-b-modal-full-label">modal-fullscreen</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mb-0">Covers the whole window at every width.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="bsd-b-modal-full-md" tabindex="-1" aria-labelledby="bsd-b-modal-full-md-label" aria-hidden="true">
+              <div class="modal-dialog modal-fullscreen-md-down">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bsd-b-modal-full-md-label">modal-fullscreen-md-down</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mb-0">Fullscreen on small windows, a normal dialog from md up.</p>
+                  </div>
                 </div>
               </div>
             </div>
