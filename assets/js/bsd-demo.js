@@ -13,6 +13,92 @@
   root.setAttribute('data-bsd-tooling', '');
 
   // ------------------------------------------------------------------
+  // Tooling markup: toolbar, sidebar (offcanvas below lg) and tokens panel.
+  // Built before anything else so the code below finds them by id.
+  // The page only provides the layout: a .row whose first column holds
+  // the sections; the sidebar column is inserted in front of it.
+  // ------------------------------------------------------------------
+
+  function fromHTML(html) {
+    var box = document.createElement('div');
+    box.innerHTML = html;
+    return box.firstElementChild;
+  }
+
+  function buildTooling() {
+    var sections = root.querySelectorAll('section[id^="bsd-"]');
+    if (!sections.length) return;
+
+    // Direct child of #bs-demo that holds the layout, and the row inside it
+    var layout = sections[0];
+    while (layout.parentElement && layout.parentElement !== root) layout = layout.parentElement;
+    var row = sections[0].closest('.row');
+
+    var toolbar = fromHTML(
+      '<div class="position-fixed top-0 end-0 z-3 m-2 p-2 bg-body border rounded-3 shadow-sm d-flex flex-wrap align-items-center gap-2" role="toolbar" aria-label="Demo tools">' +
+        '<button type="button" class="btn btn-sm btn-outline-secondary d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#bsd-sidebar" aria-controls="bsd-sidebar">Sections</button>' +
+        '<button type="button" class="btn btn-sm btn-outline-secondary" id="bsd-theme-toggle" aria-pressed="false">Theme: light</button>' +
+        '<div class="form-check form-switch mb-0">' +
+          '<input class="form-check-input" type="checkbox" role="switch" id="bsd-css-toggle" checked>' +
+          '<label class="form-check-label small" for="bsd-css-toggle">Custom CSS <span class="badge text-bg-secondary" id="bsd-css-count">0</span></label>' +
+        '</div>' +
+        '<div class="form-check form-switch mb-0">' +
+          '<input class="form-check-input" type="checkbox" role="switch" id="bsd-code-toggle">' +
+          '<label class="form-check-label small" for="bsd-code-toggle">Show code</label>' +
+        '</div>' +
+        '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="offcanvas" data-bs-target="#bsd-tokens" aria-controls="bsd-tokens">Tokens</button>' +
+      '</div>'
+    );
+
+    var sidebarColumn = fromHTML(
+      '<div class="col-lg-3 col-xl-2 position-sticky top-0 align-self-start overflow-y-auto border-end" style="max-height: 100vh;">' +
+        '<div class="offcanvas-lg offcanvas-start" tabindex="-1" id="bsd-sidebar" aria-labelledby="bsd-sidebar-label">' +
+          '<div class="offcanvas-header border-bottom">' +
+            '<h2 class="offcanvas-title h5" id="bsd-sidebar-label">Sections</h2>' +
+            '<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-sidebar" aria-label="Close"></button>' +
+          '</div>' +
+          '<div class="offcanvas-body">' +
+            '<nav id="bsd-nav" class="nav nav-pills flex-column flex-nowrap w-100 py-3 small" aria-label="Demo sections"></nav>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+
+    // One link per section, labeled with its h2 text, in page order
+    var nav = sidebarColumn.querySelector('#bsd-nav');
+    for (var i = 0; i < sections.length; i++) {
+      var heading = sections[i].querySelector(':scope > h2');
+      if (!heading) continue;
+      var link = document.createElement('a');
+      link.className = 'nav-link py-1';
+      link.href = '#' + sections[i].id;
+      link.textContent = heading.textContent.trim();
+      nav.appendChild(link);
+    }
+
+    var tokens = fromHTML(
+      '<div class="offcanvas offcanvas-end" tabindex="-1" id="bsd-tokens" aria-labelledby="bsd-tokens-label" style="--bs-offcanvas-width: 36rem;">' +
+        '<div class="offcanvas-header border-bottom">' +
+          '<h2 class="offcanvas-title h5" id="bsd-tokens-label">Theme tokens</h2>' +
+          '<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-tokens" aria-label="Close"></button>' +
+        '</div>' +
+        '<div class="offcanvas-body">' +
+          '<p class="small text-body-secondary">Computed values on <code>&lt;html&gt;</code> for the active theme: <span class="fw-semibold" id="bsd-tokens-theme">light</span>.</p>' +
+          '<table class="table table-sm align-middle small" id="bsd-tokens-table">' +
+            '<thead><tr><th scope="col">Variable</th><th scope="col">Value</th><th scope="col">Swatch</th></tr></thead>' +
+          '</table>' +
+        '</div>' +
+      '</div>'
+    );
+
+    root.insertBefore(toolbar, layout);
+    if (row) row.insertBefore(sidebarColumn, row.firstElementChild);
+    layout.insertAdjacentElement('afterend', tokens);
+  }
+
+  buildTooling();
+
+  // ------------------------------------------------------------------
   // Snippet generator
   // Runs synchronously while the page is parsed, before Bootstrap JS
   // touches the DOM, so snippets reflect the markup exactly as authored.
