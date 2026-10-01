@@ -180,7 +180,7 @@
         <!-- ============================================================ -->
         <!-- Select                                                       -->
         <!-- ============================================================ -->
-        <section id="bsd-select" class="py-4">
+        <section id="bsd-select" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Select</h2>
 
           <h3 class="h6 mt-3 mb-2">form-select with form-label</h3>
@@ -246,6 +246,128 @@
                 </select>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Checks & radios                                              -->
+        <!-- ============================================================ -->
+        <section id="bsd-checks-radios" class="py-4">
+          <h2 class="h4 mb-3">Checks &amp; radios</h2>
+          <p class="small text-body-secondary">Toggle buttons built with btn-check are shown in <a href="classes.html#bsd-buttons">Buttons on the Classes page</a>.</p>
+
+          <p class="small text-body-secondary mt-3 mb-0">The third box below is indeterminate. That state has no HTML attribute: it is set from JavaScript with <code>checkbox.indeterminate = true</code>.</p>
+          <h3 class="h6 mt-3 mb-2">Checkbox: default, checked, indeterminate</h3>
+          <div data-demo>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="bsd-f-c2">
+              <label class="form-check-label" for="bsd-f-c2">Assembly</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="bsd-f-c1" checked>
+              <label class="form-check-label" for="bsd-f-c1">Gift wrap</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="bsd-f-check-indeterminate">
+              <label class="form-check-label" for="bsd-f-check-indeterminate">Some rooms selected</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Checkbox: disabled, disabled checked</h3>
+          <div data-demo>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="bsd-f-c3" disabled>
+              <label class="form-check-label" for="bsd-f-c3">Disabled</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="bsd-f-c4" checked disabled>
+              <label class="form-check-label" for="bsd-f-c4">Disabled and checked</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Radios in a fieldset, with a disabled option</h3>
+          <div data-demo>
+            <fieldset>
+              <legend class="h6">Delivery</legend>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="bsd-f-r" id="bsd-f-r1" checked>
+                <label class="form-check-label" for="bsd-f-r1">Pickup</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="bsd-f-r" id="bsd-f-r2">
+                <label class="form-check-label" for="bsd-f-r2">Courier</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="bsd-f-r" id="bsd-f-r3" disabled>
+                <label class="form-check-label" for="bsd-f-r3">Freight (not available)</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">form-switch: default, checked, disabled, disabled checked</h3>
+          <div data-demo>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="bsd-f-s2">
+              <label class="form-check-label" for="bsd-f-s2">Order updates by text message</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="bsd-f-s1" checked>
+              <label class="form-check-label" for="bsd-f-s1">Newsletter</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="bsd-f-s3" disabled>
+              <label class="form-check-label" for="bsd-f-s3">Studio visits (paused)</label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="bsd-f-s4" checked disabled>
+              <label class="form-check-label" for="bsd-f-s4">Invoices by email (required)</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">form-check-inline (checkboxes and radios)</h3>
+          <div data-demo>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="bsd-f-inline-c1" checked>
+              <label class="form-check-label" for="bsd-f-inline-c1">Oak</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="bsd-f-inline-c2">
+              <label class="form-check-label" for="bsd-f-inline-c2">Ash</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="bsd-f-inline-c3" disabled>
+              <label class="form-check-label" for="bsd-f-inline-c3">Teak (sold out)</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="bsd-f-inline-r" id="bsd-f-inline-r1" checked>
+              <label class="form-check-label" for="bsd-f-inline-r1">Matte</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="bsd-f-inline-r" id="bsd-f-inline-r2">
+              <label class="form-check-label" for="bsd-f-inline-r2">Satin</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">form-check-reverse (checkbox, disabled, switch)</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="form-check form-check-reverse">
+              <input class="form-check-input" type="checkbox" id="bsd-f-rev1" checked>
+              <label class="form-check-label" for="bsd-f-rev1">Label on the left</label>
+            </div>
+            <div class="form-check form-check-reverse">
+              <input class="form-check-input" type="checkbox" id="bsd-f-rev2" disabled>
+              <label class="form-check-label" for="bsd-f-rev2">Disabled, reversed</label>
+            </div>
+            <div class="form-check form-switch form-check-reverse">
+              <input class="form-check-input" type="checkbox" role="switch" id="bsd-f-rev3">
+              <label class="form-check-label" for="bsd-f-rev3">Reversed switch</label>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Without a visible label (aria-label, no form-check wrapper)</h3>
+          <div data-demo class="d-flex gap-3">
+            <input class="form-check-input" type="checkbox" id="bsd-f-bare-c" aria-label="Select the walnut desk">
+            <input class="form-check-input" type="radio" name="bsd-f-bare-r" id="bsd-f-bare-r" aria-label="Choose the walnut finish">
           </div>
         </section>
 

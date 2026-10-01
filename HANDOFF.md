@@ -2,16 +2,16 @@
 
 ## Start here (cold start)
 
-- Last commit: "Custom sidebar scrollspy, add tools/spytest.js" (`git log -1`). Before it:
-  `5ae6e78` forms: Select section.
+- Last commit: see `git log -1`. Autonomous run in progress since tag `pre-autonomous`
+  (4f5c814); see "Autonomous run log" below.
 - First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
 - Cards review done (user, 2026-09-30). Decision: both card grids stay as a problem → fix pair.
   The old mixed-ratio grid is now a "Broken:" anti-pattern placed right before the 4:3 grid.
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html phase 4, step 3: Checks & radios (see "forms.html phase 4 plan", approved).
-     Step 1 reviewed; step 2 (Select) done, awaiting review.
+  1. forms.html phase 4, step 4: Range (see "forms.html phase 4 plan", approved).
+     Steps 1–2 reviewed; step 3 (Checks & radios) done in the autonomous run.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -412,6 +412,19 @@ Step 2 (Select): DONE, awaiting review.
   rechecked: unchanged. All classes grep-verified, no duplicate ids.
 - spytest at 900px then showed the last-section failure of Bootstrap ScrollSpy on forms.html
   at 1400px; fixed by the custom sidebar scrollspy (see "Sidebar scrollspy").
+
+Step 3 (Checks & radios): DONE (autonomous run).
+- Section `#bsd-checks-radios` after Select. 7 headings, 7 data-demos, 23 controls:
+  checkbox default/checked/indeterminate (moved ids bsd-f-c1, -c2); disabled + disabled
+  checked (bsd-f-c3 moved); radios in `<fieldset>` + `<legend class="h6">` with a disabled
+  option (bsd-f-r1/-r2 moved); switches default/checked/disabled/disabled checked (bsd-f-s1
+  moved); form-check-inline (checkboxes + radios); form-check-reverse (incl. reverse switch,
+  sized col-md-8 col-lg-6 on data-demo); bare checkbox/radio with aria-label.
+- Indeterminate: bsd-demo.js sets `.indeterminate = true` on #bsd-f-check-indeterminate
+  (demo-only, keyed by id); the note above the heading says it is JS-only.
+- Intro line links to classes.html#bsd-buttons for btn-check toggles.
+- Checks: all pass (check.js 16 runs, static, spytest forms 12/12, classes.html capture
+  identical to baseline).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

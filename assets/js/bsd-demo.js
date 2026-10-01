@@ -691,6 +691,13 @@
   initScrollspy();
 
   // ------------------------------------------------------------------
+  // Demo-only states that have no HTML attribute (keyed by id)
+  // ------------------------------------------------------------------
+
+  var indeterminate = document.getElementById('bsd-f-check-indeterminate');
+  if (indeterminate) indeterminate.indeterminate = true;
+
+  // ------------------------------------------------------------------
   // Demo forms never submit: Enter in a field or a submit button would
   // otherwise reload the page. Demo-only, not part of any snippet.
   // ------------------------------------------------------------------
