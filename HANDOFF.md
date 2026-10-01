@@ -257,6 +257,7 @@ screenshot at 1400px light is byte-identical before/after unless noted.
 - Button group, Close button: already clean: btn-toolbar gap-2 is the canonical spacing between groups; no change.
 - Typography: 4 d-flex rows + 2 grids unwrapped; col-md-4 on the lh-* paragraphs and mb-0 on lists/figure/figcaption/pre dropped from snippets. dl.row with col-5/col-7 stays (canonical description list). Screenshot identical.
 - Images: d-flex rows / grids unwrapped in rounded, avatars, shadows, borders, figure, opacity, srcset; media object keeps its d-flex (canonical), only mb-4 between the two dropped; float alignment keeps its spacing (canonical keep list); anti-pattern (a) unchanged (the narrow column is the point); anti-pattern (b): row/col unwrapped and the Correct/Broken captions marked data-demo-skip, so the snippet is the two img tags. Screenshot identical.
+- Alerts: 2 grids unwrapped; mb-0 on the last paragraph inside an alert stays (Bootstrap pattern). Screenshot identical.
 ### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
 - In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
   and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
