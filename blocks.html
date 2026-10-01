@@ -810,7 +810,7 @@
         <!-- ============================================================ -->
         <!-- Navbar                                                       -->
         <!-- ============================================================ -->
-        <section id="bsd-navbar" class="py-4">
+        <section id="bsd-navbar" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Navbar</h2>
           <p class="small text-body-secondary">Static navbars (no fixed-top or sticky-top on this page). Links jump to sections of this page; below lg the toggler opens the collapse. The dropdown and search button are type="button".</p>
 
@@ -910,6 +910,88 @@
                 </div>
               </div>
             </nav>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Navs & tabs                                                  -->
+        <!-- ============================================================ -->
+        <section id="bsd-tabs" class="py-4">
+          <h2 class="h4 mb-3">Navs &amp; tabs</h2>
+          <p class="small text-body-secondary">Working tab panes via data-bs-toggle="tab" / "pill". Arrow keys move between tabs once one has focus; only the active tab is in the Tab order (tabindex="-1" on the others).</p>
+
+          <h3 class="h6 mt-3 mb-2">nav-tabs with tab-content and tab-pane fade</h3>
+          <div data-demo>
+              <ul class="nav nav-tabs" id="bsd-b-tabs-list" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="bsd-b-tabs-desc-tab" data-bs-toggle="tab" data-bs-target="#bsd-b-tabs-desc" type="button" role="tab" aria-controls="bsd-b-tabs-desc" aria-selected="true">Description</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="bsd-b-tabs-dims-tab" data-bs-toggle="tab" data-bs-target="#bsd-b-tabs-dims" type="button" role="tab" aria-controls="bsd-b-tabs-dims" aria-selected="false" tabindex="-1">Dimensions</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="bsd-b-tabs-care-tab" data-bs-toggle="tab" data-bs-target="#bsd-b-tabs-care" type="button" role="tab" aria-controls="bsd-b-tabs-care" aria-selected="false" tabindex="-1">Care</button>
+                </li>
+              </ul>
+              <div class="tab-content pt-3" id="bsd-b-tabs-content">
+                <div class="tab-pane fade show active" id="bsd-b-tabs-desc" role="tabpanel" aria-labelledby="bsd-b-tabs-desc-tab" tabindex="0">
+                  <p class="mb-0">A writing desk in solid walnut with a single drawer that closes without a sound.</p>
+                </div>
+                <div class="tab-pane fade" id="bsd-b-tabs-dims" role="tabpanel" aria-labelledby="bsd-b-tabs-dims-tab" tabindex="0">
+                  <p class="mb-0">140 cm wide, 70 cm deep, 74 cm high. The drawer is 50 cm wide inside.</p>
+                </div>
+                <div class="tab-pane fade" id="bsd-b-tabs-care" role="tabpanel" aria-labelledby="bsd-b-tabs-care-tab" tabindex="0">
+                  <p class="mb-0">Wipe with a dry cloth. Re-oil once a year with the tin that comes with the desk.</p>
+                </div>
+              </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">nav-pills with tab-content</h3>
+          <div data-demo>
+              <ul class="nav nav-pills" id="bsd-b-pills-list" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="bsd-b-pills-desc-tab" data-bs-toggle="pill" data-bs-target="#bsd-b-pills-desc" type="button" role="tab" aria-controls="bsd-b-pills-desc" aria-selected="true">Description</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="bsd-b-pills-dims-tab" data-bs-toggle="pill" data-bs-target="#bsd-b-pills-dims" type="button" role="tab" aria-controls="bsd-b-pills-dims" aria-selected="false" tabindex="-1">Dimensions</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="bsd-b-pills-care-tab" data-bs-toggle="pill" data-bs-target="#bsd-b-pills-care" type="button" role="tab" aria-controls="bsd-b-pills-care" aria-selected="false" tabindex="-1">Care</button>
+                </li>
+              </ul>
+              <div class="tab-content pt-3" id="bsd-b-pills-content">
+                <div class="tab-pane fade show active" id="bsd-b-pills-desc" role="tabpanel" aria-labelledby="bsd-b-pills-desc-tab" tabindex="0">
+                  <p class="mb-0">A writing desk in solid walnut with a single drawer that closes without a sound.</p>
+                </div>
+                <div class="tab-pane fade" id="bsd-b-pills-dims" role="tabpanel" aria-labelledby="bsd-b-pills-dims-tab" tabindex="0">
+                  <p class="mb-0">140 cm wide, 70 cm deep, 74 cm high. The drawer is 50 cm wide inside.</p>
+                </div>
+                <div class="tab-pane fade" id="bsd-b-pills-care" role="tabpanel" aria-labelledby="bsd-b-pills-care-tab" tabindex="0">
+                  <p class="mb-0">Wipe with a dry cloth. Re-oil once a year with the tin that comes with the desk.</p>
+                </div>
+              </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Vertical pills: flex-column nav-pills, aria-orientation="vertical"</h3>
+          <div data-demo>
+            <div class="d-flex align-items-start">
+              <div class="nav flex-column nav-pills me-3" id="bsd-b-vpills-list" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="bsd-b-vpills-desc-tab" data-bs-toggle="pill" data-bs-target="#bsd-b-vpills-desc" type="button" role="tab" aria-controls="bsd-b-vpills-desc" aria-selected="true">Description</button>
+                <button class="nav-link" id="bsd-b-vpills-dims-tab" data-bs-toggle="pill" data-bs-target="#bsd-b-vpills-dims" type="button" role="tab" aria-controls="bsd-b-vpills-dims" aria-selected="false" tabindex="-1">Dimensions</button>
+                <button class="nav-link" id="bsd-b-vpills-care-tab" data-bs-toggle="pill" data-bs-target="#bsd-b-vpills-care" type="button" role="tab" aria-controls="bsd-b-vpills-care" aria-selected="false" tabindex="-1">Care</button>
+              </div>
+              <div class="tab-content flex-grow-1" id="bsd-b-vpills-content">
+                <div class="tab-pane fade show active" id="bsd-b-vpills-desc" role="tabpanel" aria-labelledby="bsd-b-vpills-desc-tab" tabindex="0">
+                  <p class="mb-0">A writing desk in solid walnut with a single drawer that closes without a sound.</p>
+                </div>
+                <div class="tab-pane fade" id="bsd-b-vpills-dims" role="tabpanel" aria-labelledby="bsd-b-vpills-dims-tab" tabindex="0">
+                  <p class="mb-0">140 cm wide, 70 cm deep, 74 cm high. The drawer is 50 cm wide inside.</p>
+                </div>
+                <div class="tab-pane fade" id="bsd-b-vpills-care" role="tabpanel" aria-labelledby="bsd-b-vpills-care-tab" tabindex="0">
+                  <p class="mb-0">Wipe with a dry cloth. Re-oil once a year with the tin that comes with the desk.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -10,10 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 11: Navs & tabs (see "blocks.html plan"); then the page blocks 12–18
-     (Hero, Features, Pricing, Testimonials, CTA, Contact, Footer).
-     forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas,
-     Carousel, Toasts, Tooltips, Popovers, ScrollSpy, Navbar.
+  1. blocks.html section 12: Hero (see "blocks.html plan"); then 13 Features, 14 Pricing,
+     15 Testimonials, 16 CTA, 17 Contact, 18 Footer. All interactive sections (1–11) done.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -701,6 +699,15 @@ Correction to the Navbar note: spytest blocks was 10/12 after Navbar, not 12/12 
 a click on Popovers highlighted ScrollSpy). Fixed in the next commit (click landing rule);
 after it, spytest classes + forms + blocks at 700/900/1200: 36/36, classes/forms captures
 identical to their baselines.
+
+blocks.html 11 (Navs & tabs): DONE (autonomous run).
+- Section `#bsd-tabs`: nav-tabs + tab-content (tab-pane fade, tabindex="0"); nav-pills +
+  tab-content; vertical pills (div.d-flex.align-items-start in the snippet,
+  aria-orientation="vertical"). Full tab ARIA (tablist/tab/tabpanel, aria-controls,
+  aria-selected, aria-labelledby); inactive tabs start with tabindex="-1".
+- Checks: check.js + static OK; tabs.js: click activates tab + pane, ArrowRight/Down and
+  ArrowLeft/Up move focus and activation, inactive tabs keep tabindex="-1", 3 tablists, both
+  engines at 1400/576; spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
