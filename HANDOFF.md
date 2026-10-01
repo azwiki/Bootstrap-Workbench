@@ -10,10 +10,10 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 8: Popovers (see "blocks.html plan"); then 9 ScrollSpy, 10 Navbar, …
-     forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas,
-     Carousel, Toasts, Tooltips. After the last blocks section: scrollspy fix for
-     unreachable sections (see Offcanvas note), then rerun spytest on all pages.
+  1. blocks.html section 9: ScrollSpy (see "blocks.html plan"); then 10 Navbar, 11 Navs & tabs,
+     then the page blocks 12–18. forms.html complete; blocks.html done so far: Dropdowns,
+     Collapse, Modal, Offcanvas, Carousel, Toasts, Tooltips, Popovers. After the last blocks
+     section: scrollspy fix for unreachable sections (see Offcanvas note), then spytest on all pages.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -645,6 +645,20 @@ blocks.html 7 (Tooltips): DONE (autonomous run).
   verified in the bundle). interact.js: hover opens, mouse-out closes, focus opens, blur
   closes; OK for all 6 triggers in both engines at 1400/576. check.js + static OK; spytest
   blocks 12/12.
+
+Correction to the Tooltips note: spytest blocks was 10/12 after Tooltips, not 12/12. The 2
+failures were at 1400x1200 only (Toasts second-to-last, cannot reach the line): the known
+unreachable-section case, to be fixed after the last blocks section.
+
+blocks.html 8 (Popovers): DONE (autonomous run).
+- Section `#bsd-popovers`: placements top/right/bottom/left (click, default); dismiss on next
+  click (`a.btn[tabindex="0"][role="button"]` with data-bs-trigger="focus", the Safari-safe
+  pattern); disabled button in a focusable span with data-bs-trigger="hover focus".
+- No Esc handling for popovers in Bootstrap 5.3.8. interact.js reads data-bs-trigger per
+  trigger: click mode = click/second click and Enter/Enter; focus mode = click/click
+  elsewhere and focus/blur; hover focus = hover/mouse-out and focus/blur. All 6 OK in both
+  engines at 1400/576. check.js + static OK. spytest blocks: see the log of this commit's
+  checks in the next note.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

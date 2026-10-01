@@ -685,7 +685,7 @@
         <!-- ============================================================ -->
         <!-- Tooltips                                                     -->
         <!-- ============================================================ -->
-        <section id="bsd-tooltips" class="py-4">
+        <section id="bsd-tooltips" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Tooltips</h2>
           <p class="small text-body-secondary">Tooltips are opt-in: bsd-demo.js initializes every <code>[data-bs-toggle="tooltip"]</code> on this page with <code>bootstrap.Tooltip.getOrCreateInstance()</code>. They open on hover and on keyboard focus.</p>
 
@@ -707,6 +707,34 @@
           <h3 class="h6 mt-4 mb-2">On a link in running text</h3>
           <div data-demo>
             <p class="mb-0">Questions about sizes? The <a href="forms.html" data-bs-toggle="tooltip" data-bs-title="Opens the Forms page">contact form</a> reaches the workshop directly.</p>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Popovers                                                     -->
+        <!-- ============================================================ -->
+        <section id="bsd-popovers" class="py-4">
+          <h2 class="h4 mb-3">Popovers</h2>
+          <p class="small text-body-secondary">Popovers are opt-in like tooltips (initialized in bsd-demo.js). The default trigger is a click on the button; a second click closes it.</p>
+
+          <h3 class="h6 mt-3 mb-2">data-bs-placement: top, end, bottom, start</h3>
+          <div data-demo class="d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="top" data-bs-title="Delivery" data-bs-content="Our own van within 80 km of the studio.">Top</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="right" data-bs-title="Finish" data-bs-content="Three coats of hard wax oil.">End</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-title="Assembly" data-bs-content="Legs slot in without tools.">Bottom</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="left" data-bs-title="Returns" data-bs-content="Thirty days, collected from your door.">Start</button>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Dismiss on next click: data-bs-trigger="focus"</h3>
+          <div data-demo>
+            <a tabindex="0" class="btn btn-outline-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Price includes VAT" data-bs-content="A click anywhere else closes this popover.">Why this price?</a>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">On a disabled button: wrapper span with data-bs-trigger="hover focus"</h3>
+          <div data-demo>
+            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Choose a delivery slot first.">
+              <button class="btn btn-primary" type="button" disabled>Pay now</button>
+            </span>
           </div>
         </section>
 
