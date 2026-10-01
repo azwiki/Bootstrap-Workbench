@@ -10,8 +10,10 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 4: Offcanvas (see "blocks.html plan"); then 5 Carousel, 6 Toasts, …
-     forms.html complete; blocks.html sections done so far: Dropdowns, Collapse, Modal.
+  1. blocks.html section 5: Carousel (see "blocks.html plan"); then 6 Toasts, 7 Tooltips, …
+     forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas.
+     After the last blocks section: fix the sidebar scrollspy for sections the page cannot
+     scroll up to the line (see Offcanvas note), then rerun spytest on all pages.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -593,6 +595,18 @@ blocks.html 3 (Modal): DONE (autonomous run).
   close, static modal ignores Esc and closes via its button by mouse and keyboard, focus back
   on the trigger). spytest blocks: short-page failures only at window height 1200 (Collapse
   is second-to-last and cannot reach the top); recheck at the end of part B.
+
+blocks.html 4 (Offcanvas): DONE (autonomous run).
+- Section `#bsd-offcanvas`: 3 headings, 6 offcanvases (trigger + panel per snippet, title
+  h2.h5, btn-close with data-bs-target): offcanvas-start; top/end/bottom; body scrolling
+  (data-bs-scroll="true" data-bs-backdrop="false") and data-bs-backdrop="static".
+- Checks: check.js + static OK; interact.js OK for all 6 (Esc for the no-backdrop panel is
+  tested with focus inside the panel: Bootstrap neither traps focus nor handles Esc outside
+  it in that mode). spytest blocks: failures only at window height 1200.
+- Known, to fix after the last blocks section: with a short last section and a tall window,
+  the second-to-last section can never reach the 120px line (the page cannot scroll that
+  far), and at the bottom the last section wins. Plan: give unreachable sections evenly
+  spaced activation points inside the remaining scroll range (record as a decision).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

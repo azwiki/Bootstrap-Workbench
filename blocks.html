@@ -217,7 +217,7 @@
         <!-- ============================================================ -->
         <!-- Modal                                                        -->
         <!-- ============================================================ -->
-        <section id="bsd-modal" class="py-4">
+        <section id="bsd-modal" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Modal</h2>
           <p class="small text-body-secondary">Each snippet holds the trigger button and its modal. Esc closes a modal, except the static one below (data-bs-keyboard="false").</p>
 
@@ -368,6 +368,85 @@
                     <p class="mb-0">Fullscreen on small windows, a normal dialog from md up.</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Offcanvas                                                    -->
+        <!-- ============================================================ -->
+        <section id="bsd-offcanvas" class="py-4">
+          <h2 class="h4 mb-3">Offcanvas</h2>
+
+          <h3 class="h6 mt-3 mb-2">offcanvas-start with offcanvas-header and offcanvas-body</h3>
+          <div data-demo>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#bsd-b-oc-start" aria-controls="bsd-b-oc-start">Open the basket</button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="bsd-b-oc-start" aria-labelledby="bsd-b-oc-start-label">
+              <div class="offcanvas-header">
+                <h2 class="offcanvas-title h5" id="bsd-b-oc-start-label">Your basket</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-b-oc-start" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <p class="mb-0">Walnut desk, 1 × 1 240 €. Delivery is free within 80 km of the studio.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Placements: offcanvas-top, offcanvas-end, offcanvas-bottom</h3>
+          <div data-demo class="d-flex flex-wrap gap-2">
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#bsd-b-oc-top" aria-controls="bsd-b-oc-top">Top</button>
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#bsd-b-oc-end" aria-controls="bsd-b-oc-end">End</button>
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#bsd-b-oc-bottom" aria-controls="bsd-b-oc-bottom">Bottom</button>
+            <div class="offcanvas offcanvas-top" tabindex="-1" id="bsd-b-oc-top" aria-labelledby="bsd-b-oc-top-label">
+              <div class="offcanvas-header">
+                <h2 class="offcanvas-title h5" id="bsd-b-oc-top-label">Studio notice</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-b-oc-top" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <p class="mb-0">The showroom is closed on Monday 6 October for stocktaking.</p>
+              </div>
+            </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="bsd-b-oc-end" aria-labelledby="bsd-b-oc-end-label">
+              <div class="offcanvas-header">
+                <h2 class="offcanvas-title h5" id="bsd-b-oc-end-label">Filters</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-b-oc-end" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <p class="mb-0">Filter by wood, room and delivery time.</p>
+              </div>
+            </div>
+            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="bsd-b-oc-bottom" aria-labelledby="bsd-b-oc-bottom-label">
+              <div class="offcanvas-header">
+                <h2 class="offcanvas-title h5" id="bsd-b-oc-bottom-label">Cookie settings</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-b-oc-bottom" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <p class="mb-0">We only store your theme and the items in your basket.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Body scrolling (data-bs-scroll, no backdrop) and static backdrop</h3>
+          <div data-demo class="d-flex flex-wrap gap-2">
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#bsd-b-oc-scroll" aria-controls="bsd-b-oc-scroll">Notes, page still scrolls</button>
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#bsd-b-oc-static" aria-controls="bsd-b-oc-static">Static backdrop</button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="bsd-b-oc-scroll" aria-labelledby="bsd-b-oc-scroll-label">
+              <div class="offcanvas-header">
+                <h2 class="offcanvas-title h5" id="bsd-b-oc-scroll-label">Notes</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-b-oc-scroll" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <p class="mb-0">The page behind stays scrollable and has no backdrop.</p>
+              </div>
+            </div>
+            <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="bsd-b-oc-static" aria-labelledby="bsd-b-oc-static-label">
+              <div class="offcanvas-header">
+                <h2 class="offcanvas-title h5" id="bsd-b-oc-static-label">Static backdrop</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#bsd-b-oc-static" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <p class="mb-0">A click on the backdrop does not close this panel. Use the close button or Esc.</p>
               </div>
             </div>
           </div>
