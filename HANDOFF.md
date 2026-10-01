@@ -10,8 +10,9 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html phase 4, step 8: Validation (see "forms.html phase 4 plan", approved).
-     Steps 1–2 reviewed; steps 3–7 done in the autonomous run.
+  1. forms.html phase 4, step 9: remove #bsd-forms from classes.html, link to forms.html in
+     its place, update #bsd-forms-intro, spytest on both pages (700/900/1200).
+     Steps 1–2 reviewed; steps 3–8 done in the autonomous run.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -481,6 +482,16 @@ Step 7 (Form layout): DONE (autonomous run).
   Snippets keep row/col on purpose (section intro says so); all buttons type="button".
 - Checks: all pass (check.js with the layout check off, 17 Enter presses inside forms, 0
   navigations), static, spytest forms 12/12, classes.html capture identical.
+
+Step 8 (Validation): DONE (autonomous run).
+- Section `#bsd-validation` after Form layout. 6 headings, 7 data-demos: is-valid/is-invalid
+  + feedback on input, select, textarea (moved ids bsd-f-v1…v5); checkbox (bsd-f-v6, -v7),
+  radios in a fieldset (feedback after the last radio), switch, file input; input-group
+  has-validation (bsd-f-v8); `form.was-validated novalidate` with required fields (no JS;
+  buttons type="button"); valid-tooltip / invalid-tooltip in `position-relative` (kept in
+  the snippet; the space below comes from pb-5 on the data-demo element, not in the snippet);
+  floating labels with is-valid / is-invalid. All feedback linked via aria-describedby.
+- Checks: all pass (check.js, static, spytest forms 12/12, classes.html capture identical).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

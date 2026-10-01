@@ -627,7 +627,7 @@
         <!-- ============================================================ -->
         <!-- Form layout                                                  -->
         <!-- ============================================================ -->
-        <section id="bsd-form-layout" class="py-4">
+        <section id="bsd-form-layout" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Form layout</h2>
           <p class="small text-body-secondary">The snippets in this section keep row and col classes on purpose: the grid is the pattern. Buttons are type="button" because the demo never submits.</p>
 
@@ -813,6 +813,160 @@
                 <button type="button" class="btn btn-primary">Search</button>
               </div>
             </form>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Validation                                                   -->
+        <!-- ============================================================ -->
+        <section id="bsd-validation" class="py-4">
+          <h2 class="h4 mb-3">Validation</h2>
+
+          <h3 class="h6 mt-3 mb-2">is-valid, is-invalid with valid-feedback, invalid-feedback: input, select, textarea</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="mb-3">
+              <label for="bsd-f-v1" class="form-label">City</label>
+              <input type="text" class="form-control is-valid" id="bsd-f-v1" value="Lisbon" aria-describedby="bsd-f-v1-fb">
+              <div id="bsd-f-v1-fb" class="valid-feedback">Looks right.</div>
+            </div>
+            <div class="mb-3">
+              <label for="bsd-f-v2" class="form-label">Postcode</label>
+              <input type="text" class="form-control is-invalid" id="bsd-f-v2" value="12" aria-describedby="bsd-f-v2-fb">
+              <div id="bsd-f-v2-fb" class="invalid-feedback">Enter a full postcode.</div>
+            </div>
+            <div class="mb-3">
+              <label for="bsd-f-v3" class="form-label">Country</label>
+              <select class="form-select is-valid" id="bsd-f-v3" aria-describedby="bsd-f-v3-fb">
+                <option selected>Portugal</option>
+              </select>
+              <div id="bsd-f-v3-fb" class="valid-feedback">Ships here.</div>
+            </div>
+            <div class="mb-3">
+              <label for="bsd-f-v4" class="form-label">Region</label>
+              <select class="form-select is-invalid" id="bsd-f-v4" aria-describedby="bsd-f-v4-fb">
+                <option selected value="">Choose…</option>
+              </select>
+              <div id="bsd-f-v4-fb" class="invalid-feedback">Pick a region.</div>
+            </div>
+            <div>
+              <label for="bsd-f-v5" class="form-label">Message</label>
+              <textarea class="form-control is-invalid" id="bsd-f-v5" rows="2" aria-describedby="bsd-f-v5-fb"></textarea>
+              <div id="bsd-f-v5-fb" class="invalid-feedback">Write at least ten characters.</div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Checkbox, radios, switch, file input</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="form-check">
+              <input class="form-check-input is-valid" type="checkbox" id="bsd-f-v6" checked>
+              <label class="form-check-label" for="bsd-f-v6">Terms accepted</label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input is-invalid" type="checkbox" id="bsd-f-v7" aria-describedby="bsd-f-v7-fb">
+              <label class="form-check-label" for="bsd-f-v7">Age confirmed</label>
+              <div id="bsd-f-v7-fb" class="invalid-feedback">Required to order.</div>
+            </div>
+            <fieldset class="mb-3">
+              <legend class="h6">Payment</legend>
+              <div class="form-check">
+                <input class="form-check-input is-invalid" type="radio" name="bsd-f-v-pay" id="bsd-f-v-pay1" aria-describedby="bsd-f-v-pay-fb">
+                <label class="form-check-label" for="bsd-f-v-pay1">Card</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input is-invalid" type="radio" name="bsd-f-v-pay" id="bsd-f-v-pay2" aria-describedby="bsd-f-v-pay-fb">
+                <label class="form-check-label" for="bsd-f-v-pay2">Bank transfer</label>
+                <div id="bsd-f-v-pay-fb" class="invalid-feedback">Choose how you want to pay.</div>
+              </div>
+            </fieldset>
+            <div class="form-check form-switch mb-3">
+              <input class="form-check-input is-valid" type="checkbox" role="switch" id="bsd-f-v-switch" checked>
+              <label class="form-check-label" for="bsd-f-v-switch">Assembly service booked</label>
+            </div>
+            <div>
+              <label for="bsd-f-v-file" class="form-label">Floor plan</label>
+              <input type="file" class="form-control is-invalid" id="bsd-f-v-file" aria-describedby="bsd-f-v-file-fb">
+              <div id="bsd-f-v-file-fb" class="invalid-feedback">Upload a PDF or an image.</div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">input-group has-validation</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group has-validation">
+              <span class="input-group-text">@</span>
+              <input type="text" class="form-control is-invalid" aria-label="Username" aria-describedby="bsd-f-v8-fb">
+              <div id="bsd-f-v8-fb" class="invalid-feedback">Username is taken.</div>
+            </div>
+          </div>
+
+          <p class="small text-body-secondary mt-4 mb-0">.was-validated is set in the markup on a form with novalidate. The browser's :valid and :invalid states on required fields drive the colors, no JavaScript involved.</p>
+          <h3 class="h6 mt-3 mb-2">was-validated with required fields</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <form class="was-validated" novalidate>
+              <div class="mb-3">
+                <label for="bsd-f-wv-name" class="form-label">Studio name</label>
+                <input type="text" class="form-control" id="bsd-f-wv-name" value="Northwind Studio" required aria-describedby="bsd-f-wv-name-fb">
+                <div id="bsd-f-wv-name-fb" class="valid-feedback">Thanks.</div>
+              </div>
+              <div class="mb-3">
+                <label for="bsd-f-wv-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="bsd-f-wv-email" required aria-describedby="bsd-f-wv-email-fb">
+                <div id="bsd-f-wv-email-fb" class="invalid-feedback">We need an email to send the quote.</div>
+              </div>
+              <div class="mb-3">
+                <label for="bsd-f-wv-room" class="form-label">Room</label>
+                <select class="form-select" id="bsd-f-wv-room" required aria-describedby="bsd-f-wv-room-fb">
+                  <option selected disabled value="">Choose…</option>
+                  <option>Kitchen</option>
+                  <option>Studio</option>
+                </select>
+                <div id="bsd-f-wv-room-fb" class="invalid-feedback">Pick the room to furnish.</div>
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="bsd-f-wv-terms" required aria-describedby="bsd-f-wv-terms-fb">
+                <label class="form-check-label" for="bsd-f-wv-terms">I accept the delivery terms</label>
+                <div id="bsd-f-wv-terms-fb" class="invalid-feedback">Accept the terms to continue.</div>
+              </div>
+              <button type="button" class="btn btn-primary">Request a quote</button>
+            </form>
+          </div>
+
+          <p class="small text-body-secondary mt-4 mb-0">Tooltips are absolutely positioned: their parent needs position-relative, which stays in the snippet.</p>
+          <h3 class="h6 mt-3 mb-2">valid-tooltip, invalid-tooltip</h3>
+          <div class="row g-3">
+            <div class="col-md-6 col-xl-4">
+              <h4 class="small mb-1">valid-tooltip</h4>
+              <div data-demo class="pb-5">
+                <div class="position-relative">
+                  <label for="bsd-f-vt1" class="form-label">Workshop</label>
+                  <input type="text" class="form-control is-valid" id="bsd-f-vt1" value="Porto" aria-describedby="bsd-f-vt1-fb">
+                  <div id="bsd-f-vt1-fb" class="valid-tooltip">We deliver there.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <h4 class="small mb-1">invalid-tooltip</h4>
+              <div data-demo class="pb-5">
+                <div class="position-relative">
+                  <label for="bsd-f-vt2" class="form-label">Phone</label>
+                  <input type="tel" class="form-control is-invalid" id="bsd-f-vt2" value="12" aria-describedby="bsd-f-vt2-fb">
+                  <div id="bsd-f-vt2-fb" class="invalid-tooltip">Add the full number with the country code.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Floating labels: is-valid, is-invalid</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control is-valid" id="bsd-f-v-float1" placeholder="Email" value="studio@northwind.test" aria-describedby="bsd-f-v-float1-fb">
+              <label for="bsd-f-v-float1">Email</label>
+              <div id="bsd-f-v-float1-fb" class="valid-feedback">Looks right.</div>
+            </div>
+            <div class="form-floating">
+              <input type="text" class="form-control is-invalid" id="bsd-f-v-float2" placeholder="Postcode" value="12" aria-describedby="bsd-f-v-float2-fb">
+              <label for="bsd-f-v-float2">Postcode</label>
+              <div id="bsd-f-v-float2-fb" class="invalid-feedback">Enter a full postcode.</div>
+            </div>
           </div>
         </section>
 
