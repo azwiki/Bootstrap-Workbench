@@ -713,7 +713,7 @@
         <!-- ============================================================ -->
         <!-- Popovers                                                     -->
         <!-- ============================================================ -->
-        <section id="bsd-popovers" class="py-4">
+        <section id="bsd-popovers" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Popovers</h2>
           <p class="small text-body-secondary">Popovers are opt-in like tooltips (initialized in bsd-demo.js). The default trigger is a click on the button; a second click closes it.</p>
 
@@ -735,6 +735,75 @@
             <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Choose a delivery slot first.">
               <button class="btn btn-primary" type="button" disabled>Pay now</button>
             </span>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ScrollSpy                                                    -->
+        <!-- ============================================================ -->
+        <section id="bsd-scrollspy" class="py-4">
+          <h2 class="h4 mb-3">ScrollSpy</h2>
+          <p class="small text-body-secondary">Bootstrap ScrollSpy in its own scroll box (the page sidebar uses a separate scrollspy from the demo tooling). The box gets its height from .ratio, because Bootstrap has no fixed-height utility; row/col and .ratio stay in the snippet on purpose. tabindex="0" lets keyboard users scroll the box.</p>
+
+          <h3 class="h6 mt-3 mb-2">data-bs-spy="scroll" with data-bs-target and data-bs-smooth-scroll</h3>
+          <div data-demo>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <nav id="bsd-b-spy-nav" class="nav nav-pills flex-column" aria-label="Care guide">
+                  <a class="nav-link" href="#bsd-b-spy-oil">Oiling</a>
+                  <a class="nav-link" href="#bsd-b-spy-water">Water marks</a>
+                  <a class="nav-link" href="#bsd-b-spy-sun">Sunlight</a>
+                  <a class="nav-link" href="#bsd-b-spy-felt">Felt pads</a>
+                  <a class="nav-link" href="#bsd-b-spy-move">Moving furniture</a>
+                </nav>
+              </div>
+              <div class="col-md-6">
+                <div class="ratio ratio-21x9">
+                  <div class="overflow-y-auto border rounded p-3" data-bs-spy="scroll" data-bs-target="#bsd-b-spy-nav" data-bs-smooth-scroll="true" tabindex="0">
+                    <div id="bsd-b-spy-oil">
+                      <h4 class="h6">Oiling</h4>
+                      <p>Wipe the surface clean, then rub in a thin coat of hard wax oil along the grain.</p>
+                      <p>Leave it for fifteen minutes and buff away whatever the wood did not take in.</p>
+                      <p>Use a lint-free cotton cloth. Kitchen paper leaves fibres in the grain that show once the oil cures.</p>
+                      <p>Work in a room above 15 °C so the oil flows into the pores instead of sitting on top.</p>
+                      <p>Two thin coats a year are enough for a dining table. Desks and side tables need one.</p>
+                    </div>
+                    <div id="bsd-b-spy-water">
+                      <h4 class="h6">Water marks</h4>
+                      <p>A fresh ring usually lifts with a warm, dry cloth and gentle pressure.</p>
+                      <p>Older marks need a light pass with fine steel wool and a fresh coat of oil.</p>
+                      <p>Never leave a wet glass on the wood overnight: the finish holds for hours, not for days.</p>
+                      <p>On oak, black rings mean the water reached the tannin. Call us before you sand those.</p>
+                      <p>Coasters made from the offcuts of your piece are free if you ask when you order.</p>
+                    </div>
+                    <div id="bsd-b-spy-sun">
+                      <h4 class="h6">Sunlight</h4>
+                      <p>Walnut lightens and oak darkens a little in strong sun. Both are normal.</p>
+                      <p>Turn tabletops a quarter turn every few months so they change evenly.</p>
+                      <p>The first three months change the colour most. After a year the change is hard to see.</p>
+                      <p>Keep objects off a new tabletop for the first weeks, or their outline stays lighter.</p>
+                      <p>Curtains or a light blind are enough protection in south-facing rooms.</p>
+                    </div>
+                    <div id="bsd-b-spy-felt">
+                      <h4 class="h6">Felt pads</h4>
+                      <p>Check the pads under chairs twice a year and replace worn ones.</p>
+                      <p>Spare pads come with every order; more are free on request.</p>
+                      <p>Hard floors scratch fastest under chairs that are pulled out several times a day.</p>
+                      <p>Clean the pads with a dry brush: grit trapped in the felt acts like sandpaper.</p>
+                      <p>Screw-in glides work better than adhesive pads on chairs with thin legs.</p>
+                    </div>
+                    <div id="bsd-b-spy-move">
+                      <h4 class="h6">Moving furniture</h4>
+                      <p>Lift pieces instead of pushing them, and carry tables by the frame.</p>
+                      <p>For a move across town we can wrap and carry the large pieces for you.</p>
+                      <p>Take the legs off large tables before a move; each one comes off with four bolts.</p>
+                      <p>Never stack chairs seat to seat without a blanket between them.</p>
+                      <p>After a move, check that tables still stand level and adjust the glides if needed.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

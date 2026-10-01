@@ -10,10 +10,10 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 9: ScrollSpy (see "blocks.html plan"); then 10 Navbar, 11 Navs & tabs,
-     then the page blocks 12–18. forms.html complete; blocks.html done so far: Dropdowns,
-     Collapse, Modal, Offcanvas, Carousel, Toasts, Tooltips, Popovers. After the last blocks
-     section: scrollspy fix for unreachable sections (see Offcanvas note), then spytest on all pages.
+  1. blocks.html section 10: Navbar (see "blocks.html plan"); then 11 Navs & tabs, then the
+     page blocks 12–18 (Hero, Features, Pricing, Testimonials, CTA, Contact, Footer).
+     forms.html complete; blocks.html done so far: Dropdowns, Collapse, Modal, Offcanvas,
+     Carousel, Toasts, Tooltips, Popovers, ScrollSpy.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -669,6 +669,21 @@ blocks.html 8 (Popovers): DONE (autonomous run).
   elsewhere and focus/blur; hover focus = hover/mouse-out and focus/blur. All 6 OK in both
   engines at 1400/576. check.js + static OK. spytest blocks: see the log of this commit's
   checks in the next note.
+
+blocks.html 9 (ScrollSpy): DONE (autonomous run).
+- Section `#bsd-scrollspy`: Bootstrap ScrollSpy (default threshold/root margin) on a scroll
+  box `div.overflow-y-auto.border.rounded.p-3[data-bs-spy][tabindex=0]` inside
+  `.ratio.ratio-21x9` (height via Bootstrap only), nav-pills flex-column as target;
+  row g-3 + col-md-4 / col-md-6 (stacked below md). Snippet keeps row/col/ratio on purpose
+  (section intro says so).
+- What made Bootstrap's highlighting reliable here: ids on wrapper divs around each topic
+  (not on the headings: short headings rarely intersect after a jump), and topics taller than
+  the box (5 short original paragraphs each), so the next topic never shares the observed
+  area. Earlier attempts (headings as targets, taller boxes) showed the same "next topic wins"
+  behavior as Bootstrap ScrollSpy on the page.
+- Checks: check.js + static OK; spybox.js: every nav click highlights its link (no hash
+  change), Home/End in the focused box highlight first/last, both engines at 1400/576;
+  spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
