@@ -54,6 +54,13 @@ tools/spytest.js is in the repo.
   last section (rejected earlier without your OK). Commit: "Sidebar scrollspy: activation
   points for sections at the end of the page".
 
+- Audit pass method: the snippet generator got `data-demo-unwrap` and `data-demo-drop` (see
+  "Snippet generator"), so demo wrappers and demo-only classes leave the snippets while the
+  rendered page stays pixel-identical. The existing conventions alone (per-column h4.small
+  labels, layout classes on the data-demo element) would have changed how grids look.
+  Alternative: rebuild the grids with per-column labels (visible change). Commit: "Snippet
+  generator: data-demo-unwrap and data-demo-drop".
+
 ### Blocked (autonomous run)
 - (none yet)
 
@@ -250,6 +257,11 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 - Attributes on the `data-demo` element itself are not part of the snippet. The anti-pattern
   boxes use this to keep the border/overflow classes out of the copied code, and single
   examples use it for sizing (e.g. `col-3 col-sm-2 col-md-1` on the rounded-circle data-demo).
+- `data-demo-unwrap` (on any element inside a data-demo): a demo layout wrapper. The snippet
+  shows its children in its place; the page renders it as before. Used by the audit pass for
+  row/col grids and d-flex rows around variants.
+- `data-demo-drop="class …"`: those demo-only classes (e.g. h-100, mb-2 between variants)
+  are left out of that element in the snippet; an empty class attribute is removed.
 - .ratio parent rule: if data-demo's parent is `.ratio`, that wrapper is the anchor.
   The `<pre>` goes after the `.ratio`; the `</>` toggle goes in the heading before the `.ratio`,
   or, without a heading, the fallback bar goes before the `.ratio`. (Inside .ratio every child

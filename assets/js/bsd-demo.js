@@ -275,6 +275,22 @@
     var skipped = fragment.querySelectorAll('[data-demo-skip]');
     for (var i = 0; i < skipped.length; i++) skipped[i].remove();
 
+    // data-demo-drop="a b": leave these demo-only classes out of the snippet
+    var dropping = fragment.querySelectorAll('[data-demo-drop]');
+    for (var d = 0; d < dropping.length; d++) {
+      var drop = dropping[d].getAttribute('data-demo-drop').split(/\s+/);
+      for (var c = 0; c < drop.length; c++) if (drop[c]) dropping[d].classList.remove(drop[c]);
+      if (!dropping[d].classList.length) dropping[d].removeAttribute('class');
+    }
+
+    // data-demo-unwrap: a demo layout wrapper; the snippet shows its children instead
+    var wrappers = fragment.querySelectorAll('[data-demo-unwrap]');
+    for (var w = wrappers.length - 1; w >= 0; w--) {
+      var wrapper = wrappers[w];
+      while (wrapper.firstChild) wrapper.parentNode.insertBefore(wrapper.firstChild, wrapper);
+      wrapper.remove();
+    }
+
     var all = fragment.querySelectorAll('*');
     for (var j = 0; j < all.length; j++) {
       var attrs = Array.prototype.slice.call(all[j].attributes);
