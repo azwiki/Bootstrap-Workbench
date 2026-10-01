@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html phase 4, step 7: Form layout (see "forms.html phase 4 plan", approved).
-     Steps 1–2 reviewed; steps 3–6 done in the autonomous run.
+  1. forms.html phase 4, step 8: Validation (see "forms.html phase 4 plan", approved).
+     Steps 1–2 reviewed; steps 3–7 done in the autonomous run.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -470,6 +470,17 @@ Step 6 (Floating labels): DONE (autonomous run).
 - Checks: all pass (check.js with the layout check off for this section; only the grid
   example has row inside its data-demo, verified by grep), static, spytest forms 12/12,
   classes.html capture identical.
+
+Step 7 (Form layout): DONE (autonomous run).
+- Section `#bsd-form-layout` after Floating labels. 7 headings, 7 data-demos, 25 controls,
+  ids bsd-f-lay-*: spacing utilities only (form + mb-3); form grid (form.row.g-3 + col-md-*);
+  horizontal (row + col-sm-2 col-form-label, plaintext row, fieldset.row with
+  legend.col-form-label.col-sm-2.pt-0, offset-sm-2 button); col-form-label-sm/-lg; column
+  sizing (col-sm-7 + col-sm); auto-sizing (row gy-2 gx-3 align-items-center + col-auto,
+  visually-hidden labels); inline (row row-cols-lg-auto g-3 align-items-center).
+  Snippets keep row/col on purpose (section intro says so); all buttons type="button".
+- Checks: all pass (check.js with the layout check off, 17 Enter presses inside forms, 0
+  navigations), static, spytest forms 12/12, classes.html capture identical.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

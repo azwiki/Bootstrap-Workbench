@@ -523,7 +523,7 @@
         <!-- ============================================================ -->
         <!-- Floating labels                                              -->
         <!-- ============================================================ -->
-        <section id="bsd-floating-labels" class="py-4">
+        <section id="bsd-floating-labels" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Floating labels</h2>
           <p class="small text-body-secondary">form-floating needs a placeholder on the control (it can repeat the label) and the label after the control.</p>
 
@@ -621,6 +621,198 @@
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Form layout                                                  -->
+        <!-- ============================================================ -->
+        <section id="bsd-form-layout" class="py-4">
+          <h2 class="h4 mb-3">Form layout</h2>
+          <p class="small text-body-secondary">The snippets in this section keep row and col classes on purpose: the grid is the pattern. Buttons are type="button" because the demo never submits.</p>
+
+          <h3 class="h6 mt-3 mb-2">Spacing utilities only (mb-3)</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <form>
+              <div class="mb-3">
+                <label for="bsd-f-lay-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="bsd-f-lay-email" aria-describedby="bsd-f-lay-email-help">
+                <div id="bsd-f-lay-email-help" class="form-text">We send the order summary here.</div>
+              </div>
+              <div class="mb-3">
+                <label for="bsd-f-lay-message" class="form-label">Message</label>
+                <textarea class="form-control" id="bsd-f-lay-message" rows="3"></textarea>
+              </div>
+              <button type="button" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Form grid: row g-3 with col-md-*</h3>
+          <div data-demo>
+            <form class="row g-3">
+              <div class="col-md-6">
+                <label for="bsd-f-lay-first" class="form-label">First name</label>
+                <input type="text" class="form-control" id="bsd-f-lay-first" value="Mara">
+              </div>
+              <div class="col-md-6">
+                <label for="bsd-f-lay-last" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="bsd-f-lay-last" value="Quell">
+              </div>
+              <div class="col-12">
+                <label for="bsd-f-lay-street" class="form-label">Street and number</label>
+                <input type="text" class="form-control" id="bsd-f-lay-street" placeholder="Rua das Flores 12">
+              </div>
+              <div class="col-md-6">
+                <label for="bsd-f-lay-city" class="form-label">City</label>
+                <input type="text" class="form-control" id="bsd-f-lay-city">
+              </div>
+              <div class="col-md-4">
+                <label for="bsd-f-lay-country" class="form-label">Country</label>
+                <select id="bsd-f-lay-country" class="form-select">
+                  <option selected>Portugal</option>
+                  <option>Spain</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label for="bsd-f-lay-zip" class="form-label">Postcode</label>
+                <input type="text" class="form-control" id="bsd-f-lay-zip">
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="bsd-f-lay-save">
+                  <label class="form-check-label" for="bsd-f-lay-save">Save this address</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="button" class="btn btn-primary">Continue</button>
+              </div>
+            </form>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Horizontal form: row + col-sm-2 col-form-label</h3>
+          <div data-demo>
+            <form>
+              <div class="row mb-3">
+                <label for="bsd-f-lay-h-order" class="col-sm-2 col-form-label">Order</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="bsd-f-lay-h-order" value="NW-2041-B">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="bsd-f-lay-h-email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="bsd-f-lay-h-email">
+                </div>
+              </div>
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Delivery</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bsd-f-lay-h-delivery" id="bsd-f-lay-h-d1" checked>
+                    <label class="form-check-label" for="bsd-f-lay-h-d1">Pickup at the studio</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bsd-f-lay-h-delivery" id="bsd-f-lay-h-d2">
+                    <label class="form-check-label" for="bsd-f-lay-h-d2">Courier to the door</label>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="row">
+                <div class="col-sm-10 offset-sm-2">
+                  <button type="button" class="btn btn-primary">Confirm</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Horizontal label sizing: col-form-label-sm, col-form-label-lg</h3>
+          <div data-demo>
+            <div class="row mb-3">
+              <label for="bsd-f-lay-sm" class="col-sm-2 col-form-label col-form-label-sm">Small</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" id="bsd-f-lay-sm" placeholder="form-control-sm">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="bsd-f-lay-md" class="col-sm-2 col-form-label">Default</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="bsd-f-lay-md" placeholder="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <label for="bsd-f-lay-lg" class="col-sm-2 col-form-label col-form-label-lg">Large</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-lg" id="bsd-f-lay-lg" placeholder="form-control-lg">
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Column sizing: col-sm-7 next to col-sm</h3>
+          <div data-demo>
+            <div class="row g-3">
+              <div class="col-sm-7">
+                <input type="text" class="form-control" placeholder="City" aria-label="City">
+              </div>
+              <div class="col-sm">
+                <input type="text" class="form-control" placeholder="Region" aria-label="Region">
+              </div>
+              <div class="col-sm">
+                <input type="text" class="form-control" placeholder="Postcode" aria-label="Postcode">
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Auto-sizing: col-auto, gy-2 gx-3, align-items-center</h3>
+          <div data-demo>
+            <form class="row gy-2 gx-3 align-items-center">
+              <div class="col-auto">
+                <label class="visually-hidden" for="bsd-f-lay-auto-name">Name</label>
+                <input type="text" class="form-control" id="bsd-f-lay-auto-name" placeholder="Name">
+              </div>
+              <div class="col-auto">
+                <label class="visually-hidden" for="bsd-f-lay-auto-handle">Studio handle</label>
+                <div class="input-group">
+                  <div class="input-group-text">@</div>
+                  <input type="text" class="form-control" id="bsd-f-lay-auto-handle" placeholder="Studio handle">
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="bsd-f-lay-auto-remember">
+                  <label class="form-check-label" for="bsd-f-lay-auto-remember">Remember me</label>
+                </div>
+              </div>
+              <div class="col-auto">
+                <button type="button" class="btn btn-primary">Sign in</button>
+              </div>
+            </form>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Inline form: row row-cols-lg-auto g-3 align-items-center</h3>
+          <div data-demo>
+            <form class="row row-cols-lg-auto g-3 align-items-center">
+              <div class="col-12">
+                <label class="visually-hidden" for="bsd-f-lay-inline-search">Search products</label>
+                <input type="text" class="form-control" id="bsd-f-lay-inline-search" placeholder="Search products">
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="bsd-f-lay-inline-room">Room</label>
+                <select class="form-select" id="bsd-f-lay-inline-room">
+                  <option selected>Any room</option>
+                  <option>Kitchen</option>
+                  <option>Studio</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="bsd-f-lay-inline-stock">
+                  <label class="form-check-label" for="bsd-f-lay-inline-stock">In stock only</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="button" class="btn btn-primary">Search</button>
+              </div>
+            </form>
           </div>
         </section>
 
