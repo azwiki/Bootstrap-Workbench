@@ -54,6 +54,10 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
   the id must match an entry in the PAGES list in bsd-demo.js, which then renders the toolbar
   page switch. No attribute, no switch. Remove the attribute when pasting the fragment into
   another site.
+- The sidebar uses a custom scrollspy in bsd-demo.js (no data-bs-spy on <main>). Bootstrap
+  ScrollSpy itself is demonstrated on blocks.html.
+- tools/ holds dev-only test scripts (e.g. tools/spytest.js, Node + Playwright installed
+  outside the repo). It is not part of the demo fragment and is never loaded by the pages.
 - Each example: live render + generated code snippet (see snippet rules below).
 
 ## Snippet generator

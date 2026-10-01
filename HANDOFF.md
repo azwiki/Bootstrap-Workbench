@@ -2,8 +2,8 @@
 
 ## Start here (cold start)
 
-- Last commit: "forms: Select section" (`git log -1`). Before it: `138aec5` Scrollspy
-  threshold and root margin on both pages.
+- Last commit: "Custom sidebar scrollspy, add tools/spytest.js" (`git log -1`). Before it:
+  `5ae6e78` forms: Select section.
 - First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
 - Cards review done (user, 2026-09-30). Decision: both card grids stay as a problem → fix pair.
   The old mixed-ratio grid is now a "Broken:" anti-pattern placed right before the 4:3 grid.
@@ -12,7 +12,7 @@
 - Next steps, in order (one section per edit, stop for review after each):
   1. forms.html phase 4, step 3: Checks & radios (see "forms.html phase 4 plan", approved).
      Step 1 reviewed; step 2 (Select) done, awaiting review.
-  2. Step 9 includes the spytest.js rerun at 700/900/1200px (see "Scrollspy settings").
+  2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
 - Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
@@ -282,8 +282,8 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   (temporary copies, deleted).
 - Phase 2 details: buildTooling() runs right after the run-once guard, before the snippet
   generator, so all later lookups by id are unchanged. The page keeps only the layout
-  (`.container-fluid > .row > content column`) and `data-bs-spy`/`data-bs-target="#bsd-nav"`
-  on #bs-demo. Placement: toolbar = first child of #bs-demo (before the layout container),
+  (`.container-fluid > .row > content column`); the data-bs-spy attributes it kept then were
+  removed later (custom scrollspy, see "Sidebar scrollspy"). Placement: toolbar = first child of #bs-demo (before the layout container),
   sidebar column = first child of the `.row` that holds the sections, tokens offcanvas =
   right after the layout container (before #bsd-live). #bsd-live stays in the HTML.
   All 27 h2 texts equal the previous sidebar labels (nothing renamed).
@@ -291,7 +291,7 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   tooling behavior, normalized DOM dump of toolbar, sidebar column and tokens offcanvas with
   their parent/siblings) is byte-identical before and after, also with the bundle in `<head>`
   and with the script tag twice (one toolbar/sidebar/#bsd-nav/tokens panel). No JS errors.
-- Scrollspy: see "Scrollspy settings" below (the old Shadows/Focus ring quirk is fixed).
+- Scrollspy: see "Sidebar scrollspy" below (the old Shadows/Focus ring quirk is fixed).
 - data-bsd-page rule: `<main id="bs-demo" data-bsd-page="<id>">` on each demo page; the id must
   match an entry in PAGES in bsd-demo.js (classes, forms; blocks.html = one more entry). Only
   then the toolbar gets the page switch: `<nav class="btn-group btn-group-sm"
@@ -375,9 +375,9 @@ Rules for new forms content (approved):
 Order (one section per edit, stop for review after each):
 1. Form controls  2. Select  3. Checks & radios  4. Range  5. Input group  6. Floating labels
 7. Form layout  8. Validation  9. Remove #bsd-forms from classes.html, link to forms.html in its
-place, update #bsd-forms-intro. Then rerun spytest.js (see "Scrollspy settings") on both
-pages at window heights 700, 900 and 1200px; report any failure. Fallback, ONLY with the
-user's OK: a custom sidebar scrollspy in bsd-demo.js.
+place, update #bsd-forms-intro.
+Checks for every step include `tools/spytest.js` on both pages (default heights 700, 900,
+1200); report any failure.
 Old E1–E3 stay on classes.html until step 9.
 
 Step 1 (Form controls): DONE, awaiting review.
@@ -410,44 +410,40 @@ Step 2 (Select): DONE, awaiting review.
   http://mini.local): no JS errors, no overflow, sidebar link + scrollspy click from the top,
   5 toggles in headings, clean snippets, accessible names, 0 navigations. Form controls
   rechecked: unchanged. All classes grep-verified, no duplicate ids.
-- spytest.js real, 900px: classes.html PASS at 1400 and 576 (both engines). forms.html 576
-  PASS (the intro edge case no longer shows). forms.html 1400 FAIL (both engines): Select,
-  the last section, is never highlighted while scrolling, and clicking it highlights Form
-  controls. Cause: at max scroll the Select top sits at 245px, below the 15% band (135px);
-  the page cannot scroll further. Not retuned (user rule). Expected to move to whatever
-  section is last; recheck after each step and in step 9.
+- spytest at 900px then showed the last-section failure of Bootstrap ScrollSpy on forms.html
+  at 1400px; fixed by the custom sidebar scrollspy (see "Sidebar scrollspy").
 
-### Scrollspy settings (decided 2026-10-01)
-- `<main>` on both pages (HTML attributes, not set by JS):
-  `data-bs-threshold="0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1" data-bs-root-margin="0px 0px -85%"`.
-- Why: Bootstrap ScrollSpy (IntersectionObserver, defaults threshold 0.1/0.5/1, root margin
-  -25%) highlights, while scrolling down, the LOWEST section that newly intersects. With the
-  default band, a clicked short section loses to the next one, and tall sections that never
-  cross a threshold are never highlighted (Images, Cards, forms Form controls). More threshold
-  steps make every section report; the -85% band (top 15% of the window) leaves only the
-  section at the top.
-- Test script: `spytest.js` (session scratchpad, NOT in the repo; recreate if missing). Per
-  page, Chromium + WebKit, 1400 and 576px: first section active on load; clicking every
-  sidebar link highlights that link (element.click(), waits for smooth scroll to settle);
-  scrolling top to bottom in 60px steps highlights every section in page order.
-  `node spytest.js real 700,900,1200` tests the real pages.
-- Results at 900px (Chromium and WebKit identical; load / click failures / scroll):
-  | variant | classes 1400 | classes 576 | forms 1400 | forms 576 |
-  | base | ok / 16 / Images missing | ok / 14 / Images, Cards missing | ok / 1 / Form controls missing | same |
-  | T (threshold steps) | ok / 17 / ok | ok / 12 / ok | ok / 1 (intro) / ok | same |
-  | M40 | ok / 16 / Images, Cards missing | ok / 9 / same | ok / 1 / Form controls missing | same |
-  | M70 | ok / 4 / Images, Cards missing | none active / 4 / nothing | PASS | PASS |
-  | T+M40 | ok / 15 / ok | ok / 11 / ok | ok / 1 (intro) / ok | PASS |
-  | T+M70 | ok / 4 / ok | ok / 3 / ok | ok / 1 (intro) / ok | same |
-  | T+M80 | ok / 2 / ok | PASS | ok / 1 (intro) / ok | same |
-  | T+M85 (chosen) | PASS | PASS | ok / 0 / intro missing | same |
-  | T+M90 | none active / 0 / nothing | same | none active / 0 / intro missing | same |
-  Real pages with T+M85 reproduce the T+M85 row.
-- Known edge case (forms.html, T+M85): after the click run ends on Form controls at the
-  bottom and the page jumps back to the top, Form controls stays highlighted. On a fresh load
-  and after jumping to the top from a normal scroll, the intro IS highlighted. The intro's top
-  (127px) sits only 8px inside the 15% band (135px at 900px), so it is marginal and depends
-  on window height and header height. Recheck in step 9.
+### Sidebar scrollspy (custom, decided 2026-10-01)
+- bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
+  `<main>` no longer has data-bs-spy, data-bs-target, data-bs-smooth-scroll, data-bs-threshold
+  or data-bs-root-margin, so Bootstrap ScrollSpy does not run there. Bootstrap ScrollSpy
+  itself is demonstrated on blocks.html.
+- Active section = the last nav section whose top is at or above ACTIVE_LINE = 120px (below
+  the fixed toolbar, max ~96px tall; less than the shortest section, 158px, so a clicked
+  section keeps the highlight). Scrolled to the bottom of a scrollable page → last section.
+  Otherwise (e.g. on load at the top) → first section. A URL hash works through the
+  browser's own jump plus the scroll/hashchange/load updates.
+- Output = Bootstrap's: only `.active` on the nav-link (compared: Bootstrap set no
+  aria-current or other attributes).
+- Click: preventDefault, `scrollTo({ top: section.offsetTop - #bs-demo.offsetTop, behavior:
+  'smooth' })`, hash unchanged: same formula and landing as Bootstrap. The existing nav
+  click handler still closes the offcanvas below lg.
+- Updates: rAF-throttled on scroll, resize (passive), hashchange, load, plus once at start.
+  No globals, inside the run-once guard, no Bootstrap dependency (any bundle load order).
+- Why not Bootstrap ScrollSpy: it highlights the lowest newly intersecting section while
+  scrolling down. Tuning (threshold steps, root margins -40…-90%) was tried; the best,
+  threshold 0…1 + root margin -85%, still failed the last section whenever the page cannot
+  scroll it into the top band (forms.html Select at 1400px).
+- Results (Chromium + WebKit, 1400/576px, window heights 700/900/1200, tools/spytest.js):
+  24/24 PASS (load, every click, scroll down and back up, incl. Shadows/Focus ring and the
+  last section on both pages). Phase-1 capture (snippets, toggles, Show code, theme, Custom
+  CSS, tokens, offcanvas sidebar, toolbar/sidebar/tokens DOM): byte-identical before/after on
+  both pages, also with the bundle in `<head>` and the script twice. Landing after clicks:
+  358/360 identical; 2 differ only where Bootstrap stopped 21px short (WebKit, Alerts), now 0.
+  Hash on load and hashchange: correct in both engines (after the smooth scroll settles;
+  Bootstrap's reboot sets scroll-behavior: smooth on :root). No JS errors.
+- tools/spytest.js: see its header (Node + Playwright, installed outside the repo, run with
+  NODE_PATH). tools/ is NOT part of the #bs-demo fragment.
 
 ### Toolbar (fixed, top-right)
 - "Sections" button, shown below lg only: opens the sidebar offcanvas.

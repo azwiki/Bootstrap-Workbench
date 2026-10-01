@@ -613,6 +613,84 @@
   }
 
   // ------------------------------------------------------------------
+  // Sidebar scrollspy (replaces Bootstrap ScrollSpy for #bsd-nav).
+  // Active section: the last section whose top is at or above ACTIVE_LINE;
+  // at the bottom of a scrollable page the last section; otherwise the first.
+  // Output matches Bootstrap ScrollSpy: only .active on the nav-link.
+  // ------------------------------------------------------------------
+
+  // px from the window top: below the fixed toolbar (at most ~96px tall) and
+  // less than the shortest section, so a clicked section keeps the highlight
+  var ACTIVE_LINE = 120;
+
+  function initScrollspy() {
+    var nav = document.getElementById('bsd-nav');
+    if (!nav) return;
+
+    var links = [];
+    var sections = [];
+    var navLinks = nav.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < navLinks.length; i++) {
+      var section = document.getElementById(navLinks[i].getAttribute('href').slice(1));
+      if (section) {
+        links.push(navLinks[i]);
+        sections.push(section);
+      }
+    }
+    if (!sections.length) return;
+
+    var current = -1;
+
+    function update() {
+      var doc = document.documentElement;
+      var scrollable = doc.scrollHeight > window.innerHeight + 1;
+      var atBottom = scrollable && window.innerHeight + window.scrollY >= doc.scrollHeight - 1;
+      var index = 0;
+      if (atBottom) {
+        index = sections.length - 1;
+      } else {
+        for (var j = 0; j < sections.length; j++) {
+          if (sections[j].getBoundingClientRect().top <= ACTIVE_LINE) index = j;
+        }
+      }
+      if (index === current) return;
+      if (current >= 0) links[current].classList.remove('active');
+      links[index].classList.add('active');
+      current = index;
+    }
+
+    // One update per frame at most
+    var queued = false;
+    function schedule() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () {
+        queued = false;
+        update();
+      });
+    }
+
+    // Same click behavior as Bootstrap ScrollSpy with smooth scrolling:
+    // section top lands at the window top, the URL hash is not changed
+    nav.addEventListener('click', function (event) {
+      var link = event.target.closest('a[href^="#"]');
+      var index = links.indexOf(link);
+      if (index === -1) return;
+      event.preventDefault();
+      // Same formula as Bootstrap ScrollSpy (whole pixels)
+      window.scrollTo({ top: sections[index].offsetTop - root.offsetTop, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+    window.addEventListener('hashchange', schedule, { passive: true });
+    window.addEventListener('load', schedule, { passive: true });
+    update();
+  }
+
+  initScrollspy();
+
+  // ------------------------------------------------------------------
   // Demo forms never submit: Enter in a field or a submit button would
   // otherwise reload the page. Demo-only, not part of any snippet.
   // ------------------------------------------------------------------
