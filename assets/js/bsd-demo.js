@@ -25,6 +25,39 @@
     return box.firstElementChild;
   }
 
+  // Demo pages for the toolbar page switch. A page opts in with
+  // data-bsd-page="<id>" on #bs-demo; without it (e.g. the fragment pasted
+  // into another site) no switch is rendered.
+  var PAGES = [
+    { id: 'classes', href: 'classes.html', label: 'Classes' },
+    { id: 'forms', href: 'forms.html', label: 'Forms' }
+  ];
+
+  function buildPageSwitch() {
+    var current = root.getAttribute('data-bsd-page');
+    var known = false;
+    for (var i = 0; i < PAGES.length; i++) {
+      if (PAGES[i].id === current) known = true;
+    }
+    if (!known) return null;
+
+    var group = document.createElement('nav');
+    group.className = 'btn-group btn-group-sm';
+    group.setAttribute('aria-label', 'Demo pages');
+    for (var j = 0; j < PAGES.length; j++) {
+      var link = document.createElement('a');
+      link.className = 'btn btn-outline-secondary';
+      link.href = PAGES[j].href;
+      link.textContent = PAGES[j].label;
+      if (PAGES[j].id === current) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+      group.appendChild(link);
+    }
+    return group;
+  }
+
   function buildTooling() {
     var sections = root.querySelectorAll('section[id^="bsd-"]');
     if (!sections.length) return;
@@ -49,6 +82,9 @@
         '<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="offcanvas" data-bs-target="#bsd-tokens" aria-controls="bsd-tokens">Tokens</button>' +
       '</div>'
     );
+
+    var pageSwitch = buildPageSwitch();
+    if (pageSwitch) toolbar.firstElementChild.insertAdjacentElement('afterend', pageSwitch);
 
     var sidebarColumn = fromHTML(
       '<div class="col-lg-3 col-xl-2 position-sticky top-0 align-self-start overflow-y-auto border-end" style="max-height: 100vh;">' +

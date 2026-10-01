@@ -1,18 +1,18 @@
-# Handoff: classes.html
+# Handoff: classes.html, forms.html
 
 ## Start here (cold start)
 
-- Last commit: "bsd-demo.js builds toolbar, sidebar and tokens panel" (`git log -1`). Before
-  it: `b794d60` Move demo tooling to assets/js/bsd-demo.js.
+- Last commit: "forms.html skeleton and page switch" (`git log -1`). Before it: `45c4d71`
+  bsd-demo.js builds toolbar, sidebar and tokens panel.
 - First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
 - Cards review done (user, 2026-09-30). Decision: both card grids stay as a problem → fix pair.
   The old mixed-ratio grid is now a "Broken:" anti-pattern placed right before the 4:3 grid.
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html plan, phase 3: forms.html skeleton + page switch in the toolbar
-     (see "forms.html tooling sharing"). Phases 1 (reviewed) and 2 (awaiting review) are done.
-  2. Phase 4: the forms sections, one at a time.
+  1. forms.html plan, phase 4: move the forms sections one at a time, Form controls first
+     (see "forms.html tooling sharing"). Phases 1–2 reviewed; phase 3 done, awaiting review.
+  2. After Form controls leaves classes.html: re-check the Shadows/Focus ring scrollspy quirk.
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
 - Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
@@ -267,7 +267,7 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   1. Move the inline script to bsd-demo.js unchanged, classes.html uses `<script src>`. DONE.
   2. bsd-demo.js builds the toolbar, sidebar (links from `section[id^="bsd-"] > h2`) and the
      tokens offcanvas; remove that markup from classes.html. Same Playwright comparison. DONE.
-  3. forms.html skeleton + page switch in the toolbar ("Classes" / "Forms", aria-current).
+  3. forms.html skeleton + page switch in the toolbar ("Classes" / "Forms", aria-current). DONE.
   4. Move the forms sections one at a time (Form controls, Select, Checks & radios, Range,
      Input group, Floating labels, Form layout, Validation); then remove Form controls from
      classes.html and add the link to forms.html.
@@ -292,6 +292,25 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   and with the script tag twice (one toolbar/sidebar/#bsd-nav/tokens panel). No JS errors.
 - Known, pre-existing (same before phase 2): scrolling to the short Shadows section marks
   "Focus ring" active in the sidebar (Bootstrap scrollspy threshold near the page end).
+  User: leave it, re-check after Form controls leaves classes.html.
+- data-bsd-page rule: `<main id="bs-demo" data-bsd-page="<id>">` on each demo page; the id must
+  match an entry in PAGES in bsd-demo.js (classes, forms; blocks.html = one more entry). Only
+  then the toolbar gets the page switch: `<nav class="btn-group btn-group-sm"
+  aria-label="Demo pages">` with `a.btn.btn-outline-secondary` links, the current one `active`
+  + `aria-current="page"`, inserted right after the Sections button. No attribute → no
+  switch. When pasting the fragment into another site, remove data-bsd-page (the page
+  comment says so), or the switch links to pages that do not exist there.
+- Phase 3 details: forms.html = same `<head>` (lang, meta, favicon, bootstrap.min.css, main.css),
+  same layout, `data-bsd-page="forms"`, intro section `#bsd-forms-intro` ("About this page"),
+  `<!-- bsd:continue -->`, #bsd-live, bsd-demo.js, bundle, main.js (as in classes.html).
+  Playwright Chromium + WebKit, 1400/576px, light/dark, file://: classes.html differs from
+  the phase 2 recording only by the switch `<nav>` in the toolbar DOM; a copy without
+  data-bsd-page is byte-identical to phase 2 (deleted). forms.html: one sidebar link,
+  scrollspy, tokens (91 rows), theme toggle, Custom CSS switch work; switch links work both
+  ways; theme and Show code carry over in both directions; no JS errors, no overflow.
+- Known, accepted (user, 2026-10-01): the switch (126px) makes the fixed toolbar wrap to two
+  rows between ~691px and ~557px (before: one row down to ~557px); at 576px it covers the top
+  ~24px of the h1 until scrolled.
 - localStorage on file:// (bsd-theme, bsd-code), tested in Playwright Chromium and WebKit:
   origin is "file://" and the keys are shared between pages in the same folder and in other
   folders; reopening classes.html restores theme and Show code. Not yet checked in real
@@ -299,6 +318,7 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 
 ### Toolbar (fixed, top-right)
 - "Sections" button, shown below lg only: opens the sidebar offcanvas.
+- Page switch (Classes / Forms) right after it, only on pages with data-bsd-page.
 - Theme toggle: sets `data-bs-theme` on `<html>`, saved in localStorage (`bsd-theme`).
 - Custom CSS switch: disables every stylesheet whose file name lacks "bootstrap". A badge shows how many there are.
 - Tokens button: offcanvas listing computed `--bs-*` variables with color swatches.
@@ -345,7 +365,7 @@ Each step = one section per edit, then stop for review.
    are skipped, see "Skipped".)
 6. Utility scales: done, awaiting review.
 7. forms.html: tooling-sharing plan approved (phases 1–4, see "forms.html tooling sharing");
-   phases 1–2 done. Then sections, then remove Form controls from classes.html and add the link.
+   phases 1–3 done. Then sections, then remove Form controls from classes.html and add the link.
 8. blocks.html (interactive components: dropdowns incl. dropdown-menu-dark, collapse, modal,
    offcanvas, carousel, toast, tooltip, popover, scrollspy; navbar/navs).
 9. Audit backlog pass (separate, when the user says so).
