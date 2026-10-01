@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 14: Pricing (see "blocks.html plan"); then 15 Testimonials, 16 CTA,
-     17 Contact, 18 Footer.
+  1. blocks.html section 15: Testimonials (see "blocks.html plan"); then 16 CTA, 17 Contact,
+     18 Footer.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -722,6 +722,14 @@ blocks.html 13 (Features): DONE (autonomous run).
 - Section `#bsd-features`: 3 columns (row row-cols-1 row-cols-md-3 g-4) with numbered tiles
   (bg-primary-subtle text-primary-emphasis rounded-3), h4.fs-5, icon-link links to sections;
   2 columns with the tile beside the text (d-flex align-items-start, text-bg-secondary tile).
+- Checks: check.js (layout check off) + static OK; spytest blocks 12/12.
+
+blocks.html 14 (Pricing): DONE (autonomous run).
+- Section `#bsd-pricing`: row row-cols-1 row-cols-md-3 g-4 text-center; card h-100 rounded-3
+  shadow-sm; featured card border-primary with card-header text-bg-primary; price as
+  p.card-title.display-6.fw-bold (Bootstrap's own example uses a custom class there);
+  list-unstyled; button.w-100.btn-lg with mt-auto in a d-flex flex-column card-body so the
+  buttons line up; buttons type="button".
 - Checks: check.js (layout check off) + static OK; spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
