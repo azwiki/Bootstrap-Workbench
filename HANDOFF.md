@@ -10,7 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 17: Contact form (see "blocks.html plan"); then 18 Footer.
+  1. blocks.html section 18: Footer (see "blocks.html plan"), then the final blocks.html
+     check (all interaction scripts, spytest on all pages), then part C (audit backlog pass).
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -742,6 +743,13 @@ blocks.html 16 (Call to action): DONE (autonomous run).
   btn-light btn-lg link to #bsd-contact); inline bar (d-flex flex-column flex-md-row
   align-items-md-center justify-content-between gap-3 p-4 border rounded-3 bg-body-tertiary).
 - Checks: check.js + static OK; spytest blocks 12/12.
+
+blocks.html 17 (Contact form): DONE (autonomous run).
+- Section `#bsd-contact`: row g-4 with address column (address, opening hours, tel: and
+  mailto: links) and form column (form.row.g-3: name, email + form-text, topic select,
+  message, copy checkbox, button type="button"; no action; autocomplete on name/email).
+- Checks: check.js (layout check off; Enter in 3 fields, 0 navigations) + static OK;
+  spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
