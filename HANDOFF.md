@@ -2,17 +2,17 @@
 
 ## Start here (cold start)
 
-- Last commit: "forms: Form controls section" (`git log -1`). Before it: `0346e6d` HANDOFF:
-  Safari localStorage check and forms plan.
+- Last commit: "forms: Select section" (`git log -1`). Before it: `138aec5` Scrollspy
+  threshold and root margin on both pages.
 - First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
 - Cards review done (user, 2026-09-30). Decision: both card grids stay as a problem → fix pair.
   The old mixed-ratio grid is now a "Broken:" anti-pattern placed right before the 4:3 grid.
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html phase 4, step 2: Select (see "forms.html phase 4 plan", approved).
-     Step 1 (Form controls) done, awaiting review.
-  2. After Form controls leaves classes.html: re-check the Shadows/Focus ring scrollspy quirk.
+  1. forms.html phase 4, step 3: Checks & radios (see "forms.html phase 4 plan", approved).
+     Step 1 reviewed; step 2 (Select) done, awaiting review.
+  2. Step 9 includes the spytest.js rerun at 700/900/1200px (see "Scrollspy settings").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
 - Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
@@ -400,6 +400,22 @@ Step 1 (Form controls): DONE, awaiting review.
   outside #bs-demo does navigate. All classes grep-verified.
 - Scrollspy at 1400px: clicking "Form controls" left no link active. Fixed by the scrollspy
   settings below.
+
+Step 2 (Select): DONE, awaiting review.
+- Section `#bsd-select` after Form controls (which now has `border-bottom`). 3 headings,
+  5 data-demos, 7 controls: form-select with form-label (moved id bsd-f-finish);
+  -sm/default/-lg (d-grid gap-2 on the data-demo, aria-labels); grid of multiple (with
+  form-text via aria-describedby), size="3", disabled.
+- Same checks as step 1, all pass (Chromium + WebKit, 1400/576, light/dark, file:// and
+  http://mini.local): no JS errors, no overflow, sidebar link + scrollspy click from the top,
+  5 toggles in headings, clean snippets, accessible names, 0 navigations. Form controls
+  rechecked: unchanged. All classes grep-verified, no duplicate ids.
+- spytest.js real, 900px: classes.html PASS at 1400 and 576 (both engines). forms.html 576
+  PASS (the intro edge case no longer shows). forms.html 1400 FAIL (both engines): Select,
+  the last section, is never highlighted while scrolling, and clicking it highlights Form
+  controls. Cause: at max scroll the Select top sits at 245px, below the 15% band (135px);
+  the page cannot scroll further. Not retuned (user rule). Expected to move to whatever
+  section is last; recheck after each step and in step 9.
 
 ### Scrollspy settings (decided 2026-10-01)
 - `<main>` on both pages (HTML attributes, not set by JS):
