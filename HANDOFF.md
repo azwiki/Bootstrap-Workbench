@@ -10,7 +10,7 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 15: Testimonials (see "blocks.html plan"); then 16 CTA, 17 Contact,
+  1. blocks.html section 16: Call to action (see "blocks.html plan"); then 17 Contact,
      18 Footer.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
@@ -730,6 +730,12 @@ blocks.html 14 (Pricing): DONE (autonomous run).
   p.card-title.display-6.fw-bold (Bootstrap's own example uses a custom class there);
   list-unstyled; button.w-100.btn-lg with mt-auto in a d-flex flex-column card-body so the
   buttons line up; buttons type="button".
+- Checks: check.js (layout check off) + static OK; spytest blocks 12/12.
+
+blocks.html 15 (Testimonials): DONE (autonomous run).
+- Section `#bsd-testimonials`: three cards (row row-cols-1 row-cols-md-3 g-4, card h-100) with
+  figure > blockquote.blockquote.fs-6 + figcaption.blockquote-footer with cite; one large
+  centered quote (figure.text-center, blockquote fs-4). No photos (see plan).
 - Checks: check.js (layout check off) + static OK; spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
