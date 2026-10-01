@@ -249,6 +249,8 @@ screenshot at 1400px light is byte-identical before/after unless noted.
 - Borders & rounded: 4 grids + 1 d-flex row unwrapped. Sample-box helpers (p-2, bg-body-tertiary, border-2 for visibility) stay, as in Colors. rounded-circle example unchanged (sizing on its data-demo). Screenshot identical.
 - Links: 6 d-flex rows unwrapped (one example had three sibling rows). Screenshot identical.
 - Buttons: 7 d-flex rows unwrapped. btn-check examples were already clean (layout on the data-demo element). Screenshot identical.
+- Button group, Close button: already clean: btn-toolbar gap-2 is the canonical spacing between groups; no change.
+- Typography: 4 d-flex rows + 2 grids unwrapped; col-md-4 on the lh-* paragraphs and mb-0 on lists/figure/figcaption/pre dropped from snippets. dl.row with col-5/col-7 stays (canonical description list). Screenshot identical.
 ### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
 - In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
   and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
