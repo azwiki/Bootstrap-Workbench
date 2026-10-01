@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html phase 4, step 4: Range (see "forms.html phase 4 plan", approved).
-     Steps 1–2 reviewed; step 3 (Checks & radios) done in the autonomous run.
+  1. forms.html phase 4, step 5: Input group (see "forms.html phase 4 plan", approved).
+     Steps 1–2 reviewed; steps 3–4 done in the autonomous run.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -446,6 +446,11 @@ Step 3 (Checks & radios): DONE (autonomous run).
 - Intro line links to classes.html#bsd-buttons for btn-check toggles.
 - Checks: all pass (check.js 16 runs, static, spytest forms 12/12, classes.html capture
   identical to baseline).
+
+Step 4 (Range): DONE (autonomous run).
+- Section `#bsd-range` after Checks & radios. 4 headings, 4 data-demos (col-md-8 col-lg-6 on
+  data-demo): form-range + form-label (moved id bsd-f-range), disabled, min/max, step.
+- Checks: all pass (check.js, static, spytest forms 12/12, classes.html capture identical).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
