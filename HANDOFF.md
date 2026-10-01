@@ -45,6 +45,16 @@ tools/spytest.js is in the repo.
   (`_isAnimated(){return classList.contains("slide")}`), canonical carousel markup. Kept.
   Alternative: drop it (no slide animation). Commit: "blocks: Carousel section".
 
+- Sidebar scrollspy, sections at the end: the "last section whose top reached the line" rule
+  could not highlight short sections the page cannot scroll up to the line (blocks.html:
+  Tooltips/Popovers; would hit every short final block such as the footer). Now those
+  sections get evenly spaced activation points in the last part of the scroll range (at
+  least 100px each), and a click on them lands on that point instead of the clamped bottom.
+  Landing for every other section is unchanged; classes/forms captures identical; spytest
+  36/36 on all three pages at 700/900/1200. Alternative: bottom padding/spacer after the
+  last section (rejected earlier without your OK). Commit: "Sidebar scrollspy: activation
+  points for sections at the end of the page".
+
 ### Blocked (autonomous run)
 - (none yet)
 
@@ -665,15 +675,22 @@ blocks.html 8 (Popovers): DONE (autonomous run).
   `<main>` no longer has data-bs-spy, data-bs-target, data-bs-smooth-scroll, data-bs-threshold
   or data-bs-root-margin, so Bootstrap ScrollSpy does not run there. Bootstrap ScrollSpy
   itself is demonstrated on blocks.html.
-- Active section = the last nav section whose top is at or above ACTIVE_LINE = 120px (below
-  the fixed toolbar, max ~96px tall; less than the shortest section, 158px, so a clicked
-  section keeps the highlight). Scrolled to the bottom of a scrollable page → last section.
-  Otherwise (e.g. on load at the top) → first section. A URL hash works through the
+- Active section = the last nav section whose activation point is at or above the current
+  scroll position. Activation point = the scroll position that puts the section top on
+  ACTIVE_LINE = 120px (below the fixed toolbar, max ~96px tall; less than the shortest
+  section, 158px, so a clicked section keeps the highlight). Sections the page cannot scroll
+  that far (short sections at the end) get evenly spaced points between an earlier section
+  and the bottom of the page; the spread starts early enough to give each at least MIN_BAND
+  = 100px of scroll. The last section's point is the bottom, so "bottom → last section"
+  still holds. Not scrolled yet (e.g. on load at the top) → first section.
+  (Autonomous run change, 2026-10-01; see "Decisions for review".) A URL hash works through the
   browser's own jump plus the scroll/hashchange/load updates.
 - Output = Bootstrap's: only `.active` on the nav-link (compared: Bootstrap set no
   aria-current or other attributes).
 - Click: preventDefault, `scrollTo({ top: section.offsetTop - #bs-demo.offsetTop, behavior:
-  'smooth' })`, hash unchanged: same formula and landing as Bootstrap. The existing nav
+  'smooth' })`, hash unchanged: same formula and landing as Bootstrap. When that position is
+  past the bottom of the page, or the section's point was spread, the click lands on the
+  activation point instead (so the clicked link is the one highlighted). The existing nav
   click handler still closes the offcanvas below lg.
 - Updates: rAF-throttled on scroll, resize (passive), hashchange, load, plus once at start.
   No globals, inside the run-once guard, no Bootstrap dependency (any bundle load order).

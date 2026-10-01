@@ -616,13 +616,16 @@
   // ------------------------------------------------------------------
   // Sidebar scrollspy (replaces Bootstrap ScrollSpy for #bsd-nav).
   // Active section: the last section whose top is at or above ACTIVE_LINE;
-  // at the bottom of a scrollable page the last section; otherwise the first.
+  // sections the page cannot scroll that far share the rest of the scroll range,
+  // so the bottom of the page means the last section; otherwise the first.
   // Output matches Bootstrap ScrollSpy: only .active on the nav-link.
   // ------------------------------------------------------------------
 
   // px from the window top: below the fixed toolbar (at most ~96px tall) and
   // less than the shortest section, so a clicked section keeps the highlight
   var ACTIVE_LINE = 120;
+  // Smallest scroll distance (px) during which each of the last sections stays active
+  var MIN_BAND = 100;
 
   function initScrollspy() {
     var nav = document.getElementById('bsd-nav');
@@ -642,17 +645,38 @@
 
     var current = -1;
 
-    function update() {
+    // Scroll position at which each section becomes active: its top at ACTIVE_LINE.
+    // Sections the page cannot scroll that far (short sections at the end) get evenly
+    // spaced points between an earlier section and the bottom of the page, so each of
+    // them can still be reached by scrolling and by a click; the last one sits at the
+    // very bottom. The spread starts early enough to give each at least MIN_BAND px.
+    function activationPoints() {
       var doc = document.documentElement;
-      var scrollable = doc.scrollHeight > window.innerHeight + 1;
-      var atBottom = scrollable && window.innerHeight + window.scrollY >= doc.scrollHeight - 1;
-      var index = 0;
-      if (atBottom) {
-        index = sections.length - 1;
-      } else {
-        for (var j = 0; j < sections.length; j++) {
-          if (sections[j].getBoundingClientRect().top <= ACTIVE_LINE) index = j;
+      var maxScroll = Math.max(0, doc.scrollHeight - window.innerHeight);
+      var points = [];
+      var firstUnreachable = -1;
+      for (var j = 0; j < sections.length; j++) {
+        var point = sections[j].getBoundingClientRect().top + window.scrollY - ACTIVE_LINE;
+        points.push(point);
+        if (firstUnreachable === -1 && point > maxScroll) firstUnreachable = j;
+      }
+      if (firstUnreachable > 0 && maxScroll > 0) {
+        var start = firstUnreachable;
+        while (start > 1 && (maxScroll - Math.max(0, points[start - 1])) / (sections.length - start) < MIN_BAND) start--;
+        var base = Math.max(0, points[start - 1]);
+        var count = sections.length - start;
+        for (var k = start; k < sections.length; k++) {
+          points[k] = base + (maxScroll - base) * (k - start + 1) / count;
         }
+      }
+      return points;
+    }
+
+    function update() {
+      var points = activationPoints();
+      var index = 0;
+      for (var j = 0; j < sections.length; j++) {
+        if (points[j] <= window.scrollY + 0.5) index = j;
       }
       if (index === current) return;
       if (current >= 0) links[current].classList.remove('active');
@@ -671,15 +695,21 @@
       });
     }
 
-    // Same click behavior as Bootstrap ScrollSpy with smooth scrolling:
-    // section top lands at the window top, the URL hash is not changed
+    // Same click behavior as Bootstrap ScrollSpy with smooth scrolling: section top
+    // lands at the window top, the URL hash is not changed. When that position is
+    // past the bottom of the page (or the section was spread, see above), the click
+    // lands on the section's activation point instead.
     nav.addEventListener('click', function (event) {
       var link = event.target.closest('a[href^="#"]');
       var index = links.indexOf(link);
       if (index === -1) return;
       event.preventDefault();
       // Same formula as Bootstrap ScrollSpy (whole pixels)
-      window.scrollTo({ top: sections[index].offsetTop - root.offsetTop, behavior: 'smooth' });
+      var top = sections[index].offsetTop - root.offsetTop;
+      var point = activationPoints()[index];
+      var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (top > maxScroll || top - ACTIVE_LINE > point + 0.5) top = Math.ceil(point);
+      window.scrollTo({ top: top, behavior: 'smooth' });
     });
 
     window.addEventListener('scroll', schedule, { passive: true });
