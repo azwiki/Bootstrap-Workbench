@@ -246,6 +246,7 @@ screenshot at 1400px light is byte-identical before/after unless noted.
 - Colors: 7 grids unwrapped (row g-2 small + col-*). Swatch helper p-2 stays (documented exception, like Utility scales). Screenshot identical.
 - Color modes: unchanged on purpose: the snippet is the whole data-bs-theme island (HANDOFF Color modes decision).
 - Text colors: 5 d-flex rows unwrapped (incl. fw-semibold on the wrapper). px-1 with bg-dark/bg-white on light/dark text stays (visibility helper). Screenshot identical.
+- Borders & rounded: 4 grids + 1 d-flex row unwrapped. Sample-box helpers (p-2, bg-body-tertiary, border-2 for visibility) stay, as in Colors. rounded-circle example unchanged (sizing on its data-demo). Screenshot identical.
 ### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
 - In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
   and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
