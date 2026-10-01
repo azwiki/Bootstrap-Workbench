@@ -68,6 +68,7 @@
               <a class="nav-link py-1" href="#bsd-accordion">Accordion</a>
               <a class="nav-link py-1" href="#bsd-shadows">Shadows</a>
               <a class="nav-link py-1" href="#bsd-focus-ring">Focus ring</a>
+              <a class="nav-link py-1" href="#bsd-utility-scales">Utility scales</a>
               <a class="nav-link py-1" href="#bsd-forms">Form controls</a>
             </nav>
           </div>
@@ -2685,6 +2686,82 @@
               <a href="#" class="d-inline-flex focus-ring focus-ring-info py-1 px-2 text-decoration-none border rounded-2">info</a>
               <a href="#" class="d-inline-flex focus-ring focus-ring-light py-1 px-2 text-decoration-none border rounded-2">light</a>
               <a href="#" class="d-inline-flex focus-ring focus-ring-dark py-1 px-2 text-decoration-none border rounded-2">dark</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Utility scales                                               -->
+        <!-- ============================================================ -->
+        <section id="bsd-utility-scales" class="py-4 border-bottom">
+          <h2 class="h4 mb-3">Utility scales</h2>
+          <p class="small text-body-secondary">Only the steps not shown elsewhere: shadow-*, rounded-0…5, fs-* and opacity-25…100 live in Shadows, Borders &amp; rounded, Typography and Images. The helper classes bg-body-tertiary, bg-primary-subtle, border and p-* on the sample boxes stay in these snippets on purpose: without them the radius, padding and gaps would be invisible.</p>
+
+          <h3 class="h6 mt-3 mb-2">rounded-top-0…5, rounded-top-pill, rounded-top-circle</h3>
+          <div data-demo class="d-flex flex-wrap gap-2 small">
+            <div class="p-3 bg-body-tertiary border rounded-top-0">rounded-top-0</div>
+            <div class="p-3 bg-body-tertiary border rounded-top-1">rounded-top-1</div>
+            <div class="p-3 bg-body-tertiary border rounded-top-2">rounded-top-2</div>
+            <div class="p-3 bg-body-tertiary border rounded-top-3">rounded-top-3</div>
+            <div class="p-3 bg-body-tertiary border rounded-top-4">rounded-top-4</div>
+            <div class="p-3 bg-body-tertiary border rounded-top-5">rounded-top-5</div>
+            <div class="p-3 bg-body-tertiary border rounded-top-pill">rounded-top-pill</div>
+            <div class="p-3 bg-body-tertiary border rounded-top-circle">rounded-top-circle</div>
+          </div>
+          <p class="small text-body-secondary mt-2">rounded-end-*, rounded-bottom-* and rounded-start-* take the same steps (0…5, pill, circle) on their own side.</p>
+
+          <h3 class="h6 mt-3 mb-2">lh-1, lh-sm, lh-base, lh-lg</h3>
+          <div data-demo class="d-flex flex-column flex-md-row gap-3 small">
+            <p class="lh-1 bg-body-tertiary p-2 mb-0"><strong>lh-1</strong> Every Northwind chair ships flat in one box. The legs slot into the seat without tools, and spare felt pads ride along in the side pocket.</p>
+            <p class="lh-sm bg-body-tertiary p-2 mb-0"><strong>lh-sm</strong> Every Northwind chair ships flat in one box. The legs slot into the seat without tools, and spare felt pads ride along in the side pocket.</p>
+            <p class="lh-base bg-body-tertiary p-2 mb-0"><strong>lh-base</strong> Every Northwind chair ships flat in one box. The legs slot into the seat without tools, and spare felt pads ride along in the side pocket.</p>
+            <p class="lh-lg bg-body-tertiary p-2 mb-0"><strong>lh-lg</strong> Every Northwind chair ships flat in one box. The legs slot into the seat without tools, and spare felt pads ride along in the side pocket.</p>
+          </div>
+
+          <p class="small text-body-secondary mt-3 mb-0">The middle box has opacity-0: it still takes up its space between the two visible boxes, it just cannot be seen.</p>
+          <h3 class="h6 mt-3 mb-2">opacity-0</h3>
+          <div data-demo class="d-flex gap-2 small">
+            <div class="p-3 bg-body-tertiary border">before</div>
+            <div class="p-3 bg-primary-subtle border opacity-0">opacity-0</div>
+            <div class="p-3 bg-body-tertiary border">after</div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">p-0…p-5 (outer box padding around a colored inner block)</h3>
+          <div data-demo class="d-flex flex-wrap align-items-start gap-2 small">
+            <div class="p-0 bg-body-tertiary border"><div class="bg-primary-subtle">p-0</div></div>
+            <div class="p-1 bg-body-tertiary border"><div class="bg-primary-subtle">p-1</div></div>
+            <div class="p-2 bg-body-tertiary border"><div class="bg-primary-subtle">p-2</div></div>
+            <div class="p-3 bg-body-tertiary border"><div class="bg-primary-subtle">p-3</div></div>
+            <div class="p-4 bg-body-tertiary border"><div class="bg-primary-subtle">p-4</div></div>
+            <div class="p-5 bg-body-tertiary border"><div class="bg-primary-subtle">p-5</div></div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">gap-0…gap-5 on d-flex (one row per step)</h3>
+          <div data-demo class="d-flex flex-column gap-3 small">
+            <div class="d-flex gap-0"><div class="px-2 bg-primary-subtle border">gap-0</div><div class="px-2 bg-primary-subtle border">oak</div><div class="px-2 bg-primary-subtle border">ash</div><div class="px-2 bg-primary-subtle border">elm</div></div>
+            <div class="d-flex gap-1"><div class="px-2 bg-primary-subtle border">gap-1</div><div class="px-2 bg-primary-subtle border">oak</div><div class="px-2 bg-primary-subtle border">ash</div><div class="px-2 bg-primary-subtle border">elm</div></div>
+            <div class="d-flex gap-2"><div class="px-2 bg-primary-subtle border">gap-2</div><div class="px-2 bg-primary-subtle border">oak</div><div class="px-2 bg-primary-subtle border">ash</div><div class="px-2 bg-primary-subtle border">elm</div></div>
+            <div class="d-flex gap-3"><div class="px-2 bg-primary-subtle border">gap-3</div><div class="px-2 bg-primary-subtle border">oak</div><div class="px-2 bg-primary-subtle border">ash</div><div class="px-2 bg-primary-subtle border">elm</div></div>
+            <div class="d-flex gap-4"><div class="px-2 bg-primary-subtle border">gap-4</div><div class="px-2 bg-primary-subtle border">oak</div><div class="px-2 bg-primary-subtle border">ash</div><div class="px-2 bg-primary-subtle border">elm</div></div>
+            <div class="d-flex gap-5"><div class="px-2 bg-primary-subtle border">gap-5</div><div class="px-2 bg-primary-subtle border">oak</div><div class="px-2 bg-primary-subtle border">ash</div><div class="px-2 bg-primary-subtle border">elm</div></div>
+          </div>
+
+          <p class="small text-body-secondary mt-3 mb-0">row-gap-3 is shown on d-grid (items stacked, only the vertical gap applies); column-gap-3 on d-flex flex-wrap (items in a row, only the horizontal gap applies).</p>
+          <h3 class="h6 mt-3 mb-2">row-gap-3 on d-grid</h3>
+          <div data-demo class="small">
+            <div class="d-grid row-gap-3">
+              <div class="px-2 bg-primary-subtle border">Walnut</div>
+              <div class="px-2 bg-primary-subtle border">Birch</div>
+              <div class="px-2 bg-primary-subtle border">Maple</div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-3 mb-2">column-gap-3 on d-flex flex-wrap</h3>
+          <div data-demo class="small">
+            <div class="d-flex flex-wrap column-gap-3">
+              <div class="px-2 bg-primary-subtle border">Walnut</div>
+              <div class="px-2 bg-primary-subtle border">Birch</div>
+              <div class="px-2 bg-primary-subtle border">Maple</div>
             </div>
           </div>
         </section>

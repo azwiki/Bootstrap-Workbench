@@ -2,16 +2,17 @@
 
 ## Start here (cold start)
 
-- Last commit: "classes: Cards mixed-ratio grid becomes an anti-pattern before the 4:3 fix"
-  (`git log -1`). Before it: `90c389c` Untrack .DS_Store files.
+- Last commit: "classes: Utility scales section" (`git log -1`). Before it: `bfcc70a` classes:
+  Cards fix toggle placement and card-group uses ratio-4x3.
 - First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
 - Cards review done (user, 2026-09-30). Decision: both card grids stay as a problem → fix pair.
   The old mixed-ratio grid is now a "Broken:" anti-pattern placed right before the 4:3 grid.
+  Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
+- Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. Utility scales (plan proposed, awaiting approval before any code).
-  2. forms.html: tooling-sharing plan first (toolbar/theme toggle, sidebar/scrollspy, snippet
-     generator, main.css link, no duplicated code), then the sections.
-  3. blocks.html.
+  1. forms.html tooling-sharing plan (proposed, awaiting approval before any code), then the
+     forms.html sections.
+  2. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
 - Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
   Web Inspector open). Safari caches the local site aggressively and can show stale HTML/CSS.
@@ -21,7 +22,7 @@
 Sections in `classes.html`, in page order (all listed in the sidebar):
 Colors, Color modes, Text colors, Borders & rounded, Links, Buttons, Button group, Close button, Typography, Images,
 Alerts, Badges, List group, Tables, Cards, Progress, Spinners, Placeholders, Navbar, Navs & tabs,
-Pagination, Breadcrumb, Accordion, Shadows, Focus ring, Form controls.
+Pagination, Breadcrumb, Accordion, Shadows, Focus ring, Utility scales, Form controls.
 
 New sections go at the position given in "Section plan" below, not always at the end.
 `<!-- bsd:continue -->` marks the end of the content (after Form controls).
@@ -149,6 +150,21 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 - New image IDs: 403, 885, 244 (640x360, ratio-16x9); 553, 1, 366 (600x450, ratio-4x3).
   All in v2/list, checked visually at the planned size, curl -sIL image/webp.
 
+### Utility scales: done (checked in Playwright Chromium + WebKit, awaiting browser review)
+- Section `#bsd-utility-scales` after Focus ring, before Form controls, with sidebar link.
+  Only steps not shown elsewhere (shadow-*, rounded-0…5, fs-*, opacity-25…100 already live in
+  Shadows, Borders & rounded, Typography, Images). One data-demo per scale:
+  rounded-top-0…5 + rounded-top-pill + rounded-top-circle (note: end/bottom/start take the
+  same steps); lh-1/lh-sm/lh-base/lh-lg with the same text; opacity-0 box between two visible
+  boxes, explained in text above the heading; p-0…p-5 (outer box bg-body-tertiary border,
+  inner bg-primary-subtle); gap-0…gap-5 (one d-flex row of chips per step); row-gap-3 on
+  d-grid and column-gap-3 on d-flex flex-wrap (each shows only its own axis).
+- Not included (user decision): z-*, m*-auto, m-* scale.
+- Every class grepped in the local bootstrap.min.css before use.
+- Checked at 1400/576px, light/dark: no overflow, scrollspy marks the sidebar link active
+  (also via the offcanvas at 576px), 7 snippets toggle from their headings, no data-demo
+  attributes in snippets, padding computes to 0/4/8/16/24/48px, no JS errors.
+
 ### Skipped (scope change, 2026-09-30)
 - Additions to Navs, List group, Navbar, Typography and Tables: skipped. Navbar/navs will
   appear in blocks.html.
@@ -169,6 +185,11 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 - Needs a decision: anti-pattern (b) side-by-side col-6 comparison.
 - Colors contains only color utilities (verified); swatch helpers (p-2, border, rounded) are
   the only non-color classes.
+
+### Documented exception: helper classes in Utility scales snippets (NOT audit backlog)
+- In `#bsd-utility-scales` the sample boxes keep bg-body-tertiary, bg-primary-subtle, border
+  and p-* in the snippets on purpose: without them radius, padding and gaps are invisible.
+  The section intro says so. Do not strip them in the audit pass.
 
 ## Decisions so far
 
@@ -280,7 +301,7 @@ Each step = one section per edit, then stop for review.
 5. Cards additions: done, reviewed (2026-09-30); mixed-ratio grid kept as anti-pattern before
    the 4:3 fix. (Navs, List group, Navbar, Typography, Tables additions and the Helpers section
    are skipped, see "Skipped".)
-6. Utility scales.
+6. Utility scales: done, awaiting review.
 7. forms.html: tooling-sharing plan first, then sections, then remove Form controls from
    classes.html and add the link.
 8. blocks.html (interactive components: dropdowns incl. dropdown-menu-dark, collapse, modal,
