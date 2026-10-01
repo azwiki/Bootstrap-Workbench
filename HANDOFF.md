@@ -35,7 +35,10 @@ Check tooling lives in the session scratchpad (check.js, static.sh, step.sh, cap
 tools/spytest.js is in the repo.
 
 ### Decisions for review (autonomous run)
-- (none yet)
+- blocks.html scope details (plan above): dropdown/segmented buttons inside input groups moved
+  from the forms Input group plan to blocks.html Dropdowns; collapse-horizontal left out
+  (needs an inline width); testimonials without photos. Alternatives: an inline-style
+  exception for collapse-horizontal; landscape crops as avatars. Commit: the plan commit.
 
 ### Blocked (autonomous run)
 - (none yet)
@@ -507,6 +510,46 @@ Step 9 (classes.html cleanup): DONE (autonomous run).
   forms.html capture identical to its baseline. classes.html capture differs only as
   expected: 139 → 136 snippets (the 3 removed forms examples) and the sidebar label.
   check.js and static checks on #bsd-forms and #bsd-forms-intro pass.
+
+### blocks.html plan (autonomous run, 2026-10-01)
+Page: same head/layout/tooling as forms.html, `data-bsd-page="blocks"`, "Blocks" added to the
+page switch (PAGES in bsd-demo.js). Interactive components work in any bundle load order; JS
+inits live in bsd-demo.js (initBootstrap, scoped to #bs-demo, keyed by id or data-bs-toggle),
+never in snippets. No fixed-top / sticky on the page itself. Ids unique per page.
+Sections, in this order (one commit each, ~45 examples):
+1. Dropdowns `#bsd-dropdowns` (~6): single button; split button; dropup/dropend/dropstart;
+   dropdown-menu-end; menu content (header, divider, active, disabled, text); dark menu:
+   data-bs-theme="dark" next to dropdown-menu-dark labeled "deprecated in 5.3"; dropdown and
+   segmented button inside an input group (moved here from the forms Input group plan).
+2. Collapse `#bsd-collapse` (~2): link + button toggles; one button for multiple targets.
+3. Modal `#bsd-modal` (~5): default; static backdrop; scrollable + vertically centered;
+   sizes modal-sm/-lg/-xl; fullscreen (modal-fullscreen-md-down).
+4. Offcanvas `#bsd-offcanvas` (~3): offcanvas-start; end/top/bottom; body scrolling
+   (data-bs-scroll) and static backdrop.
+5. Carousel `#bsd-carousel` (~3): controls + indicators + captions; carousel-fade; dark:
+   data-bs-theme="dark" next to carousel-dark labeled "deprecated in 5.3". No autoplay.
+   Images: picsum 10, 28, 235 at 800x400 (unused so far).
+6. Toasts `#bsd-toasts` (~3): static toast (toast show); live toast from a button (bsd-demo.js,
+   keyed by id); color schemes (text-bg-* + btn-close-white replacement via data-bs-theme).
+7. Tooltips `#bsd-tooltips` (~2): four directions; on a disabled button via a focusable wrapper.
+8. Popovers `#bsd-popovers` (~2): four directions; dismiss on next click (trigger "focus").
+9. ScrollSpy `#bsd-scrollspy` (~1): Bootstrap ScrollSpy in its own scroll box. The box gets
+   its height from .ratio (Bootstrap has no fixed-height utility; no inline style).
+10. Navbar `#bsd-navbar` (~3): navbar-expand-lg with logo (picsum 63, 24x24, reused), links,
+   dropdown, search form and working collapse; dark scheme (data-bs-theme="dark" bg-dark);
+   offcanvas navbar. Never fixed/sticky.
+11. Navs & tabs `#bsd-tabs` (~3): nav-tabs with tab panes; nav-pills with panes; vertical pills.
+Page blocks (original Northwind Studio content; snippets keep row/col on purpose, said in the
+section intro):
+12. Hero `#bsd-hero` (picsum 48, laptop on a studio desk). 13. Features `#bsd-features`.
+14. Pricing `#bsd-pricing` (3 cards). 15. Testimonials `#bsd-testimonials` (figure +
+blockquote, no photos: picsum has almost no usable portraits). 16. Call to action `#bsd-cta`.
+17. Contact form `#bsd-contact` (no action, type="button"). 18. Footer `#bsd-footer` (static).
+Not included: accordion / accordion-flush (already on classes.html); collapse-horizontal (its
+child needs a fixed width = inline style).
+Checks per section: same as forms steps (check.js, static, spytest on blocks) plus an
+interaction script: every component opens and closes by mouse and keyboard, Esc where
+Bootstrap supports it, focus returns to the trigger, no console errors.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
