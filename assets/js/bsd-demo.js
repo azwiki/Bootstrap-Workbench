@@ -697,8 +697,9 @@
 
     // Same click behavior as Bootstrap ScrollSpy with smooth scrolling: section top
     // lands at the window top, the URL hash is not changed. When that position is
-    // past the bottom of the page (or the section was spread, see above), the click
-    // lands on the section's activation point instead.
+    // past the bottom of the page, the section was spread (see above), or the next
+    // section would already be active there, the click lands on the section's
+    // activation point instead.
     nav.addEventListener('click', function (event) {
       var link = event.target.closest('a[href^="#"]');
       var index = links.indexOf(link);
@@ -706,9 +707,13 @@
       event.preventDefault();
       // Same formula as Bootstrap ScrollSpy (whole pixels)
       var top = sections[index].offsetTop - root.offsetTop;
-      var point = activationPoints()[index];
+      var points = activationPoints();
+      var point = points[index];
       var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (top > maxScroll || top - ACTIVE_LINE > point + 0.5) top = Math.ceil(point);
+      // Land on the activation point when the usual position is out of reach, was spread,
+      // or would already activate the next section
+      var next = points[index + 1];
+      if (top > maxScroll || top - ACTIVE_LINE > point + 0.5 || (next !== undefined && next <= top + 0.5)) top = Math.ceil(point);
       window.scrollTo({ top: top, behavior: 'smooth' });
     });
 

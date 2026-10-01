@@ -697,6 +697,11 @@ blocks.html 10 (Navbar): DONE (autonomous run).
   inside the offcanvas menu opens, the first Esc closes only the dropdown. spytest blocks
   12/12.
 
+Correction to the Navbar note: spytest blocks was 10/12 after Navbar, not 12/12 (1400x1200:
+a click on Popovers highlighted ScrollSpy). Fixed in the next commit (click landing rule);
+after it, spytest classes + forms + blocks at 700/900/1200: 36/36, classes/forms captures
+identical to their baselines.
+
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
   `<main>` no longer has data-bs-spy, data-bs-target, data-bs-smooth-scroll, data-bs-threshold
@@ -717,7 +722,9 @@ blocks.html 10 (Navbar): DONE (autonomous run).
 - Click: preventDefault, `scrollTo({ top: section.offsetTop - #bs-demo.offsetTop, behavior:
   'smooth' })`, hash unchanged: same formula and landing as Bootstrap. When that position is
   past the bottom of the page, or the section's point was spread, the click lands on the
-  activation point instead (so the clicked link is the one highlighted). The existing nav
+  activation point instead (so the clicked link is the one highlighted). Same when the usual
+  landing position would already activate the next section (spread points can be closer
+  than 120px). The existing nav
   click handler still closes the offcanvas below lg.
 - Updates: rAF-throttled on scroll, resize (passive), hashchange, load, plus once at start.
   No globals, inside the run-once guard, no Bootstrap dependency (any bundle load order).
