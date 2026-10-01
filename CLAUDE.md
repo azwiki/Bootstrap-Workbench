@@ -7,6 +7,8 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
 ## Stack
 - Bootstrap from local files only: assets/css/bootstrap.min.css, assets/js/bootstrap.bundle.min.js
 - Check the exact version in the bootstrap.min.css header and use ONLY classes that exist in it.
+  Exception: JS hook classes that the local bootstrap.bundle.min.js itself tests for
+  (e.g. carousel `slide`), because they are part of Bootstrap's canonical markup.
 - assets/css/main.css is the user's theme file. It is intentionally empty. NEVER edit it.
 - Custom demo tooling (toolbar, snippet generator, token panel) must not restyle Bootstrap components.
 - No external CSS/JS libraries, no CDNs, no build step. Plain HTML + vanilla JS. Must work via file://.
@@ -39,7 +41,11 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
 - Use neutral demo content of your own (fictional company "Northwind Studio",
   invented product names, short original sentences).
 - Snippets show only canonical copy-ready markup: no demo layout wrappers,
-  no demo-only spacing classes.
+  no demo-only spacing classes. Use the generator attributes below to keep demo wrappers and
+  demo-only classes out of a snippet. Documented exceptions: sample/swatch helper classes
+  that make a sample visible (Colors, Borders & rounded, Shadows, Text colors, Utility
+  scales), and snippets whose layout is the example (form layout, page blocks, grids shown as
+  patterns); the demo text says so.
 - Each component lives in its own section; Colors contains only color utilities.
 - Write one section per edit. Keep each edit small.
 
@@ -50,7 +56,9 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
 - The fragment is <main id="bs-demo"> plus assets/js/bsd-demo.js, loaded with a classic
   <script src> at the end of #bs-demo. To use it on another site, copy the file or paste its
   contents into an inline <script>.
-- Each demo page sets data-bsd-page="<id>" on <main id="bs-demo"> (classes, forms, later blocks);
+- Pages: classes.html (classes and utilities), forms.html (all form examples), blocks.html
+  (interactive components and ready-made page blocks). No fixed-top / sticky on the pages.
+- Each demo page sets data-bsd-page="<id>" on <main id="bs-demo"> (classes, forms, blocks);
   the id must match an entry in the PAGES list in bsd-demo.js, which then renders the toolbar
   page switch. No attribute, no switch. Remove the attribute when pasting the fragment into
   another site.
@@ -58,12 +66,20 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
   ScrollSpy itself is demonstrated on blocks.html.
 - tools/ holds dev-only test scripts (e.g. tools/spytest.js, Node + Playwright installed
   outside the repo). It is not part of the demo fragment and is never loaded by the pages.
+- Demo-only JS (component inits such as tooltips/popovers, demo triggers, states without an
+  HTML attribute) lives in bsd-demo.js, scoped to #bs-demo, keyed by id or data-bs-toggle,
+  never inline on* handlers, never in snippets. Demo forms never submit: no action,
+  type="button" on buttons, and bsd-demo.js cancels submit inside #bs-demo.
 - Each example: live render + generated code snippet (see snippet rules below).
 
 ## Snippet generator
 - Example markup is wrapped in <div data-demo>...</div>.
 - JS clones the inner HTML, removes demo-only attributes, pretty-prints with 2-space indent,
   escapes it, and inserts <pre><code> with a Copy button right after the example.
+- The data-demo element's own attributes are not in the snippet (use them for demo layout
+  or sizing). Inside it: data-demo-skip removes an element, data-demo-unwrap replaces a demo
+  wrapper by its children, data-demo-drop="cls …" leaves those classes out of the element.
+- Each example has an h3–h6 heading right before it; notes go above the heading.
 - Snippets must never be written by hand.
 
 ## Workflow
