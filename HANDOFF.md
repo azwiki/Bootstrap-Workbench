@@ -54,7 +54,8 @@ Every new section also needs its link in the sidebar nav (`#bsd-nav`, scrollspy)
 - Borders & rounded: rounded-circle shown as `ratio ratio-1x1 rounded-circle bg-primary`,
   sized by col-* on its data-demo element.
 - Progress: note that `style="width: N%"` is an inline style, not a Bootstrap class.
-- Totals: 131 `<img>` tags, 58 picsum IDs, 75 unique URLs, all `.webp`,
+- Totals (rechecked 2026-09-30, after the card-group change): 131 `<img>` tags, 58 picsum IDs,
+  75 unique URLs, all `.webp`,
   all verified with curl -sIL (Content-Type: image/webp).
 
 Checked by script: every img has width/height matching the URL, alt text and decoding="async".
@@ -130,12 +131,20 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   image aspect ratios", directly before the 4:3 grid (the fix). Same labeling as the Images
   anti-patterns: alert-danger above the heading, "Broken:" heading, `border border-danger
   rounded p-3` on the data-demo element (not in the snippet). The 4:3 grid got one sentence
-  saying it is the fix; its "</>" therefore sits in a bar above the example, not in the
+  saying it is the fix, as plain small text ABOVE its heading, so its "</>" stays in the
   heading. Grid markup, image URLs and the snippet generator unchanged. Checked in Playwright
   Chromium + WebKit, 1400/576px, light/dark: broken grid images 233/349/145px, fix 270px each,
   no horizontal overflow, both snippets toggle and start with the row.
-- Not changed, reported: the card-group with mixed ratios (3:2, 3:4, 2:1) shows the same
-  uneven-image problem (248/495/186px at 1400px). It is not labeled as an anti-pattern.
+- card-group is now canonical: "card-group with all images in ratio-4x3". Same IDs 11, 17, 66,
+  now 600x450 (checked visually at 4:3 and with curl -sIL image/webp; alt kept). Markup (user
+  decision, 2026-09-30): plain img.object-fit-cover in .ratio ratio-4x3, NO card-img-top, and
+  `overflow-hidden` on each .card. Reason: card-group's corner reset only matches
+  `.card > .card-img-top`, so card-img-top inside .ratio keeps 5px corners at the joins, and a
+  plain img alone pokes square past the outer rounded corners. overflow-hidden clips it to
+  the card: outer 6px, joins 0px (verified). A small-text note above the heading says so.
+  Footers/text rewritten (no more "mixed ratios"). Checked in Playwright Chromium + WebKit,
+  1400/576px, light/dark: images 279px (1400) / 137px (576) each, toggles in headings,
+  snippets start with the card-group, no overflow, no JS errors.
 - Single cards are sized by `col-sm-8 col-md-6 col-lg-4` on the data-demo element.
 - New image IDs: 403, 885, 244 (640x360, ratio-16x9); 553, 1, 366 (600x450, ratio-4x3).
   All in v2/list, checked visually at the planned size, curl -sIL image/webp.

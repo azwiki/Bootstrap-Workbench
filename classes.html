@@ -1976,23 +1976,30 @@
             </div>
           </div>
 
-          <h3 class="h6 mt-3 mb-2">card-group with mixed image aspect ratios (3:2, 3:4, 2:1)</h3>
+          <p class="small text-body-secondary mt-3 mb-0">Each image sits in .ratio ratio-4x3 without card-img-top, and overflow-hidden on the card clips it to the card corners: outer corners stay rounded, joins stay square.</p>
+          <h3 class="h6 mt-3 mb-2">card-group with all images in ratio-4x3</h3>
           <div data-demo>
             <div class="card-group">
-              <div class="card">
-                <img src="https://picsum.photos/id/11/600/400.webp" class="card-img-top img-fluid" width="600" height="400" alt="Misty valley with a winding stream and pine forest" loading="lazy" decoding="async">
+              <div class="card overflow-hidden">
+                <div class="ratio ratio-4x3">
+                  <img src="https://picsum.photos/id/11/600/450.webp" class="object-fit-cover" width="600" height="450" alt="Misty valley with a winding stream and pine forest" loading="lazy" decoding="async">
+                </div>
                 <div class="card-body"><h4 class="card-title h6">Valley retreat</h4><p class="card-text">Three rooms furnished entirely from the spring line.</p></div>
-                <div class="card-footer"><small class="text-body-secondary">Landscape 3:2</small></div>
+                <div class="card-footer"><small class="text-body-secondary">Open May to October</small></div>
               </div>
-              <div class="card">
-                <img src="https://picsum.photos/id/17/600/800.webp" class="card-img-top img-fluid" width="600" height="800" alt="Gravel path through a meadow toward a line of pine trees" loading="lazy" decoding="async">
-                <div class="card-body"><h4 class="card-title h6">Meadow path</h4><p class="card-text">A tall photo pushes this card down.</p></div>
-                <div class="card-footer"><small class="text-body-secondary">Portrait 3:4</small></div>
+              <div class="card overflow-hidden">
+                <div class="ratio ratio-4x3">
+                  <img src="https://picsum.photos/id/17/600/450.webp" class="object-fit-cover" width="600" height="450" alt="Gravel path through a meadow toward a line of pine trees" loading="lazy" decoding="async">
+                </div>
+                <div class="card-body"><h4 class="card-title h6">Meadow path</h4><p class="card-text">A level walk from the gate to the orchard, about twenty minutes each way.</p></div>
+                <div class="card-footer"><small class="text-body-secondary">Open all year</small></div>
               </div>
-              <div class="card">
-                <img src="https://picsum.photos/id/66/600/300.webp" class="card-img-top img-fluid" width="600" height="300" alt="Wide valley with snowy peaks under grey clouds" loading="lazy" decoding="async">
-                <div class="card-body"><h4 class="card-title h6">Ridge cabin</h4><p class="card-text">Short photo, short text.</p></div>
-                <div class="card-footer"><small class="text-body-secondary">Panorama 2:1</small></div>
+              <div class="card overflow-hidden">
+                <div class="ratio ratio-4x3">
+                  <img src="https://picsum.photos/id/66/600/450.webp" class="object-fit-cover" width="600" height="450" alt="Wide valley with snowy peaks under grey clouds" loading="lazy" decoding="async">
+                </div>
+                <div class="card-body"><h4 class="card-title h6">Ridge cabin</h4><p class="card-text">Two bunks and a wood stove.</p></div>
+                <div class="card-footer"><small class="text-body-secondary">Open June to September</small></div>
               </div>
             </div>
           </div>
@@ -2027,8 +2034,8 @@
             </div>
           </div>
 
+          <p class="small text-body-secondary mt-3 mb-0">The fix for the broken grid above: every image sits in .ratio ratio-4x3, so all images get the same height whatever the size of the source file.</p>
           <h3 class="h6 mt-3 mb-2">Grid row-cols-1 row-cols-md-3 with h-100, card-footer and all images in ratio-4x3</h3>
-          <p class="small text-body-secondary">The fix for the broken grid above: every image sits in .ratio ratio-4x3, so all images get the same height whatever the size of the source file.</p>
           <div data-demo>
             <div class="row row-cols-1 row-cols-md-3 g-3">
               <div class="col">
