@@ -291,9 +291,7 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   tooling behavior, normalized DOM dump of toolbar, sidebar column and tokens offcanvas with
   their parent/siblings) is byte-identical before and after, also with the bundle in `<head>`
   and with the script tag twice (one toolbar/sidebar/#bsd-nav/tokens panel). No JS errors.
-- Known, pre-existing (same before phase 2): scrolling to the short Shadows section marks
-  "Focus ring" active in the sidebar (Bootstrap scrollspy threshold near the page end).
-  User: leave it, re-check after Form controls leaves classes.html.
+- Scrollspy: see "Scrollspy settings" below (the old Shadows/Focus ring quirk is fixed).
 - data-bsd-page rule: `<main id="bs-demo" data-bsd-page="<id>">` on each demo page; the id must
   match an entry in PAGES in bsd-demo.js (classes, forms; blocks.html = one more entry). Only
   then the toolbar gets the page switch: `<nav class="btn-group btn-group-sm"
@@ -377,7 +375,9 @@ Rules for new forms content (approved):
 Order (one section per edit, stop for review after each):
 1. Form controls  2. Select  3. Checks & radios  4. Range  5. Input group  6. Floating labels
 7. Form layout  8. Validation  9. Remove #bsd-forms from classes.html, link to forms.html in its
-place, update #bsd-forms-intro, re-check the Shadows/Focus ring scrollspy quirk.
+place, update #bsd-forms-intro. Then rerun spytest.js (see "Scrollspy settings") on both
+pages at window heights 700, 900 and 1200px; report any failure. Fallback, ONLY with the
+user's OK: a custom sidebar scrollspy in bsd-demo.js.
 Old E1–E3 stay on classes.html until step 9.
 
 Step 1 (Form controls): DONE, awaiting review.
@@ -398,11 +398,40 @@ Step 1 (Form controls): DONE, awaiting review.
   legend, Enter in all 10 editable fields does not navigate. Safety net verified with a
   temporary form inside #bs-demo (Enter + submit click: 0 navigations); control test: a form
   outside #bs-demo does navigate. All classes grep-verified.
-- Scrollspy at 1400px: clicking "Form controls" leaves NO link active (576px works). Cause:
-  on load both sections are visible, Bootstrap activates the first and stops; the tall
-  section never crosses a threshold (0.1/0.5/1) during the 285px scroll. Same mechanism as
-  the Shadows/Focus ring quirk. Not changed; possible fix to discuss: `data-bs-threshold`
-  with more steps on #bs-demo (ScrollSpy parses a comma list).
+- Scrollspy at 1400px: clicking "Form controls" left no link active. Fixed by the scrollspy
+  settings below.
+
+### Scrollspy settings (decided 2026-10-01)
+- `<main>` on both pages (HTML attributes, not set by JS):
+  `data-bs-threshold="0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1" data-bs-root-margin="0px 0px -85%"`.
+- Why: Bootstrap ScrollSpy (IntersectionObserver, defaults threshold 0.1/0.5/1, root margin
+  -25%) highlights, while scrolling down, the LOWEST section that newly intersects. With the
+  default band, a clicked short section loses to the next one, and tall sections that never
+  cross a threshold are never highlighted (Images, Cards, forms Form controls). More threshold
+  steps make every section report; the -85% band (top 15% of the window) leaves only the
+  section at the top.
+- Test script: `spytest.js` (session scratchpad, NOT in the repo; recreate if missing). Per
+  page, Chromium + WebKit, 1400 and 576px: first section active on load; clicking every
+  sidebar link highlights that link (element.click(), waits for smooth scroll to settle);
+  scrolling top to bottom in 60px steps highlights every section in page order.
+  `node spytest.js real 700,900,1200` tests the real pages.
+- Results at 900px (Chromium and WebKit identical; load / click failures / scroll):
+  | variant | classes 1400 | classes 576 | forms 1400 | forms 576 |
+  | base | ok / 16 / Images missing | ok / 14 / Images, Cards missing | ok / 1 / Form controls missing | same |
+  | T (threshold steps) | ok / 17 / ok | ok / 12 / ok | ok / 1 (intro) / ok | same |
+  | M40 | ok / 16 / Images, Cards missing | ok / 9 / same | ok / 1 / Form controls missing | same |
+  | M70 | ok / 4 / Images, Cards missing | none active / 4 / nothing | PASS | PASS |
+  | T+M40 | ok / 15 / ok | ok / 11 / ok | ok / 1 (intro) / ok | PASS |
+  | T+M70 | ok / 4 / ok | ok / 3 / ok | ok / 1 (intro) / ok | same |
+  | T+M80 | ok / 2 / ok | PASS | ok / 1 (intro) / ok | same |
+  | T+M85 (chosen) | PASS | PASS | ok / 0 / intro missing | same |
+  | T+M90 | none active / 0 / nothing | same | none active / 0 / intro missing | same |
+  Real pages with T+M85 reproduce the T+M85 row.
+- Known edge case (forms.html, T+M85): after the click run ends on Form controls at the
+  bottom and the page jumps back to the top, Form controls stays highlighted. On a fresh load
+  and after jumping to the top from a normal scroll, the intro IS highlighted. The intro's top
+  (127px) sits only 8px inside the 15% band (135px at 900px), so it is marginal and depends
+  on window height and header height. Recheck in step 9.
 
 ### Toolbar (fixed, top-right)
 - "Sections" button, shown below lg only: opens the sidebar offcanvas.
