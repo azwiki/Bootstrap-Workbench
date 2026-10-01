@@ -2,17 +2,18 @@
 
 ## Start here (cold start)
 
-- Last commit: "classes: Utility scales section" (`git log -1`). Before it: `bfcc70a` classes:
-  Cards fix toggle placement and card-group uses ratio-4x3.
+- Last commit: "Move demo tooling to assets/js/bsd-demo.js" (`git log -1`). Before it:
+  `3035ce3` classes: Utility scales section.
 - First run `git log -1 --oneline` and `git status --short`; report anything unexpected.
 - Cards review done (user, 2026-09-30). Decision: both card grids stay as a problem → fix pair.
   The old mixed-ratio grid is now a "Broken:" anti-pattern placed right before the 4:3 grid.
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. forms.html tooling-sharing plan (proposed, awaiting approval before any code), then the
-     forms.html sections.
-  2. blocks.html.
+  1. forms.html plan, phase 2: the script builds toolbar, sidebar and tokens offcanvas
+     (see "forms.html tooling sharing"). Phase 1 is done, awaiting review.
+  2. Phases 3–4: forms.html skeleton + page switch, then the forms sections.
+  3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
 - Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
   Web Inspector open). Safari caches the local site aggressively and can show stale HTML/CSS.
@@ -194,7 +195,7 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 ## Decisions so far
 
 ### Snippet generator
-- Example markup goes in `<div data-demo>`. The inline script clones its children, drops
+- Example markup goes in `<div data-demo>`. assets/js/bsd-demo.js clones its children, drops
   `[data-demo-skip]` elements and `data-demo*` attributes, pretty-prints with 2-space indent,
   and inserts `<pre><code>` with a Copy button after the example.
 - Snippets are collapsed by default. Each example gets a `</>` toggle, placed in the preceding
@@ -248,12 +249,39 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
 - ALL forms content moves to a new page forms.html, docs-style sections: Form controls, Select,
   Checks & radios, Range, Input group, Floating labels, Form layout, Validation.
 - classes.html keeps no forms section, only a link to forms.html.
-- Before creating forms.html: plan how it shares the tooling (toolbar/theme toggle,
-  sidebar/scrollspy, snippet generator, main.css link) without duplicating code.
+- Tooling sharing: see "forms.html tooling sharing" below.
 - Indeterminate checkbox: minimal demo-only JS sets `.indeterminate` (see Snippet generator).
 - Floating textarea at default height; no new inline-style exception.
 - Form layout snippets keep row/col on purpose (they are the pattern); say so in demo text.
 - was-validated works via :invalid/:valid on required fields, no JS.
+
+### forms.html tooling sharing (approved 2026-10-01)
+- Decision: the CLAUDE.md rule "tooling script is inlined" is replaced. The fragment is
+  `<main id="bs-demo">` plus `assets/js/bsd-demo.js`, loaded with a classic `<script src>` at
+  the end of #bs-demo (before the Bootstrap bundle). On another site: copy the file or paste its
+  contents into an inline `<script>`. Reason: no build step, and file:// blocks fetch() of
+  partials and ES modules, so a shared classic script is the only way to avoid duplicated code.
+  assets/js/main.js and assets/css/main.css stay untouched.
+- Phases (stop for review after each):
+  1. Move the inline script to bsd-demo.js unchanged, classes.html uses `<script src>`. DONE.
+  2. bsd-demo.js builds the toolbar, sidebar (links from `section[id^="bsd-"] > h2`) and the
+     tokens offcanvas; remove that markup from classes.html. Same Playwright comparison.
+  3. forms.html skeleton + page switch in the toolbar ("Classes" / "Forms", aria-current).
+  4. Move the forms sections one at a time (Form controls, Select, Checks & radios, Range,
+     Input group, Floating labels, Form layout, Validation); then remove Form controls from
+     classes.html and add the link to forms.html.
+- main.css link stays in each page's `<head>` (the Custom CSS switch finds it by href).
+- Phase 1 details: the script was already an IIFE; only changes are a 2-space de-indent, a
+  file header comment, and a run-once guard (`data-bsd-tooling` attribute on #bs-demo, no
+  globals). Playwright Chromium + WebKit, 1400/576px, light/dark, file://: a JSON capture of
+  all 139 snippet texts, toggles, Show code, theme toggle, Custom CSS switch, tokens offcanvas,
+  scrollspy and offcanvas sidebar is byte-identical before and after the move; no JS errors.
+  Same result with the Bootstrap bundle in `<head>` and with the script tag included twice
+  (temporary copies, deleted).
+- localStorage on file:// (bsd-theme, bsd-code), tested in Playwright Chromium and WebKit:
+  origin is "file://" and the keys are shared between pages in the same folder and in other
+  folders; reopening classes.html restores theme and Show code. Not yet checked in real
+  Safari (Playwright WebKit is not Safari). No workaround planned.
 
 ### Toolbar (fixed, top-right)
 - "Sections" button, shown below lg only: opens the sidebar offcanvas.
@@ -302,8 +330,8 @@ Each step = one section per edit, then stop for review.
    the 4:3 fix. (Navs, List group, Navbar, Typography, Tables additions and the Helpers section
    are skipped, see "Skipped".)
 6. Utility scales: done, awaiting review.
-7. forms.html: tooling-sharing plan first, then sections, then remove Form controls from
-   classes.html and add the link.
+7. forms.html: tooling-sharing plan approved (phases 1–4, see "forms.html tooling sharing");
+   phase 1 done. Then sections, then remove Form controls from classes.html and add the link.
 8. blocks.html (interactive components: dropdowns incl. dropdown-menu-dark, collapse, modal,
    offcanvas, carousel, toast, tooltip, popover, scrollspy; navbar/navs).
 9. Audit backlog pass (separate, when the user says so).

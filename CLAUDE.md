@@ -47,7 +47,9 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
 ## Demo content structure
 - All demo content lives inside a single <main id="bs-demo"> block so it can be copied
   into the <body> of another site as one fragment.
-- Demo tooling script is inlined at the end of #bs-demo (so the fragment is self-contained).
+- The fragment is <main id="bs-demo"> plus assets/js/bsd-demo.js, loaded with a classic
+  <script src> at the end of #bs-demo. To use it on another site, copy the file or paste its
+  contents into an inline <script>.
 - Each example: live render + generated code snippet (see snippet rules below).
 
 ## Snippet generator
