@@ -18,6 +18,27 @@
 - Review tip: Browser review in Safari: use a Private Window or Develop → Disable Caches (with
   Web Inspector open). Safari caches the local site aggressively and can show stale HTML/CSS.
 
+## Autonomous run log (started 2026-10-01, tag `pre-autonomous` = 4f5c814)
+User instructions for the run (summary): no stops between steps; one commit per step after its
+checks pass; never amend/rebase/reset/force/push; never touch the tag, main.css, main.js,
+demo-old.html; no installs; network only for picsum verification. Order:
+A. forms.html steps 3–9 (see "forms.html phase 4 plan").
+B. blocks.html: plan into HANDOFF first (commit), "Blocks" in the page switch
+   (data-bsd-page="blocks"), JS inits in bsd-demo.js, then one section per commit.
+C. Audit backlog pass on classes.html (approved), one commit per section, screenshots
+   before/after at 1400px light must match.
+D. Final cleanup of HANDOFF and CLAUDE.md, then "Autonomous run summary" at the top.
+Failed steps go under "Blocked (autonomous run)"; decisions under "Decisions for review
+(autonomous run)".
+Check tooling lives in the session scratchpad (check.js, static.sh, step.sh, capture2.js);
+tools/spytest.js is in the repo.
+
+### Decisions for review (autonomous run)
+- (none yet)
+
+### Blocked (autonomous run)
+- (none yet)
+
 ## Current state
 
 Sections in `classes.html`, in page order (all listed in the sidebar):
