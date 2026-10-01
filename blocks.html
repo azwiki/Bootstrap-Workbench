@@ -31,9 +31,148 @@
         <!-- ============================================================ -->
         <!-- Intro                                                        -->
         <!-- ============================================================ -->
-        <section id="bsd-blocks-intro" class="py-4">
+        <section id="bsd-blocks-intro" class="py-4 border-bottom">
           <h2 class="h4 mb-3">About this page</h2>
           <p>Interactive components (dropdowns, collapse, modal, offcanvas, carousel, toasts, tooltips, popovers, scrollspy, navbar and tabs) and ready-made page blocks for Northwind Studio. Static classes are on the <a href="classes.html">Classes page</a>, forms on the <a href="forms.html">Forms page</a>.</p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Dropdowns                                                    -->
+        <!-- ============================================================ -->
+        <section id="bsd-dropdowns" class="py-4">
+          <h2 class="h4 mb-3">Dropdowns</h2>
+          <p class="small text-body-secondary">Menu items are buttons here, so picking one never changes the URL. Links (a.dropdown-item) work the same way.</p>
+
+          <h3 class="h6 mt-3 mb-2">Single button: dropdown-toggle + dropdown-menu</h3>
+          <div data-demo>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Collections</button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Desks</button></li>
+                <li><button class="dropdown-item" type="button">Chairs</button></li>
+                <li><button class="dropdown-item" type="button">Shelving</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Split button: dropdown-toggle-split</h3>
+          <div data-demo>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary">Order sample</button>
+              <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">More sample options</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Wood swatches</button></li>
+                <li><button class="dropdown-item" type="button">Fabric swatches</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Directions: dropup, dropup-center, dropdown-center, dropend, dropstart</h3>
+          <div data-demo class="d-flex flex-wrap gap-2">
+            <div class="btn-group dropup">
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">dropup</button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Opens above</button></li>
+              </ul>
+            </div>
+            <div class="btn-group dropup-center dropup">
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">dropup-center</button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Centered above</button></li>
+              </ul>
+            </div>
+            <div class="btn-group dropdown-center">
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">dropdown-center</button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Centered below</button></li>
+              </ul>
+            </div>
+            <div class="btn-group dropend">
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">dropend</button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Opens to the end</button></li>
+              </ul>
+            </div>
+            <div class="btn-group dropstart">
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">dropstart</button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Opens to the start</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Menu content: header, active, disabled, divider, item text; dropdown-menu-end</h3>
+          <div data-demo class="d-flex justify-content-end">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Account</button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><h6 class="dropdown-header">Northwind Studio</h6></li>
+                <li><button class="dropdown-item active" type="button" aria-current="true">Orders</button></li>
+                <li><button class="dropdown-item" type="button">Saved rooms</button></li>
+                <li><button class="dropdown-item" type="button" disabled>Invoices (coming soon)</button></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><span class="dropdown-item-text">Signed in as Mara</span></li>
+                <li><button class="dropdown-item" type="button">Sign out</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Dark menu</h3>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <h4 class="small mb-1">data-bs-theme="dark"</h4>
+              <div data-demo>
+                <div class="dropdown" data-bs-theme="dark">
+                  <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Night shift</button>
+                  <ul class="dropdown-menu">
+                    <li><button class="dropdown-item active" type="button" aria-current="true">Workshop</button></li>
+                    <li><button class="dropdown-item" type="button">Showroom</button></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><button class="dropdown-item" type="button">Warehouse</button></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4 class="small mb-1">dropdown-menu-dark (deprecated in 5.3)</h4>
+              <div data-demo>
+                <div class="dropdown">
+                  <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Night shift</button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><button class="dropdown-item active" type="button" aria-current="true">Workshop</button></li>
+                    <li><button class="dropdown-item" type="button">Showroom</button></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><button class="dropdown-item" type="button">Warehouse</button></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">In an input group: dropdown button, segmented button</h3>
+          <div data-demo class="col-md-8 col-lg-6">
+            <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Room</button>
+              <ul class="dropdown-menu">
+                <li><button class="dropdown-item" type="button">Kitchen</button></li>
+                <li><button class="dropdown-item" type="button">Studio</button></li>
+              </ul>
+              <input type="text" class="form-control" aria-label="Item name">
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Quote name">
+              <button type="button" class="btn btn-outline-secondary">Save</button>
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">More save options</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><button class="dropdown-item" type="button">Save as copy</button></li>
+                <li><button class="dropdown-item" type="button">Save and email</button></li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <!-- bsd:continue -->

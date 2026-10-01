@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 1: Dropdowns (see "blocks.html plan").
-     forms.html complete; blocks.html skeleton + page switch done in the autonomous run.
+  1. blocks.html section 2: Collapse (see "blocks.html plan"); then 3 Modal, 4 Offcanvas, …
+     forms.html complete; blocks.html sections done so far: Dropdowns.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -561,6 +561,20 @@ blocks.html B2/B3: DONE (autonomous run).
 - Checks: blocks intro check.js + static OK, spytest blocks 12/12; the switch navigates
   classes → blocks → forms → blocks → classes in both engines; classes.html and forms.html
   captures differ only by the new "Blocks" link in the toolbar DOM (new baselines).
+
+blocks.html 1 (Dropdowns): DONE (autonomous run).
+- Section `#bsd-dropdowns`: 6 headings, 7 data-demos, 12 toggles. Items are
+  `button.dropdown-item` (no "#" links, so the URL never changes). Single; split; directions
+  (dropup, dropup-center, dropdown-center, dropend, dropstart); header/active
+  (aria-current)/disabled/divider/item-text + dropdown-menu-end; dark: data-bs-theme="dark"
+  next to dropdown-menu-dark "(deprecated in 5.3)"; input group dropdown + segmented button.
+- Checks: check.js + static OK; interact.js (mouse open, Esc close, keyboard Enter/Esc, focus
+  back on the toggle) OK for all 12 toggles in both engines at 1400/576.
+- spytest blocks: 8/12. The 4 failures are at window height 1200 only and come from the page
+  still being short (1400x1200: page not scrollable, so a click cannot move "Dropdowns" up;
+  576x1200: the intro cannot be scrolled to the top, the click lands at the bottom where the
+  last section wins). Accepted while blocks.html is being built; spytest must pass on
+  blocks.html once all sections are in (rechecked at the end of part B).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
