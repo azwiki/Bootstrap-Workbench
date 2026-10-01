@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 12: Hero (see "blocks.html plan"); then 13 Features, 14 Pricing,
-     15 Testimonials, 16 CTA, 17 Contact, 18 Footer. All interactive sections (1–11) done.
+  1. blocks.html section 13: Features (see "blocks.html plan"); then 14 Pricing,
+     15 Testimonials, 16 CTA, 17 Contact, 18 Footer.
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -708,6 +708,15 @@ blocks.html 11 (Navs & tabs): DONE (autonomous run).
 - Checks: check.js + static OK; tabs.js: click activates tab + pane, ArrowRight/Down and
   ArrowLeft/Up move focus and activation, inactive tabs keep tabindex="-1", 3 tablists, both
   engines at 1400/576; spytest blocks 12/12.
+
+blocks.html 12 (Hero): DONE (autonomous run).
+- Section `#bsd-hero`: image + text (row flex-lg-row-reverse align-items-center g-4, picsum
+  201 800x600 webp, display-5 h3, lead, CTA buttons as links to sections of this page) and a
+  centered hero (text-center, col-lg-6 mx-auto). Section intro: page blocks keep row/col in
+  the snippet on purpose. g-5 (Bootstrap's example) caused 12px horizontal overflow at 576
+  inside the demo column, so g-4.
+- Picsum 48 (planned) was replaced by 201: 48 shows a brand logo on the laptop lid.
+- Checks: check.js (layout check off) + static OK (1 image, curl webp); spytest blocks 12/12.
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.
