@@ -11,7 +11,7 @@
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
   1. forms.html plan, phase 4: move the forms sections one at a time, Form controls first
-     (see "forms.html tooling sharing"). Phases 1–2 reviewed; phase 3 done, awaiting review.
+     (see "forms.html phase 4 plan", approved). Phases 1–3 reviewed.
   2. After Form controls leaves classes.html: re-check the Shadows/Focus ring scrollspy quirk.
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -313,8 +313,71 @@ no .ratio wrapper. Older examples still have wrappers: see "Audit backlog" below
   ~24px of the h1 until scrolled.
 - localStorage on file:// (bsd-theme, bsd-code), tested in Playwright Chromium and WebKit:
   origin is "file://" and the keys are shared between pages in the same folder and in other
-  folders; reopening classes.html restores theme and Show code. Not yet checked in real
-  Safari (Playwright WebKit is not Safari). No workaround planned.
+  folders; reopening classes.html restores theme and Show code.
+  Real Safari (user, 2026-10-01, over http://mini.local): bsd-theme and bsd-code are shared
+  between the pages (same origin). No workaround needed.
+
+### forms.html phase 4 plan (approved 2026-10-01)
+Mapping of the current classes.html `#bsd-forms` examples (E1–E3, 29 `bsd-f-*` ids, snippets
+still with demo row/col wrappers):
+- E1 "form-control, form-select, sizes, disabled, readonly, form-text" → Form controls (input,
+  help text, disabled, readonly, sm/lg, plaintext, textarea, color), Select (form-select,
+  -sm), Range (form-range).
+- E2 "form-check, form-switch, input-group, form-floating" → Checks & radios, Input group,
+  Floating labels.
+- E3 "is-valid, is-invalid, valid-feedback, invalid-feedback" → Validation.
+- Form layout: nothing existing.
+
+Gaps to fill per section (all grep-verified in the local 5.3.8 CSS; no form class is
+deprecated in 5.3; v4 names form-group, form-row, form-inline, custom-select, custom-control,
+input-group-prepend/-append, form-file do NOT exist and are never used):
+- Form controls (~7): input + form-text/aria-describedby, a few types (email, password, number,
+  date); sizing -sm/default/-lg; disabled, readonly, `<fieldset disabled>` + legend;
+  form-control-plaintext; file input (multiple, disabled, -sm, -lg); form-control-color;
+  datalist; textarea.
+- Select (~4): default; -sm/default/-lg; multiple; size="3"; disabled.
+- Checks & radios (~7): checkbox default/checked/indeterminate/disabled/disabled checked;
+  radios + disabled; switches (checked, disabled, disabled checked); form-check-inline;
+  form-check-reverse (+ reverse switch); check without visible label (aria-label). btn-check
+  toggles stay in Buttons on classes.html (demo text points there).
+- Range (~3): default; disabled; min/max; step.
+- Input group (~7): text addons left/right/both, multiple addons; button addons;
+  input-group-sm/-lg; checkbox/radio addons (form-check-input mt-0 in input-group-text); two
+  inputs; form-select and file input in a group; flex-nowrap. Dropdown/segmented buttons go
+  to blocks.html (need dropdown JS).
+- Floating labels (~7): input; password; textarea (default height, no inline style); select;
+  disabled; readonly with value; form-control-plaintext; inside input-group; in a grid
+  (row g-2 + col-md, kept on purpose).
+- Form layout (~6, snippets keep row/col on purpose and say so): utility-only (mb-3); grid
+  row g-3 (g/gx/gy); horizontal (row + col-sm-2 col-form-label, plaintext row);
+  col-form-label-sm/-lg; column sizing (col-sm-7 + col); auto-sizing (col-auto); inline
+  (row row-cols-lg-auto g-3 align-items-center, visually-hidden labels).
+- Validation (~6): is-valid/is-invalid on input, select, textarea, check, radio, switch, file;
+  input-group has-validation; `.was-validated` in markup with required fields (no JS;
+  needs-validation is not a CSS class); valid-tooltip/invalid-tooltip with position-relative
+  on the parent (canonical, stays in the snippet); validation in floating labels.
+
+Rules for new forms content (approved):
+1. Snippets clean from the start: one data-demo per example; grids of examples keep row/col
+   OUTSIDE data-demo with an h4.small label per column; flex rows of variants put the layout on
+   the data-demo element. Form layout is the exception: row/col stay in the snippet (the grid
+   is the pattern) and the demo text says so.
+2. ids unique per page, prefixed `bsd-f-*`; ids moved from classes.html keep their names.
+3. Every control has a label (visually-hidden where the pattern needs it; aria-label for
+   label-less checks, input-group inputs, sizing samples); help/feedback via aria-describedby;
+   radio groups share a name; fieldset has a legend.
+4. Original Northwind Studio text only, no Bootstrap docs sentences.
+5. No navigation: no `action`, `type="button"` on every button inside a form, `<form>` only
+   where the pattern needs it (Form layout, was-validated). Safety net in bsd-demo.js cancels
+   submit for every form inside #bs-demo (demo-only, never in snippets).
+6. Demo-only JS (e.g. indeterminate) lives in bsd-demo.js, keyed by id, no inline on* handlers.
+7. Only grep-verified Bootstrap 5.3.8 classes; no inline styles.
+
+Order (one section per edit, stop for review after each):
+1. Form controls  2. Select  3. Checks & radios  4. Range  5. Input group  6. Floating labels
+7. Form layout  8. Validation  9. Remove #bsd-forms from classes.html, link to forms.html in its
+place, update #bsd-forms-intro, re-check the Shadows/Focus ring scrollspy quirk.
+Old E1–E3 stay on classes.html until step 9.
 
 ### Toolbar (fixed, top-right)
 - "Sections" button, shown below lg only: opens the sidebar offcanvas.
