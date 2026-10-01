@@ -10,8 +10,8 @@
   Follow-up done: card-group uses ratio-4x3 (see "Cards additions").
 - Awaiting user browser review: Utility scales (`#bsd-utility-scales`).
 - Next steps, in order (one section per edit, stop for review after each):
-  1. blocks.html section 18: Footer (see "blocks.html plan"), then the final blocks.html
-     check (all interaction scripts, spytest on all pages), then part C (audit backlog pass).
+  1. Final blocks.html check (all interaction scripts, check.js per section, spytest on all
+     pages), then part C: audit backlog pass on classes.html (one commit per section).
   2. Every step's checks include `tools/spytest.js` (see "Sidebar scrollspy").
   3. blocks.html.
   The audit backlog pass stays separate: only when the user says so.
@@ -750,6 +750,13 @@ blocks.html 17 (Contact form): DONE (autonomous run).
   message, copy checkbox, button type="button"; no action; autocomplete on name/email).
 - Checks: check.js (layout check off; Enter in 3 fields, 0 navigations) + static OK;
   spytest blocks 12/12.
+
+blocks.html 18 (Footer): DONE (autonomous run).
+- Section `#bsd-footer`: footer.row.row-cols-1.row-cols-sm-2.row-cols-md-4 (brand column +
+  three nav.flex-column link lists to sections of this page); simple footer (d-flex
+  flex-wrap justify-content-between align-items-center, nav). Static, not fixed.
+- Checks: check.js (layout check off) + static OK; spytest blocks 12/12 (the short last
+  section is handled by the activation-point spread).
 
 ### Sidebar scrollspy (custom, decided 2026-10-01)
 - bsd-demo.js `initScrollspy()` replaces Bootstrap ScrollSpy for `#bsd-nav` on both pages.

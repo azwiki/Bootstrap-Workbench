@@ -1238,7 +1238,7 @@
         <!-- ============================================================ -->
         <!-- Contact form                                                 -->
         <!-- ============================================================ -->
-        <section id="bsd-contact" class="py-4">
+        <section id="bsd-contact" class="py-4 border-bottom">
           <h2 class="h4 mb-3">Contact form</h2>
           <p class="small text-body-secondary">The form has no action and its button is type="button": it never submits (the demo tooling also cancels submit for every form on this page).</p>
 
@@ -1294,6 +1294,57 @@
                 </form>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- Footer                                                       -->
+        <!-- ============================================================ -->
+        <section id="bsd-footer" class="py-4">
+          <h2 class="h4 mb-3">Footer</h2>
+          <p class="small text-body-secondary">Static footers (not fixed). Inside a section, footer only labels that section; on a real page it is the site footer.</p>
+
+          <h3 class="h6 mt-3 mb-2">Columns: footer.row row-cols-1 row-cols-sm-2 row-cols-md-4, nav flex-column</h3>
+          <div data-demo>
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-4 border-top">
+              <div class="col mb-3">
+                <p class="fw-bold mb-1">Northwind Studio</p>
+                <p class="text-body-secondary mb-0">© 2026 Northwind Studio, Porto</p>
+              </div>
+              <div class="col mb-3">
+                <h4 class="fs-6 fw-bold">Shop</h4>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#bsd-pricing" class="nav-link p-0 text-body-secondary">Prices</a></li>
+                  <li class="nav-item mb-2"><a href="#bsd-features" class="nav-link p-0 text-body-secondary">How we build</a></li>
+                </ul>
+              </div>
+              <div class="col mb-3">
+                <h4 class="fs-6 fw-bold">Studio</h4>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#bsd-contact" class="nav-link p-0 text-body-secondary">Visit us</a></li>
+                  <li class="nav-item mb-2"><a href="#bsd-cta" class="nav-link p-0 text-body-secondary">Saturday workshops</a></li>
+                </ul>
+              </div>
+              <div class="col mb-3">
+                <h4 class="fs-6 fw-bold">Help</h4>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#bsd-scrollspy" class="nav-link p-0 text-body-secondary">Care guide</a></li>
+                  <li class="nav-item mb-2"><a href="#bsd-testimonials" class="nav-link p-0 text-body-secondary">Customer stories</a></li>
+                </ul>
+              </div>
+            </footer>
+          </div>
+
+          <h3 class="h6 mt-4 mb-2">Simple: d-flex flex-wrap justify-content-between align-items-center, nav</h3>
+          <div data-demo>
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+              <p class="mb-0 text-body-secondary">© 2026 Northwind Studio</p>
+              <ul class="nav">
+                <li class="nav-item"><a href="#bsd-hero" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="#bsd-pricing" class="nav-link px-2 text-body-secondary">Prices</a></li>
+                <li class="nav-item"><a href="#bsd-contact" class="nav-link px-2 text-body-secondary">Contact</a></li>
+              </ul>
+            </footer>
           </div>
         </section>
 
