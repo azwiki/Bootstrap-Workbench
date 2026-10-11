@@ -91,7 +91,18 @@ Nothing is blocked. Every commit passed its checks before it was made (see "Test
 
 ## Current state
 
-### Pages (all share assets/js/bsd-demo.js; data-bsd-page drives the page switch)
+### Loading (all three pages)
+- Bootstrap 5.3.8 from jsDelivr, pinned, with SRI; local assets/css/bootstrap.min.css and
+  assets/js/bootstrap.bundle.min.js only as commented-out fallback lines.
+- assets/css/main.css (relative path) is the only local reference: a single page copied into
+  another folder together with main.css works.
+- bsd-demo.js is inlined before </body> between `<!-- bsd-demo:start -->` and
+  `<!-- bsd-demo:end -->`. Edit assets/js/bsd-demo.js, then run `zsh tools/sync-demo.sh`
+  (idempotent; exits non-zero if a marker is missing). Never edit the inline copies.
+- Planned: after the GitHub publish, replace the marker block with a jsDelivr gh URL
+  (`https://cdn.jsdelivr.net/gh/<user>/<repo>@<tag>/assets/js/bsd-demo.js`) pinned to a tag.
+
+### Pages (all inline assets/js/bsd-demo.js; data-bsd-page drives the page switch)
 - classes.html (`data-bsd-page="classes"`), 27 sections, 136 examples: Colors, Color modes,
   Text colors, Borders & rounded, Links, Buttons, Button group, Close button, Typography,
   Images, Alerts, Badges, List group, Tables, Cards, Progress, Spinners, Placeholders, Navbar,
@@ -108,7 +119,7 @@ Nothing is blocked. Every commit passed its checks before it was made (see "Test
 - Images: classes.html 131 img / 75 URLs / 58 ids; blocks.html 16 img / 8 URLs / 7 ids;
   forms.html none. 64 picsum ids in total, all WebP, all verified with curl -sIL.
 
-### Tooling (assets/js/bsd-demo.js, classic script at the end of #bs-demo)
+### Tooling (assets/js/bsd-demo.js, inlined as a classic script before </body>)
 - Run-once guard (`data-bsd-tooling` on #bs-demo); works with the bundle before or after it.
 - Builds the fixed toolbar (Sections button below lg, page switch, theme toggle, Custom CSS
   switch with count, Show code switch, Tokens button), the sidebar column (offcanvas-lg,
@@ -125,9 +136,13 @@ Nothing is blocked. Every commit passed its checks before it was made (see "Test
   the bottom means the last section. Click: smooth scroll to the section top (same formula as
   Bootstrap), or to its activation point when the top is out of reach or the next section
   would already be active; the URL hash is not changed; the offcanvas closes below lg.
-- Demo-only JS, keyed by id: indeterminate checkbox (#bsd-f-check-indeterminate); live toast
-  (#bsd-toast-live-btn → #bsd-toast-live); tooltips and popovers initialized for every
-  `[data-bs-toggle]` inside #bs-demo; `submit` cancelled for every form inside #bs-demo.
+- Demo-only JS, keyed by id: indeterminate checkbox (#bsd-f-check-indeterminate); tooltips and
+  popovers initialized for every `[data-bs-toggle]` inside #bs-demo; `submit` cancelled for
+  every form inside #bs-demo.
+- Demo snippets that need JS carry their own inline `<script>` inside data-demo (run on
+  DOMContentLoaded, part of the copied snippet): live toast (#bsd-toast-live-btn →
+  #bsd-toast-live), every tooltip and popover example on blocks.html. The generator re-indents
+  script content.
 
 ### Conventions
 - Snippet generator: example markup in `<div data-demo>`; snippets are generated from its

@@ -1,6 +1,6 @@
 // Demo tooling for the Bootstrap class audit pages (#bs-demo fragment).
-// Load with a classic <script src> at the end of <main id="bs-demo">, before the Bootstrap bundle.
-// To use the fragment on another site, copy this file or paste its contents into an inline <script>.
+// Inlined as a classic <script> right before </body>, after the Bootstrap bundle.
+// To use the fragment on another site, copy this <script> along with <main id="bs-demo">.
 
 (function () {
   'use strict';
@@ -137,8 +137,9 @@
 
   // ------------------------------------------------------------------
   // Snippet generator
-  // Runs synchronously while the page is parsed, before Bootstrap JS
-  // touches the DOM, so snippets reflect the markup exactly as authored.
+  // Runs synchronously while the page is parsed, before DOMContentLoaded,
+  // when Bootstrap JS starts touching the DOM, so snippets reflect the
+  // markup exactly as authored.
   // ------------------------------------------------------------------
 
   var VOID_TAGS = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'];
@@ -247,6 +248,24 @@
     if (node.nodeType !== Node.ELEMENT_NODE) return;
 
     var name = tagName(node);
+
+    // Inline <script>: keep the code verbatim, but replace its source
+    // indentation with the snippet's own (one level below the tag)
+    if (name === 'script') {
+      var code = node.textContent.replace(/^\s*\n/, '').replace(/\s+$/, '').split('\n');
+      var common = null;
+      code.forEach(function (line) {
+        if (!line.trim()) return;
+        var lead = line.match(/^\s*/)[0].length;
+        if (common === null || lead < common) common = lead;
+      });
+      lines.push(pad + openTag(node));
+      code.forEach(function (line) {
+        lines.push(line.trim() ? pad + INDENT + line.slice(common) : '');
+      });
+      lines.push(pad + closeTag(node));
+      return;
+    }
 
     if (RAW_TAGS.indexOf(name) !== -1) {
       lines.push(pad + serializeRaw(node));
@@ -743,13 +762,6 @@
   initScrollspy();
 
   // ------------------------------------------------------------------
-  // Demo-only states that have no HTML attribute (keyed by id)
-  // ------------------------------------------------------------------
-
-  var indeterminate = document.getElementById('bsd-f-check-indeterminate');
-  if (indeterminate) indeterminate.indeterminate = true;
-
-  // ------------------------------------------------------------------
   // Demo forms never submit: Enter in a field or a submit button would
   // otherwise reload the page. Demo-only, not part of any snippet.
   // ------------------------------------------------------------------
@@ -763,7 +775,7 @@
   applyTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : currentTheme());
 
   // ------------------------------------------------------------------
-  // Bootstrap JS hooks (bundle loads after this fragment)
+  // Bootstrap JS hooks (run on DOMContentLoaded, once the bundle is loaded)
   // ------------------------------------------------------------------
 
   function initBootstrap() {
@@ -785,15 +797,7 @@
     for (var t = 0; t < tips.length; t++) bootstrap.Tooltip.getOrCreateInstance(tips[t]);
     var pops = root.querySelectorAll('[data-bs-toggle="popover"]');
     for (var p = 0; p < pops.length; p++) bootstrap.Popover.getOrCreateInstance(pops[p]);
-
-    // Live toast demo: the button shows its toast (keyed by id)
-    var toastButton = document.getElementById('bsd-toast-live-btn');
-    var toastLive = document.getElementById('bsd-toast-live');
-    if (toastButton && toastLive) {
-      toastButton.addEventListener('click', function () {
-        bootstrap.Toast.getOrCreateInstance(toastLive).show();
-      });
-    }
+    // The live toast button is wired by the script inside its example (blocks.html)
   }
 
   if (document.readyState === 'loading') {

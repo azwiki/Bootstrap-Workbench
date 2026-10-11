@@ -5,13 +5,20 @@ Purpose: paste the demo content into any Bootstrap site and instantly see which
 standard classes the custom theme fails to cover (colors, bg-*, outline buttons, etc.).
 
 ## Stack
-- Bootstrap from local files only: assets/css/bootstrap.min.css, assets/js/bootstrap.bundle.min.js
+- Bootstrap 5.3.8 from jsDelivr, pinned, with SRI (integrity + crossorigin="anonymous"):
+  https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css and
+  .../dist/js/bootstrap.bundle.min.js. The identical local copies (assets/css/bootstrap.min.css,
+  assets/js/bootstrap.bundle.min.js) appear in the pages only as commented-out fallback lines.
+- assets/css/main.css (relative path) is the only local reference in the demo pages, so any
+  single page copied into another folder together with main.css works.
 - Check the exact version in the bootstrap.min.css header and use ONLY classes that exist in it.
   Exception: JS hook classes that the local bootstrap.bundle.min.js itself tests for
   (e.g. carousel `slide`), because they are part of Bootstrap's canonical markup.
 - assets/css/main.css is the user's theme file. It is intentionally empty. NEVER edit it.
 - Custom demo tooling (toolbar, snippet generator, token panel) must not restyle Bootstrap components.
-- No external CSS/JS libraries, no CDNs, no build step. Plain HTML + vanilla JS. Must work via file://.
+- No external CSS/JS libraries besides the pinned Bootstrap above, no other CDNs, no build step
+  (tools/sync-demo.sh only copies bsd-demo.js into the pages). Plain HTML + vanilla JS.
+  Must work via file://.
 
 ## Rules
 - Use ONLY standard Bootstrap 5.3.8 classes in demo content. No custom classes in demo markup.
@@ -53,9 +60,14 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
 ## Demo content structure
 - All demo content lives inside a single <main id="bs-demo"> block so it can be copied
   into the <body> of another site as one fragment.
-- The fragment is <main id="bs-demo"> plus assets/js/bsd-demo.js, loaded with a classic
-  <script src> at the end of #bs-demo. To use it on another site, copy the file or paste its
-  contents into an inline <script>.
+- The fragment is <main id="bs-demo"> plus the demo script, inlined as a classic <script> right
+  before </body> (after the Bootstrap bundle), between <!-- bsd-demo:start --> and
+  <!-- bsd-demo:end -->. To use it on another site, copy both.
+- bsd-demo.js: edit assets/js/bsd-demo.js (the single source of truth), then run
+  `zsh tools/sync-demo.sh`. Never edit the inline copies in the pages.
+- Planned: after the GitHub publish, replace the marker block with a <script src> from
+  jsDelivr gh (https://cdn.jsdelivr.net/gh/<user>/<repo>@<tag>/assets/js/bsd-demo.js),
+  pinned to a tag.
 - Pages: classes.html (classes and utilities), forms.html (all form examples), blocks.html
   (interactive components and ready-made page blocks). No fixed-top / sticky on the pages.
 - Each demo page sets data-bsd-page="<id>" on <main id="bs-demo"> (classes, forms, blocks);
@@ -64,11 +76,15 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
   another site.
 - The sidebar uses a custom scrollspy in bsd-demo.js (no data-bs-spy on <main>). Bootstrap
   ScrollSpy itself is demonstrated on blocks.html.
-- tools/ holds dev-only test scripts (e.g. tools/spytest.js, Node + Playwright installed
-  outside the repo). It is not part of the demo fragment and is never loaded by the pages.
+- tools/ holds dev-only scripts: tools/sync-demo.sh (copies bsd-demo.js into the pages) and
+  tests (e.g. tools/spytest.js, Node + Playwright installed outside the repo). It is not part of
+  the demo fragment and is never loaded by the pages.
 - Demo-only JS (component inits such as tooltips/popovers, demo triggers, states without an
   HTML attribute) lives in bsd-demo.js, scoped to #bs-demo, keyed by id or data-bs-toggle,
-  never inline on* handlers, never in snippets. Demo forms never submit: no action,
+  never inline on* handlers. Exception: a demo snippet that needs JS to work (e.g. tooltip and
+  popover init, a button that shows a toast) carries its own inline <script> inside its
+  data-demo element (run on DOMContentLoaded), so the copied snippet includes it. Demo forms
+  never submit: no action,
   type="button" on buttons, and bsd-demo.js cancels submit inside #bs-demo.
 - Each example: live render + generated code snippet (see snippet rules below).
 
@@ -81,6 +97,15 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
   wrapper by its children, data-demo-drop="cls …" leaves those classes out of the element.
 - Each example has an h3–h6 heading right before it; notes go above the heading.
 - Snippets must never be written by hand.
+
+## Intentional decisions (do not flag in audits)
+- The navbar brand uses the official Bootstrap logo SVG from getbootstrap.com (not picsum).
+- The favicon is an inline SVG data: URI (not picsum, not a file).
+- The picsum-only rule applies to content images only.
+- Cross-page links and the data-bsd-page switcher are workbench navigation.
+- Fragment links (#bsd-hero, #bsd-pricing, ...) inside blocks are demo links.
+- IDs (bs-demo, bsd-live, bsd-navbar, ...) are unique per page; pages are never merged.
+- Tooltip/popover init is document-wide on purpose (matches the Bootstrap docs).
 
 ## Workflow
 - Work in phases. Stop after each phase and wait for review.
