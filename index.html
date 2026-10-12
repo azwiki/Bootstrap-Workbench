@@ -46,7 +46,276 @@
 
 <main>
 
-<!-- bw-home-sections -->
+<!-- Hero -->
+<section class="text-bg-dark py-5" data-bs-theme="dark" aria-labelledby="bw-hero-title">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <p class="text-uppercase small fw-semibold text-white-50 mb-2">Bootstrap 5.3.8 theme audit</p>
+        <h1 id="bw-hero-title" class="display-4 fw-bold">See what your theme forgot to style</h1>
+        <p class="lead my-4">Bootstrap Workbench puts every standard Bootstrap class on plain demo pages, so you can load them with your theme's CSS and spot the gaps at a glance.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn btn-primary btn-lg" href="#bw-demo"><i class="bi bi-play-circle me-2" aria-hidden="true"></i>Open playground</a>
+          <a class="btn btn-outline-light btn-lg" href="https://github.com/azwiki/bootstrap-workbench"><i class="bi bi-github me-2" aria-hidden="true"></i>View on GitHub</a>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <img src="https://azwiki.github.io/bootstrap-workbench/assets/img/hero/classes-light.webp" data-bw-src-light="https://azwiki.github.io/bootstrap-workbench/assets/img/hero/classes-light.webp" data-bw-src-dark="https://azwiki.github.io/bootstrap-workbench/assets/img/hero/classes-dark.webp" class="img-fluid rounded-3 shadow-lg border" width="2880" height="1800" decoding="async" alt="The Classes demo page: a sidebar of sections next to color utility swatches and a floating toolbar">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="container py-5" aria-labelledby="bw-stats-title">
+  <h2 id="bw-stats-title" class="visually-hidden">At a glance</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+    <div class="col">
+      <div class="card text-bg-primary border-0 h-100">
+        <div class="card-body">
+          <p class="display-5 fw-bold mb-1">52</p>
+          <p class="mb-0">component and utility sections</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-bg-success border-0 h-100">
+        <div class="card-body">
+          <p class="display-5 fw-bold mb-1">3</p>
+          <p class="mb-0">demo pages: classes, blocks, forms</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-bg-warning border-0 h-100">
+        <div class="card-body">
+          <p class="display-5 fw-bold mb-1">0</p>
+          <p class="mb-0">custom classes in the demo markup</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-bg-info border-0 h-100">
+        <div class="card-body">
+          <p class="display-5 fw-bold mb-1">1</p>
+          <p class="mb-0">HTML file to copy into your project</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What it is -->
+<section class="bg-body-tertiary border-top border-bottom py-5" aria-labelledby="bw-about-title">
+  <div class="container">
+    <h2 id="bw-about-title" class="mb-4">What it is</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="d-inline-flex bg-primary-subtle text-primary-emphasis rounded-circle p-3 fs-4 lh-1 mb-3"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <h3 class="h5 card-title">Audit your theme</h3>
+            <p class="card-text">Load a demo page with your stylesheet and scroll. Unstyled buttons, bland alerts and off-brand subtle colors stand out right away.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="d-inline-flex bg-success-subtle text-success-emphasis rounded-circle p-3 fs-4 lh-1 mb-3"><i class="bi bi-clipboard-check" aria-hidden="true"></i></span>
+            <h3 class="h5 card-title">Copy-paste snippets</h3>
+            <p class="card-text">Every example has a code toggle with clean, generated markup without demo wrappers, ready for your templates.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="d-inline-flex bg-warning-subtle text-warning-emphasis rounded-circle p-3 fs-4 lh-1 mb-3"><i class="bi bi-journal-code" aria-hidden="true"></i></span>
+            <h3 class="h5 card-title">Bootstrap 5.3.8 in one place</h3>
+            <p class="card-text">Colors, utilities, components, forms and page blocks side by side, pinned to one version and checked against its stylesheet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="container py-5" aria-labelledby="bw-how-title">
+  <h2 id="bw-how-title" class="mb-4">How it works</h2>
+  <div class="row g-4 align-items-start">
+    <div class="col-lg-7">
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex align-items-start">
+          <div class="ms-2">
+            <h3 class="h6 fw-bold mb-1">Copy a page into your project</h3>
+            <p class="mb-0 text-body-secondary">Take classes.html, blocks.html or forms.html. Each one is a single file.</p>
+          </div>
+        </li>
+        <li class="list-group-item d-flex align-items-start">
+          <div class="ms-2">
+            <h3 class="h6 fw-bold mb-1">Link your main.css</h3>
+            <p class="mb-0 text-body-secondary">The page already loads <code>assets/css/main.css</code>. Put your theme there or point the line at your stylesheet.</p>
+          </div>
+        </li>
+        <li class="list-group-item d-flex align-items-start">
+          <div class="ms-2">
+            <h3 class="h6 fw-bold mb-1">Open it in a browser</h3>
+            <p class="mb-0 text-body-secondary">Double-click works: no server, no build step, no install.</p>
+          </div>
+        </li>
+        <li class="list-group-item d-flex align-items-start">
+          <div class="ms-2">
+            <h3 class="h6 fw-bold mb-1">Spot the gaps</h3>
+            <p class="mb-0 text-body-secondary">Anything that still looks like stock Bootstrap is a class your theme does not cover yet.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <div class="col-lg-5">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="h6 card-title">The one line that matters</h3>
+          <p class="card-text small text-body-secondary">Keep it after the Bootstrap stylesheet so your theme wins.</p>
+          <div class="position-relative">
+            <button type="button" class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-2" data-bw-copy>Copy</button>
+            <pre class="bg-body-tertiary border rounded-3 p-3 pe-5 small mb-0"><code>&lt;link rel="stylesheet" href="assets/css/main.css"&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pages overview -->
+<section class="bg-body-tertiary border-top border-bottom py-5" aria-labelledby="bw-pages-title">
+  <div class="container">
+    <h2 id="bw-pages-title" class="mb-4">The pages</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://picsum.photos/id/0/600/400.webp" class="card-img-top" width="600" height="400" loading="lazy" decoding="async" alt="Laptop and coffee cup on a wooden table">
+          <div class="card-body">
+            <h3 class="h5 card-title">Classes</h3>
+            <p class="card-text">Colors, typography, buttons, alerts, cards, tables, navs and utility scales: 26 sections of classes and utilities.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-primary btn-sm" href="classes.html">Open Classes</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://picsum.photos/id/60/600/400.webp" class="card-img-top" width="600" height="400" loading="lazy" decoding="async" alt="Desk from above with a monitor, tablet, keyboard and glasses">
+          <div class="card-body">
+            <h3 class="h5 card-title">Blocks</h3>
+            <p class="card-text">Interactive components that need Bootstrap JS, plus ready-made page blocks: hero, pricing, testimonials and more.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-primary btn-sm" href="blocks.html">Open Blocks</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://picsum.photos/id/180/600/400.webp" class="card-img-top" width="600" height="400" loading="lazy" decoding="async" alt="Open laptop next to a notebook with sketches">
+          <div class="card-body">
+            <h3 class="h5 card-title">Forms</h3>
+            <p class="card-text">Controls, selects, checks, ranges, input groups, floating labels, layouts and validation states.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-primary btn-sm" href="forms.html">Open Forms</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://picsum.photos/id/26/600/400.webp" class="card-img-top" width="600" height="400" loading="lazy" decoding="async" alt="Everyday items laid out in neat rows on a gray surface">
+          <div class="card-body">
+            <h3 class="h5 card-title">Docs</h3>
+            <p class="card-text">How the pages are built, the rules they follow and how to reuse the demo fragment on your own site.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-outline-primary btn-sm" href="https://github.com/azwiki/bootstrap-workbench#readme">Read the docs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who it's for -->
+<section class="container py-5" aria-labelledby="bw-audience-title">
+  <h2 id="bw-audience-title" class="mb-4">Who it's for</h2>
+  <ul class="nav nav-pills flex-column flex-sm-row mb-3" role="tablist">
+    <li class="nav-item" role="presentation"><button id="bw-aud-tab-1" class="nav-link active" type="button" data-bs-toggle="pill" data-bs-target="#bw-aud-1" role="tab" aria-controls="bw-aud-1" aria-selected="true">Theme authors</button></li>
+    <li class="nav-item" role="presentation"><button id="bw-aud-tab-2" class="nav-link" type="button" data-bs-toggle="pill" data-bs-target="#bw-aud-2" role="tab" aria-controls="bw-aud-2" aria-selected="false">WordPress child themes</button></li>
+    <li class="nav-item" role="presentation"><button id="bw-aud-tab-3" class="nav-link" type="button" data-bs-toggle="pill" data-bs-target="#bw-aud-3" role="tab" aria-controls="bw-aud-3" aria-selected="false">QA &amp; design review</button></li>
+    <li class="nav-item" role="presentation"><button id="bw-aud-tab-4" class="nav-link" type="button" data-bs-toggle="pill" data-bs-target="#bw-aud-4" role="tab" aria-controls="bw-aud-4" aria-selected="false">Learning Bootstrap</button></li>
+  </ul>
+  <div class="tab-content border rounded-3 p-4">
+    <div id="bw-aud-1" class="tab-pane fade show active" role="tabpanel" aria-labelledby="bw-aud-tab-1" tabindex="0">
+      <h3 class="h5">Theme authors</h3>
+      <p class="mb-0">Before you ship a theme, check that outline buttons, subtle backgrounds, dark islands and form states all carry your palette, not the defaults.</p>
+    </div>
+    <div id="bw-aud-2" class="tab-pane fade" role="tabpanel" aria-labelledby="bw-aud-tab-2" tabindex="0">
+      <h3 class="h5">WordPress child themes</h3>
+      <p class="mb-0">Bootstrap-based parent themes such as picostrap compile your SCSS into one stylesheet. Point a demo page at it and see what your variables actually changed.</p>
+    </div>
+    <div id="bw-aud-3" class="tab-pane fade" role="tabpanel" aria-labelledby="bw-aud-tab-3" tabindex="0">
+      <h3 class="h5">QA &amp; design review</h3>
+      <p class="mb-0">One page, every state. Review light and dark mode, three breakpoints and the token panel without clicking through a whole site.</p>
+    </div>
+    <div id="bw-aud-4" class="tab-pane fade" role="tabpanel" aria-labelledby="bw-aud-tab-4" tabindex="0">
+      <h3 class="h5">Learning Bootstrap</h3>
+      <p class="mb-0">Every example sits next to its markup. Toggle the code, copy it, change a class and watch what happens.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-body-tertiary border-top border-bottom py-5" aria-labelledby="bw-faq-title">
+  <div class="container">
+    <h2 id="bw-faq-title" class="mb-4">FAQ</h2>
+    <div class="accordion" id="bw-faq">
+      <div class="accordion-item">
+        <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bw-faq-1" aria-expanded="true" aria-controls="bw-faq-1">Is there a build step?</button></h3>
+        <div id="bw-faq-1" class="accordion-collapse collapse show" data-bs-parent="#bw-faq"><div class="accordion-body">No. The pages are plain HTML with a little vanilla JavaScript. No npm, no bundler, no server: they open straight from the file system.</div></div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-faq-2" aria-expanded="false" aria-controls="bw-faq-2">What is the license?</button></h3>
+        <div id="bw-faq-2" class="accordion-collapse collapse" data-bs-parent="#bw-faq"><div class="accordion-body">MIT. Use the pages in client work, commercial themes or courses.</div></div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-faq-3" aria-expanded="false" aria-controls="bw-faq-3">Which Bootstrap version does it target?</button></h3>
+        <div id="bw-faq-3" class="accordion-collapse collapse" data-bs-parent="#bw-faq"><div class="accordion-body">Bootstrap 5.3.8, pinned with Subresource Integrity. Only classes that exist in that version's stylesheet are used.</div></div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-faq-4" aria-expanded="false" aria-controls="bw-faq-4">Does it ship any CSS of its own?</button></h3>
+        <div id="bw-faq-4" class="accordion-collapse collapse" data-bs-parent="#bw-faq"><div class="accordion-body">No. <code>assets/css/main.css</code> is an empty placeholder for your theme, and the demo tools are built from Bootstrap classes only.</div></div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-faq-5" aria-expanded="false" aria-controls="bw-faq-5">Does it need an internet connection?</button></h3>
+        <div id="bw-faq-5" class="accordion-collapse collapse" data-bs-parent="#bw-faq"><div class="accordion-body">Yes. Bootstrap and Bootstrap Icons load from jsDelivr and the sample images from picsum.photos. For offline work, switch to the commented-out local Bootstrap lines in each page.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to action -->
+<section class="text-bg-primary py-5" aria-labelledby="bw-cta-title">
+  <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-4">
+    <div>
+      <h2 id="bw-cta-title" class="mb-2">Audit your theme now</h2>
+      <p class="lead mb-0">Grab a page, link your stylesheet, open it. Five minutes, no setup.</p>
+    </div>
+    <div class="d-flex flex-wrap gap-3">
+      <a class="btn btn-light btn-lg" href="https://github.com/azwiki/bootstrap-workbench"><i class="bi bi-github me-2" aria-hidden="true"></i>GitHub</a>
+      <a class="btn btn-outline-light btn-lg" href="https://github.com/azwiki/bootstrap-workbench/archive/refs/heads/main.zip"><i class="bi bi-download me-2" aria-hidden="true"></i>Download ZIP</a>
+    </div>
+  </div>
+</section>
 
 <!-- Bootstrap 5.3 component playground. "Copy entire demo" copies this section
      (without the code toggles) for pasting into another site's <body>. -->
