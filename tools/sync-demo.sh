@@ -3,7 +3,7 @@
 #
 #   assets/js/bsd-demo.js  -> classes.html, forms.html, blocks.html
 #                             between <!-- bsd-demo:start --> and <!-- bsd-demo:end -->
-#   assets/js/demo-init.js -> index.html
+#   assets/js/demo-init.js -> index.html, 404.html
 #                             between <!-- bw-demo:start --> and <!-- bw-demo:end -->
 #
 # Everything between a page's marker lines is replaced with <script>, the contents of its
@@ -24,6 +24,7 @@ jobs=(
   forms.html   assets/js/bsd-demo.js bsd-demo
   blocks.html  assets/js/bsd-demo.js bsd-demo
   index.html   assets/js/demo-init.js bw-demo
+  404.html     assets/js/demo-init.js bw-demo
 )
 
 # Check every source and page before touching any of them

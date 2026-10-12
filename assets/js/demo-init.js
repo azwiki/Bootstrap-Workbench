@@ -1,4 +1,4 @@
-// demo-init.js: page and playground script for index.html (Bootstrap Workbench home).
+// demo-init.js: page and playground script for index.html (Bootstrap Workbench home) and 404.html.
 // Inlined as a classic <script> right before </body>, after the Bootstrap bundle, by
 // tools/sync-demo.sh (this file is the source; never edit the inline copy).
 // Self-contained: needs only bootstrap.bundle.min.js. Hooks are data-bw-* attributes.
@@ -403,6 +403,17 @@
   // Footer year
   var years = document.querySelectorAll('[data-bw-year]');
   for (var y = 0; y < years.length; y++) years[y].textContent = new Date().getFullYear();
+
+  // 404 page: the requested path (as text only) and an issue link prefilled with it
+  var requested = window.location.pathname;
+  try { requested = decodeURIComponent(requested); } catch (e) { /* keep it encoded */ }
+  var paths = document.querySelectorAll('[data-bw-path]');
+  for (var q = 0; q < paths.length; q++) paths[q].textContent = requested;
+  var report = document.querySelector('[data-bw-report]');
+  if (report) {
+    report.href = report.getAttribute('href').replace(/\/$/, '') + '/new?title=' +
+      encodeURIComponent('Broken link: ' + requested);
+  }
 
   // Anchor targets land below the sticky navbar
   var sticky = document.querySelector('[data-bw-sticky]');
