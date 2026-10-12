@@ -49,7 +49,7 @@
 <!-- Hero -->
 <section class="text-bg-dark py-5" data-bs-theme="dark" aria-labelledby="bw-hero-title">
   <div class="container py-lg-4">
-    <div class="row align-items-center g-5">
+    <div class="row align-items-center g-4 g-lg-5">
       <div class="col-lg-5">
         <p class="text-uppercase small fw-semibold text-white-50 mb-2">Bootstrap 5.3.8 theme audit</p>
         <h1 id="bw-hero-title" class="display-4 fw-bold">See what your theme forgot to style</h1>
@@ -145,7 +145,7 @@
 <section class="container py-5" aria-labelledby="bw-how-title">
   <h2 id="bw-how-title" class="mb-4">How it works</h2>
   <div class="row g-4 align-items-start">
-    <div class="col-lg-7">
+    <div class="col-lg-6">
       <ol class="list-group list-group-numbered">
         <li class="list-group-item d-flex align-items-start">
           <div class="ms-2">
@@ -173,7 +173,7 @@
         </li>
       </ol>
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-6">
       <div class="card">
         <div class="card-body">
           <h3 class="h6 card-title">The one line that matters</h3>
@@ -195,7 +195,7 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
       <div class="col">
         <div class="card h-100">
-          <img src="https://picsum.photos/id/0/600/400.webp" class="card-img-top" width="600" height="400" loading="lazy" decoding="async" alt="Laptop and coffee cup on a wooden table">
+          <img src="https://picsum.photos/id/0/600/400.webp" class="card-img-top img-fluid" width="600" height="400" loading="lazy" decoding="async" alt="Laptop and coffee cup on a wooden table">
           <div class="card-body">
             <h3 class="h5 card-title">Classes</h3>
             <p class="card-text">Colors, typography, buttons, alerts, cards, tables, navs and utility scales: 26 sections of classes and utilities.</p>
@@ -207,7 +207,7 @@
       </div>
       <div class="col">
         <div class="card h-100">
-          <img src="https://picsum.photos/id/60/600/400.webp" class="card-img-top" width="600" height="400" loading="lazy" decoding="async" alt="Desk from above with a monitor, tablet, keyboard and glasses">
+          <img src="https://picsum.photos/id/60/600/400.webp" class="card-img-top img-fluid" width="600" height="400" loading="lazy" decoding="async" alt="Desk from above with a monitor, tablet, keyboard and glasses">
           <div class="card-body">
             <h3 class="h5 card-title">Blocks</h3>
             <p class="card-text">Interactive components that need Bootstrap JS, plus ready-made page blocks: hero, pricing, testimonials and more.</p>
@@ -219,7 +219,7 @@
       </div>
       <div class="col">
         <div class="card h-100">
-          <img src="https://picsum.photos/id/180/600/400.webp" class="card-img-top" width="600" height="400" loading="lazy" decoding="async" alt="Open laptop next to a notebook with sketches">
+          <img src="https://picsum.photos/id/180/600/400.webp" class="card-img-top img-fluid" width="600" height="400" loading="lazy" decoding="async" alt="Open laptop next to a notebook with sketches">
           <div class="card-body">
             <h3 class="h5 card-title">Forms</h3>
             <p class="card-text">Controls, selects, checks, ranges, input groups, floating labels, layouts and validation states.</p>
@@ -231,7 +231,7 @@
       </div>
       <div class="col">
         <div class="card h-100">
-          <img src="https://picsum.photos/id/26/600/400.webp" class="card-img-top" width="600" height="400" loading="lazy" decoding="async" alt="Everyday items laid out in neat rows on a gray surface">
+          <img src="https://picsum.photos/id/26/600/400.webp" class="card-img-top img-fluid" width="600" height="400" loading="lazy" decoding="async" alt="Everyday items laid out in neat rows on a gray surface">
           <div class="card-body">
             <h3 class="h5 card-title">Docs</h3>
             <p class="card-text">How the pages are built, the rules they follow and how to reuse the demo fragment on your own site.</p>
@@ -368,7 +368,10 @@
         <figure class="mt-4"><blockquote class="blockquote"><p>Good defaults make custom styles easier to evaluate.</p></blockquote><figcaption class="blockquote-footer">Workbench demo</figcaption></figure>
         <ul><li>Unordered list</li><li>Second item<ul><li>Nested item</li></ul></li></ul>
         <ol><li>First step</li><li>Second step</li></ol>
-        <ul class="list-inline"><li class="list-inline-item">Inline</li><li class="list-inline-item">list</li></ul>
+        <ul class="list-inline">
+          <li class="list-inline-item">Inline</li>
+          <li class="list-inline-item">list</li>
+        </ul>
         <dl class="row"><dt class="col-sm-4">Definition</dt><dd class="col-sm-8">A description in a responsive row.</dd></dl>
       </div>
     </div>
@@ -526,9 +529,9 @@
     <div id="bw-carousel" class="carousel slide" aria-label="Landscape carousel">
       <div class="carousel-indicators"><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="1"  aria-label="Slide 2"></button><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="2"  aria-label="Slide 3"></button></div>
       <div class="carousel-inner rounded">
-        <div class="carousel-item active"><img decoding="async" src="https://picsum.photos/id/116/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 1"></div>
-        <div class="carousel-item"><img decoding="async" src="https://picsum.photos/id/1015/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 2"></div>
-        <div class="carousel-item"><img decoding="async" src="https://picsum.photos/id/1016/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 3"></div>
+        <div class="carousel-item active"><img decoding="async" src="https://picsum.photos/id/116/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" loading="lazy" alt="Landscape slide 1"></div>
+        <div class="carousel-item"><img decoding="async" src="https://picsum.photos/id/1015/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" loading="lazy" alt="Landscape slide 2"></div>
+        <div class="carousel-item"><img decoding="async" src="https://picsum.photos/id/1016/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" loading="lazy" alt="Landscape slide 3"></div>
       </div><button type="button" class="carousel-control-prev" data-bs-target="#bw-carousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button type="button" class="carousel-control-next" data-bs-target="#bw-carousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
     </div>
   </section>
