@@ -323,7 +323,11 @@
   <header class="mb-5">
     <p class="text-body-secondary text-uppercase small fw-semibold">Bootstrap workbench · 5.3</p>
     <h2 id="bw-demo-title" class="display-5 fw-bold">Component playground</h2>
-    <p class="lead">Standard Bootstrap components and utilities, rendered with your site's styles.</p>
+    <p class="lead">Standard Bootstrap components and utilities, rendered with your site's styles. Open the code of any section, or copy the whole playground into another site.</p>
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-4" data-bw-skip>
+      <button type="button" class="btn btn-primary" data-bw-copy-all><i class="bi bi-clipboard me-2" aria-hidden="true"></i><span>Copy entire demo</span></button>
+      <span class="small text-body-secondary">Pre-init markup of all sections, ready to paste into a page that loads Bootstrap 5.3.</span>
+    </div>
     <nav aria-label="Demo sections" class="d-flex flex-wrap gap-2">
       <a class="btn btn-outline-secondary btn-sm" href="#bw-typography">Typography</a>
       <a class="btn btn-outline-secondary btn-sm" href="#bw-colors">Colors &amp; themes</a>
@@ -337,23 +341,23 @@
       <a class="btn btn-outline-secondary btn-sm" href="#bw-utilities">Grid &amp; utilities</a>
     </nav>
   </header>
-  <section id="bw-typography" class="border-top pt-4 mb-5" aria-labelledby="bw-typography-title">
-    <h2 id="bw-typography-title" class="mb-4">Typography</h2>
+  <section id="bw-typography" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-typography-title">
+    <h3 id="bw-typography-title" class="h2 mb-4">Typography</h3>
     <div class="row g-4">
       <div class="col-lg-6">
-        <h3 class="h5 text-body-secondary">Headings and display sizes</h3>
-        <p class="h1">h1. Bootstrap heading</p>
-        <p class="h2">h2. Bootstrap heading</p>
-        <p class="h3">h3. Bootstrap heading</p>
-        <p class="h4">h4. Bootstrap heading</p>
-        <p class="h5">h5. Bootstrap heading</p>
-        <p class="h6">h6. Bootstrap heading</p>
-        <p class="display-1">Display 1</p>
-        <p class="display-2">Display 2</p>
-        <p class="display-3">Display 3</p>
-        <p class="display-4">Display 4</p>
-        <p class="display-5">Display 5</p>
-        <p class="display-6">Display 6</p>
+        <h4 class="h5 text-body-secondary">Headings and display sizes</h4>
+        <p class="h1">Heading size 1 · .h1</p>
+        <p class="h2">Heading size 2 · .h2</p>
+        <p class="h3">Heading size 3 · .h3</p>
+        <p class="h4">Heading size 4 · .h4</p>
+        <p class="h5">Heading size 5 · .h5</p>
+        <p class="h6">Heading size 6 · .h6</p>
+        <p class="display-1">Display 1 · .display-1</p>
+        <p class="display-2">Display 2 · .display-2</p>
+        <p class="display-3">Display 3 · .display-3</p>
+        <p class="display-4">Display 4 · .display-4</p>
+        <p class="display-5">Display 5 · .display-5</p>
+        <p class="display-6">Display 6 · .display-6</p>
       </div>
       <div class="col-lg-6">
         <p class="lead">A lead paragraph stands out from regular body text.</p>
@@ -369,8 +373,8 @@
       </div>
     </div>
   </section>
-  <section id="bw-colors" class="border-top pt-4 mb-5" aria-labelledby="bw-colors-title">
-    <h2 id="bw-colors-title" class="mb-4">Colors &amp; themes</h2>
+  <section id="bw-colors" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-colors-title">
+    <h3 id="bw-colors-title" class="h2 mb-4">Colors &amp; themes</h3>
     <div class="row g-3 mb-4">
       <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-primary">text-bg-primary</div><div class="p-3 mt-2 rounded bg-primary-subtle text-primary-emphasis border border-primary-subtle">primary-subtle</div></div>
       <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-secondary">text-bg-secondary</div><div class="p-3 mt-2 rounded bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle">secondary-subtle</div></div>
@@ -383,20 +387,20 @@
     </div>
     <div class="row g-4">
       <div class="col-md-6"><div data-bs-theme="light" class="p-4 border rounded bg-body text-body">
-        <h3 class="h5">data-bs-theme="light"</h3><p class="text-body-secondary">Local color mode preview.</p>
+        <h4 class="h5">data-bs-theme="light"</h4><p class="text-body-secondary">Local color mode preview.</p>
         <div class="card"><div class="card-body">Card in light mode</div></div>
         <label for="bw-theme-light" class="form-label mt-3">Form control</label><input id="bw-theme-light" class="form-control" placeholder="Theme-aware input">
       </div></div>
       <div class="col-md-6"><div data-bs-theme="dark" class="p-4 border rounded bg-body text-body">
-        <h3 class="h5">data-bs-theme="dark"</h3><p class="text-body-secondary">Local color mode preview.</p>
+        <h4 class="h5">data-bs-theme="dark"</h4><p class="text-body-secondary">Local color mode preview.</p>
         <div class="card"><div class="card-body">Card in dark mode</div></div>
         <label for="bw-theme-dark" class="form-label mt-3">Form control</label><input id="bw-theme-dark" class="form-control" placeholder="Theme-aware input">
       </div></div>
     </div>
   </section>
-  <section id="bw-buttons" class="border-top pt-4 mb-5" aria-labelledby="bw-buttons-title">
-    <h2 id="bw-buttons-title" class="mb-4">Buttons</h2>
-    <h3 class="h5">Solid buttons</h3>
+  <section id="bw-buttons" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-buttons-title">
+    <h3 id="bw-buttons-title" class="h2 mb-4">Buttons</h3>
+    <h4 class="h5">Solid buttons</h4>
     <div class="d-flex flex-wrap gap-2 mb-4">
       <button type="button" class="btn btn-primary">Primary</button>
       <button type="button" class="btn btn-secondary">Secondary</button>
@@ -408,7 +412,7 @@
       <button type="button" class="btn btn-dark">Dark</button>
       <button type="button" class="btn btn-link">Link</button>
     </div>
-    <h3 class="h5">Outline buttons</h3>
+    <h4 class="h5">Outline buttons</h4>
     <div class="d-flex flex-wrap gap-2 mb-4">
       <button type="button" class="btn btn-outline-primary">Primary</button>
       <button type="button" class="btn btn-outline-secondary">Secondary</button>
@@ -429,9 +433,9 @@
     <div class="dropdown mb-4"><button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button><ul class="dropdown-menu"><li><button type="button" class="dropdown-item">Action</button></li><li><button type="button" class="dropdown-item">Another action</button></li><li><hr class="dropdown-divider"></li><li><button type="button" class="dropdown-item" disabled>Disabled</button></li></ul></div>
     <div class="d-grid gap-2"><button type="button" class="btn btn-primary">Full-width button · d-grid</button></div>
   </section>
-  <section id="bw-forms" class="border-top pt-4 mb-5" aria-labelledby="bw-forms-title">
-    <h2 id="bw-forms-title" class="mb-4">Forms</h2>
-    <form data-bw-demo-form class="row g-4">
+  <section id="bw-forms" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-forms-title">
+    <h3 id="bw-forms-title" class="h2 mb-4">Forms</h3>
+    <form class="row g-4">
       <div class="col-lg-6">
         <div class="mb-3"><label for="bw-email" class="form-label">Email</label><input type="email" id="bw-email" class="form-control" placeholder="name@example.com" aria-describedby="bw-email-help"><div id="bw-email-help" class="form-text">Demo only. No data is sent.</div></div>
         <div class="row g-3 mb-3"><div class="col-sm-6"><label for="bw-small" class="form-label">Small</label><input id="bw-small" class="form-control form-control-sm" placeholder="form-control-sm"></div><div class="col-sm-6"><label for="bw-large" class="form-label">Large</label><input id="bw-large" class="form-control form-control-lg" placeholder="form-control-lg"></div></div>
@@ -455,8 +459,8 @@
       </div>
     </form>
   </section>
-  <section id="bw-navigation" class="border-top pt-4 mb-5" aria-labelledby="bw-navigation-title">
-    <h2 id="bw-navigation-title" class="mb-4">Navigation</h2>
+  <section id="bw-navigation" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-navigation-title">
+    <h3 id="bw-navigation-title" class="h2 mb-4">Navigation</h3>
     <nav class="navbar navbar-expand-lg bg-body-tertiary rounded mb-4" aria-label="Demo navbar"><div class="container-fluid">
       <a class="navbar-brand" href="#bw-demo">Workbench</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bw-navbar" aria-controls="bw-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div id="bw-navbar" class="collapse navbar-collapse"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link active" aria-current="page" href="#bw-demo">Home</a></li><li class="nav-item"><a class="nav-link" href="#bw-forms">Forms</a></li><li class="nav-item"><span class="nav-link disabled" aria-disabled="true">Disabled</span></li></ul><button type="button" class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#bw-offcanvas" aria-controls="bw-offcanvas">Open panel</button></div>
@@ -466,75 +470,75 @@
     <div class="tab-content mb-4"><div id="bw-pane-1" class="tab-pane fade show active" role="tabpanel" aria-labelledby="bw-tab-1" tabindex="0">First tab content.</div><div id="bw-pane-2" class="tab-pane fade" role="tabpanel" aria-labelledby="bw-tab-2" tabindex="0">Second tab content.</div></div>
     <nav aria-label="Pagination example"><ul class="pagination"><li class="page-item disabled"><span class="page-link">Previous</span></li><li class="page-item active" aria-current="page"><span class="page-link">1</span></li><li class="page-item"><a class="page-link" href="#bw-navigation">2</a></li><li class="page-item"><a class="page-link" href="#bw-navigation">Next</a></li></ul></nav>
   </section>
-  <section id="bw-cards" class="border-top pt-4 mb-5" aria-labelledby="bw-cards-title">
-    <h2 id="bw-cards-title" class="mb-4">Cards &amp; lists</h2>
+  <section id="bw-cards" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-cards-title">
+    <h3 id="bw-cards-title" class="h2 mb-4">Cards &amp; lists</h3>
     <div class="row g-4">
-      <div class="col-md-6 col-xl-4"><div class="card h-100"><img src="https://picsum.photos/id/116/600/400.webp" class="card-img-top img-fluid" width="600" height="400" loading="lazy" alt="Landscape sample from Picsum"><div class="card-body"><h3 class="card-title h5">Image card</h3><p class="card-text">Standard card, image, title, text and button.</p><a href="#bw-images" class="btn btn-primary">View images</a></div><div class="card-footer text-body-secondary">Card footer</div></div></div>
-      <div class="col-md-6 col-xl-4"><div class="card h-100"><div class="card-header">Featured</div><div class="card-body"><h3 class="card-title h5">Card with list group</h3><h4 class="card-subtitle h6 mb-3 text-body-secondary">Secondary subtitle</h4><p class="card-text">A body without an image.</p></div><ul class="list-group list-group-flush"><li class="list-group-item">First item</li><li class="list-group-item">Second item</li><li class="list-group-item">Third item</li></ul><div class="card-body"><a href="#bw-buttons" class="card-link">Card link</a></div></div></div>
+      <div class="col-md-6 col-xl-4"><div class="card h-100"><img decoding="async" src="https://picsum.photos/id/116/600/400.webp" class="card-img-top img-fluid" width="600" height="400" loading="lazy" alt="Landscape sample from Picsum"><div class="card-body"><h4 class="card-title h5">Image card</h4><p class="card-text">Standard card, image, title, text and button.</p><a href="#bw-images" class="btn btn-primary">View images</a></div><div class="card-footer text-body-secondary">Card footer</div></div></div>
+      <div class="col-md-6 col-xl-4"><div class="card h-100"><div class="card-header">Featured</div><div class="card-body"><h4 class="card-title h5">Card with list group</h4><p class="card-subtitle h6 mb-3 text-body-secondary">Secondary subtitle</p><p class="card-text">A body without an image.</p></div><ul class="list-group list-group-flush"><li class="list-group-item">First item</li><li class="list-group-item">Second item</li><li class="list-group-item">Third item</li></ul><div class="card-body"><a href="#bw-buttons" class="card-link">Card link</a></div></div></div>
       <div class="col-xl-4"><div class="list-group"><a href="#bw-cards" class="list-group-item list-group-item-action active" aria-current="true">Active item</a><a href="#bw-cards" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Notifications<span class="badge text-bg-primary rounded-pill">14</span></a><a href="#bw-cards" class="list-group-item list-group-item-action">Normal item</a><span class="list-group-item disabled" aria-disabled="true">Disabled item</span></div><div class="card mt-4" aria-hidden="true"><div class="card-body"><p class="h5 placeholder-glow"><span class="placeholder col-7"></span></p><p class="placeholder-glow"><span class="placeholder col-12"></span><span class="placeholder col-8"></span></p></div></div></div>
     </div>
   </section>
-  <section id="bw-feedback" class="border-top pt-4 mb-5" aria-labelledby="bw-feedback-title">
-    <h2 id="bw-feedback-title" class="mb-4">Feedback</h2>
+  <section id="bw-feedback" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-feedback-title">
+    <h3 id="bw-feedback-title" class="h2 mb-4">Feedback</h3>
     <div class="row g-4"><div class="col-lg-6">
-      <div class="alert alert-primary" role="alert">Primary alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
-      <div class="alert alert-secondary" role="alert">Secondary alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
-      <div class="alert alert-success" role="alert">Success alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
-      <div class="alert alert-danger" role="alert">Danger alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
-      <div class="alert alert-warning" role="alert">Warning alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
-      <div class="alert alert-info" role="alert">Info alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
-      <div class="alert alert-light" role="alert">Light alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
-      <div class="alert alert-dark" role="alert">Dark alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-primary" role="alert">Primary alert containing <a href="#bw-feedback" class="alert-link">an alert link</a>.</div>
+      <div class="alert alert-secondary" role="alert">Secondary alert containing <a href="#bw-feedback" class="alert-link">an alert link</a>.</div>
+      <div class="alert alert-success" role="alert">Success alert containing <a href="#bw-feedback" class="alert-link">an alert link</a>.</div>
+      <div class="alert alert-danger" role="alert">Danger alert containing <a href="#bw-feedback" class="alert-link">an alert link</a>.</div>
+      <div class="alert alert-warning" role="alert">Warning alert containing <a href="#bw-feedback" class="alert-link">an alert link</a>.</div>
+      <div class="alert alert-info" role="alert">Info alert containing <a href="#bw-feedback" class="alert-link">an alert link</a>.</div>
+      <div class="alert alert-light" role="alert">Light alert containing <a href="#bw-feedback" class="alert-link">an alert link</a>.</div>
+      <div class="alert alert-dark" role="alert">Dark alert containing <a href="#bw-feedback" class="alert-link">an alert link</a>.</div>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">Dismissible alert.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-    </div><div class="col-lg-6"><h3 class="h5">Badges</h3><div class="d-flex flex-wrap gap-2 mb-4"><span class="badge text-bg-primary">Primary</span><span class="badge text-bg-secondary">Secondary</span><span class="badge text-bg-success">Success</span><span class="badge text-bg-danger">Danger</span><span class="badge text-bg-warning">Warning</span><span class="badge text-bg-info">Info</span><span class="badge text-bg-light">Light</span><span class="badge text-bg-dark">Dark</span></div><div class="d-flex flex-wrap gap-2 mb-4"><span class="badge rounded-pill text-bg-primary">Primary</span><span class="badge rounded-pill text-bg-secondary">Secondary</span><span class="badge rounded-pill text-bg-success">Success</span><span class="badge rounded-pill text-bg-danger">Danger</span><span class="badge rounded-pill text-bg-warning">Warning</span><span class="badge rounded-pill text-bg-info">Info</span><span class="badge rounded-pill text-bg-light">Light</span><span class="badge rounded-pill text-bg-dark">Dark</span></div><h3 class="h5">Progress</h3><div class="progress mb-3" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-success w-25">25%</div></div>
+    </div><div class="col-lg-6"><h4 class="h5">Badges</h4><div class="d-flex flex-wrap gap-2 mb-4"><span class="badge text-bg-primary">Primary</span><span class="badge text-bg-secondary">Secondary</span><span class="badge text-bg-success">Success</span><span class="badge text-bg-danger">Danger</span><span class="badge text-bg-warning">Warning</span><span class="badge text-bg-info">Info</span><span class="badge text-bg-light">Light</span><span class="badge text-bg-dark">Dark</span></div><div class="d-flex flex-wrap gap-2 mb-4"><span class="badge rounded-pill text-bg-primary">Primary</span><span class="badge rounded-pill text-bg-secondary">Secondary</span><span class="badge rounded-pill text-bg-success">Success</span><span class="badge rounded-pill text-bg-danger">Danger</span><span class="badge rounded-pill text-bg-warning">Warning</span><span class="badge rounded-pill text-bg-info">Info</span><span class="badge rounded-pill text-bg-light">Light</span><span class="badge rounded-pill text-bg-dark">Dark</span></div><h4 class="h5">Progress</h4><div class="progress mb-3" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-success w-25">25%</div></div>
 <div class="progress mb-3" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-info w-50">50%</div></div>
 <div class="progress mb-3" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-warning w-75">75%</div></div>
 <div class="progress mb-3" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-danger w-100">100%</div></div>
 <div class="progress mb-4" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar progress-bar-striped progress-bar-animated w-75">75%</div></div>
-    <h3 class="h5">Spinners</h3><div class="d-flex gap-3 mb-3"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-success" role="status"><span class="visually-hidden">Loading...</span></div></div><button type="button" class="btn btn-primary" disabled><span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Loading...</button>
+    <h4 class="h5">Spinners</h4><div class="d-flex gap-3 mb-3"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-success" role="status"><span class="visually-hidden">Loading...</span></div></div><button type="button" class="btn btn-primary" disabled><span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Loading...</button>
     </div></div>
   </section>
-  <section id="bw-interactive" class="border-top pt-4 mb-5" aria-labelledby="bw-interactive-title">
-    <h2 id="bw-interactive-title" class="mb-4">Interactive components</h2>
+  <section id="bw-interactive" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-interactive-title">
+    <h3 id="bw-interactive-title" class="h2 mb-4">Interactive components</h3>
     <div class="accordion mb-4" id="bw-accordion">
-      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-1" aria-expanded="true" aria-controls="bw-collapse-1">Accordion item 1</button></h3><div id="bw-collapse-1" class="accordion-collapse collapse show" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 1. Compare padding, borders and typography with your theme.</div></div></div>
-      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-2" aria-expanded="false" aria-controls="bw-collapse-2">Accordion item 2</button></h3><div id="bw-collapse-2" class="accordion-collapse collapse" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 2. Compare padding, borders and typography with your theme.</div></div></div>
-      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-3" aria-expanded="false" aria-controls="bw-collapse-3">Accordion item 3</button></h3><div id="bw-collapse-3" class="accordion-collapse collapse" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 3. Compare padding, borders and typography with your theme.</div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-1" aria-expanded="true" aria-controls="bw-collapse-1">Accordion item 1</button></h4><div id="bw-collapse-1" class="accordion-collapse collapse show" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 1. Compare padding, borders and typography with your theme.</div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-2" aria-expanded="false" aria-controls="bw-collapse-2">Accordion item 2</button></h4><div id="bw-collapse-2" class="accordion-collapse collapse" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 2. Compare padding, borders and typography with your theme.</div></div></div>
+      <div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-3" aria-expanded="false" aria-controls="bw-collapse-3">Accordion item 3</button></h4><div id="bw-collapse-3" class="accordion-collapse collapse" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 3. Compare padding, borders and typography with your theme.</div></div></div>
     </div>
     <div class="d-flex flex-wrap gap-2 mb-3">
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bw-modal">Modal</button>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#bw-offcanvas" aria-controls="bw-offcanvas">Offcanvas</button>
       <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-title="Standard Bootstrap tooltip">Tooltip</button>
       <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="Standard Bootstrap popover content." data-bs-trigger="focus">Popover</button>
-      <button type="button" class="btn btn-success" data-bw-toast>Show toast</button>
+      <button type="button" class="btn btn-success" data-bw-toast="#bw-toast">Show toast</button>
     </div>
-    <div class="modal fade" id="bw-modal" tabindex="-1" aria-labelledby="bw-modal-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h3 class="modal-title fs-5" id="bw-modal-title">Demo modal</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p class="mb-0">Modal content rendered with your theme.</p></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button></div></div></div></div>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="bw-offcanvas" aria-labelledby="bw-offcanvas-title"><div class="offcanvas-header"><h3 class="offcanvas-title h5" id="bw-offcanvas-title">Demo panel</h3><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body">Standard offcanvas content.</div></div>
+    <div class="modal fade" id="bw-modal" tabindex="-1" aria-labelledby="bw-modal-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h4 class="modal-title fs-5" id="bw-modal-title">Demo modal</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p class="mb-0">Modal content rendered with your theme.</p></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button></div></div></div></div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="bw-offcanvas" aria-labelledby="bw-offcanvas-title"><div class="offcanvas-header"><h4 class="offcanvas-title h5" id="bw-offcanvas-title">Demo panel</h4><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body">Standard offcanvas content.</div></div>
     <div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="bw-toast" class="toast" role="status" aria-live="polite" aria-atomic="true"><div class="toast-header"><strong class="me-auto">Workbench</strong><small>Just now</small><button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button></div><div class="toast-body">Bootstrap toast is working.</div></div></div>
   </section>
-  <section id="bw-images" class="border-top pt-4 mb-5" aria-labelledby="bw-images-title">
-    <h2 id="bw-images-title" class="mb-4">Images &amp; carousel</h2>
+  <section id="bw-images" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-images-title">
+    <h3 id="bw-images-title" class="h2 mb-4">Images &amp; carousel</h3>
     <div class="row g-4 mb-4">
-      <div class="col-sm-4"><figure class="figure"><img src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-fluid rounded" width="400" height="400" loading="lazy" alt="Landscape image demonstrating rounded styling"><figcaption class="figure-caption">img-fluid rounded</figcaption></figure></div>
-      <div class="col-sm-4"><figure class="figure"><img src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-thumbnail" width="400" height="400" loading="lazy" alt="Landscape image demonstrating thumbnail styling"><figcaption class="figure-caption">img-thumbnail</figcaption></figure></div>
-      <div class="col-sm-4"><figure class="figure"><img src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-fluid rounded-circle" width="400" height="400" loading="lazy" alt="Landscape image demonstrating circle styling"><figcaption class="figure-caption">img-fluid rounded-circle</figcaption></figure></div>
+      <div class="col-sm-4"><figure class="figure"><img decoding="async" src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-fluid rounded" width="400" height="400" loading="lazy" alt="Landscape image demonstrating rounded styling"><figcaption class="figure-caption">img-fluid rounded</figcaption></figure></div>
+      <div class="col-sm-4"><figure class="figure"><img decoding="async" src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-thumbnail" width="400" height="400" loading="lazy" alt="Landscape image demonstrating thumbnail styling"><figcaption class="figure-caption">img-thumbnail</figcaption></figure></div>
+      <div class="col-sm-4"><figure class="figure"><img decoding="async" src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-fluid rounded-circle" width="400" height="400" loading="lazy" alt="Landscape image demonstrating circle styling"><figcaption class="figure-caption">img-fluid rounded-circle</figcaption></figure></div>
     </div>
     <div id="bw-carousel" class="carousel slide" aria-label="Landscape carousel">
       <div class="carousel-indicators"><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="1"  aria-label="Slide 2"></button><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="2"  aria-label="Slide 3"></button></div>
       <div class="carousel-inner rounded">
-        <div class="carousel-item active"><img src="https://picsum.photos/id/116/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 1"></div>
-        <div class="carousel-item"><img src="https://picsum.photos/id/1015/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 2"></div>
-        <div class="carousel-item"><img src="https://picsum.photos/id/1016/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 3"></div>
+        <div class="carousel-item active"><img decoding="async" src="https://picsum.photos/id/116/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 1"></div>
+        <div class="carousel-item"><img decoding="async" src="https://picsum.photos/id/1015/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 2"></div>
+        <div class="carousel-item"><img decoding="async" src="https://picsum.photos/id/1016/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 3"></div>
       </div><button type="button" class="carousel-control-prev" data-bs-target="#bw-carousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button type="button" class="carousel-control-next" data-bs-target="#bw-carousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
     </div>
   </section>
-  <section id="bw-utilities" class="border-top pt-4 mb-5" aria-labelledby="bw-utilities-title">
-    <h2 id="bw-utilities-title" class="mb-4">Grid, tables &amp; utilities</h2>
-    <h3 class="h5">Responsive grid · col-12 col-md-6 col-xl-4</h3>
+  <section id="bw-utilities" class="border-top pt-4 mb-5" data-bw-snippet aria-labelledby="bw-utilities-title">
+    <h3 id="bw-utilities-title" class="h2 mb-4">Grid, tables &amp; utilities</h3>
+    <h4 class="h5">Responsive grid · col-12 col-md-6 col-xl-4</h4>
     <div class="row g-3 mb-4"><div class="col-12 col-md-6 col-xl-4"><div class="p-3 bg-body-tertiary border rounded">Column 1</div></div><div class="col-12 col-md-6 col-xl-4"><div class="p-3 bg-body-tertiary border rounded">Column 2</div></div><div class="col-12 col-md-6 col-xl-4"><div class="p-3 bg-body-tertiary border rounded">Column 3</div></div></div>
-    <h3 class="h5">Responsive table</h3>
+    <h4 class="h5">Responsive table</h4>
     <div class="table-responsive mb-4"><table class="table table-striped table-hover align-middle"><caption>Sample records — standard table states.</caption><thead><tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Status</th><th scope="col">Notes</th></tr></thead><tbody><tr><th scope="row">1</th><td>Alpha</td><td><span class="badge text-bg-success">Ready</span></td><td>Normal row</td></tr><tr class="table-warning"><th scope="row">2</th><td>Beta</td><td>Pending</td><td>table-warning</td></tr><tr class="table-danger"><th scope="row">3</th><td>Gamma</td><td>Needs review</td><td>table-danger</td></tr></tbody></table></div>
-    <div class="row g-4"><div class="col-md-6"><h3 class="h5">Flex & spacing</h3><div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 p-3 border rounded"><span>Responsive flex item</span><button type="button" class="btn btn-outline-primary">Action</button></div><div class="hstack gap-3 mt-3"><span>hstack</span><div class="vr"></div><span>gap-3</span></div><div class="p-3 mt-3 border rounded shadow-sm">shadow-sm · rounded · border · p-3</div></div><div class="col-md-6"><h3 class="h5">Ratio & object fit</h3><div class="ratio ratio-16x9"><img src="https://picsum.photos/id/1025/800/600.webp" class="object-fit-cover rounded" width="800" height="600" loading="lazy" alt="Picsum sample cropped to a 16:9 container"></div></div></div>
+    <div class="row g-4"><div class="col-md-6"><h4 class="h5">Flex & spacing</h4><div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 p-3 border rounded"><span>Responsive flex item</span><button type="button" class="btn btn-outline-primary">Action</button></div><div class="hstack gap-3 mt-3"><span>hstack</span><div class="vr"></div><span>gap-3</span></div><div class="p-3 mt-3 border rounded shadow-sm">shadow-sm · rounded · border · p-3</div></div><div class="col-md-6"><h4 class="h5">Ratio & object fit</h4><div class="ratio ratio-16x9"><img decoding="async" src="https://picsum.photos/id/1025/800/600.webp" class="object-fit-cover rounded" width="800" height="600" loading="lazy" alt="Picsum sample cropped to a 16:9 container"></div></div></div>
   </section>
   <footer class="border-top pt-4 text-body-secondary small">End of component playground. <a href="#bw-demo">Back to top</a></footer>
 </section>
