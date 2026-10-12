@@ -16,8 +16,9 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
   (e.g. carousel `slide`), because they are part of Bootstrap's canonical markup.
 - assets/css/main.css is the user's theme file. It is intentionally empty. NEVER edit it.
 - Custom demo tooling (toolbar, snippet generator, token panel) must not restyle Bootstrap components.
-- No external CSS/JS libraries besides the pinned Bootstrap above, no other CDNs, no build step
-  (tools/sync-demo.sh only copies bsd-demo.js into the pages). Plain HTML + vanilla JS.
+- No external CSS/JS libraries besides the pinned Bootstrap above (plus pinned Bootstrap Icons
+  on index.html only), no other CDNs, no build step
+  (tools/sync-demo.sh only copies bsd-demo.js and demo-init.js into the pages). Plain HTML + vanilla JS.
   Must work via file://.
 
 ## Rules
@@ -76,8 +77,9 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
   another site.
 - The sidebar uses a custom scrollspy in bsd-demo.js (no data-bs-spy on <main>). Bootstrap
   ScrollSpy itself is demonstrated on blocks.html.
-- tools/ holds dev-only scripts: tools/sync-demo.sh (copies bsd-demo.js into the pages) and
-  tests (e.g. tools/spytest.js, Node + Playwright installed outside the repo). It is not part of
+- tools/ holds dev-only scripts: tools/sync-demo.sh (copies bsd-demo.js and demo-init.js into
+  the pages), tools/screenshot.js (hero screenshots) and tests (e.g. tools/spytest.js,
+  Node + Playwright installed outside the repo). It is not part of
   the demo fragment and is never loaded by the pages.
 - Demo-only JS (component inits such as tooltips/popovers, demo triggers, states without an
   HTML attribute) lives in bsd-demo.js, scoped to #bs-demo, keyed by id or data-bs-toggle,
@@ -97,6 +99,31 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
   wrapper by its children, data-demo-drop="cls …" leaves those classes out of the element.
 - Each example has an h3–h6 heading right before it; notes go above the heading.
 - Snippets must never be written by hand.
+
+## Home page (index.html)
+- index.html is the project home page, not a demo page: the #bs-demo / bsd-demo.js rules above
+  do not apply to it. One <main> holds the home sections and the playground
+  <section id="bw-demo">.
+- Same loading as the demo pages (jsDelivr, pinned, SRI, commented-out local fallbacks), plus
+  Bootstrap Icons 1.13.1 from jsDelivr with SRI (index.html only). main.css is the only
+  relative dependency.
+- Only Bootstrap 5.3.8 and Bootstrap Icons classes. JS hooks are data-bw-* attributes, never
+  classes. Exactly one <h1> (hero), no skipped heading levels; footer headings are
+  <p class="h6">.
+- The navbar is sticky-top (index only); demo-init.js sets scroll-padding-top to its height.
+- Script: edit assets/js/demo-init.js, then run `zsh tools/sync-demo.sh`, which inlines it
+  between <!-- bw-demo:start --> and <!-- bw-demo:end -->. It snapshots every
+  [data-bw-snippet] section and the whole #bw-demo at parse time (before any Bootstrap init),
+  adds the "</>" snippet UI styled like bsd-demo.js, the "Copy entire demo" button
+  ([data-bw-copy-all]; [data-bw-skip] parts are left out), tooltips/popovers/toast
+  (data-bw-toast="#id"), the theme toggle (same "bsd-theme" storage key as the demo pages),
+  the footer year and the hero screenshot swap (data-bw-src-light / data-bw-src-dark).
+- Hero screenshots: assets/img/hero/classes-{light,dark}.webp, made by tools/screenshot.js
+  (see README), referenced by absolute GitHub Pages URL. They are content images that are not
+  from picsum, on purpose.
+- The stats strip numbers are counted from the pages: section[id^="bsd-"] minus the intro and
+  link-only sections (classes 26 + blocks 18 + forms 8 = 52). Recount when sections change.
+- Docs links point to the README on GitHub until a docs/ folder exists.
 
 ## Intentional decisions (do not flag in audits)
 - The navbar brand uses the official Bootstrap logo SVG from getbootstrap.com (not picsum).
