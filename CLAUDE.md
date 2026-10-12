@@ -124,6 +124,12 @@ standard classes the custom theme fails to cover (colors, bg-*, outline buttons,
 - The stats strip numbers are counted from the pages: section[id^="bsd-"] minus the intro and
   link-only sections (classes 26 + blocks 18 + forms 8 = 52). Recount when sections change.
 - Docs links point to the README on GitHub until a docs/ folder exists.
+- 404.html (GitHub Pages not-found page) follows the index.html rules, but every asset and
+  link is root-relative with the repo prefix (/bootstrap-workbench/...) or absolute, because
+  Pages serves it for any missing path. It is not meant to work via file://. It gets
+  demo-init.js through the same bw-demo markers (data-bw-path, data-bw-report hooks).
+- og:image is assets/img/readme/banner.png (1280x640, absolute Pages URL), also used as the
+  README banner and the GitHub social preview.
 
 ## Intentional decisions (do not flag in audits)
 - The navbar brand uses the official Bootstrap logo SVG from getbootstrap.com (not picsum).
