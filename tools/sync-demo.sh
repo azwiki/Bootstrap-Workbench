@@ -1,11 +1,13 @@
 #!/bin/zsh
-# sync-demo.sh: copy assets/js/bsd-demo.js into the demo pages (dev tool, not part of the
-# #bs-demo fragment).
+# sync-demo.sh: inline the demo scripts into the pages (dev tool, not part of any demo fragment).
 #
-# In classes.html, forms.html and blocks.html, everything between the marker lines
-#   <!-- bsd-demo:start -->
-#   <!-- bsd-demo:end -->
-# is replaced with <script>, the contents of assets/js/bsd-demo.js, and </script>.
+#   assets/js/bsd-demo.js  -> classes.html, forms.html, blocks.html
+#                             between <!-- bsd-demo:start --> and <!-- bsd-demo:end -->
+#   assets/js/demo-init.js -> index.html
+#                             between <!-- bw-demo:start --> and <!-- bw-demo:end -->
+#
+# Everything between a page's marker lines is replaced with <script>, the contents of its
+# source file, and </script>.
 # Idempotent: a page whose content would not change is not rewritten.
 # Exits non-zero (and writes nothing) if a page lacks exactly one start and one end marker.
 #
@@ -15,23 +17,28 @@
 set -euo pipefail
 
 root=${0:A:h:h}
-src=$root/assets/js/bsd-demo.js
-pages=(classes.html forms.html blocks.html)
-start_marker='<!-- bsd-demo:start -->'
-end_marker='<!-- bsd-demo:end -->'
 
-if [[ ! -s $src ]]; then
-  print -u2 "sync-demo: missing or empty $src"
-  exit 1
-fi
+# page  source  marker name
+jobs=(
+  classes.html assets/js/bsd-demo.js bsd-demo
+  forms.html   assets/js/bsd-demo.js bsd-demo
+  blocks.html  assets/js/bsd-demo.js bsd-demo
+  index.html   assets/js/demo-init.js bw-demo
+)
 
-# Check every page before touching any of them
-for page in $pages; do
+# Check every source and page before touching any of them
+for page src name in $jobs; do
+  if [[ ! -s $root/$src ]]; then
+    print -u2 "sync-demo: missing or empty $root/$src"
+    exit 1
+  fi
   file=$root/$page
   if [[ ! -f $file ]]; then
     print -u2 "sync-demo: missing $file"
     exit 1
   fi
+  start_marker="<!-- ${name}:start -->"
+  end_marker="<!-- ${name}:end -->"
   starts=$(grep -cxF -- "$start_marker" $file || true)
   ends=$(grep -cxF -- "$end_marker" $file || true)
   if [[ $starts != 1 || $ends != 1 ]]; then
@@ -40,8 +47,10 @@ for page in $pages; do
   fi
 done
 
-for page in $pages; do
+for page src name in $jobs; do
   file=$root/$page
+  start_marker="<!-- ${name}:start -->"
+  end_marker="<!-- ${name}:end -->"
   tmp=$(mktemp "$file.XXXXXX")
   # First file: the script source (kept line by line); second file: the page.
   # Exit status 2 means the end marker came before the start marker.
@@ -60,7 +69,7 @@ for page in $pages; do
       inside = 0
     }
     !inside { print }
-  ' $src $file > $tmp; then
+  ' $root/$src $file > $tmp; then
     rm -f $tmp
     print -u2 "sync-demo: $page has its end marker before its start marker"
     exit 1
