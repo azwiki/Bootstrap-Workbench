@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/img/readme/banner.png" width="100%" alt="Bootstrap Workbench: Bootstrap 5.3 component audit and playground, with layered browser windows showing buttons, cards and form controls">
+  <img src="assets/img/readme/banner.webp" width="100%" alt="Bootstrap Workbench: Bootstrap 5.3 component audit and playground, with layered browser windows showing buttons, cards and form controls">
 </p>
 
 # Bootstrap Workbench
