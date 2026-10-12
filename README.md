@@ -10,5 +10,5 @@ The project is under development. This is a temporary landing page. Project file
 
 ## Links
 
-- [Project website](https://azwiki.github.io/Bootstrap-Workbench/)
-- [GitHub repository](https://github.com/azwiki/Bootstrap-Workbench)
+- [Project website](https://azwiki.github.io/bootstrap-workbench/)
+- [GitHub repository](https://github.com/azwiki/bootstrap-workbench)

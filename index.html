@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Starter Bootstrap 5.3 + Gulp template">
-<meta name="keywords" content="bootstrap, gulp, template">
-<title>Template — Home</title>
+<meta name="description" content="Bootstrap-Workbench">
+<meta name="keywords" content="bootstrap, gulp, bootstrap-workbench">
+<title>Bootstrap-Workbench — Home</title>
 <link rel="icon" href="./assets/img/favicon/favicon.ico" sizes="any">
 <link rel="manifest" href="./site.webmanifest">
 <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
@@ -16,806 +16,255 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="./index.html">Template</a>
+    <a class="navbar-brand fw-bold" href="./index.html">Bootstrap-Workbench</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="./classes.html">Classes</a></li>
+        <li class="nav-item"><a class="nav-link" href="./blocks.html">Blocks</a></li>
+		<li class="nav-item"><a class="nav-link" href="./forms.html">Forms</a></li>
+		<li class="nav-item"><a class="nav-link" href="./docs/blocks.html">Documentation</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 
-<main class="container py-5">
-  <h1>Bootstrap 5.3 + Gulp starter</h1>
-  <p class="lead">Test page — checks that gulp-file-include, SCSS compilation, and Bootstrap CSS/JS all wire up correctly.</p>
-  <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Bootstrap JS is working">
-    Hover me
-  </button>
-
-<section class="py-5">
-	<div class="container-fluid px-xl-3">
-		<div class="row">
-			<div class="col-lg-6">
-
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="lc-block mt-5 mt-lg-0 mb-4 border-top">
-							<div editable="rich">
-								<h2 class="fw-bolder display-5">Buttons</h2>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="lc-block mb-4">
-							<div editable="rich">
-								<h2>Buttons</h2>
-							</div>
-						</div>
-						<div class="lc-block mb-4"><button type="button" class="btn mb-2 btn-primary">Primary</button>
-							<button type="button" class="btn mb-2 btn-secondary">Secondary</button>
-							<button type="button" class="btn mb-2 btn-success">Success</button>
-							<button type="button" class="btn mb-2 btn-danger">Danger</button>
-							<button type="button" class="btn mb-2 btn-warning">Warning</button>
-							<button type="button" class="btn mb-2 btn-info">Info</button>
-							<button type="button" class="btn mb-2 btn-light">Light</button>
-							<button type="button" class="btn mb-2 btn-dark">Dark</button>
-							<button type="button" class="btn mb-2 btn-link">Link</button>
-						</div>
-						<pre><code>&lt;div class="d-flex flex-wrap gap-2"&gt;
-&lt;button class="btn btn-primary" type="button"&gt;Primary&lt;/button&gt;
-&lt;button class="btn btn-secondary" type="button"&gt;Secondary&lt;/button&gt;
-&lt;button class="btn btn-success" type="button"&gt;Success&lt;/button&gt;
-&lt;button class="btn btn-danger" type="button"&gt;Danger&lt;/button&gt;
-&lt;button class="btn btn-warning" type="button"&gt;Warning&lt;/button&gt;
-&lt;button class="btn btn-info" type="button"&gt;Info&lt;/button&gt;
-&lt;button class="btn btn-light" type="button"&gt;Light&lt;/button&gt;
-&lt;button class="btn btn-dark" type="button"&gt;Dark&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-						<div class="lc-block mb-4">
-							<div editable="rich">
-								<h2>Button Outline</h2>
-							</div>
-						</div>
-						<div class="lc-block"><button type="button" class="btn mb-2 btn-outline-primary">Primary</button>
-							<button type="button" class="btn mb-2 btn-outline-secondary">Secondary</button>
-							<button type="button" class="btn mb-2 btn-outline-success">Success</button>
-							<button type="button" class="btn mb-2 btn-outline-danger">Danger</button>
-							<button type="button" class="btn mb-2 btn-outline-warning">Warning</button>
-							<button type="button" class="btn mb-2 btn-outline-info">Info</button>
-							<button type="button" class="btn mb-2 btn-outline-light">Light</button>
-							<button type="button" class="btn mb-2 btn-outline-dark">Dark</button>
-						</div>
-					</div>
-
-					<div class="col-lg-6">
-						<div class="lc-block mb-4">
-							<div editable="rich">
-								<h2>Buttons Sizes</h2>
-							</div>
-						</div>
-						<div class="lc-block mb-4"><button type="button" class="btn mb-3 btn-primary btn-sm">Small</button>
-							<button type="button" class="btn mb-3 btn-primary ">Normal button</button>
-							<button type="button" class="btn mb-3 btn-lg btn-primary">Large button</button>
-						</div>
-
-
-						<div class="lc-block mb-4">
-							<div editable="rich">
-								<h2>Buttons Group</h2>
-							</div>
-						</div>
-						<div class="lc-block mb-4">
-							<div class="btn-group mb-3" role="group" aria-label="Button group with nested dropdown">
-								<div class="btn-group" role="group">
-									<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-										Dropdown
-									</button>
-									<ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-										<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-										<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="btn-group mb-3" role="group" aria-label="Button group with nested dropdown">
-								<div class="btn-group" role="group">
-									<button id="btnGroupDrop2" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-										Dropdown
-									</button>
-									<ul class="dropdown-menu" aria-labelledby="btnGroupDrop2">
-										<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-										<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="btn-group mb-3" role="group" aria-label="Button group with nested dropdown">
-								<div class="btn-group" role="group">
-									<button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-										Dropdown
-									</button>
-									<ul class="dropdown-menu" aria-labelledby="btnGroupDrop3">
-										<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-										<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="btn-group mb-3" role="group" aria-label="Button group with nested dropdown">
-								<div class="btn-group" role="group">
-									<button id="btnGroupDrop4" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-										Dropdown
-									</button>
-									<ul class="dropdown-menu" aria-labelledby="btnGroupDrop4">
-										<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-										<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-
-					</div>
-				</div>
-
-
-
-				<div class="row"> </div>
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="lc-block mt-5 mb-4 border-top">
-							<div editable="rich">
-								<h2 class="fw-bolder display-5">Progress Bar</h2>
-							</div>
-						</div>
-						<div class="lc-block   border-top">
-							<div class="progress mb-3">
-								<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress mb-3">
-								<div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress mb-3">
-								<div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress mb-3">
-								<div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="lc-block  mb-4">
-							<div editable="rich">
-								<h2>Striped</h2>
-							</div>
-						</div>
-						<div class="lc-block   border-top">
-							<div class="progress mb-3">
-								<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress mb-3">
-								<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress mb-3">
-								<div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress mb-3">
-								<div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress mb-3">
-								<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="lc-block mt-5 mb-4 border-top">
-							<div editable="rich">
-								<h2 class="fw-bolder display-5">Alerts</h2>
-							</div>
-						</div>
-						<div class="lc-block">
-							<div class="alert alert-primary" role="alert">
-								A simple primary alert—check it out!
-							</div>
-							<div class="alert alert-secondary" role="alert">
-								A simple secondary alert—check it out!
-							</div>
-							<div class="alert alert-success" role="alert">
-								A simple success alert—check it out!
-							</div>
-							<div class="alert alert-danger" role="alert">
-								A simple danger alert—check it out!
-							</div>
-							<div class="alert alert-warning" role="alert">
-								A simple warning alert—check it out!
-							</div>
-							<div class="alert alert-info" role="alert">
-								A simple info alert—check it out!
-							</div>
-
-							<div class="alert alert-light" role="alert">
-								A simple light alert—check it out!
-							</div>
-							<div class="alert alert-dark" role="alert">
-								A simple dark alert—check it out!
-							</div>
-						</div>
-
-					</div>
-					<div class="col-lg-6">
-						<div class="lc-block mt-5 mb-4 border-top">
-							<div editable="rich">
-								<h2 class="fw-bolder display-5">Badge</h2>
-							</div>
-						</div>
-						<div class="lc-block pb-4">
-
-							<span class="badge bg-primary">Primary</span>
-							<span class="badge bg-secondary">Secondary</span>
-							<span class="badge bg-success">Success</span>
-							<span class="badge bg-danger">Danger</span>
-							<span class="badge bg-warning text-dark">Warning</span>
-							<span class="badge bg-info text-dark">Info</span>
-							<span class="badge bg-light text-dark">Light</span>
-							<span class="badge bg-dark">Dark</span>
-						</div>
-						<div class="lc-block ">
-
-							<span class="badge rounded-pill bg-primary">Primary</span>
-							<span class="badge rounded-pill bg-secondary">Secondary</span>
-							<span class="badge rounded-pill bg-success">Success</span>
-							<span class="badge rounded-pill bg-danger">Danger</span>
-							<span class="badge rounded-pill bg-warning text-dark">Warning</span>
-							<span class="badge rounded-pill bg-info text-dark">Info</span>
-							<span class="badge rounded-pill bg-light text-dark">Light</span>
-							<span class="badge rounded-pill bg-dark">Dark</span>
-						</div>
-
-
-						<div class="lc-block mt-5 mb-4 border-top">
-							<div editable="rich">
-								<h2 class="fw-bolder display-5">Cards</h2>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12 lc-block mb-4">
-								<div class="card">
-									<img loading="lazy" class="card-img-top" src="https://images.unsplash.com/photo-1465403843003-b277b46a1120?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NzN8fGJsdWV8ZW58MHwwfHx8MTY0Mzk5ODg5Mg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768" alt="Photo by Vincent Giersch" srcset="https://images.unsplash.com/photo-1465403843003-b277b46a1120?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NzN8fGJsdWV8ZW58MHwwfHx8MTY0Mzk5ODg5Mg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768 1080w, https://images.unsplash.com/photo-1465403843003-b277b46a1120?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NzN8fGJsdWV8ZW58MHwwfHx8MTY0Mzk5ODg5Mg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1465403843003-b277b46a1120?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NzN8fGJsdWV8ZW58MHwwfHx8MTY0Mzk5ODg5Mg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1465403843003-b277b46a1120?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NzN8fGJsdWV8ZW58MHwwfHx8MTY0Mzk5ODg5Mg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1465403843003-b277b46a1120?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NzN8fGJsdWV8ZW58MHwwfHx8MTY0Mzk5ODg5Mg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="768">
-									<div class="card-body">
-										<div class="lc-block">
-											<div editable="rich">
-												<h3 class="card-title">Card title</h3>
-												<!-- <h4 class="card-subtitle" editable="inline">Card subtitle</h4> -->
-												<p class="card-text">This is a simple Card example.</p>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-12 lc-block mb-4">
-								<div class="card">
-									<div class="card-body">
-										This is some text within a card body.
-									</div>
-								</div>
-							</div>
-							<div class="col-12 lc-block mb-4">
-								<div class="card">
-									<h5 class="card-header">Featured</h5>
-									<div class="card-body">
-										<h5 class="card-title">Special title treatment</h5>
-										<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="row">
-					<div class="col-12">
-						<div class="lc-block mt-5 mt-lg-0 mb-4 border-top">
-							<div editable="rich">
-								<h2 class="fw-bolder display-5">Typography</h2>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="row mb-3">
-							<div class="col-lg-12">
-								<div class="lc-block mb-4">
-									<div editable="rich">
-										<h2>Headings</h2>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div class="lc-block">
-									<div editable="rich">
-										<h1>h1. Heading 1</h1>
-										<h2>h2. Heading 2</h2>
-										<h3>h3. Heading 3</h3>
-										<h4>h4. Heading 4</h4>
-										<h5>h5. Heading 5</h5>
-										<h6>h6. Heading 6</h6>
-										<hr>
-
-
-									</div>
-								</div>
-							</div>
-
-
-
-						</div>
-
-						<div class="row mb-3">
-							<div class="col-lg-12">
-								<div class="lc-block mb-4">
-									<div editable="rich">
-										<h2>Paragraph</h2>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div class="lc-block">
-									<div editable="rich">
-										<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula <a href="https://cdn.dopewp.com/media/architecture/gal1.jpg">malesuada</a> placerat sit amet quis enim. Aliquam erat volutpat. In pellentesque scelerisque auctor. Ut porta lacus eget nisi fermentum lobortis. Vestibulum facilisis tempor
-											ipsum, ut rhoncus magna ultricies laoreet. Proin vehicula erat eget libero accumsan iaculis.
-										</p>
-									</div>
-								</div>
-								<div class="lc-block ">
-									<div editable="rich">
-
-
-										<p><small>This line of text is meant to be treated as fine print.</small></p>
-										<p>The following is <strong>rendered as bold text</strong>.</p>
-										<p>The following is <em>rendered as italicized text</em>.</p>
-										<p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-									</div>
-								</div>
-								<div class="lc-block border-bottom">
-									<div editable="rich">
-										<p class="lead">
-											This is a lead paragraph. It stands out from regular paragraphs.
-										</p>
-									</div>
-								</div>
-							</div>
-
-
-
-						</div>
-
-						<div class="row mb-5">
-							<div class="col-lg-12">
-								<div class="lc-block mb-4">
-									<div editable="rich">
-										<h2>Quote</h2>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div class="lc-block">
-									<div editable="rich">
-										<blockquote>
-											<p class="blockquote blockquote-primary">
-												“I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. ”
-												<br>
-												<br>
-												<small>
-													– Noaa
-												</small>
-											</p>
-										</blockquote>
-									</div>
-								</div>
-							</div>
-
-
-
-						</div>
-						<div class="row mb-3">
-							<div class="col-lg-12">
-								<div class="lc-block mb-4">
-									<div editable="rich">
-										<h2>Code</h2>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div class="lc-block">
-									<div editable="rich">
-										<blockquote class="blockquote"><code>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit amet quis enim. Aliquam erat volutpat.</code><br></blockquote>
-									</div>
-								</div>
-							</div>
-
-
-
-						</div>
-					</div>
-					<div class="col-lg-6">
-
-						<div class="row mb-3">
-							<div class="col-lg-12">
-								<div class="lc-block mb-4">
-									<div editable="rich">
-										<h2>Display</h2>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div class="lc-block">
-									<div editable="rich">
-										<h1 class="display-1">Display 1</h1>
-										<h1 class="display-2">Display 2</h1>
-										<h1 class="display-3">Display 3</h1>
-										<h1 class="display-4">Display 4</h1>
-										<h1 class="display-5">Display 5</h1>
-										<h1 class="display-6">Display 6</h1>
-										<hr>
-
-
-									</div>
-								</div>
-								<div class="lc-block">
-									<div class="lc-block mb-4">
-										<div editable="rich">
-											<h2>Text</h2>
-										</div>
-									</div>
-								</div>
-								<div class="lc-block">
-									<div editable="rich">
-
-
-
-
-
-
-
-
-
-
-										<span>Muted Text</span>
-										<p class="text-muted">
-											I will be the leader of a company that ends up being worth billions of dollars, because I got the answers…
-										</p>
-									</div>
-
-									<span>Primary Text</span>
-									<p class="text-primary">
-										I will be the leader of a company that ends up being worth billions of dollars, because I got the answers…</p>
-
-
-									<span>Info Text</span>
-									<p class="text-info">
-										I will be the leader of a company that ends up being worth billions of dollars, because I got the answers… </p>
-
-
-									<span>Success Text</span>
-									<p class="text-success">
-										I will be the leader of a company that ends up being worth billions of dollars, because I got the answers… </p>
-
-
-									<span>Warning Text</span>
-									<p class="text-warning">
-										I will be the leader of a company that ends up being worth billions of dollars, because I got the answers…
-									</p>
-
-
-									<span>Danger Text</span>
-									<p class="text-danger">
-										I will be the leader of a company that ends up being worth billions of dollars, because I got the answers… </p>
-
-
-
-								</div>
-							</div>
-
-
-
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="lc-block mt-5 mb-4 border-top">
-							<div editable="rich">
-								<h2 class="fw-bolder display-5">Shadows</h2>
-							</div>
-						</div>
-						<div class="lc-block">
-							<div class="shadow-none p-3 mb-4 bg-light rounded">No shadow</div>
-							<div class="shadow-sm p-3 mb-4 bg-body rounded">Small shadow</div>
-							<div class="shadow p-3 mb-4 bg-body rounded">Regular shadow</div>
-							<div class="shadow-lg p-3 mb-4 bg-body rounded">Larger shadow</div>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="lc-block mt-5 mb-4 border-top">
-									<div editable="rich">
-										<h2 class="fw-bolder display-5">Images</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-3">
-								<div class="lc-block">
-									<div editable="rich">
-										<p> img-thumbnail</p>
-									</div>
-								</div>
-								<div class="lc-block">
-									<img loading="lazy" class="img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1542324216541-c84c8ba6db04?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTF8fHJlZHxlbnwwfDJ8fHwxNjQzNjUxNzEy&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080" srcset="https://images.unsplash.com/photo-1542324216541-c84c8ba6db04?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTF8fHJlZHxlbnwwfDJ8fHwxNjQzNjUxNzEy&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1542324216541-c84c8ba6db04?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTF8fHJlZHxlbnwwfDJ8fHwxNjQzNjUxNzEy&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1542324216541-c84c8ba6db04?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTF8fHJlZHxlbnwwfDJ8fHwxNjQzNjUxNzEy&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1542324216541-c84c8ba6db04?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTF8fHJlZHxlbnwwfDJ8fHwxNjQzNjUxNzEy&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1542324216541-c84c8ba6db04?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTF8fHJlZHxlbnwwfDJ8fHwxNjQzNjUxNzEy&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080" alt="Photo by Nikita Tikhomirov">
-								</div>
-							</div>
-							<div class="col-lg-3">
-								<div class="lc-block">
-									<div editable="rich">
-										<p> rounded-circle</p>
-									</div>
-								</div>
-								<div class="lc-block">
-									<img loading="lazy" class="img-fluid rounded-circle" src="https://images.unsplash.com/photo-1592826763154-b4971ef94531?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NTl8fGdyZWVufGVufDB8Mnx8fDE2NDM2NTE2OTU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080" srcset="https://images.unsplash.com/photo-1592826763154-b4971ef94531?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NTl8fGdyZWVufGVufDB8Mnx8fDE2NDM2NTE2OTU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1592826763154-b4971ef94531?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NTl8fGdyZWVufGVufDB8Mnx8fDE2NDM2NTE2OTU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1592826763154-b4971ef94531?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NTl8fGdyZWVufGVufDB8Mnx8fDE2NDM2NTE2OTU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1592826763154-b4971ef94531?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NTl8fGdyZWVufGVufDB8Mnx8fDE2NDM2NTE2OTU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1592826763154-b4971ef94531?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NTl8fGdyZWVufGVufDB8Mnx8fDE2NDM2NTE2OTU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080" alt="Photo by おにぎり">
-								</div>
-							</div>
-							<div class="col-lg-3">
-								<div class="lc-block">
-									<div editable="rich">
-										<p>rounded</p>
-									</div>
-								</div>
-								<div class="lc-block">
-									<img loading="lazy" class="img-fluid rounded" src="https://images.unsplash.com/photo-1584743579083-b331c4adbb15?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MzJ8fGJsdWV8ZW58MHwyfHx8MTY0MzY1MTczMg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080" srcset="https://images.unsplash.com/photo-1584743579083-b331c4adbb15?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MzJ8fGJsdWV8ZW58MHwyfHx8MTY0MzY1MTczMg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1584743579083-b331c4adbb15?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MzJ8fGJsdWV8ZW58MHwyfHx8MTY0MzY1MTczMg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1584743579083-b331c4adbb15?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MzJ8fGJsdWV8ZW58MHwyfHx8MTY0MzY1MTczMg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1584743579083-b331c4adbb15?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MzJ8fGJsdWV8ZW58MHwyfHx8MTY0MzY1MTczMg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1584743579083-b331c4adbb15?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MzJ8fGJsdWV8ZW58MHwyfHx8MTY0MzY1MTczMg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080" alt="Photo by Christine Sandu">
-								</div>
-							</div>
-
-							<div class="col-lg-3">
-								<div class="lc-block">
-									<div editable="rich">
-										<p> img</p>
-									</div>
-								</div>
-								<div class="lc-block">
-									<img loading="lazy" class="img-fluid" src="https://images.unsplash.com/photo-1513754934927-4606bafe9858?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8eWVsbG93fGVufDB8Mnx8fDE2NDM2NTE2Mzg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080" srcset="https://images.unsplash.com/photo-1513754934927-4606bafe9858?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8eWVsbG93fGVufDB8Mnx8fDE2NDM2NTE2Mzg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1513754934927-4606bafe9858?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8eWVsbG93fGVufDB8Mnx8fDE2NDM2NTE2Mzg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1513754934927-4606bafe9858?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8eWVsbG93fGVufDB8Mnx8fDE2NDM2NTE2Mzg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1513754934927-4606bafe9858?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8eWVsbG93fGVufDB8Mnx8fDE2NDM2NTE2Mzg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1513754934927-4606bafe9858?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8eWVsbG93fGVufDB8Mnx8fDE2NDM2NTE2Mzg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080" alt="Photo by Catrin Johnson">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xl-6">
-				<div class="lc-block mt-5 mb-4 border-top">
-					<div editable="rich">
-						<h2 class="fw-bolder display-5">Navbar</h2>
-					</div>
-				</div>
-				<div class="lc-block">
-					<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-						<div class="container-fluid">
-							<a class="navbar-brand" href="#">Navbar</a>
-							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-							<div class="collapse navbar-collapse" id="navbarColor01">
-								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-									<li class="nav-item">
-										<a class="nav-link active" aria-current="page" href="#">Home</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Features</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Pricing</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">About</a>
-									</li>
-								</ul>
-								<form class="d-flex">
-									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn btn-outline-light" type="submit">Search</button>
-								</form>
-							</div>
-						</div>
-					</nav>
-					<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-						<div class="container-fluid">
-							<a class="navbar-brand" href="#">Navbar</a>
-							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-							<div class="collapse navbar-collapse" id="navbarColor02">
-								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-									<li class="nav-item">
-										<a class="nav-link active" aria-current="page" href="#">Home</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Features</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Pricing</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">About</a>
-									</li>
-								</ul>
-								<form class="d-flex">
-									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn btn-outline-light" type="submit">Search</button>
-								</form>
-							</div>
-						</div>
-					</nav>
-					<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-						<div class="container-fluid"><a class="navbar-brand" href="#">Navbar Light</a>
-							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-							<div class="collapse navbar-collapse" id="navbarColor03">
-								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-									<li class="nav-item">
-										<a class="nav-link active" aria-current="page" href="#">Home</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Features</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">Pricing</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#">About</a>
-									</li>
-								</ul>
-								<form class="d-flex">
-									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn btn-outline-primary" type="submit">Search</button>
-								</form>
-							</div>
-						</div>
-					</nav>
-				</div>
-				<div class="lc-block mt-5 mb-4 border-top">
-					<div editable="rich">
-						<h2 class="fw-bolder display-5">Accordion</h2>
-					</div>
-				</div>
-				<div class="lc-block">
-					<div class="accordion" id="accordion-cwb">
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-cwb-1" aria-expanded="true" aria-controls="collapse-cwb-1">
-									Accordion Item #1
-								</button>
-							</h2>
-							<div id="collapse-cwb-1" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-cwb">
-								<div class="accordion-body lc-block">
-									<div editable="rich">
-										<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit amet quis enim. Aliquam erat volutpat. In pellentesque scelerisque auctor. Ut porta lacus eget nisi fermentum lobortis. Vestibulum facilisis tempor
-											ipsum, ut rhoncus magna ultricies laoreet. Proin vehicula erat eget libero accumsan iaculis.
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingTwo">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-cwb-2" aria-expanded="false" aria-controls="collapse-cwb-2">
-									Accordion Item #2
-								</button>
-							</h2>
-							<div id="collapse-cwb-2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion-cwb">
-								<div class="accordion-body lc-block">
-									<div editable="rich">
-										<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit amet quis enim. Aliquam erat volutpat. In pellentesque scelerisque auctor. Ut porta lacus eget nisi fermentum lobortis. Vestibulum facilisis tempor
-											ipsum, ut rhoncus magna ultricies laoreet. Proin vehicula erat eget libero accumsan iaculis.
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingThree">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-cwb-3" aria-expanded="false" aria-controls="collapse-cwb-3">
-									Accordion Item #3
-								</button>
-							</h2>
-							<div id="collapse-cwb-3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordion-cwb">
-								<div class="accordion-body lc-block">
-									<div editable="rich">
-										<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit amet quis enim. Aliquam erat volutpat. In pellentesque scelerisque auctor. Ut porta lacus eget nisi fermentum lobortis. Vestibulum facilisis tempor
-											ipsum, ut rhoncus magna ultricies laoreet. Proin vehicula erat eget libero accumsan iaculis.
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-				</div>
-			</div>
-			<div class="col-xl-6">
-				<div class="lc-block mt-5 mb-4 border-top">
-					<div editable="rich">
-						<h2 class="fw-bolder display-5">Carousel</h2>
-					</div>
-				</div>
-				<div class="lc-block mb-4">
-					<div id="carousel-uwy" class="carousel slide" data-bs-ride="carousel">
-						<div class="carousel-indicators">
-							<button type="button" data-bs-target="#carousel-uwy" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-							<button type="button" data-bs-target="#carousel-uwy" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-							<button type="button" data-bs-target="#carousel-uwy" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-						</div>
-						<div class="carousel-inner">
-							<div class="carousel-item">
-								<img loading="lazy" class="d-block w-100" src="https://images.unsplash.com/photo-1488330890490-c291ecf62571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTR8fGZvcmVzdHxlbnwwfDB8fHwxNjQ0MDAwMTUw&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768" alt="Photo by Andrew Coelho" srcset="https://images.unsplash.com/photo-1488330890490-c291ecf62571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTR8fGZvcmVzdHxlbnwwfDB8fHwxNjQ0MDAwMTUw&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768 1080w, https://images.unsplash.com/photo-1488330890490-c291ecf62571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTR8fGZvcmVzdHxlbnwwfDB8fHwxNjQ0MDAwMTUw&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1488330890490-c291ecf62571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTR8fGZvcmVzdHxlbnwwfDB8fHwxNjQ0MDAwMTUw&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1488330890490-c291ecf62571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTR8fGZvcmVzdHxlbnwwfDB8fHwxNjQ0MDAwMTUw&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1488330890490-c291ecf62571?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MTR8fGZvcmVzdHxlbnwwfDB8fHwxNjQ0MDAwMTUw&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="768">
-								<div class="carousel-caption d-none d-md-block">
-									<h5 editable="inline">First slide label</h5>
-									<p editable="inline">Some representative placeholder content for the first slide.</p>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<img loading="lazy" class="d-block w-100" src="https://images.unsplash.com/photo-1516214104703-d870798883c5?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8OHx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768" alt="Photo by Imat Bagja Gumilar" srcset="https://images.unsplash.com/photo-1516214104703-d870798883c5?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8OHx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768 1080w, https://images.unsplash.com/photo-1516214104703-d870798883c5?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8OHx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1516214104703-d870798883c5?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8OHx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1516214104703-d870798883c5?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8OHx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1516214104703-d870798883c5?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8OHx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="768">
-								<div class="carousel-caption d-none d-md-block">
-									<h5 editable="inline">Second slide label</h5>
-									<p editable="inline">Some representative placeholder content for the second slide.</p>
-								</div>
-							</div>
-							<div class="carousel-item active">
-								<img loading="lazy" class="d-block w-100" src="https://images.unsplash.com/photo-1448375240586-882707db888b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768" alt="Photo by Sebastian Unrau" srcset="https://images.unsplash.com/photo-1448375240586-882707db888b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768 1080w, https://images.unsplash.com/photo-1448375240586-882707db888b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1448375240586-882707db888b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1448375240586-882707db888b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1448375240586-882707db888b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8MHx8fDE2NDM5OTc1MjU&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="768">
-								<div class="carousel-caption d-none d-md-block">
-									<h5 editable="inline">Third slide label</h5>
-									<p editable="inline">Some representative placeholder content for the third slide.</p>
-								</div>
-							</div>
-						</div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carousel-uwy" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carousel-uwy" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<!-- Bootstrap 5.3 component playground. Insert inside <body>.
+Requires your Bootstrap CSS and bootstrap.bundle JS. No custom CSS required.
+If index.html already has <main>, insert the contents of this <main> instead.
+Load demo-init.js AFTER bootstrap.bundle.min.js (or copy it to your main.js). -->
+<main id="bw-demo" class="container py-5">
+  <header class="mb-5">
+    <p class="text-body-secondary text-uppercase small fw-semibold">Bootstrap workbench · 5.3</p>
+    <h1 class="display-4 fw-bold">Component playground</h1>
+    <p class="lead">Standard Bootstrap components and utilities, rendered with your site's styles.</p>
+    <nav aria-label="Demo sections" class="d-flex flex-wrap gap-2">
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-typography">Typography</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-colors">Colors &amp; themes</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-buttons">Buttons</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-forms">Forms</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-navigation">Navigation</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-cards">Cards &amp; lists</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-feedback">Feedback</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-interactive">Interactive components</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-images">Images &amp; carousel</a>
+      <a class="btn btn-outline-secondary btn-sm" href="#bw-utilities">Grid &amp; utilities</a>
+    </nav>
+  </header>
+  <section id="bw-typography" class="border-top pt-4 mb-5" aria-labelledby="bw-typography-title">
+    <h2 id="bw-typography-title" class="mb-4">Typography</h2>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h3 class="h5 text-body-secondary">Headings and display sizes</h3>
+        <p class="h1">h1. Bootstrap heading</p>
+        <p class="h2">h2. Bootstrap heading</p>
+        <p class="h3">h3. Bootstrap heading</p>
+        <p class="h4">h4. Bootstrap heading</p>
+        <p class="h5">h5. Bootstrap heading</p>
+        <p class="h6">h6. Bootstrap heading</p>
+        <p class="display-1">Display 1</p>
+        <p class="display-2">Display 2</p>
+        <p class="display-3">Display 3</p>
+        <p class="display-4">Display 4</p>
+        <p class="display-5">Display 5</p>
+        <p class="display-6">Display 6</p>
+      </div>
+      <div class="col-lg-6">
+        <p class="lead">A lead paragraph stands out from regular body text.</p>
+        <p>Regular text with <a href="#bw-buttons">a link</a>, <strong>bold emphasis</strong>, <em>italics</em>, <mark>highlighting</mark>, <del>deleted text</del>, and <small>fine print</small>.</p>
+        <p class="text-body-secondary">Secondary text · <span class="text-body-tertiary">Tertiary text</span></p>
+        <p class="fw-semibold">fw-semibold</p><p class="font-monospace">font-monospace · <code>.container</code></p>
+        <p>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.</p>
+        <figure class="mt-4"><blockquote class="blockquote"><p>Good defaults make custom styles easier to evaluate.</p></blockquote><figcaption class="blockquote-footer">Workbench demo</figcaption></figure>
+        <ul><li>Unordered list</li><li>Second item<ul><li>Nested item</li></ul></li></ul>
+        <ol><li>First step</li><li>Second step</li></ol>
+        <ul class="list-inline"><li class="list-inline-item">Inline</li><li class="list-inline-item">list</li></ul>
+        <dl class="row"><dt class="col-sm-4">Definition</dt><dd class="col-sm-8">A description in a responsive row.</dd></dl>
+      </div>
+    </div>
+  </section>
+  <section id="bw-colors" class="border-top pt-4 mb-5" aria-labelledby="bw-colors-title">
+    <h2 id="bw-colors-title" class="mb-4">Colors &amp; themes</h2>
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-primary">text-bg-primary</div><div class="p-3 mt-2 rounded bg-primary-subtle text-primary-emphasis border border-primary-subtle">primary-subtle</div></div>
+      <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-secondary">text-bg-secondary</div><div class="p-3 mt-2 rounded bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle">secondary-subtle</div></div>
+      <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-success">text-bg-success</div><div class="p-3 mt-2 rounded bg-success-subtle text-success-emphasis border border-success-subtle">success-subtle</div></div>
+      <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-danger">text-bg-danger</div><div class="p-3 mt-2 rounded bg-danger-subtle text-danger-emphasis border border-danger-subtle">danger-subtle</div></div>
+      <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-warning">text-bg-warning</div><div class="p-3 mt-2 rounded bg-warning-subtle text-warning-emphasis border border-warning-subtle">warning-subtle</div></div>
+      <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-info">text-bg-info</div><div class="p-3 mt-2 rounded bg-info-subtle text-info-emphasis border border-info-subtle">info-subtle</div></div>
+      <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-light">text-bg-light</div><div class="p-3 mt-2 rounded bg-light-subtle text-light-emphasis border border-light-subtle">light-subtle</div></div>
+      <div class="col-6 col-md-3"><div class="p-3 rounded text-bg-dark">text-bg-dark</div><div class="p-3 mt-2 rounded bg-dark-subtle text-dark-emphasis border border-dark-subtle">dark-subtle</div></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6"><div data-bs-theme="light" class="p-4 border rounded bg-body text-body">
+        <h3 class="h5">data-bs-theme="light"</h3><p class="text-body-secondary">Local color mode preview.</p>
+        <div class="card"><div class="card-body">Card in light mode</div></div>
+        <label for="bw-theme-light" class="form-label mt-3">Form control</label><input id="bw-theme-light" class="form-control" placeholder="Theme-aware input">
+      </div></div>
+      <div class="col-md-6"><div data-bs-theme="dark" class="p-4 border rounded bg-body text-body">
+        <h3 class="h5">data-bs-theme="dark"</h3><p class="text-body-secondary">Local color mode preview.</p>
+        <div class="card"><div class="card-body">Card in dark mode</div></div>
+        <label for="bw-theme-dark" class="form-label mt-3">Form control</label><input id="bw-theme-dark" class="form-control" placeholder="Theme-aware input">
+      </div></div>
+    </div>
+  </section>
+  <section id="bw-buttons" class="border-top pt-4 mb-5" aria-labelledby="bw-buttons-title">
+    <h2 id="bw-buttons-title" class="mb-4">Buttons</h2>
+    <h3 class="h5">Solid buttons</h3>
+    <div class="d-flex flex-wrap gap-2 mb-4">
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+      <button type="button" class="btn btn-link">Link</button>
+    </div>
+    <h3 class="h5">Outline buttons</h3>
+    <div class="d-flex flex-wrap gap-2 mb-4">
+      <button type="button" class="btn btn-outline-primary">Primary</button>
+      <button type="button" class="btn btn-outline-secondary">Secondary</button>
+      <button type="button" class="btn btn-outline-success">Success</button>
+      <button type="button" class="btn btn-outline-danger">Danger</button>
+      <button type="button" class="btn btn-outline-warning">Warning</button>
+      <button type="button" class="btn btn-outline-info">Info</button>
+      <button type="button" class="btn btn-outline-light">Light</button>
+      <button type="button" class="btn btn-outline-dark">Dark</button>
+      <button type="button" class="btn btn-link">Link</button>
+    </div>
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-4">
+      <button type="button" class="btn btn-primary btn-sm">Small</button><button type="button" class="btn btn-primary">Default</button><button type="button" class="btn btn-primary btn-lg">Large</button>
+      <button type="button" class="btn btn-primary active" aria-pressed="true">Active</button><button type="button" class="btn btn-primary" disabled>Disabled</button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" aria-pressed="false">Toggle</button>
+    </div>
+    <div class="btn-group mb-3" role="group" aria-label="Alignment example"><button type="button" class="btn btn-outline-secondary">Left</button><button type="button" class="btn btn-outline-secondary">Center</button><button type="button" class="btn btn-outline-secondary">Right</button></div>
+    <div class="dropdown mb-4"><button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button><ul class="dropdown-menu"><li><button type="button" class="dropdown-item">Action</button></li><li><button type="button" class="dropdown-item">Another action</button></li><li><hr class="dropdown-divider"></li><li><button type="button" class="dropdown-item" disabled>Disabled</button></li></ul></div>
+    <div class="d-grid gap-2"><button type="button" class="btn btn-primary">Full-width button · d-grid</button></div>
+  </section>
+  <section id="bw-forms" class="border-top pt-4 mb-5" aria-labelledby="bw-forms-title">
+    <h2 id="bw-forms-title" class="mb-4">Forms</h2>
+    <form data-bw-demo-form class="row g-4">
+      <div class="col-lg-6">
+        <div class="mb-3"><label for="bw-email" class="form-label">Email</label><input type="email" id="bw-email" class="form-control" placeholder="name@example.com" aria-describedby="bw-email-help"><div id="bw-email-help" class="form-text">Demo only. No data is sent.</div></div>
+        <div class="row g-3 mb-3"><div class="col-sm-6"><label for="bw-small" class="form-label">Small</label><input id="bw-small" class="form-control form-control-sm" placeholder="form-control-sm"></div><div class="col-sm-6"><label for="bw-large" class="form-label">Large</label><input id="bw-large" class="form-control form-control-lg" placeholder="form-control-lg"></div></div>
+        <div class="form-floating mb-3"><input type="text" class="form-control" id="bw-floating" placeholder="Your name"><label for="bw-floating">Floating label</label></div>
+        <label for="bw-select" class="form-label">Select</label><select id="bw-select" class="form-select mb-3"><option selected>Choose an option</option><option>One</option><option>Two</option></select>
+        <label for="bw-notes" class="form-label">Textarea</label><textarea id="bw-notes" class="form-control mb-3" rows="3"></textarea>
+        <label for="bw-file" class="form-label">File input</label><input type="file" id="bw-file" class="form-control">
+      </div>
+      <div class="col-lg-6">
+        <label for="bw-username" class="form-label">Input group</label><div class="input-group mb-3"><span id="bw-at" class="input-group-text">@</span><input id="bw-username" class="form-control" placeholder="Username" aria-describedby="bw-at"><button type="button" class="btn btn-outline-secondary">Check</button></div>
+        <div class="form-check"><input id="bw-check" class="form-check-input" type="checkbox" checked><label for="bw-check" class="form-check-label">Checked checkbox</label></div>
+        <div class="form-check mb-3"><input id="bw-check-disabled" class="form-check-input" type="checkbox" disabled><label for="bw-check-disabled" class="form-check-label">Disabled checkbox</label></div>
+        <div class="form-check"><input id="bw-radio-1" class="form-check-input" type="radio" name="bw-radio" checked><label for="bw-radio-1" class="form-check-label">First radio</label></div>
+        <div class="form-check mb-3"><input id="bw-radio-2" class="form-check-input" type="radio" name="bw-radio"><label for="bw-radio-2" class="form-check-label">Second radio</label></div>
+        <div class="form-check form-switch mb-3"><input id="bw-switch" class="form-check-input" type="checkbox" role="switch" checked><label for="bw-switch" class="form-check-label">Switch</label></div>
+        <label for="bw-range" class="form-label">Range</label><input id="bw-range" class="form-range" type="range" min="0" max="100" value="50">
+        <label for="bw-valid" class="form-label">Valid state</label><input id="bw-valid" class="form-control is-valid" value="Looks good" aria-describedby="bw-valid-feedback"><div id="bw-valid-feedback" class="valid-feedback">Looks good!</div>
+        <label for="bw-invalid" class="form-label mt-3">Invalid state</label><input id="bw-invalid" class="form-control is-invalid" value="Invalid example" aria-invalid="true" aria-describedby="bw-invalid-feedback"><div id="bw-invalid-feedback" class="invalid-feedback">Example validation message.</div>
+        <label for="bw-disabled" class="form-label mt-3">Disabled</label><input id="bw-disabled" class="form-control" value="Disabled control" disabled>
+        <label for="bw-readonly" class="form-label mt-3">Read only</label><input id="bw-readonly" class="form-control" value="Read-only control" readonly>
+      </div>
+    </form>
+  </section>
+  <section id="bw-navigation" class="border-top pt-4 mb-5" aria-labelledby="bw-navigation-title">
+    <h2 id="bw-navigation-title" class="mb-4">Navigation</h2>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded mb-4" aria-label="Demo navbar"><div class="container-fluid">
+      <a class="navbar-brand" href="#bw-demo">Workbench</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bw-navbar" aria-controls="bw-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div id="bw-navbar" class="collapse navbar-collapse"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link active" aria-current="page" href="#bw-demo">Home</a></li><li class="nav-item"><a class="nav-link" href="#bw-forms">Forms</a></li><li class="nav-item"><span class="nav-link disabled" aria-disabled="true">Disabled</span></li></ul><button type="button" class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#bw-offcanvas" aria-controls="bw-offcanvas">Open panel</button></div>
+    </div></nav>
+    <nav aria-label="Breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="#bw-demo">Home</a></li><li class="breadcrumb-item active" aria-current="page">Components</li></ol></nav>
+    <ul class="nav nav-tabs mb-3" role="tablist"><li class="nav-item" role="presentation"><button id="bw-tab-1" class="nav-link active" type="button" data-bs-toggle="tab" data-bs-target="#bw-pane-1" role="tab" aria-controls="bw-pane-1" aria-selected="true">Preview</button></li><li class="nav-item" role="presentation"><button id="bw-tab-2" class="nav-link" type="button" data-bs-toggle="tab" data-bs-target="#bw-pane-2" role="tab" aria-controls="bw-pane-2" aria-selected="false">Details</button></li></ul>
+    <div class="tab-content mb-4"><div id="bw-pane-1" class="tab-pane fade show active" role="tabpanel" aria-labelledby="bw-tab-1" tabindex="0">First tab content.</div><div id="bw-pane-2" class="tab-pane fade" role="tabpanel" aria-labelledby="bw-tab-2" tabindex="0">Second tab content.</div></div>
+    <nav aria-label="Pagination example"><ul class="pagination"><li class="page-item disabled"><span class="page-link">Previous</span></li><li class="page-item active" aria-current="page"><span class="page-link">1</span></li><li class="page-item"><a class="page-link" href="#bw-navigation">2</a></li><li class="page-item"><a class="page-link" href="#bw-navigation">Next</a></li></ul></nav>
+  </section>
+  <section id="bw-cards" class="border-top pt-4 mb-5" aria-labelledby="bw-cards-title">
+    <h2 id="bw-cards-title" class="mb-4">Cards &amp; lists</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-xl-4"><div class="card h-100"><img src="https://picsum.photos/id/116/600/400.webp" class="card-img-top img-fluid" width="600" height="400" loading="lazy" alt="Landscape sample from Picsum"><div class="card-body"><h3 class="card-title h5">Image card</h3><p class="card-text">Standard card, image, title, text and button.</p><a href="#bw-images" class="btn btn-primary">View images</a></div><div class="card-footer text-body-secondary">Card footer</div></div></div>
+      <div class="col-md-6 col-xl-4"><div class="card h-100"><div class="card-header">Featured</div><div class="card-body"><h3 class="card-title h5">Card with list group</h3><h4 class="card-subtitle h6 mb-3 text-body-secondary">Secondary subtitle</h4><p class="card-text">A body without an image.</p></div><ul class="list-group list-group-flush"><li class="list-group-item">First item</li><li class="list-group-item">Second item</li><li class="list-group-item">Third item</li></ul><div class="card-body"><a href="#bw-buttons" class="card-link">Card link</a></div></div></div>
+      <div class="col-xl-4"><div class="list-group"><a href="#bw-cards" class="list-group-item list-group-item-action active" aria-current="true">Active item</a><a href="#bw-cards" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Notifications<span class="badge text-bg-primary rounded-pill">14</span></a><a href="#bw-cards" class="list-group-item list-group-item-action">Normal item</a><span class="list-group-item disabled" aria-disabled="true">Disabled item</span></div><div class="card mt-4" aria-hidden="true"><div class="card-body"><p class="h5 placeholder-glow"><span class="placeholder col-7"></span></p><p class="placeholder-glow"><span class="placeholder col-12"></span><span class="placeholder col-8"></span></p></div></div></div>
+    </div>
+  </section>
+  <section id="bw-feedback" class="border-top pt-4 mb-5" aria-labelledby="bw-feedback-title">
+    <h2 id="bw-feedback-title" class="mb-4">Feedback</h2>
+    <div class="row g-4"><div class="col-lg-6">
+      <div class="alert alert-primary" role="alert">Primary alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-secondary" role="alert">Secondary alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-success" role="alert">Success alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-danger" role="alert">Danger alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-warning" role="alert">Warning alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-info" role="alert">Info alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-light" role="alert">Light alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-dark" role="alert">Dark alert with <a href="#bw-feedback" class="alert-link">an example link</a>.</div>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">Dismissible alert.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+    </div><div class="col-lg-6"><h3 class="h5">Badges</h3><div class="d-flex flex-wrap gap-2 mb-4"><span class="badge text-bg-primary">Primary</span><span class="badge text-bg-secondary">Secondary</span><span class="badge text-bg-success">Success</span><span class="badge text-bg-danger">Danger</span><span class="badge text-bg-warning">Warning</span><span class="badge text-bg-info">Info</span><span class="badge text-bg-light">Light</span><span class="badge text-bg-dark">Dark</span></div><div class="d-flex flex-wrap gap-2 mb-4"><span class="badge rounded-pill text-bg-primary">Primary</span><span class="badge rounded-pill text-bg-secondary">Secondary</span><span class="badge rounded-pill text-bg-success">Success</span><span class="badge rounded-pill text-bg-danger">Danger</span><span class="badge rounded-pill text-bg-warning">Warning</span><span class="badge rounded-pill text-bg-info">Info</span><span class="badge rounded-pill text-bg-light">Light</span><span class="badge rounded-pill text-bg-dark">Dark</span></div><h3 class="h5">Progress</h3><div class="progress mb-3" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-success w-25">25%</div></div>
+<div class="progress mb-3" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-info w-50">50%</div></div>
+<div class="progress mb-3" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-warning w-75">75%</div></div>
+<div class="progress mb-3" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar text-bg-danger w-100">100%</div></div>
+<div class="progress mb-4" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar progress-bar-striped progress-bar-animated w-75">75%</div></div>
+    <h3 class="h5">Spinners</h3><div class="d-flex gap-3 mb-3"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-success" role="status"><span class="visually-hidden">Loading...</span></div></div><button type="button" class="btn btn-primary" disabled><span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Loading...</button>
+    </div></div>
+  </section>
+  <section id="bw-interactive" class="border-top pt-4 mb-5" aria-labelledby="bw-interactive-title">
+    <h2 id="bw-interactive-title" class="mb-4">Interactive components</h2>
+    <div class="accordion mb-4" id="bw-accordion">
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-1" aria-expanded="true" aria-controls="bw-collapse-1">Accordion item 1</button></h3><div id="bw-collapse-1" class="accordion-collapse collapse show" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 1. Compare padding, borders and typography with your theme.</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-2" aria-expanded="false" aria-controls="bw-collapse-2">Accordion item 2</button></h3><div id="bw-collapse-2" class="accordion-collapse collapse" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 2. Compare padding, borders and typography with your theme.</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bw-collapse-3" aria-expanded="false" aria-controls="bw-collapse-3">Accordion item 3</button></h3><div id="bw-collapse-3" class="accordion-collapse collapse" data-bs-parent="#bw-accordion"><div class="accordion-body">Standard accordion content for item 3. Compare padding, borders and typography with your theme.</div></div></div>
+    </div>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bw-modal">Modal</button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#bw-offcanvas" aria-controls="bw-offcanvas">Offcanvas</button>
+      <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-title="Standard Bootstrap tooltip">Tooltip</button>
+      <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="Standard Bootstrap popover content." data-bs-trigger="focus">Popover</button>
+      <button type="button" class="btn btn-success" data-bw-toast>Show toast</button>
+    </div>
+    <div class="modal fade" id="bw-modal" tabindex="-1" aria-labelledby="bw-modal-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h3 class="modal-title fs-5" id="bw-modal-title">Demo modal</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p class="mb-0">Modal content rendered with your theme.</p></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button></div></div></div></div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="bw-offcanvas" aria-labelledby="bw-offcanvas-title"><div class="offcanvas-header"><h3 class="offcanvas-title h5" id="bw-offcanvas-title">Demo panel</h3><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body">Standard offcanvas content.</div></div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="bw-toast" class="toast" role="status" aria-live="polite" aria-atomic="true"><div class="toast-header"><strong class="me-auto">Workbench</strong><small>Just now</small><button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button></div><div class="toast-body">Bootstrap toast is working.</div></div></div>
+  </section>
+  <section id="bw-images" class="border-top pt-4 mb-5" aria-labelledby="bw-images-title">
+    <h2 id="bw-images-title" class="mb-4">Images &amp; carousel</h2>
+    <div class="row g-4 mb-4">
+      <div class="col-sm-4"><figure class="figure"><img src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-fluid rounded" width="400" height="400" loading="lazy" alt="Landscape image demonstrating rounded styling"><figcaption class="figure-caption">img-fluid rounded</figcaption></figure></div>
+      <div class="col-sm-4"><figure class="figure"><img src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-thumbnail" width="400" height="400" loading="lazy" alt="Landscape image demonstrating thumbnail styling"><figcaption class="figure-caption">img-thumbnail</figcaption></figure></div>
+      <div class="col-sm-4"><figure class="figure"><img src="https://picsum.photos/id/1015/400/400.webp" class="figure-img img-fluid rounded-circle" width="400" height="400" loading="lazy" alt="Landscape image demonstrating circle styling"><figcaption class="figure-caption">img-fluid rounded-circle</figcaption></figure></div>
+    </div>
+    <div id="bw-carousel" class="carousel slide" aria-label="Landscape carousel">
+      <div class="carousel-indicators"><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="1"  aria-label="Slide 2"></button><button type="button" data-bs-target="#bw-carousel" data-bs-slide-to="2"  aria-label="Slide 3"></button></div>
+      <div class="carousel-inner rounded">
+        <div class="carousel-item active"><img src="https://picsum.photos/id/116/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 1"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/id/1015/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 2"></div>
+        <div class="carousel-item"><img src="https://picsum.photos/id/1016/1200/400.webp" class="d-block w-100 img-fluid" width="1200" height="400" alt="Landscape slide 3"></div>
+      </div><button type="button" class="carousel-control-prev" data-bs-target="#bw-carousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button type="button" class="carousel-control-next" data-bs-target="#bw-carousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+    </div>
+  </section>
+  <section id="bw-utilities" class="border-top pt-4 mb-5" aria-labelledby="bw-utilities-title">
+    <h2 id="bw-utilities-title" class="mb-4">Grid, tables &amp; utilities</h2>
+    <h3 class="h5">Responsive grid · col-12 col-md-6 col-xl-4</h3>
+    <div class="row g-3 mb-4"><div class="col-12 col-md-6 col-xl-4"><div class="p-3 bg-body-tertiary border rounded">Column 1</div></div><div class="col-12 col-md-6 col-xl-4"><div class="p-3 bg-body-tertiary border rounded">Column 2</div></div><div class="col-12 col-md-6 col-xl-4"><div class="p-3 bg-body-tertiary border rounded">Column 3</div></div></div>
+    <h3 class="h5">Responsive table</h3>
+    <div class="table-responsive mb-4"><table class="table table-striped table-hover align-middle"><caption>Sample records — standard table states.</caption><thead><tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Status</th><th scope="col">Notes</th></tr></thead><tbody><tr><th scope="row">1</th><td>Alpha</td><td><span class="badge text-bg-success">Ready</span></td><td>Normal row</td></tr><tr class="table-warning"><th scope="row">2</th><td>Beta</td><td>Pending</td><td>table-warning</td></tr><tr class="table-danger"><th scope="row">3</th><td>Gamma</td><td>Needs review</td><td>table-danger</td></tr></tbody></table></div>
+    <div class="row g-4"><div class="col-md-6"><h3 class="h5">Flex & spacing</h3><div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 p-3 border rounded"><span>Responsive flex item</span><button type="button" class="btn btn-outline-primary">Action</button></div><div class="hstack gap-3 mt-3"><span>hstack</span><div class="vr"></div><span>gap-3</span></div><div class="p-3 mt-3 border rounded shadow-sm">shadow-sm · rounded · border · p-3</div></div><div class="col-md-6"><h3 class="h5">Ratio & object fit</h3><div class="ratio ratio-16x9"><img src="https://picsum.photos/id/1025/800/600.webp" class="object-fit-cover rounded" width="800" height="600" loading="lazy" alt="Picsum sample cropped to a 16:9 container"></div></div></div>
+  </section>
+  <footer class="border-top pt-4 text-body-secondary small">End of component playground. <a href="#bw-demo">Back to top</a></footer>
 </main>
+
 
 
 <footer class="bg-dark text-white-50 py-5">
   <div class="container">
     <div class="row gy-4">
       <div class="col-md-4">
-        <h5 class="text-white">Template</h5>
-        <p class="mb-0">© <span id="year"></span> Template. All rights reserved.</p>
+        <h5 class="text-white">Bootstrap-Workbench</h5>
+        <p class="mb-0">© <span id="year"></span> Bootstrap-Workbench. All rights reserved.</p>
       </div>
       <div class="col-md-4">
         <h6 class="text-white">Links</h6>
